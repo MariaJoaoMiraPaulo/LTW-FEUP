@@ -29,9 +29,9 @@ CREATE TABLE comments (
 );
 
 
-INSERT INTO restaurant VALUES (NULL, 'Gull', 'Rua Cais das Pedras,15 4050-46','Porto','http://www.gull.pt/',['Almoço','Jantar'],['Sushi'],' 12:30 to 18:00, 19:30 to 01:00','€70 for two people','4');
-INSERT INTO restaurant VALUES (NULL, 'Cafeína', 'Rua do Padrão, 100, Foz','Porto','http://www.cafeina.pt/',['Almoço','Jantar'],['Suhi','Mediterrânia'],' 12:30 to 18:00, 19:30 to 01:00','€70 for two people','4.5');
-INSERT INTO restaurant VALUES (NULL, 'Portarossa', 'Rua de Corte Real, 289, Foz','Porto','http://www.cafeina.pt/pt/Portarossa',['Almoço','Jantar'],['Mediterrânia'],' 12:30 to 18:00, 19:30 to 01:00','€40 for two people','4');
+INSERT INTO restaurant VALUES (NULL, 'Gull', 'Rua Cais das Pedras,15 4050-46','Porto','http://www.gull.pt/',('Almoço','Jantar'),('Sushi'),' 12:30 to 18:00, 19:30 to 01:00','€70 for two people','4');
+INSERT INTO restaurant VALUES (NULL, 'Cafeína', 'Rua do Padrão, 100, Foz','Porto','http://www.cafeina.pt/',('Almoço','Jantar'),('Suhi','Mediterrânia'),' 12:30 to 18:00, 19:30 to 01:00','€70 for two people','4.5');
+INSERT INTO restaurant VALUES (NULL, 'Portarossa', 'Rua de Corte Real, 289, Foz','Porto','http://www.cafeina.pt/pt/Portarossa',('Almoço','Jantar'),('Mediterrânia'),' 12:30 to 18:00, 19:30 to 01:00','€40 for two people','4');
 
 
 INSERT INTO users VALUES ('admin',NULL,'Admin','owner','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'); -- Password is tested hashed with SHA 1
