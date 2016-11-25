@@ -1,0 +1,260 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #040404;
+  background-color: #ffffff;
+}
+
+a {
+  color: #2e416a;
+  text-decoration: none;
+}
+
+/* -------------------------------- 
+
+General Style
+
+-------------------------------- */
+.cd-intro {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  /* vertically align its content */
+  display: table;
+  background: #2e416a;
+  overflow: hidden;
+}
+
+.cd-intro-content {
+  /* vertically align inside its parent */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 5%;
+  background: #2e416a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro-content h1 {
+  font-size: 2.4rem;
+  color: #ffffff;
+}
+.cd-intro-content p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 1em 0;
+  color: #6d7a97;
+}
+.cd-intro-content .action-wrapper {
+  display: inline-block;
+}
+.cd-intro-content .action-wrapper::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-intro-content .action-wrapper > * {
+  float: left;
+}
+@media only screen and (min-width: 768px) {
+  .cd-intro-content h1 {
+    font-size: 5.2rem;
+    font-weight: 300;
+  }
+  .cd-intro-content p {
+    font-size: 1.6rem;
+    margin: 1.5em 0 1.9em;
+  }
+}
+
+.cd-btn {
+  display: inline-block;
+  padding: 1.2em 1.4em;
+  font-size: 1.3rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: #202e4a;
+  border-radius: .25em;
+  margin-right: 1.5em;
+}
+.cd-btn:nth-of-type(2) {
+  margin-right: 0;
+}
+.cd-btn.main-action {
+  background-color: #fb5e58;
+}
+@media only screen and (min-width: 480px) {
+  .cd-btn {
+    padding: 1.2em 1.6em;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .cd-btn {
+    padding: 1.4em 1.8em;
+  }
+}
+
+.cd-intro-content h1,
+.cd-intro-content h1 span,
+.cd-intro-content p,
+.cd-intro-content .cd-btn {
+  opacity: 0;
+  -webkit-animation-duration: 0.8s;
+  -moz-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.no-cssanimations .cd-intro-content h1, .no-cssanimations
+.cd-intro-content h1 span, .no-cssanimations
+.cd-intro-content p, .no-cssanimations
+.cd-intro-content .cd-btn {
+  opacity: 1;
+}
+
+
+/* -------------------------------- 
+
+Video 
+
+-------------------------------- */
+
+.cd-intro.video {
+  display: block;
+}
+
+.video.cd-intro-content {
+  display: block;
+  height: 100%;
+  position: relative;
+}
+.video.cd-intro-content * {
+  opacity: 1;
+}
+.video.cd-intro-content .svg-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.video.cd-intro-content svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0.8;
+}
+.video.cd-intro-content svg.svg-mask {
+  /* this is the svg mask used on desktop version */
+  display: none;
+}
+.video.cd-intro-content p, .video.cd-intro-content .action-wrapper {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.video.cd-intro-content p {
+  bottom: calc(50% + 80px);
+  margin: 0;
+  color: #040404;
+  min-width: 90%;
+}
+.video.cd-intro-content .action-wrapper {
+  top: calc(50% + 120px);
+  min-width: 295px;
+}
+.video.cd-intro-content .cd-btn {
+  background-color: rgba(4, 4, 4, 0.4);
+}
+.video.cd-intro-content .cd-btn.main-action {
+  background-color: #fb5e58;
+}
+@media only screen and (min-width: 768px) {
+  .video.cd-intro-content svg.svg-mask-mobile {
+    display: none;
+  }
+  .video.cd-intro-content svg.svg-mask {
+    display: block;
+  }
+  .video.cd-intro-content p {
+    bottom: calc(50% + 40px);
+  }
+  .video.cd-intro-content .action-wrapper {
+    top: calc(50% + 80px);
+  }
+}
+
+.cd-bg-video-wrapper {
+  /* background cover video */
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url(../assets/bg-img.jpg) no-repeat center center;
+  background-size: cover;
+}
+.cd-bg-video-wrapper video {
+  /* you won't see this element in the html, but it will be injected using js */
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-height: 100%;
+  min-width: 100%;
+  max-width: none;
+  height: auto;
+  width: auto;
+}
+.cd-bg-video-wrapper::after {
+  /* never visible - this is used in jQuery to check the current MQ */
+  display: none;
+  content: 'mobile';
+}
+@media only screen and (min-width: 768px) {
+  .cd-bg-video-wrapper::after {
+    content: 'desktop';
+  }
+}
