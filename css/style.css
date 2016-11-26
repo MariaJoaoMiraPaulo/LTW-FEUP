@@ -30,7 +30,7 @@ General Style
 -------------------------------- */
 .cd-intro {
   position: relative;
-  height: 100vh;
+  height: 70vh;
   width: 100%;
   /* vertically align its content */
   display: table;
@@ -257,4 +257,20 @@ Video
   .cd-bg-video-wrapper::after {
     content: 'desktop';
   }
+}
+
+
+/* --------------------------------
+
+Search Form
+
+-------------------------------- */
+
+.search-bar {
+  border: 2px solid white;
+  border-radius: 4px;
+  width: 400px;
+  height: 45px;
+  background: white url(../assets/searchicon.png) no-repeat 10px 10px;
+  padding-left: 40px;
 }
