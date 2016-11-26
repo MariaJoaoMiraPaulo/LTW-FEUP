@@ -15,7 +15,7 @@ body {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #040404;
-  background-color: #ffffff;
+  background-color: #F3F3F3;
 }
 
 a {
@@ -60,7 +60,7 @@ General Style
   color: #6d7a97;
 }
 .cd-intro-content .action-wrapper {
-  display: inline-block;
+    display: inline-block;
 }
 .cd-intro-content .action-wrapper::after {
   clear: both;
@@ -170,7 +170,7 @@ Video
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  opacity: 0.8;
+  opacity: 0.3;
 }
 .video.cd-intro-content svg.svg-mask {
   /* this is the svg mask used on desktop version */
@@ -194,6 +194,7 @@ Video
 }
 .video.cd-intro-content .action-wrapper {
   top: calc(50% + 120px);
+  width: 50vw;
   min-width: 295px;
 }
 .video.cd-intro-content .cd-btn {
@@ -214,6 +215,8 @@ Video
   }
   .video.cd-intro-content .action-wrapper {
     top: calc(50% + 80px);
+    display: -webkit-flex;
+    display: flex;
   }
 }
 
@@ -268,9 +271,59 @@ Search Form
 
 .search-bar {
   border: 2px solid white;
-  border-radius: 4px;
-  width: 400px;
+  border-radius: 0px;
+  width: 100%;
+  min-width: 250px;
   height: 45px;
   background: white url(../assets/searchicon.png) no-repeat 10px 10px;
   padding-left: 40px;
+}
+.button {
+    background-color: #c0392b;
+    border: none;
+    color: white;
+    padding: 0px 15px 0px 15px;
+    height: 45px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+.select-category{
+    background: white url(../assets/foodcategory.png) no-repeat 10px 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border: none;
+    color: #c0392b;
+    height: 45px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px
+}
+.select-location{
+    border: 2px solid white;
+    border-radius: 0px;
+    min-width: 100px;
+    height: 45px;
+    background: white url(../assets/locationsymbol.png) no-repeat 10px 10px;
+    padding-left: 40px;
+}
+
+
+/* --------------------------------
+
+Quick Services
+
+-------------------------------- */
+
+.quick-services{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 20px 50px 20px 50px;
+    text-align: center;
 }
