@@ -1,35 +1,45 @@
+$font-stack:    "Open Sans", sans-serif;
+$primary-color: #fb5e58;
+$background-color: #F3F3F3;
+
 /* --------------------------------
 
 Primary style
 
 -------------------------------- */
 *, *::after, *::before {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
   font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: $font-stack;
   color: #040404;
-  background-color: #F3F3F3; }
+  background-color: $background-color;
+}
 
 a {
   color: #2e416a;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
-.header {
-  background: #fb5e58;
-  height: 60px; }
-
-.header-logo {
+.header{
+  background: $primary-color;
+  height: 60px;
+}
+.header-logo{
   background: url(../assets/white-logo50.png) no-repeat 25px 55px;
-  padding: 50px 50px 50px 50px; }
+  padding: 50px 50px 50px 50px;
+}
 
-.footer {
-  background: #fb5e58;
-  height: 30px; }
+.footer{
+  background: $primary-color;
+  height: 30px;
+}
 
 /* --------------------------------
 
@@ -43,7 +53,8 @@ General Style
   /* vertically align its content */
   display: table;
   background: #2e416a;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .cd-intro-content {
   /* vertically align inside its parent */
@@ -53,40 +64,43 @@ General Style
   padding: 0 5%;
   background: #2e416a;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
+  -moz-osx-font-smoothing: grayscale;
+}
 .cd-intro-content h1 {
   font-size: 2.4rem;
-  color: #ffffff; }
-
+  color: #ffffff;
+}
 .cd-intro-content p {
   font-family: 'Satisfy', cursive;
   font-size: 10rem;
   font-weight: 700;
   line-height: 1.4;
   margin: 1em 0;
-  color: #6d7a97; }
-
+  color: #6d7a97;
+}
 .cd-intro-content .action-wrapper {
-  display: inline-block; }
-
+  display: inline-block;
+}
 .cd-intro-content .action-wrapper::after {
   clear: both;
   content: "";
-  display: table; }
-
+  display: table;
+}
 .cd-intro-content .action-wrapper > * {
-  float: left; }
-
+  float: left;
+}
 @media only screen and (min-width: 768px) {
   .cd-intro-content h1 {
     font-size: 5.2rem;
-    font-weight: 300; }
-
+    font-weight: 300;
+  }
   .cd-intro-content p {
     font-family: 'Satisfy', cursive;
     font-size: 10rem;
-    margin: 1.5em 0 1.9em; } }
+    margin: 1.5em 0 1.9em;
+  }
+}
+
 .cd-btn {
   display: inline-block;
   padding: 1.2em 1.4em;
@@ -97,20 +111,25 @@ General Style
   letter-spacing: 1px;
   background-color: #202e4a;
   border-radius: .25em;
-  margin-right: 1.5em; }
-
+  margin-right: 1.5em;
+}
 .cd-btn:nth-of-type(2) {
-  margin-right: 0; }
-
+  margin-right: 0;
+}
 .cd-btn.main-action {
-  background-color: #fb5e58; }
-
+  background-color: $primary-color;
+}
 @media only screen and (min-width: 480px) {
   .cd-btn {
-    padding: 1.2em 1.6em; } }
+    padding: 1.2em 1.6em;
+  }
+}
 @media only screen and (min-width: 768px) {
   .cd-btn {
-    padding: 1.4em 1.8em; } }
+    padding: 1.4em 1.8em;
+  }
+}
+
 .cd-intro-content h1,
 .cd-intro-content h1 span,
 .cd-intro-content p,
@@ -124,38 +143,43 @@ General Style
   animation-delay: 0.3s;
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards; }
-
+  animation-fill-mode: forwards;
+}
 .no-cssanimations .cd-intro-content h1, .no-cssanimations
 .cd-intro-content h1 span, .no-cssanimations
 .cd-intro-content p, .no-cssanimations
 .cd-intro-content .cd-btn {
-  opacity: 1; }
+  opacity: 1;
+}
+
+
 
 /* --------------------------------
 
 Video
 
 -------------------------------- */
+
 .cd-intro.video {
-  display: block; }
+  display: block;
+}
 
 .video.cd-intro-content {
   display: block;
   height: 100%;
-  position: relative; }
-
+  position: relative;
+}
 .video.cd-intro-content * {
-  opacity: 1; }
-
+  opacity: 1;
+}
 .video.cd-intro-content .svg-wrapper {
   position: absolute;
   z-index: 2;
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%; }
-
+  width: 100%;
+}
 .video.cd-intro-content svg {
   position: absolute;
   left: 50%;
@@ -167,12 +191,12 @@ Video
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  opacity: 0.3; }
-
+  opacity: 0.3;
+}
 .video.cd-intro-content svg.svg-mask {
   /* this is the svg mask used on desktop version */
-  display: none; }
-
+  display: none;
+}
 .video.cd-intro-content p, .video.cd-intro-content .action-wrapper {
   position: absolute;
   z-index: 3;
@@ -181,39 +205,42 @@ Video
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }
-
+  transform: translate(-50%, -50%);
+}
 .video.cd-intro-content p {
   bottom: calc(50% + 40px);
   margin: 0;
   color: #040404;
-  min-width: 90%; }
-
+  min-width: 90%;
+}
 .video.cd-intro-content .action-wrapper {
   top: calc(50% + 120px);
   width: 50vw;
-  min-width: 295px; }
-
+  min-width: 295px;
+}
 .video.cd-intro-content .cd-btn {
-  background-color: rgba(4, 4, 4, 0.4); }
-
+  background-color: rgba(4, 4, 4, 0.4);
+}
 .video.cd-intro-content .cd-btn.main-action {
-  background-color: #fb5e58; }
-
+  background-color: $primary-color;
+}
 @media only screen and (min-width: 768px) {
   .video.cd-intro-content svg.svg-mask-mobile {
-    display: none; }
-
+    display: none;
+  }
   .video.cd-intro-content svg.svg-mask {
-    display: block; }
-
+    display: block;
+  }
   .video.cd-intro-content p {
-    bottom: calc(40% + 40px); }
-
+    bottom: calc(40% + 40px);
+  }
   .video.cd-intro-content .action-wrapper {
     top: calc(50% + 80px);
     display: -webkit-flex;
-    display: flex; } }
+    display: flex;
+  }
+}
+
 .cd-bg-video-wrapper {
   /* background cover video */
   position: absolute;
@@ -224,8 +251,8 @@ Video
   height: 100%;
   overflow: hidden;
   background: url(../assets/bg-img.jpg) no-repeat center center;
-  background-size: cover; }
-
+  background-size: cover;
+}
 .cd-bg-video-wrapper video {
   /* you won't see this element in the html, but it will be injected using js */
   display: block;
@@ -243,21 +270,26 @@ Video
   min-width: 100%;
   max-width: none;
   height: auto;
-  width: auto; }
-
+  width: auto;
+}
 .cd-bg-video-wrapper::after {
   /* never visible - this is used in jQuery to check the current MQ */
   display: none;
-  content: 'mobile'; }
-
+  content: 'mobile';
+}
 @media only screen and (min-width: 768px) {
   .cd-bg-video-wrapper::after {
-    content: 'desktop'; } }
+    content: 'desktop';
+  }
+}
+
+
 /* --------------------------------
 
 Search Form
 
 -------------------------------- */
+
 .search-bar {
   border: 2px solid white;
   border-radius: 0px;
@@ -265,43 +297,46 @@ Search Form
   min-width: 250px;
   height: 45px;
   background: white url(../assets/searchicon.png) no-repeat 10px 10px;
-  padding-left: 40px; }
-
+  padding-left: 40px;
+}
 .button {
-  background-color: #fb5e58;
+  background-color: $primary-color;
   border: none;
   color: white;
   padding: 0px 15px 0px 15px;
   height: 45px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px; }
-
-.select-category {
+  font-size: 16px;
+}
+.select-category{
   background: white url(../assets/foodcategory.png) no-repeat 10px 10px;
   padding-left: 40px;
   padding-right: 40px;
   border: none;
-  color: #fb5e58;
+  color: $primary-color;
   height: 45px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px; }
-
-.select-location {
+  font-size: 16px
+}
+.select-location{
   border: 2px solid white;
   border-radius: 0px;
   min-width: 100px;
   height: 45px;
   background: white url(../assets/locationsymbol.png) no-repeat 10px 10px;
-  padding-left: 40px; }
+  padding-left: 40px;
+}
+
 
 /* --------------------------------
 
 Quick Services
 
 -------------------------------- */
-.quick-services {
+
+.quick-services{
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -311,6 +346,5 @@ Quick Services
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 20px 50px 20px 50px;
-  text-align: center; }
-
-/*# sourceMappingURL=style.css.map */
+  text-align: center;
+}
