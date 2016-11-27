@@ -19,13 +19,27 @@ a {
   color: #2e416a;
   text-decoration: none; }
 
+/* --------------------------------
+
+Header
+
+-------------------------------- */
 .header {
   background: #fb5e58;
-  height: 60px; }
+  height: 70px;
+}
 
 .header-logo {
-  background: url(../assets/white-logo50.png) no-repeat 25px 55px;
-  padding: 50px 50px 50px 50px; }
+  margin-left: 50px;
+  height: 2cm;
+  width: 2.5cm;
+}
+
+/* --------------------------------
+
+Footer
+
+-------------------------------- */
 
 .footer {
   background: #fb5e58;
@@ -87,6 +101,7 @@ General Style
     font-family: 'Satisfy', cursive;
     font-size: 10rem;
     margin: 1.5em 0 1.9em; } }
+
 .cd-btn {
   display: inline-block;
   padding: 1.2em 1.4em;

@@ -27,19 +27,36 @@ a {
   text-decoration: none;
 }
 
-.header{
-  background: $primary-color;
-  height: 60px;
-}
-.header-logo{
-  background: url(../assets/white-logo50.png) no-repeat 25px 55px;
-  padding: 50px 50px 50px 50px;
-}
+
+/*--------------------------------
+
+Footer
+
+ ---------------------------------*/
 
 .footer{
   background: $primary-color;
   height: 50px;
 }
+
+/*--------------------------------
+
+Header
+
+ ---------------------------------*/
+.header{
+  position: relative;
+  z-index: -1;
+  background: $primary-color;
+  height: 60px;
+}
+.header-logo{
+  position: absolute;
+  padding: 50px 50px 50px 50px;
+  height: 10cm;
+  width: 10cm;
+}
+
 
 /* --------------------------------
 
@@ -54,6 +71,7 @@ General Style
   display: table;
   background: #2e416a;
   overflow: hidden;
+  z-index: -1;
 }
 
 .cd-intro-content {
@@ -150,6 +168,15 @@ General Style
 .cd-intro-content p, .no-cssanimations
 .cd-intro-content .cd-btn {
   opacity: 1;
+}
+
+logo{
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 10%;
+  height: 10cm;
+  width: 15cm;
 }
 
 
@@ -336,7 +363,7 @@ Quick Services
 
 -------------------------------- */
 
-.quick-services{
+.quick-services {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -347,4 +374,6 @@ Quick Services
   justify-content: space-between;
   padding: 20px 50px 20px 50px;
   text-align: center;
+
 }
+
