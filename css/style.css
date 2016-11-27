@@ -24,17 +24,42 @@ a {
 Header
 
 -------------------------------- */
-.header {
-  background: #fb5e58;
-  height: 70px;
+
+.header{
+    background: #fb5e58;
+    height: 70px;
+}
+.header-left-icon {
+    float: left;
+    width: 125px;
+    text-align: right;
+    margin: 2px 10px;
+    display: inline;
 }
 
-.header-logo {
-  margin-left: 50px;
-  height: 2cm;
-  width: 2.5cm;
+.logo{
+    height: 1.5cm;
+    width: 1.5cm;
+}
+.header-right {
+    float: right;
+    text-align: left;
+    margin: 2px 10px;
+    display: inline
 }
 
+.header-login{
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px;
+}
+
+.header-login .link{
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #F3F3F3;
+}
 /* --------------------------------
 
 Footer
@@ -44,6 +69,15 @@ Footer
 .footer {
   background: #fb5e58;
   height: 50px; }
+
+.footer .workdoneby{
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #F3F3F3;
+    padding-top: 20px;
+    padding-left: 20px;
+
+}
 
 /* --------------------------------
 

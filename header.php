@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
     <div class="header">
-    <img src="assets/logo1.png" class="header-logo">
+            <div class="header-left-icon">
+                <img class="logo" src="assets/logo4.png">
+            </div>
+            <div class="header-right">
+                <div class="header-login">
+                    <a class="link">Iniciar Sessão</a>
+                </div>
+            </div>
     </div>
 </head>
+
+
+
+
+
+
+
