@@ -19,17 +19,80 @@ a {
   color: #2e416a;
   text-decoration: none; }
 
-.header {
-  background: #fb5e58;
-  height: 60px; }
+/* --------------------------------
 
-.header-logo {
-  background: url(../assets/white-logo50.png) no-repeat 25px 55px;
-  padding: 50px 50px 50px 50px; }
+Header
+
+-------------------------------- */
+
+.header{
+    background: #fb5e58;
+    height: 70px;
+}
+.header-left-icon {
+    float: left;
+    width: 125px;
+    text-align: right;
+    margin: 2px 10px;
+    display: inline;
+}
+
+.logo{
+    height: 1.5cm;
+    width: 1.5cm;
+}
+.header-right {
+    float: right;
+    text-align: left;
+    margin: 2px 10px;
+    display: inline
+}
+
+.header-login{
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px;
+}
+
+.header-login .link{
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #F3F3F3;
+}
+
+.login-button{
+  background-color: #fb5e58;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.login-button:hover{
+  font-size: 17px;
+}
+/* --------------------------------
+
+Footer
+
+-------------------------------- */
 
 .footer {
   background: #fb5e58;
   height: 50px; }
+
+.footer .workdoneby{
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #F3F3F3;
+    padding-top: 20px;
+    padding-left: 35%;
+    padding-right: 35%;
+
+}
 
 /* --------------------------------
 
@@ -87,6 +150,7 @@ General Style
     font-family: 'Satisfy', cursive;
     font-size: 10rem;
     margin: 1.5em 0 1.9em; } }
+
 .cd-btn {
   display: inline-block;
   padding: 1.2em 1.4em;
@@ -186,7 +250,7 @@ Video
 .video.cd-intro-content p {
   bottom: calc(50% + 40px);
   margin: 0;
-  color: #040404;
+  color: rgb(255, 255, 255);
   min-width: 90%; }
 
 .video.cd-intro-content .action-wrapper {

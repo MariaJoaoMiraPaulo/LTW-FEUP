@@ -50,7 +50,7 @@ include "header.php";
                 <option value="Mediterrânia">Mediterrânia</option>
             </select>
             <input class="search-bar" type="text" name="search" placeholder="Restaurante..">
-            <button class="button" type="button">Procurar</button>
+            <button class="button" type="button" onclick="location.href='searchRestaurants.php';">Procurar</button>
         </div>
 
         <div class="cd-bg-video-wrapper" data-video="assets/video">
@@ -58,6 +58,7 @@ include "header.php";
         </div>
     </div>
 </section>
+
 
 <section >
     <div class="quick-services">
