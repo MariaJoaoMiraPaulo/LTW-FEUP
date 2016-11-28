@@ -19,9 +19,14 @@
             </div>
         <form action="db/register.php" method="post">
             Username:<br>
-            <input type="text" name="username"><br>
+            <input type="email" name="username"><br>
             Password:<br>
-            <input type="password" name="password">
+            <input type="password" name="password"><br>
+            Fullname:<br>
+            <input type="text" name="fullname"><br>
+            Type:<br>
+            <input type="radio" name="type" value="Owner"> Owner
+            <input type="radio" name="type" value="Reviewer"> Reviewer
             <input type="submit" value="Submit">
         </form>
     </div>

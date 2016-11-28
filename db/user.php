@@ -10,11 +10,11 @@ function login($username, $password) {
     password_verify($password,$hashed_password);
 }
 
-function signUp($username, $password){
+function signUp($username,$fullname,$type, $password){
     global $db;
-    $statement = $db->prepare('INSERT INTO users (username,password) VALUES (?,?)');
+    $statement = $db->prepare('INSERT INTO users (username,fullname,type,password) VALUES (?,?,?,?)');
 
-    if($statement->execute([$username,$password]))
+    if($statement->execute([$username,$fullname,$type,md5($password)]))
         echo "User Registed";
     else echo "Impossible to regist user";
 }
