@@ -1,9 +1,10 @@
 <?php
 
 include_once 'config.php';
+include_once 'user.php';
 
-$username = $POST['username'];
-$password = $POST['password'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 if($username && $password)
     login($username,$password);

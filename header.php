@@ -29,6 +29,14 @@
             <input type="radio" name="type" value="Reviewer"> Reviewer
             <input type="submit" value="Submit">
         </form>
+
+        <form action="db/login.php" method="post">
+            Login:<br>
+            <input type="email" name="username"><br>
+            Password:<br>
+            <input type="password" name="password"><br>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 </head>
 
