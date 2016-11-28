@@ -60,6 +60,20 @@ Header
     font-family: "Open Sans", sans-serif;
     color: #F3F3F3;
 }
+
+.login-button{
+  background-color: #fb5e58;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.login-button:hover{
+  font-size: 17px;
+}
 /* --------------------------------
 
 Footer

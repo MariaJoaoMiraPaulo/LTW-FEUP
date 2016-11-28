@@ -13,7 +13,7 @@
             </div>
             <div class="header-right">
                 <div class="header-login">
-                    <a class="link">Iniciar Sessão</a>
+                    <button class="login-button" type="button">Iniciar Sessão!</button>
                 </div>
             </div>
     </div>
