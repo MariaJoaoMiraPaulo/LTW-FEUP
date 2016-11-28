@@ -81,10 +81,98 @@ Header
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px; }
+  font-size: 16px;
+  padding-right: 60px; }
 
-.login-button:hover {
-  font-size: 17px; }
+.createAccount-button {
+  background-color: #fb5e58;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding-right: 20px; }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */ }
+
+.modal-content {
+  font: 95% Arial, Helvetica, sans-serif;
+  max-width: 350px;
+  margin: 200px auto;
+  padding: 20px;
+  padding-top: 30px;
+  background: #F7F7F7;
+  border: 1px solid #888;
+  border-radius: 12px; }
+
+.modal-content h1 {
+  background: #fb5e58;
+  padding: 20px 0;
+  font-size: 140%;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  margin: -16px -16px 16px -16px;
+  border-radius: 12px; }
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content input[type="number"] {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 4%;
+  border: 1px solid #ccc;
+  padding: 3%;
+  color: #555;
+  font: 95% Arial, Helvetica, sans-serif; }
+
+.modal-content input[type="submit"],
+.modal-content input[type="button"] {
+  width: 100%;
+  padding: 3%;
+  background: #fb5e58;
+  color: #fff;
+  font: 95% Arial, Helvetica, sans-serif;
+  border-radius: 20px;
+  margin-top: 20px; }
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer; }
 
 /* --------------------------------
 
