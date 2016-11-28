@@ -13,7 +13,7 @@ CREATE TABLE restaurant (
 
 CREATE TABLE users (
 	id INTEGER,
-  login VARCHAR PRIMARY KEY,
+  username VARCHAR PRIMARY KEY,
 	fullName VARCHAR,
 	type VARCHAR,
   password VARCHAR
@@ -35,10 +35,6 @@ INSERT INTO restaurant VALUES (NULL, 'Portarossa', 'Rua de Corte Real, 289, Foz'
 
 
 INSERT INTO users VALUES (1,'admin','Admin','owner','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'); -- Password is tested hashed with SHA 1
-INSERT INTO users VALUES (2,'joana_pereira@gmail.com','Joana Pereira','reviewer','123456'); -- Password is tested hashed with SHA 1
-INSERT INTO users VALUES (3,'joao_fer20@gmail.com','Joao Fernando','reviewer','678901'); -- Password is tested hashed with SHA 1
-INSERT INTO users VALUES (4,'m','Maria','reviewer','12'); -- Password is tested hashed with SHA 1
-
 
 INSERT INTO comments VALUES (NULL, 1, 'Joana Ramos','Mediano',3,'O restaurante é bonito e o serviço irrepreensível. As tres estrelas são mesmo pela comida. O sushi não vale o preço, sem dúvida! E a massa com camarão trigre é um prato quase triste (pela conjugação do preço, qualidade e quantidade). Recomendaria apenas pela simpatia, pela sangria e pelo espaço.');
 INSERT INTO comments VALUES (NULL, 1, 'Jorge Amaral','Vista',5, 'Gostaria de realçar a vista privilegiada sobre o rio Douro que este restaurante nos possibilita. Relativamente à refeição em si, nada demais, sushi bom, vinho excelente e sobremesas incríveis. A repetir');
