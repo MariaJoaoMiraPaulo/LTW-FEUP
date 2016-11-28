@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <?php
+session_start();
 include_once "header.php";
 ?>
-
+<!DOCTYPE html>
 <body>
 <section class="cd-intro video">
     <div class="cd-intro-content video">
