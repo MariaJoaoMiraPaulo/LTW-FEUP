@@ -12,11 +12,13 @@
             <div class="header-left-icon">
                 <img class="logo" src="assets/logo4.png">
             </div>
-            <div class="header-right">
+
+        <div class="header-right">
                 <div class="header-login">
                     <button class="login-button" type="button">Iniciar Sessão!</button>
                 </div>
-            </div>
+        </div>
+
         <form action="db/register.php" method="post">
             Username:<br>
             <input type="email" name="username"><br>

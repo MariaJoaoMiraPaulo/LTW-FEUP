@@ -9,7 +9,7 @@ function login($username, $password) {
     $hashed_password = $statement->fetch()['password'];
 
     if(password_verify($password, $hashed_password))
-        echo "Login done";
+        header("location:../index.php");
     else echo "Impossivel Fazer login";
 }
 
@@ -18,6 +18,6 @@ function signUp($username,$fullname,$type, $password){
     $statement = $db->prepare('INSERT INTO users (username,fullname,type,password) VALUES (?,?,?,?)');
 
     if($statement->execute([$username,$fullname,$type,password_hash($password, PASSWORD_DEFAULT)]))
-        echo "User Registed";
+        header("location:../index.php");
     else echo "Impossible to regist user";
 }
