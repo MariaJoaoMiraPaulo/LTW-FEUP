@@ -17,12 +17,12 @@
                     <button class="login-button" type="button">Iniciar Sessão!</button>
                 </div>
             </div>
-        <form>
+        <form action="db/register.php" method="post">
             Username:<br>
-            <input id="usernameSelected" type="text" name="username"><br>
+            <input type="text" name="username"><br>
             Password:<br>
-            <input id="passwordSelected" type="password" name="password">
-            <input type="submit" value="Submit" onclick="submittedLogin()">
+            <input type="password" name="password">
+            <input type="submit" value="Submit">
         </form>
     </div>
 </head>
