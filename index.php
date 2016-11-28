@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-$title = "Welcome";      // Set the title
 include_once "header.php";
 ?>
 

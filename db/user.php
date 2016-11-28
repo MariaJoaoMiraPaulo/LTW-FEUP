@@ -1,6 +1,7 @@
 <?php
 
 include_once('config.php');
+session_start();
 
 function login($username, $password) {
     global $db;
@@ -18,9 +19,7 @@ function signUp($username,$fullname,$type, $password){
     $statement = $db->prepare('INSERT INTO users (username,fullname,type,password) VALUES (?,?,?,?)');
 
     if($statement->execute([$username,$fullname,$type,password_hash($password, PASSWORD_DEFAULT)])){
-       /* session_start();
         $_SESSION['login-user']=$username;
-        session_write_close();*/
         header("location:../index.php");
     }
     else echo "Impossible to regist user";
