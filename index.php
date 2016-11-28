@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $title = "Welcome";      // Set the title
-include "header.php";
+include_once "header.php";
 ?>
 
 <body>

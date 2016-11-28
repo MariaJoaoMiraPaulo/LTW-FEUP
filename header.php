@@ -1,5 +1,5 @@
 <html lang="en">
-<head >
+<head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
@@ -12,13 +12,18 @@
             <div class="header-left-icon">
                 <img class="logo" src="assets/logo4.png">
             </div>
-
         <div class="header-right">
-                <div class="header-login">
-                    <button class="login-button" type="button">Iniciar Sessão!</button>
-                </div>
+            <div class="header-login">
+        <?php
+        if(isset($_SESSION['login-user'])){
+            echo '<button class="login-button" type="button">Logado!</button>';
+        }
+        else{
+            echo '<button class="login-button" type="button">Iniciar Sessão!</button>';
+        }
+        ?>
+         </div>
         </div>
-
         <form action="db/register.php" method="post">
             Username:<br>
             <input type="email" name="username"><br>
