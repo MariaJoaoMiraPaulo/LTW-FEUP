@@ -40,7 +40,7 @@ include_once "header.php";
             </svg> <!-- .svg-mask-mobile -->
         </h1>
 
-        <p>Pomodoro</p>
+        <p id="pomodoro">Pomodoro</p>
 
         <div class="action-wrapper">
             <input class="select-location" type="text" name="search" placeholder="Local..">

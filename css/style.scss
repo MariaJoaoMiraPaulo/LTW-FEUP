@@ -1,5 +1,5 @@
 $font-stack:    "Open Sans", sans-serif;
-$primary-color: #fb5e58;
+$primary-color: #34495E;
 $background-color: #F3F3F3;
 
 /* --------------------------------
@@ -90,7 +90,7 @@ Header
 }
 
 .login-button{
-  background-color: #fb5e58;
+  background-color: $primary-color;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -101,7 +101,7 @@ Header
 }
 
 .createAccount-button{
-  background-color: #fb5e58;
+  background-color: $primary-color;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -313,8 +313,6 @@ logo{
   height: 10cm;
   width: 15cm;
 }
-
-
 
 /* --------------------------------
 

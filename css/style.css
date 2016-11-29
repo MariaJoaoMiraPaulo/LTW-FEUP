@@ -25,7 +25,7 @@ Footer
 
  ---------------------------------*/
 .footer {
-  background: #fb5e58;
+  background: #34495E;
   height: 50px; }
 
 .footer .workdoneby {
@@ -43,7 +43,7 @@ Header
 
  ---------------------------------*/
 .header {
-  background: #fb5e58;
+  background: #34495E;
   height: 70px; }
 
 .header-left-icon {
@@ -75,7 +75,7 @@ Header
   color: #F3F3F3; }
 
 .login-button {
-  background-color: #fb5e58;
+  background-color: #34495E;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -85,7 +85,7 @@ Header
   padding-right: 60px; }
 
 .createAccount-button {
-  background-color: #fb5e58;
+  background-color: #34495E;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -122,7 +122,7 @@ Header
   border-radius: 12px; }
 
 .modal-content h1 {
-  background: #fb5e58;
+  background: #34495E;
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
@@ -155,7 +155,7 @@ Header
 .modal-content input[type="button"] {
   width: 100%;
   padding: 3%;
-  background: #fb5e58;
+  background: #34495E;
   color: #fff;
   font: 95% Arial, Helvetica, sans-serif;
   border-radius: 20px;
@@ -247,7 +247,7 @@ General Style
   margin-right: 0; }
 
 .cd-btn.main-action {
-  background-color: #fb5e58; }
+  background-color: #34495E; }
 
 @media only screen and (min-width: 480px) {
   .cd-btn {
@@ -350,7 +350,7 @@ Video
   background-color: rgba(4, 4, 4, 0.4); }
 
 .video.cd-intro-content .cd-btn.main-action {
-  background-color: #fb5e58; }
+  background-color: #34495E; }
 
 @media only screen and (min-width: 768px) {
   .video.cd-intro-content svg.svg-mask-mobile {
@@ -420,7 +420,7 @@ Search Form
   padding-left: 40px; }
 
 .button {
-  background-color: #fb5e58;
+  background-color: #34495E;
   border: none;
   color: white;
   padding: 0px 15px 0px 15px;
@@ -434,7 +434,7 @@ Search Form
   padding-left: 40px;
   padding-right: 40px;
   border: none;
-  color: #fb5e58;
+  color: #34495E;
   height: 45px;
   text-align: center;
   text-decoration: none;
