@@ -208,8 +208,7 @@ General Style
   font-size: 10rem;
   font-weight: 700;
   line-height: 1.4;
-  margin: 1em 0;
-  color: #6d7a97; }
+  margin: 1em 0; }
 
 .cd-intro-content .action-wrapper {
   display: inline-block; }
@@ -338,8 +337,8 @@ Video
 .video.cd-intro-content p {
   bottom: calc(50% + 40px);
   margin: 0;
-  color: #040404;
-  min-width: 90%; }
+  min-width: 90%;
+  color: white; }
 
 .video.cd-intro-content .action-wrapper {
   top: calc(50% + 120px);
