@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "db/config.php";
 include_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -44,9 +45,17 @@ include_once "header.php";
 
         <div class="action-wrapper">
             <input class="select-location" type="text" name="search" placeholder="Local..">
+            <!-- SELECT DISTINCT category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5; -->
             <select class ="select-category">
-                <option value="Sushi">Sushi</option>
-                <option value="Mediterrânia">Mediterrânia</option>
+                <?php
+                echo '<option value="Category">Category</option> ';
+                $db = new PDO('sqlite:db/restaurant.db');
+                $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
+                $stmt->execute();
+                while ($row = $stmt->fetch()) {
+                    echo '<option value="'. $row['category'] .'">'. $row['category'] .'</option>';
+                }
+                ?>
             </select>
             <input class="search-bar" type="text" name="search" placeholder="Restaurante..">
             <button class="button" type="button" onclick="location.href='searchRestaurants.php';">Procurar</button>
