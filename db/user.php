@@ -6,15 +6,20 @@ include_once('config.php');
 
 function login($username, $password) {
     global $db;
-    $statement = $db->prepare('SELECT password FROM users WHERE username = ? ');
+    $statement = $db->prepare('SELECT password,type,fullName FROM users WHERE username = ? ');
     $statement->execute([$username]);
-    $hashed_password = $statement->fetch()['password'];
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $hashed_password = $result['password'];
+    $fullname = $result['fullName'];
+    $type = $result['type'];
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
+        $_SESSION['user-full-name']=$fullname;
+        $_SESSION['user-type']=$type;
         header("location:../index.php");
     }
-
     else echo "Impossivel Fazer login";
 }
 

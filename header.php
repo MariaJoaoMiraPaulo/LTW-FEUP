@@ -19,7 +19,7 @@
         <?php
              if(isset($_SESSION['login-user'])){
                  $username = $_SESSION['user-full-name'];
-                echo '<button class="login-button" type="button">"'.$username.'"</button>';
+                echo '<button class="login-button" onclick="location.href=\'profile.php\'" type="button">'.$username.'</button>';
                 echo '<a class="createAccount-button" href="db/logout.php">Logout</a>';
              }
              else{

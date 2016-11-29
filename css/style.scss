@@ -1,5 +1,5 @@
 $font-stack:    "Open Sans", sans-serif;
-$primary-color: #fb5e58;
+$primary-color: #34495E;
 $background-color: #F3F3F3;
 
 /* --------------------------------
@@ -90,7 +90,7 @@ Header
 }
 
 .login-button{
-  background-color: #fb5e58;
+  background-color: $primary-color;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -101,7 +101,7 @@ Header
 }
 
 .createAccount-button{
-  background-color: #fb5e58;
+  background-color: $primary-color;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -206,7 +206,7 @@ General Style
   display: table;
   background: #2e416a;
   overflow: hidden;
-
+  z-index: -1;
 }
 
 .cd-intro-content {
@@ -229,7 +229,6 @@ General Style
   font-weight: 700;
   line-height: 1.4;
   margin: 1em 0;
-  color: #6d7a97;
 }
 .cd-intro-content .action-wrapper {
   display: inline-block;
@@ -314,8 +313,6 @@ logo{
   width: 15cm;
 }
 
-
-
 /* --------------------------------
 
 Video
@@ -372,8 +369,8 @@ Video
 .video.cd-intro-content p {
   bottom: calc(50% + 40px);
   margin: 0;
-  color: #040404;
   min-width: 90%;
+  color: white;
 }
 .video.cd-intro-content .action-wrapper {
   top: calc(50% + 120px);
@@ -512,3 +509,19 @@ Quick Services
 
 }
 
+/*----------------------------------
+
+  Profile
+
+ -----------------------------------*/
+
+.img-circle {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 10%;
+}
+
+.center{
+  align-content: center;
+  width: 100%;
+}
