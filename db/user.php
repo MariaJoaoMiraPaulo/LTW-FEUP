@@ -12,6 +12,7 @@ function login($username, $password) {
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
+        $_SESSION['user-full-name']=$fullname;
         header("location:../index.php");
     }
 
