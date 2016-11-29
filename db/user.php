@@ -9,16 +9,15 @@ function login($username, $password) {
     $statement = $db->prepare('SELECT password,fullName FROM users WHERE username = ? ');
     $statement->execute([$username]);
 
-    $hashed_password = $statement->fetch()['password'];
-    $fullname = $statement->fetch()['fullName'];
-
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $hashed_password = $result['password'];
+    $fullname = $result['fullName'];
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
         $_SESSION['user-full-name']=$fullname;
         header("location:../index.php");
     }
-
     else echo "Impossivel Fazer login";
 }
 
