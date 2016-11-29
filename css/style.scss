@@ -515,13 +515,24 @@ Quick Services
 
  -----------------------------------*/
 
-.img-circle {
-  border-radius: 50%;
-  border: 2px solid black;
-  width: 10%;
+.profile-items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  width: 100%;
+
+  .img-item {
+    border-radius: 50%;
+    border: 2px solid $primary-color;
+    width: 10%;
+    align-self: flex-start;
+  }
+  .button-item{
+    align-self: flex-end;
+  }
+
 }
 
-.center{
-  align-content: center;
-  width: 100%;
-}
+
+

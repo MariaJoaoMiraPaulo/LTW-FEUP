@@ -2,9 +2,9 @@
 $title = "Welcome";      // Set the title
 include "header.php";
 ?>
-    <div class="center">
-        <img class="img-circle" src="assets/profile-icon.png">
-        <button type="button" onclick="location.href='index.php';">Exit</button>
+    <div class="profile-items">
+        <img class="img-item" src="assets/profile-icon.png">
+        <button class="button-item" type="button" onclick="location.href='index.php';">Exit</button>
     </div>
 
 
