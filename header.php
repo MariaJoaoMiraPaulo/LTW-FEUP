@@ -17,10 +17,15 @@
             <div class="header-login">
 
         <?php
-
-            echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
-            echo ' <button class="createAccount-button" id="btnCreateAccount" onclick="visibleCreateAcc()">Sign Up</button>';
-
+             if(isset($_SESSION['login-user'])){
+                 $username = $_SESSION['user-full-name'];
+                echo '<button class="login-button" type="button">"'.$username.'"</button>';
+                echo '<a class="createAccount-button" href="db/logout.php">Logout</a>';
+             }
+             else{
+                 echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
+                 echo ' <button class="createAccount-button" id="btnCreateAccount" onclick="visibleCreateAcc()">Sign Up</button>';
+             }
         ?>
 
             </div>

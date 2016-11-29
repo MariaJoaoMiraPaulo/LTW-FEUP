@@ -24,6 +24,7 @@ function signUp($username,$fullname,$type, $password){
 
     if($statement->execute([$username,$fullname,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
+        $_SESSION['user-full-name']=$fullname;
         header("location:../index.php");
     }
     else echo "Impossible to regist user";
