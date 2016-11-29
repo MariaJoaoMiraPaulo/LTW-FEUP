@@ -464,4 +464,18 @@ Quick Services
   padding: 20px 50px 20px 50px;
   text-align: center; }
 
+/*----------------------------------
+
+  Profile
+
+ -----------------------------------*/
+.img-circle {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 10%; }
+
+.center {
+  align-content: center;
+  width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
