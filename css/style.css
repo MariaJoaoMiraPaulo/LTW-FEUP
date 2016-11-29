@@ -186,8 +186,7 @@ General Style
   /* vertically align its content */
   display: table;
   background: #2e416a;
-  overflow: hidden;
-  z-index: -1; }
+  overflow: hidden; }
 
 .cd-intro-content {
   /* vertically align inside its parent */
