@@ -6,9 +6,12 @@ include_once('config.php');
 
 function login($username, $password) {
     global $db;
-    $statement = $db->prepare('SELECT password FROM users WHERE username = ? ');
+    $statement = $db->prepare('SELECT password,fullName FROM users WHERE username = ? ');
     $statement->execute([$username]);
+
     $hashed_password = $statement->fetch()['password'];
+    $fullname = $statement->fetch()['fullName'];
+
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
