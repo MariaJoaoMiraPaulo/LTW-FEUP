@@ -211,7 +211,8 @@ General Style
   margin: 1em 0; }
 
 .cd-intro-content .action-wrapper {
-  display: inline-block; }
+  display: inline-block;
+  z-index: 1; }
 
 .cd-intro-content .action-wrapper::after {
   clear: both;
@@ -318,7 +319,7 @@ Video
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  opacity: 0.3; }
+  opacity: 0.6; }
 
 .video.cd-intro-content svg.svg-mask {
   /* this is the svg mask used on desktop version */
