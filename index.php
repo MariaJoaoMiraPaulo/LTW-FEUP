@@ -61,7 +61,7 @@ include_once "header.php";
                  if(preg_match("^/[A-Za-z]+/", $_POST['restaurant'])){
                     $name=$_POST['restaurant'];
                     //connect to the database
-                     $db = new PDO('sqlite:db/restaurant.db');
+                     $db = new PDO('sqlite:restaurant.db');
                  }
              }
              else{
