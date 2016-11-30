@@ -115,7 +115,7 @@ Header
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 4; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -206,7 +206,6 @@ General Style
   display: table;
   background: #2e416a;
   overflow: hidden;
-  z-index: -1;
 }
 
 .cd-intro-content {
@@ -232,12 +231,13 @@ General Style
 }
 .cd-intro-content .action-wrapper {
   display: inline-block;
-  z-index: 1;
+  z-index: 3;
 }
 .cd-intro-content .action-wrapper::after {
   clear: both;
   content: "";
   display: table;
+  z-index: 3;
 }
 .cd-intro-content .action-wrapper > * {
   float: left;
@@ -377,6 +377,7 @@ Video
   top: calc(50% + 120px);
   width: 50vw;
   min-width: 295px;
+  z-index: 3;
 }
 .video.cd-intro-content .cd-btn {
   background-color: rgba(4, 4, 4, 0.4);
@@ -398,6 +399,7 @@ Video
     top: calc(50% + 80px);
     display: -webkit-flex;
     display: flex;
+    z-index: 3;
   }
 }
 
