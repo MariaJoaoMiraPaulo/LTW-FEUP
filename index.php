@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once "db/config.php";
 include_once "header.php";
 ?>
 <!DOCTYPE html>

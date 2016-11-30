@@ -1,4 +1,4 @@
 <?php
 
-$db = new PDO('sqlite:restaurant.db');
+$db = new PDO('sqlite:../restaurant.db');
 
