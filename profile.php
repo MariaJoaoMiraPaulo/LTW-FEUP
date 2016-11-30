@@ -11,12 +11,13 @@ include "db/user.php";
 
     $username = $_SESSION['login-user'];
     echo $username;
+
+    echo 'fullName';
+    echo getUserInfoByUserName($username,'fullName');
+
     $id=getIdByUserName($username);
     echo "id";
     echo $id;
-   // $fullName =getUserInfo($id,'fullName');
-    //id??
-    $fullName=$_SESSION['user-full-name'];
     ?>
 
     <body>

@@ -50,6 +50,15 @@ function getIdByUserName($userName){
     return $statement->fetch()['id'];
 }
 
+function getUserInfoByUserName($username,$info){
+    if($info == 'password')
+        return null;
+    global $db;
+    $statement = $db->prepare('SELECT * FROM users WHERE usename = ? ');
+    $statement->execute([$username]);
+    return $statement->fetch()[$info];
+}
+
 function updateUserProfile($id,$newUsername,$newFullName){
     if(isset($newUsername))
         $_SESSION['login-user']=$newUsername;
