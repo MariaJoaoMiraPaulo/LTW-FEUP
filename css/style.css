@@ -15,6 +15,14 @@ body {
   color: #040404;
   background-color: #F3F3F3; }
 
+body h1 {
+  font-size: 3.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #040404;
+  background-color: #F3F3F3;
+  text-align: center;
+  padding: 20px; }
+
 a {
   color: #2e416a;
   text-decoration: none; }
@@ -131,6 +139,7 @@ Header
   margin: -16px -16px 16px -16px;
   border-radius: 12px; }
 
+.modal-content input[type="date"],
 .modal-content input[type="text"],
 .modal-content input[type="email"],
 .modal-content input[type="password"],
@@ -466,21 +475,27 @@ Quick Services
 
 /*----------------------------------
 
-  Profile
+  Edit-Profile
 
  -----------------------------------*/
-.profile-items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  width: 100%; }
-  .profile-items .img-item {
-    border-radius: 50%;
-    border: 2px solid #34495E;
-    width: 10%;
-    align-self: flex-start; }
-  .profile-items .button-item {
-    align-self: flex-end; }
+.img-item {
+  border-radius: 50%;
+  border: 2px solid #34495E;
+  width: 50%; }
+
+.button-item {
+  align-self: flex-end; }
+
+#left {
+  width: 200px;
+  float: left;
+  padding-bottom: 50px; }
+
+#right {
+  margin-left: 30%;
+  /* Change this to whatever the width of your left column is*/ }
+
+.clear {
+  clear: both; }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="js/main.js"></script> <!-- Resource jQuery -->
-    <script src="js/user.js"></script>
     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
     <div class="header">
@@ -52,6 +51,7 @@
                     <input type="email" name="username" placeholder="UserName">
                     <input type="password" name="password" placeholder="Password">
                     <input type="text" name="fullname" placeholder="Full Name">
+                    <input type="date" name="birthDate">
                     <input type="radio" name="type" value="Owner"> Owner 
                     <input type="radio" name="type" value="Reviewer"> Reviewer 
                     <input type="submit" value="Sign Up">
@@ -59,8 +59,6 @@
                 <span class="close" onclick="exitCreateAcc()">x</span>
             </div>
         </div>
-
-
 
     </div>
 </head>
