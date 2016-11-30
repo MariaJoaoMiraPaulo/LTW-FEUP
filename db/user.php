@@ -47,15 +47,23 @@ function getIdByUserName($userName){
     global $db;
     $statement = $db->prepare('SELECT id FROM users WHERE username = ? ');
     $statement->execute([$userName]);
-    return $statement->fetch()['id'];
+    return $statement->fetch();
 }
 
 function getUserInfoByUserName($username,$info){
     if($info == 'password')
         return null;
+
+    echo "<br>";
+    echo "User" . " ";
+    echo $username. " ";
+    echo "<br>";
+    echo "info". " ";
+    echo $info. " ";
     global $db;
-    $statement = $db->prepare('SELECT * FROM users WHERE usename = ? ');
+    $statement = $db->prepare('SELECT * FROM users WHERE username = ? ');
     $statement->execute([$username]);
+
     return $statement->fetch()[$info];
 }
 
