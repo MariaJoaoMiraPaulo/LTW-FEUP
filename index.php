@@ -43,24 +43,32 @@ include_once "header.php";
 
         <p id="pomodoro">Pomodoro</p>
 
-        <div class="action-wrapper">
-            <input class="select-location" type="text" name="search" placeholder="Local..">
-            <!-- SELECT DISTINCT category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5; -->
-            <select class ="select-category">
-                <?php
-                echo '<option value="Category">Category</option> ';
-                $db = new PDO('sqlite:db/restaurant.db');
-                $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
-                $stmt->execute();
-                while ($row = $stmt->fetch()) {
-                    echo '<option value="'. $row['category'] .'">'. $row['category'] .'</option>';
-                }
-                ?>
-            </select>
-            <input class="search-bar" type="text" name="search" placeholder="Restaurante..">
-            <button class="button" type="button" onclick="location.href='searchRestaurants.php';">Procurar</button>
-        </div>
 
+            <form method="post" action="search.php?go" class="action-wrapper">
+                <input class="select-location" type="text" name="search" placeholder="Local..">
+                <!-- SELECT DISTINCT category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5; -->
+                <select class ="select-category">
+                    <?php
+                    include_once "searchBar.php";
+                    ?>
+                </select>
+                <input class="search-bar" type="text" name="restaurant" placeholder="Restaurante..">
+                <input class="button" type="button" name="submit" value="Search">
+            </form>
+        <?php
+         if(isset($_POST['submit'])){
+             if(isset($_GET['go'])){
+                 if(preg_match("^/[A-Za-z]+/", $_POST['restaurant'])){
+                    $name=$_POST['restaurant'];
+                    //connect to the database
+                     $db = new PDO('sqlite:db/restaurant.db');
+                 }
+             }
+             else{
+                 echo "<p>Please enter a search query</p>";
+             }
+         }
+        ?>
         <div class="cd-bg-video-wrapper" data-video="assets/video">
             <!-- video element will be loaded using jQuery -->
         </div>
