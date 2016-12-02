@@ -43,7 +43,7 @@ include_once "header.php";
         <p id="pomodoro">Pomodoro</p>
 
 
-            <form method="post" action="search.php?go" class="action-wrapper">
+            <form method="post" action="searchRestaurants.php?go" class="action-wrapper">
                 <input class="select-location" type="text" name="search" placeholder="Local..">
                 <!-- SELECT DISTINCT category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5; -->
                 <select class ="select-category">
@@ -52,22 +52,9 @@ include_once "header.php";
                     ?>
                 </select>
                 <input class="search-bar" type="text" name="restaurant" placeholder="Restaurante..">
-                <input class="button" type="button" name="submit" value="Search">
+                <input class="button" type="submit" name="submit" value="Search">
             </form>
-        <?php
-         if(isset($_POST['submit'])){
-             if(isset($_GET['go'])){
-                 if(preg_match("^/[A-Za-z]+/", $_POST['restaurant'])){
-                    $name=$_POST['restaurant'];
-                    //connect to the database
-                     $db = new PDO('sqlite:restaurant.db');
-                 }
-             }
-             else{
-                 echo "<p>Please enter a search query</p>";
-             }
-         }
-        ?>
+
         <div class="cd-bg-video-wrapper" data-video="assets/video">
             <!-- video element will be loaded using jQuery -->
         </div>

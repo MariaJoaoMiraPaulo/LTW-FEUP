@@ -13,8 +13,8 @@ include "db/user.php";
     echo $username;
 
     echo 'fullName';
-    echo getUserInfoByUserName($username,'fullName');
-
+    $fulln=getUserInfoByUserName($username,'fullName');
+    echo $fulln;
     $id=getIdByUserName($username);
     echo "id";
     echo $id;
