@@ -9,5 +9,6 @@ $date = $_POST['birthDate'];
 $type = $_POST['type'];
 
 
-if($username && $password)
+if($username && $password && !usernameAlreadyExists($username))
     signUp($username,$fullname,$date,$type,$password);
+

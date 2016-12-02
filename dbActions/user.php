@@ -17,24 +17,19 @@ function login($username, $password) {
         header("location:../pages/index.php");
         exit();
     }
-    else echo "Impossivel Fazer login";
+    else echo "Impossible to login user";
 }
 
 function signUp($username,$fullname,$date,$type,$password){
-    if(!usernameAlreadyExists($username)){
-        global $db;
-        $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,type,password) VALUES (?,?,?,?,?)');
+    global $db;
+    $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,type,password) VALUES (?,?,?,?,?)');
 
-        if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
-            $_SESSION['login-user']=$username;
-            header("location:../pages/index.php");
-            exit();
-        }
-        else echo "Impossible to regist user";
+    if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
+        $_SESSION['login-user']=$username;
+        header("location:../pages/index.php");
+        exit();
     }
-    else{
-        echo "already exists email";
-    }
+    else echo "Impossible to regist user";
 }
 
 function getUserInfo($idUser,$info){
