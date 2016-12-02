@@ -11,7 +11,6 @@ function login($username, $password) {
 
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     $hashed_password = $result['password'];
-    $fullname = $result['fullName'];
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
@@ -22,15 +21,20 @@ function login($username, $password) {
 }
 
 function signUp($username,$fullname,$date,$type,$password){
-    global $db;
-    $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,type,password) VALUES (?,?,?,?,?)');
+    if(!usernameAlreadyExists($username)){
+        global $db;
+        $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,type,password) VALUES (?,?,?,?,?)');
 
-    if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
-        $_SESSION['login-user']=$username;
-        header("location:../pages/index.php");
-        exit();
+        if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
+            $_SESSION['login-user']=$username;
+            header("location:../pages/index.php");
+            exit();
+        }
+        else echo "Impossible to regist user";
     }
-    else echo "Impossible to regist user";
+    else{
+        echo "already exists email";
+    }
 }
 
 function getUserInfo($idUser,$info){
@@ -62,15 +66,16 @@ function getUserInfoByUserName($username,$info){
 }
 
 function updateUserProfile($username,$newUsername,$newFullName){
-    if(isset($newUsername))
-        $_SESSION['login-user']=$newUsername;
 
     global $db;
-
     $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? WHERE username = ?');
     $statement->execute([$newUsername,$newFullName,$username]);
-
-    echo "sai";
-
     return $statement->errorCode();
+}
+
+function usernameAlreadyExists($username){
+    global $db;
+    $statement = $db->prepare('SELECT * FROM users WHERE username = ?');
+    $statement->execute([$username]);
+    return $statement->fetch();
 }

@@ -20,9 +20,9 @@ include_once "../dbActions/user.php";
         </div>
         <div id="right">
             <form action="../dbActions/editProfile.php" method="post">
-                First name:<br>
+                Full Name:<br>
                 <input type="text" name="fullName" placeholder="<?php echo $fullName?>"><br>
-                Last name:<br>
+                UserName:<br>
                 <input type="text" name="userName" placeholder="<?php echo $username?>"><br>
              <!--   Date:<br>
                 <input type="date" name="birtdDate" placeholder=""><br>-->
