@@ -17,7 +17,9 @@ function login($username, $password) {
         header("location:../pages/index.php");
         exit();
     }
-    else echo "Impossible to login user";
+    else {
+        echo "<script>alert('Wrong Password')</script>";
+    }
 }
 
 function signUp($username,$fullname,$date,$type,$password){

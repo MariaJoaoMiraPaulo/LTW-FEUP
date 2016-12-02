@@ -489,7 +489,8 @@ Quick Services
 #left {
   width: 200px;
   float: left;
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  padding-left: 60px; }
 
 #right {
   margin-left: 30%;

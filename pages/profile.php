@@ -16,7 +16,14 @@ include_once "../dbActions/user.php";
     <div id="container">
         <div id="left">
             <img class="img-item" src="../assets/profile-icon.png"><br>
-            <p>Upload a different photo...</p>
+
+            <form action="uploadUserPhoto.php" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:">
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+
+
         </div>
         <div id="right">
             <form action="../dbActions/editProfile.php" method="post">

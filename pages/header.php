@@ -41,6 +41,7 @@ include_once "../dbActions/user.php";
                     <input type="email" name="username" placeholder="UserName">
                     <input type="password" name="password" placeholder="Password">
                     <input type="submit" value="Login"> 
+                    <span class="errorMsg" id="validation"><?php echo $message;?></span>
                 </form>
                 <span class="close" onclick="exitLogin()">x</span>
             </div>

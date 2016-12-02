@@ -16,6 +16,7 @@ CREATE TABLE users (
   username VARCHAR,
 	fullName VARCHAR,
 	birthDate VARCHAR,
+	photoId VARCHAR,
 	type VARCHAR,
   password VARCHAR
 );
