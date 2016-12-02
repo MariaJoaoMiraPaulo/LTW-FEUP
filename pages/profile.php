@@ -1,8 +1,8 @@
 <?php
 session_start();
 $title = "Welcome";      // Set the title
-include "header.php";
-include "db/user.php";
+include_once "header.php";
+include_once "../dbActions/user.php";
 ?>
 
     <h1>Edit Profile</h1>
@@ -23,11 +23,11 @@ include "db/user.php";
     <body>
     <div id="container">
         <div id="left">
-            <img class="img-item" src="assets/profile-icon.png"><br>
+            <img class="img-item" src="../assets/profile-icon.png"><br>
             <p>Upload a different photo...</p>
         </div>
         <div id="right">
-            <form action="db/editProfile.php" method="post">
+            <form action="../database/editProfile.php" method="post">
                 First name:<br>
                 <input type="text" name="fullName" placeholder="<?php echo $fullName?>"><br>
                 Last name:<br>

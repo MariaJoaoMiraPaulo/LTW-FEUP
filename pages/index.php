@@ -7,7 +7,7 @@ include_once "header.php";
 <section class="cd-intro video">
     <div class="cd-intro-content video">
         <h1 class="svg-wrapper">
-            <svg class="svg-mask" x="0px" y="0px" width="4000px" height="3000px" viewBox="0 0 4000 3000">
+          <!--  <svg class="svg-mask" x="0px" y="0px" width="4000px" height="3000px" viewBox="0 0 4000 3000">
                 <title>El Capitáno Ristorante</title>
                 <path
                         d="M1836.9,1488h-2.9v24h2.1c3.5,0,6.1-1,7.7-3.1s2.5-5.2,2.5-9.4c0-3.9-0.8-6.8-2.3-8.7   C1842.5,1488.9,1840.1,1488,1836.9,1488z"
@@ -23,7 +23,7 @@ include_once "header.php";
                         fill="#FFFFFF" />
             </svg> <!-- .svg-mask -->
 
-            <svg class="svg-mask-mobile" x="0px" y="0px" width="2000px" height="3000px" viewBox="0 0 2000 3000">
+        <!--    <svg class="svg-mask-mobile" x="0px" y="0px" width="2000px" height="3000px" viewBox="0 0 2000 3000">
                 <title>El Capitáno Ristorante</title>
                 <path
                         fill="#FFFFFF"
@@ -48,7 +48,7 @@ include_once "header.php";
             <select class ="select-category">
                 <?php
                 echo '<option value="Category">Category</option> ';
-                $db = new PDO('sqlite:restaurant.db');
+                $db = new PDO('sqlite:../restaurant.db');
                 $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
                 $stmt->execute();
                 while ($row = $stmt->fetch()) {
@@ -60,14 +60,12 @@ include_once "header.php";
             <button class="button" type="button" onclick="location.href='searchRestaurants.php';">Procurar</button>
         </div>
 
-        <div class="cd-bg-video-wrapper" data-video="assets/video">
+        <div class="cd-bg-video-wrapper" data-video="../assets/video">
             <!-- video element will be loaded using jQuery -->
         </div>
     </div>
 </section>
-
-
-<section >
+<section class="quick-servicesItems">
     <div class="quick-services">
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp">
