@@ -1,3 +1,7 @@
+<?php
+include_once '../dbActions/user.php';
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +21,9 @@
 
         <?php
              if(isset($_SESSION['login-user'])){
-                 $username = $_SESSION['user-full-name'];
-                echo '<button class="login-button" onclick="location.href=\'profile.php\'" type="button">'.$username.'</button>';
-                echo '<a class="createAccount-button" href="../database/logout.php">Logout</a>';
+                 $fullname = getUserInfoByUserName($_SESSION['login-user'],'fullName');
+                echo '<button class="login-button" onclick="location.href=\'profile.php\'" type="button">'.$fullname.'</button>';
+                echo '<a class="createAccount-button" href="../dbActions/logout.php">Logout</a>';
              }
              else{
                  echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
@@ -34,7 +38,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <h1>Sign In</h1>
-                <form action="../database/login.php" method="post"> 
+                <form action="../dbActions/login.php" method="post"> 
                     <input type="email" name="username" placeholder="UserName">
                     <input type="password" name="password" placeholder="Password">
                     <input type="submit" value="Login"> 
@@ -47,7 +51,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <h1>Sign Up</h1>
-                <form action="../database/register.php" method="post"> 
+                <form action="../dbActions/register.php" method="post"> 
                     <input type="email" name="username" placeholder="UserName">
                     <input type="password" name="password" placeholder="Password">
                     <input type="text" name="fullname" placeholder="Full Name">

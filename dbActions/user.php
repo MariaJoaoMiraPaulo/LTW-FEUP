@@ -16,7 +16,7 @@ function login($username, $password) {
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
         $_SESSION['user-full-name']=$fullname;
-        header("location:../index.php");
+        header("location:../pages/index.php");
     }
     else echo "Impossivel Fazer login";
 }
@@ -28,7 +28,7 @@ function signUp($username,$fullname,$date,$type,$password){
     if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
         $_SESSION['user-full-name']=$fullname;
-        header("location:../index.php");
+        header("location:../pages/index.php");
     }
     else echo "Impossible to regist user";
 }
@@ -54,12 +54,6 @@ function getUserInfoByUserName($username,$info){
     if($info == 'password')
         return null;
 
-    echo "<br>";
-    echo "User" . " ";
-    echo $username. " ";
-    echo "<br>";
-    echo "info". " ";
-    echo $info. " ";
     global $db;
     $statement = $db->prepare('SELECT * FROM users WHERE username = ? ');
     $statement->execute([$username]);

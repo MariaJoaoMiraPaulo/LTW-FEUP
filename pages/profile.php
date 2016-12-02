@@ -10,14 +10,8 @@ include_once "../dbActions/user.php";
     <?php
 
     $username = $_SESSION['login-user'];
-    echo $username;
+    $fullName =  getUserInfoByUserName($username,'fullName');
 
-    echo 'fullName';
-    echo getUserInfoByUserName($username,'fullName');
-
-    $id=getIdByUserName($username);
-    echo "id";
-    echo $id;
     ?>
 
     <body>
