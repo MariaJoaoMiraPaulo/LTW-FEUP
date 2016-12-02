@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "../dbActions/user.php";
 include_once "header.php";
 ?>
 <!DOCTYPE html>

@@ -8,10 +8,8 @@ include_once "../dbActions/user.php";
     <h1>Edit Profile</h1>
 
     <?php
-
     $username = $_SESSION['login-user'];
     $fullName =  getUserInfoByUserName($username,'fullName');
-
     ?>
 
     <body>
@@ -21,7 +19,7 @@ include_once "../dbActions/user.php";
             <p>Upload a different photo...</p>
         </div>
         <div id="right">
-            <form action="../database/editProfile.php" method="post">
+            <form action="../dbActions/editProfile.php" method="post">
                 First name:<br>
                 <input type="text" name="fullName" placeholder="<?php echo $fullName?>"><br>
                 Last name:<br>

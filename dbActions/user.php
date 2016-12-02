@@ -15,8 +15,8 @@ function login($username, $password) {
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
-        $_SESSION['user-full-name']=$fullname;
         header("location:../pages/index.php");
+        exit();
     }
     else echo "Impossivel Fazer login";
 }
@@ -27,8 +27,8 @@ function signUp($username,$fullname,$date,$type,$password){
 
     if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
-        $_SESSION['user-full-name']=$fullname;
         header("location:../pages/index.php");
+        exit();
     }
     else echo "Impossible to regist user";
 }
@@ -61,17 +61,16 @@ function getUserInfoByUserName($username,$info){
     return $statement->fetch()[$info];
 }
 
-function updateUserProfile($id,$newUsername,$newFullName){
+function updateUserProfile($username,$newUsername,$newFullName){
     if(isset($newUsername))
         $_SESSION['login-user']=$newUsername;
 
-    if(isset($newFullName))
-        $_SESSION['user-full-name']=$newFullName;
-
     global $db;
 
-    $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? WHERE id = ?');
-    $statement->execute([$newUsername,$newFullName,$id]);
+    $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? WHERE username = ?');
+    $statement->execute([$newUsername,$newFullName,$username]);
+
+    echo "sai";
 
     return $statement->errorCode();
 }

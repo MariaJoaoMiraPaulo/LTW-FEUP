@@ -1,7 +1,6 @@
 <?php
-include_once '../dbActions/user.php';
+include_once "../dbActions/user.php";
 ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
