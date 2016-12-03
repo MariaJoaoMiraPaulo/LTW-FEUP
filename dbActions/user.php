@@ -65,6 +65,17 @@ function getUserInfoByUserName($username,$info){
 
 function updateUserProfile($username,$newUsername,$newFullName){
 
+    if(!trim($newFullName))
+        $newFullName = getUserInfoByUserName($username,'fullName');
+
+
+    if(trim($newUsername))
+        if(!usernameAlreadyExists($newUsername))
+            $_SESSION['login-user']=$newUsername;
+        else return false;
+
+    else $newUsername = $username;
+
     global $db;
     $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? WHERE username = ?');
     $statement->execute([$newUsername,$newFullName,$username]);

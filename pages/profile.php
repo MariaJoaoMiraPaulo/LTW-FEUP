@@ -5,7 +5,7 @@ include_once "header.php";
 include_once "../dbActions/user.php";
 ?>
 
-    <h1>Edit Profile</h1>
+    <h1 id="editProfile">Edit Profile</h1>
 
     <?php
     $username = $_SESSION['login-user'];
@@ -19,7 +19,7 @@ include_once "../dbActions/user.php";
         <div id="left">
             <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
 
-            <form action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
+            <form class="uploadPhoto" action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:">
                 <input type="submit" value="Upload Image" name="submit">
             </form>
@@ -37,7 +37,7 @@ include_once "../dbActions/user.php";
                     <li>
                         <label for="UserName">Username</label>
                         <input type="email" name="userName" maxlength="100" placeholder="<?php echo $username?>"><br>
-                        <span>Modify your username email address</span>
+                        <span>Modify your username here</span>
                     </li>
                     <li>
                         <label for="bio">About You</label>

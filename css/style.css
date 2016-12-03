@@ -601,4 +601,14 @@ Quick Services
   background: #6B9FFF;
   color: #F3F3F3; }
 
+.uploadPhoto {
+  padding: 15px;
+  align-items: center; }
+
+#editProfile {
+  border-bottom: 2px solid gainsboro;
+  text-align: left;
+  padding-left: 10%;
+  font-family: "Open Sans", sans-serif; }
+
 /*# sourceMappingURL=style.css.map */
