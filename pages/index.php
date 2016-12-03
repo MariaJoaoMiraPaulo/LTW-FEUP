@@ -62,27 +62,27 @@ include_once "header.php";
     <div class="quick-services">
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp">
-            <div>Pequeno Almoço</div>
+            <div>Breakfast</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_9.png?output-format=webp">
-            <div>Almoço</div>
+            <div>Lunch</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_10.png?output-format=webp">
-            <div>Jantar</div>
+            <div>Dinner</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_1.png?output-format=webp">
-            <div>Entrega ao domicilio</div>
+            <div>Home delivery</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_3.png?output-format=webp">
-            <div>Beber um copo</div>
+            <div>Have a drink</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_6.png?output-format=webp">
-            <div>Cafés e pastelarias</div>
+            <div>Coffees and Pastries</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_5.png?output-format=webp">
@@ -90,7 +90,7 @@ include_once "header.php";
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/special_23.png?output-format=webp">
-            <div>Refeições de luxo</div>
+            <div>Luxury Meals</div>
         </a>
     </div>
 </section>
