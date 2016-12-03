@@ -43,23 +43,17 @@ include_once "header.php";
 
         <p id="pomodoro">Pomodoro</p>
 
-        <div class="action-wrapper">
+        <form method="post" action="searchRestaurants.php?go" class="action-wrapper">
             <input class="select-location" type="text" name="search" placeholder="Local..">
             <!-- SELECT DISTINCT category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5; -->
             <select class ="select-category">
                 <?php
-                echo '<option value="Category">Category</option> ';
-                $db = new PDO('sqlite:../restaurant.db');
-                $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
-                $stmt->execute();
-                while ($row = $stmt->fetch()) {
-                    echo '<option value="'. $row['category'] .'">'. $row['category'] .'</option>';
-                }
+                include_once "searchBar.php";
                 ?>
             </select>
-            <input class="search-bar" type="text" name="search" placeholder="Restaurante..">
-            <button class="button" type="button" onclick="location.href='searchRestaurants.php';">Procurar</button>
-        </div>
+            <input class="search-bar" type="text" name="restaurant" placeholder="Restaurante..">
+            <input class="button" type="submit" name="submit" value="Search">
+        </form>
 
         <div class="cd-bg-video-wrapper" data-video="../assets/video">
             <!-- video element will be loaded using jQuery -->
