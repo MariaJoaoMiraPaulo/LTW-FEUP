@@ -1,8 +1,14 @@
 <?php
+include_once ('user.php');
+
+
+$id = getUserInfoByUserName($_SESSION['login-user'],'id');
+$photo_name = 'photo'.$id.'.png';
 $target_dir = "../assets/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -33,12 +39,17 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
+
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir.$photo_name)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+
+uploadUserPhoto($_SESSION['login-user']);
+echo("<script>location.href = '../pages/profile.php';</script>");
+
 ?>

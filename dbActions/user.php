@@ -24,9 +24,10 @@ function login($username, $password) {
 
 function signUp($username,$fullname,$date,$type,$password){
     global $db;
-    $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,type,password) VALUES (?,?,?,?,?)');
+    $photo = 'photo0.png';
+    $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,photoId,type,password) VALUES (?,?,?,?,?,?)');
 
-    if($statement->execute([$username,$fullname,$date,$type,password_hash($password, PASSWORD_DEFAULT)])){
+    if($statement->execute([$username,$fullname,$date,$photo,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
         header("location:../pages/index.php");
         exit();
@@ -75,4 +76,12 @@ function usernameAlreadyExists($username){
     $statement = $db->prepare('SELECT * FROM users WHERE username = ?');
     $statement->execute([$username]);
     return $statement->fetch();
+}
+
+function uploadUserPhoto($username){
+    global $db;
+    $idPhoto = 'photo'.getUserInfoByUserName($username,'id').'.png';
+    $statement = $db->prepare('UPDATE users SET photoId = ? WHERE username = ?');
+    $statement->execute([$idPhoto,$username]);
+    return $statement->errorCode();
 }

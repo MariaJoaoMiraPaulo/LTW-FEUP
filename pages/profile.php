@@ -10,14 +10,16 @@ include_once "../dbActions/user.php";
     <?php
     $username = $_SESSION['login-user'];
     $fullName =  getUserInfoByUserName($username,'fullName');
+    $photoUser = getUserInfoByUserName($username,'photoId');
+    $srcPhoto  = '../assets/'.$photoUser;
     ?>
 
     <body>
     <div id="container">
         <div id="left">
-            <img class="img-item" src="../assets/profile-icon.png"><br>
+            <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
 
-            <form action="uploadUserPhoto.php" method="post" enctype="multipart/form-data">
+            <form action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
 
                 <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:">
                 <input type="submit" value="Upload Image" name="submit">
