@@ -525,13 +525,16 @@ Quick Services
 
  -----------------------------------*/
 
-
-
-  .img-item {
+.img-item {
     border-radius: 50%;
     border: 2px solid $primary-color;
-    width: 50%;
-  }
+    width: 128px;
+    height: 128px;
+
+    img {
+      object-fit: cover;
+    }
+}
 
 .button-item{
     align-self: flex-end;
@@ -541,14 +544,129 @@ Quick Services
   width: 200px;
   float: left;
   padding-bottom: 50px;
-  padding-left: 60px;
+  padding-left: 200px;
 }
 #right {
-  margin-left: 30%;
+  margin-left: 10%;
   /* Change this to whatever the width of your left column is*/
 }
 .clear {
   clear: both;
+}
+
+.editProfileForm{
+  max-width:400px;
+  margin:50px auto;
+  background:$background-color;
+  border-radius:2px;
+  padding:20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.editProfileForm h1{
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+  color: #5C5C5C;
+  font-size:x-large;
+}
+.editProfileForm ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.editProfileForm li{
+  display: block;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 3px;
+}
+.editProfileForm li:last-child{
+  border:none;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.editProfileForm li > label{
+  display: block;
+  float: left;
+  margin-top: -19px;
+  background: $background-color;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.editProfileForm input[type="text"],
+.editProfileForm input[type="date"],
+.editProfileForm input[type="datetime"],
+.editProfileForm input[type="email"],
+.editProfileForm input[type="number"],
+.editProfileForm input[type="search"],
+.editProfileForm input[type="time"],
+.editProfileForm input[type="url"],
+.editProfileForm input[type="password"],
+.editProfileForm textarea,
+.editProfileForm select
+{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: $background-color;
+
+}
+.editProfileForm input[type="text"]:focus,
+.editProfileForm input[type="date"]:focus,
+.editProfileForm input[type="datetime"]:focus,
+.editProfileForm input[type="email"]:focus,
+.editProfileForm input[type="number"]:focus,
+.editProfileForm input[type="search"]:focus,
+.editProfileForm input[type="time"]:focus,
+.editProfileForm input[type="url"]:focus,
+.editProfileForm input[type="password"]:focus,
+.editProfileForm textarea:focus,
+.editProfileForm select:focus
+{
+}
+.editProfileForm li > span{
+  background: #b4b4b4;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: $background-color;
+  font-family: $font-stack;
+  font-size: 11px;
+}
+.editProfileForm textarea{
+  resize:none;
+}
+.editProfileForm button,
+.editProfileForm input[type="submit"],
+.editProfileForm input[type="button"]{
+  background:$primary-color;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: $background-color;
+}
+.editProfileForm button:hover,
+.editProfileForm input[type="submit"]:hover,
+.editProfileForm input[type="button"]:hover{
+  background: #6B9FFF;
+  color:$background-color;
 }
 
 

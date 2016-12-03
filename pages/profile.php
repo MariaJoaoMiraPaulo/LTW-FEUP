@@ -20,7 +20,6 @@ include_once "../dbActions/user.php";
             <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
 
             <form action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
-
                 <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:">
                 <input type="submit" value="Upload Image" name="submit">
             </form>
@@ -28,19 +27,36 @@ include_once "../dbActions/user.php";
 
         </div>
         <div id="right">
-            <form action="../dbActions/editProfile.php" method="post">
-                Full Name:<br>
-                <input type="text" name="fullName" placeholder="<?php echo $fullName?>"><br>
-                UserName:<br>
-                <input type="text" name="userName" placeholder="<?php echo $username?>"><br>
-             <!--   Date:<br>
-                <input type="date" name="birtdDate" placeholder=""><br>-->
-                <input type="submit" value="Save Changes">
+            <form class="editProfileForm" action="../dbActions/editProfile.php" method="post">
+                <ul>
+                    <li>
+                        <label for="Name">Name</label>
+                        <input type="text" name="name"  maxlength="100" placeholder="<?php echo $fullName?>"><br>
+                        <span>Modify your full name here</span>
+                    </li>
+                    <li>
+                        <label for="UserName">Username</label>
+                        <input type="email" name="userName" maxlength="100" placeholder="<?php echo $username?>"><br>
+                        <span>Modify your username email address</span>
+                    </li>
+                    <li>
+                        <label for="bio">About You</label>
+                        <textarea name="bio" onkeyup="adjust_textarea(this)"></textarea>
+                        <span>Say something about yourself</span>
+                    </li>
+                    <li>
+                        <input type="submit" value="Save Changes">
+                        <button class="button-item" type="button" onclick="location.href='index.php';">Cancel</button>
+                    </li>
+
+                </ul>
             </form>
-            <button class="button-item" type="button" onclick="location.href='index.php';">Exit</button>
+
         </div>
+
         <div class="clear"></div>
     </div>
+
     </body>
 
     <?php echo $id?>

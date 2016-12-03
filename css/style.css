@@ -481,7 +481,10 @@ Quick Services
 .img-item {
   border-radius: 50%;
   border: 2px solid #34495E;
-  width: 50%; }
+  width: 128px;
+  height: 128px; }
+  .img-item img {
+    object-fit: cover; }
 
 .button-item {
   align-self: flex-end; }
@@ -490,13 +493,112 @@ Quick Services
   width: 200px;
   float: left;
   padding-bottom: 50px;
-  padding-left: 60px; }
+  padding-left: 200px; }
 
 #right {
-  margin-left: 30%;
+  margin-left: 10%;
   /* Change this to whatever the width of your left column is*/ }
 
 .clear {
   clear: both; }
+
+.editProfileForm {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #F3F3F3;
+  border-radius: 2px;
+  padding: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.editProfileForm h1 {
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+  color: #5C5C5C;
+  font-size: x-large; }
+
+.editProfileForm ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.editProfileForm li {
+  display: block;
+  padding: 9px;
+  border: 1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 3px; }
+
+.editProfileForm li:last-child {
+  border: none;
+  margin-bottom: 0px;
+  text-align: center; }
+
+.editProfileForm li > label {
+  display: block;
+  float: left;
+  margin-top: -19px;
+  background: #F3F3F3;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif; }
+
+.editProfileForm input[type="text"],
+.editProfileForm input[type="date"],
+.editProfileForm input[type="datetime"],
+.editProfileForm input[type="email"],
+.editProfileForm input[type="number"],
+.editProfileForm input[type="search"],
+.editProfileForm input[type="time"],
+.editProfileForm input[type="url"],
+.editProfileForm input[type="password"],
+.editProfileForm textarea,
+.editProfileForm select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #F3F3F3; }
+
+.editProfileForm li > span {
+  background: #b4b4b4;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: #F3F3F3;
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px; }
+
+.editProfileForm textarea {
+  resize: none; }
+
+.editProfileForm button,
+.editProfileForm input[type="submit"],
+.editProfileForm input[type="button"] {
+  background: #34495E;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #F3F3F3; }
+
+.editProfileForm button:hover,
+.editProfileForm input[type="submit"]:hover,
+.editProfileForm input[type="button"]:hover {
+  background: #6B9FFF;
+  color: #F3F3F3; }
 
 /*# sourceMappingURL=style.css.map */
