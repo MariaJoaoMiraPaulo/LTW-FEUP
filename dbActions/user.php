@@ -67,7 +67,7 @@ function getUserInfoByUserName($username,$info){
     return $statement->fetch()[$info];
 }
 
-function updateUserProfile($username,$newUsername,$newFullName,$data){
+function updateUserProfile($username,$newUsername,$newFullName,$data,$gender){
 
     if(!trim($newFullName))
         $newFullName = getUserInfoByUserName($username,'fullName');
@@ -80,11 +80,21 @@ function updateUserProfile($username,$newUsername,$newFullName,$data){
     else $newUsername = $username;
 
     if(!trim($data))
-        $data = getUserInfoByUserName($data,'birthDate');
+        $data = getUserInfoByUserName($username,'birthDate');
+
+    if(!trim($gender)){
+        $gender = getUserInfoByUserName($username,'gender');
+        $photo = getUserInfoByUserName($username,'photoId');
+    }
+    else{
+        if(strtoupper($gender) == 'MALE')
+            $photo = 'photo0.jpg';
+        else $photo = 'photo0F.jpg';
+    }
 
     global $db;
-    $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? , birthDate= ? WHERE username = ?');
-    $statement->execute([$newUsername,$newFullName,$data, $username]);
+    $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? , birthDate= ?, gender= ?, photoId= ? WHERE username = ?');
+    $statement->execute([$newUsername,$newFullName,$data,$gender,$photo,$username]);
     return $statement->errorCode();
 }
 

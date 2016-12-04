@@ -625,6 +625,8 @@ Quick Services
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.editProfileForm genderProfile,
 .editProfileForm input[type="text"],
 .editProfileForm input[type="date"],
 .editProfileForm input[type="datetime"],
@@ -652,6 +654,8 @@ Quick Services
   background-color: $background-color;
 
 }
+
+.editProfileForm genderProfile:focus,
 .editProfileForm input[type="text"]:focus,
 .editProfileForm input[type="date"]:focus,
 .editProfileForm input[type="datetime"]:focus,

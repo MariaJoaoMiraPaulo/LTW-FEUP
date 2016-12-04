@@ -48,6 +48,25 @@ include_once "../dbActions/user.php";
                         <span>Modify your date of birth here</span>
                     </li>
                     <li>
+
+                        <label for="gender">Gender</label>
+                        <div class="genderProfile">
+                        <?php
+                        if(strtoupper($gender)=='MALE'){
+                            echo '  <input type="radio" name="gender" checked="checked" value="Male"> Male ';
+                            echo '<input type="radio" name="gender" value="Female"> Female ';
+                        }
+                        else{
+                            echo '  <input type="radio" name="gender" value="Male"> Male ';
+                            echo '<input type="radio" name="gender" checked="checked" value="Female"> Female ';
+                        }
+                        ?>
+                        <br>
+                        </div>
+                        <span>Modify your gender here</span>
+
+                    </li>
+                    <li>
                         <label for="bio">About You</label>
                         <textarea name="bio" onkeyup="adjust_textarea(this)"></textarea>
                         <span>Say something about yourself</span>

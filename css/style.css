@@ -568,6 +568,7 @@ Quick Services
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif; }
 
+.editProfileForm genderProfile,
 .editProfileForm input[type="text"],
 .editProfileForm input[type="date"],
 .editProfileForm input[type="datetime"],
