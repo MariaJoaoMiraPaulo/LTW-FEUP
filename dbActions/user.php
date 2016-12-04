@@ -18,7 +18,7 @@ function login($username, $password) {
         exit();
     }
     else {
-        echo "<script>alert('Wrong Password')</script>";
+
     }
 }
 
@@ -111,4 +111,11 @@ function uploadUserPhoto($username){
     $statement = $db->prepare('UPDATE users SET photoId = ? WHERE username = ?');
     $statement->execute([$idPhoto,$username]);
     return $statement->errorCode();
+}
+
+function validatePassword($password){
+    if(strlen($password) >= 6)
+        return true;
+
+    return false;
 }

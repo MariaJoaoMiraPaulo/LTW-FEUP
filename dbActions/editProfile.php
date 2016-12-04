@@ -12,4 +12,3 @@ updateUserProfile($userName,$newUsername,$newFullName,$data,$gender);
 
 header('Location: ../pages/profile.php');
 
-

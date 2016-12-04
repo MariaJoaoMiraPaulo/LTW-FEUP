@@ -1,5 +1,6 @@
 <?php
 
+include_once ('user.php');
 include_once ('config.php');
 
 function selectTopCategories(){
@@ -21,4 +22,28 @@ function getRestaurantIdFromName($name){
     $stmt->execute([$name]);
 
     return $stmt->fetchAll();
+}
+
+function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite){
+    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
+        $id = getUserInfoByUserName($username,'id');
+
+        global $db;
+
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website) VALUES (?,?,?,?,?)');
+
+        if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite])){
+            header("location:../pages/profile.php");
+            exit();
+        }
+        else echo "Impossible to add Restaurant";
+
+
+
+
+
+
+
+
+    }
 }

@@ -81,15 +81,16 @@ include_once "../dbActions/user.php";
         <div id = "right">
             <?php
             if(strtoupper($type) == 'OWNER'){
-                echo '<h1>My Restaurants</h1>';
                 echo '<div class="ownerColumn">';
                 echo 'Cannot find your Restaurant?'.'<br>'.'<br>';
-                echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'userRestaurants.php\';">Add a Restaurant </button>';
+                echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'addRestaurant.php\';">Add a Restaurant</button>';
+                echo '<br>'.'<br>'.'<br>'.'<br>';
+                echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'userRestaurants.php\';"> My Restaurants </button>';
                 echo '</div>';
+
             }
             ?>
         </div>
-
 
         <div class="clear">
             <?php

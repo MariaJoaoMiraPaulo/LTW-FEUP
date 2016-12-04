@@ -1,4 +1,5 @@
 TO-DO:
+- [ ] Faltam mensagens de erro em HTML, aperecem numa pagina php. 
 - [ ] Initial Page:
     - [X] Design
     - [ ] Search Bar
