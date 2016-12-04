@@ -19,6 +19,12 @@ TO-DO:
     - [ ] Quando se apaga base de dados, é necessário apagar também as fotos!! ?
 - [ ] Pagina Pesquisa Restaurantes
 - [ ] Pagina restaurante
+- [ ] Pagina User Adicionar Restaurente
+    - [ ] Css 
+    - [ ] Dados
+- [ ] Pagina com Restaurantes do User - Acedida através do Perfil
+    -[ ] Pagina do restaurante (igual à pagina normal mas vai ser possivel editar, acrescentar ou modificar dados)
+    -[ ] Css
 
 
 
