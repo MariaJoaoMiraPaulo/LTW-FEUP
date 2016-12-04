@@ -3,7 +3,7 @@ include_once ('user.php');
 
 
 $id = getUserInfoByUserName($_SESSION['login-user'],'id');
-$photo_name = 'photo'.$id.'.png';
+$photo_name = 'photo'.$id.'.jpg';
 $target_dir = "../assets/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

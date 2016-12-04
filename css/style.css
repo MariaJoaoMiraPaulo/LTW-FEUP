@@ -123,7 +123,7 @@ Header
   max-width: 350px;
   margin: 200px auto;
   padding: 20px;
-  padding-top: 30px;
+  padding-top: 20px;
   background: #F7F7F7;
   border: 1px solid #888;
   border-radius: 12px; }
@@ -156,6 +156,19 @@ Header
   margin-bottom: 4%;
   border: 1px solid #ccc;
   padding: 3%;
+  color: #555;
+  font: 95% Arial, Helvetica, sans-serif; }
+
+#gender,
+#type {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  width: 100%;
+  margin-bottom: 2%;
+  padding: 2%;
   color: #555;
   font: 95% Arial, Helvetica, sans-serif; }
 

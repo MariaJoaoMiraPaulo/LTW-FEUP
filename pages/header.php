@@ -53,11 +53,18 @@ include_once "../dbActions/user.php";
                 <h1>Sign Up</h1>
                 <form action="../dbActions/register.php" method="post"> 
                     <input type="email" name="username" placeholder="UserName">
-                    <input type="password" name="password" placeholder="Password">
                     <input type="text" name="fullname" placeholder="Full Name">
+
+                    <div id="gender">
+                    <input type="radio" name="gender" value="Male"> Male 
+                    <input type="radio" name="gender" value="Female"> Female 
+                    </div>
+                    <input type="password" name="password" placeholder="Password">
                     <input type="date" name="birthDate">
+                    <div id="type">
                     <input type="radio" name="type" value="Owner"> Owner 
                     <input type="radio" name="type" value="Reviewer"> Reviewer 
+                    </div>
                     <input type="submit" value="Sign Up">
                      </form>
                 <span class="close" onclick="exitCreateAcc()">x</span>
@@ -66,10 +73,3 @@ include_once "../dbActions/user.php";
 
     </div>
 </head>
-
-
-
-
-
-
-

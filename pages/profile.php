@@ -11,8 +11,9 @@ include_once "../dbActions/user.php";
     $username = $_SESSION['login-user'];
     $fullName =  getUserInfoByUserName($username,'fullName');
     $photoUser = getUserInfoByUserName($username,'photoId');
-    $date = getUserInfoByUserName($username,'birthDate');
     $srcPhoto  = '../assets/'.$photoUser;
+    $date = getUserInfoByUserName($username,'birthDate');
+    $gender = getUserInfoByUserName($username,'gender');
     $type = getUserInfoByUserName($username,'type');
     ?>
 

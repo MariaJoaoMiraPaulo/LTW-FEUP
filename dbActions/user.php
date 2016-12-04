@@ -22,12 +22,16 @@ function login($username, $password) {
     }
 }
 
-function signUp($username,$fullname,$date,$type,$password){
+function signUp($username,$fullname,$date,$type,$password,$gender){
     global $db;
-    $photo = 'photo0.png';
-    $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,photoId,type,password) VALUES (?,?,?,?,?,?)');
 
-    if($statement->execute([$username,$fullname,$date,$photo,$type,password_hash($password, PASSWORD_DEFAULT)])){
+    if(strtoupper($gender)=='FEMALE')
+        $photo = 'photo0F.jpg';
+    else $photo = 'photo0.jpg';
+
+    $statement = $db->prepare('INSERT INTO users (username,fullname,birthDate,photoId,gender,type,password) VALUES (?,?,?,?,?,?,?)');
+
+    if($statement->execute([$username,$fullname,$date,$photo,$gender,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
         header("location:../pages/index.php");
         exit();
