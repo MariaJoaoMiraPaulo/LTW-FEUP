@@ -37,13 +37,24 @@ function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$resta
             exit();
         }
         else echo "Impossible to add Restaurant";
+    }
+}
 
+function getUserRestaurants($username){
+    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
+        $id = getUserInfoByUserName($username,'id');
 
+        global $db;
 
+        $statement = $db->prepare('SELECT * FROM restaurant WHERE OwnerId = ? ');
+        $statement->execute([$id]);
 
-
-
-
-
+        while ($row = $statement->fetch()) {
+            echo '<p>'. $row['name'] .'</p>';
+            echo '<p>'. $row['address'] .'</p>';
+            echo '<p>'. $row['location'] .'</p>';
+            echo '<p>'. $row['website'] .'</p>';
+        }
+        return true;
     }
 }
