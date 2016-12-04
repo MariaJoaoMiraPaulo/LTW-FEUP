@@ -12,7 +12,7 @@ include_once "../dbActions/user.php";
     <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
     <div class="header">
             <div class="header-left-icon">
-                <img class="logo" src="../assets/logo4.png">
+                <img class="logo" src="../assets/logo4.png" onclick="location.href='index.php'" >
             </div>
 
         <div class="header-right">

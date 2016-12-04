@@ -13,6 +13,7 @@ include_once "../dbActions/user.php";
     $photoUser = getUserInfoByUserName($username,'photoId');
     $date = getUserInfoByUserName($username,'birthDate');
     $srcPhoto  = '../assets/'.$photoUser;
+    $type = getUserInfoByUserName($username,'type');
     ?>
 
     <body>
@@ -27,7 +28,7 @@ include_once "../dbActions/user.php";
 
 
         </div>
-        <div id="right">
+        <div id="center">
             <form class="editProfileForm" action="../dbActions/editProfile.php" method="post">
                 <ul>
                     <li>
@@ -57,17 +58,27 @@ include_once "../dbActions/user.php";
 
                 </ul>
             </form>
-
         </div>
 
-        <div class="clear"></div>
+        <div id = "right">
+            <?php
+            if(strtoupper($type) == 'OWNER'){
+                echo '<h1>My Restaurants</h1>';
+                echo '<div class="ownerColumn">';
+                echo 'Cannot find your Restaurant?'.'<br>'.'<br>';
+                echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'userRestaurants.php\';">Add a Restaurant </button>';
+                echo '</div>';
+            }
+            ?>
+        </div>
+
+
+        <div class="clear">
+            <?php
+            include "footer.php";
+            ?>
+        </div>
     </div>
 
     </body>
 
-    <?php echo $id?>
-
-
-<?php
-include "footer.php";
-?>

@@ -495,10 +495,16 @@ Quick Services
   width: 200px;
   float: left;
   padding-bottom: 50px;
-  padding-left: 200px; }
+  padding-left: 10%;
+  padding-top: 10%; }
+
+#center {
+  float: left;
+  padding-left: 25%; }
 
 #right {
-  margin-left: 10%;
+  float: left;
+  padding-left: 10%;
   /* Change this to whatever the width of your left column is*/ }
 
 .clear {
@@ -587,6 +593,7 @@ Quick Services
 .editProfileForm textarea {
   resize: none; }
 
+#button-add,
 .editProfileForm button,
 .editProfileForm input[type="submit"],
 .editProfileForm input[type="button"] {
@@ -597,6 +604,7 @@ Quick Services
   border-radius: 3px;
   color: #F3F3F3; }
 
+#button-add:hover,
 .editProfileForm button:hover,
 .editProfileForm input[type="submit"]:hover,
 .editProfileForm input[type="button"]:hover {
@@ -612,5 +620,11 @@ Quick Services
   text-align: left;
   padding-left: 10%;
   font-family: "Open Sans", sans-serif; }
+
+.ownerColumn {
+  padding-left: 20px;
+  padding-top: 150px;
+  text-align: center;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */
