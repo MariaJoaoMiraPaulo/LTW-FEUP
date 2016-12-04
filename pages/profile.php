@@ -23,11 +23,9 @@ include_once "../dbActions/user.php";
             <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
 
             <form class="uploadPhoto" action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:">
+                <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:"><br>
                 <input type="submit" value="Upload Image" name="submit">
             </form>
-
-
         </div>
         <div id="center">
             <form class="editProfileForm" action="../dbActions/editProfile.php" method="post">
@@ -53,12 +51,12 @@ include_once "../dbActions/user.php";
                         <div class="genderProfile">
                         <?php
                         if(strtoupper($gender)=='MALE'){
-                            echo '  <input type="radio" name="gender" checked="checked" value="Male"> Male ';
-                            echo '<input type="radio" name="gender" value="Female"> Female ';
+                            echo '  <input class="inputGender" type="radio" name="gender" checked="checked" value="Male"> Male ';
+                            echo '<input class="inputGender" type="radio" name="gender" value="Female"> Female ';
                         }
                         else{
-                            echo '  <input type="radio" name="gender" value="Male"> Male ';
-                            echo '<input type="radio" name="gender" checked="checked" value="Female"> Female ';
+                            echo '  <input class="inputGender" type="radio" name="gender" value="Male"> Male ';
+                            echo '<input class="inputGender" type="radio" name="gender" checked="checked" value="Female"> Female ';
                         }
                         ?>
                         <br>

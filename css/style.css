@@ -505,15 +505,14 @@ Quick Services
   align-self: flex-end; }
 
 #left {
-  width: 200px;
+  width: 40%;
   float: left;
   padding-bottom: 50px;
   padding-left: 10%;
   padding-top: 10%; }
 
 #center {
-  float: left;
-  padding-left: 25%; }
+  float: left; }
 
 #right {
   float: left;
@@ -593,6 +592,9 @@ Quick Services
   padding: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: #F3F3F3; }
+
+.editProfileForm inputGender {
+  font-family: Georgia, "Times New Roman", Times, serif; }
 
 .editProfileForm li > span {
   background: #b4b4b4;

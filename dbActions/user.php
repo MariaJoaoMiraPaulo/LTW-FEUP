@@ -107,7 +107,7 @@ function usernameAlreadyExists($username){
 
 function uploadUserPhoto($username){
     global $db;
-    $idPhoto = 'photo'.getUserInfoByUserName($username,'id').'.png';
+    $idPhoto = 'photo'.getUserInfoByUserName($username,'id').'.jpg';
     $statement = $db->prepare('UPDATE users SET photoId = ? WHERE username = ?');
     $statement->execute([$idPhoto,$username]);
     return $statement->errorCode();

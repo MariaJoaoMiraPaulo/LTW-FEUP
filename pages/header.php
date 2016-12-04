@@ -54,7 +54,6 @@ include_once "../dbActions/user.php";
                 <form action="../dbActions/register.php" method="post"> 
                     <input type="email" name="username" placeholder="UserName">
                     <input type="text" name="fullname" placeholder="Full Name">
-
                     <div id="gender">
                     <input type="radio" name="gender" value="Male"> Male 
                     <input type="radio" name="gender" value="Female"> Female 

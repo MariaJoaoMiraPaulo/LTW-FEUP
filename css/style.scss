@@ -559,7 +559,7 @@ Quick Services
 }
 
 #left {
-  width: 200px;
+  width: 40%;
   float: left;
   padding-bottom: 50px;
   padding-left: 10%;
@@ -568,7 +568,6 @@ Quick Services
 
 #center{
   float: left;
-  padding-left: 25%;
 }
 
 #right {
@@ -653,6 +652,10 @@ Quick Services
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: $background-color;
 
+}
+
+.editProfileForm inputGender{
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .editProfileForm genderProfile:focus,
