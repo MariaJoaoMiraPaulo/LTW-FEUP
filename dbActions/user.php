@@ -63,7 +63,7 @@ function getUserInfoByUserName($username,$info){
     return $statement->fetch()[$info];
 }
 
-function updateUserProfile($username,$newUsername,$newFullName){
+function updateUserProfile($username,$newUsername,$newFullName,$data){
 
     if(!trim($newFullName))
         $newFullName = getUserInfoByUserName($username,'fullName');
@@ -73,12 +73,14 @@ function updateUserProfile($username,$newUsername,$newFullName){
         if(!usernameAlreadyExists($newUsername))
             $_SESSION['login-user']=$newUsername;
         else return false;
-
     else $newUsername = $username;
 
+    if(!trim($data))
+        $data = getUserInfoByUserName($data,'birthDate');
+
     global $db;
-    $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? WHERE username = ?');
-    $statement->execute([$newUsername,$newFullName,$username]);
+    $statement = $db->prepare('UPDATE users SET username = ?, fullName = ? , birthDate= ? WHERE username = ?');
+    $statement->execute([$newUsername,$newFullName,$data, $username]);
     return $statement->errorCode();
 }
 

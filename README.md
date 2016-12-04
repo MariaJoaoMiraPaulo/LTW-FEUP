@@ -6,12 +6,16 @@ TO-DO:
         - [ ] Quando password esta mal voltar a pedir
     - [ ] SignUp
         - [X] Integração Base de dados
-        - [ ] Verificar se ja existe um mesmo user (mail)
+        - [X] Verificar se ja existe um mesmo user (mail)
         - [ ] Verificar segurança da password
+        - [ ] Acrescentar dados ao login 
+        - [X] Data de Nascimento nao esta a ser guardada na base de dados
+        - [X] Data de Nascimento no Perfil
     - [X] Logout
 - [ ] Pagina Perfil:
-    - [ ] Adicionar foto
+    - [X] Adicionar foto
     - [ ] Alterar password
+    - [ ] Quando se apaga base de dados, é necessário apagar também as fotos!! ?
 - [ ] Pagina Pesquisa Restaurantes
 - [ ] Pagina restaurante
 

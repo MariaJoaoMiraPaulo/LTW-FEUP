@@ -11,6 +11,7 @@ include_once "../dbActions/user.php";
     $username = $_SESSION['login-user'];
     $fullName =  getUserInfoByUserName($username,'fullName');
     $photoUser = getUserInfoByUserName($username,'photoId');
+    $date = getUserInfoByUserName($username,'birthDate');
     $srcPhoto  = '../assets/'.$photoUser;
     ?>
 
@@ -38,6 +39,11 @@ include_once "../dbActions/user.php";
                         <label for="UserName">Username</label>
                         <input type="email" name="userName" maxlength="100" placeholder="<?php echo $username?>"><br>
                         <span>Modify your username here</span>
+                    </li>
+                    <li>
+                        <label for="date">Date of Birth</label>
+                        <input placeholder='<?php echo $date?>' name="birthdate" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"><br>
+                        <span>Modify your date of birth here</span>
                     </li>
                     <li>
                         <label for="bio">About You</label>
