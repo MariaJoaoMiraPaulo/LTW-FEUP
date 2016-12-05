@@ -50,6 +50,19 @@ include "header.php";
             <span>Choose Restaurant cuisines here</span>
         </li>
         <li>
+            <label for="openHours">Open Hours</label>
+            <input name="openHour" class="form-control" type="time"><br>
+            to
+            <input name="closeHour" class="form-control" type="time"><br>
+            <span>Select Open Hours here</span>
+        </li>
+        <li>
+            <label for="openHours">Open Hours</label>
+            <input placeholder="€/ two people" name="price" class="form-control" type="text"><br>
+            <span>Enter price for two people Here</span>
+        </li>
+
+        <li>
             <input type="submit" value="Save Changes">
             <button class="button-item" type="button" onclick="location.href='index.php';">Cancel</button>
         </li>

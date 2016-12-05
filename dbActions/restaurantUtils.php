@@ -34,15 +34,15 @@ function getRestaurantIdFromCategory($category){
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite){
+function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price){
     if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
         $id = getUserInfoByUserName($username,'id');
 
         global $db;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website) VALUES (?,?,?,?,?)');
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price) VALUES (?,?,?,?,?,?)');
 
-        if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite])){
+        if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price])){
             return true;
         }
         return false;

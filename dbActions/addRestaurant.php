@@ -10,13 +10,14 @@ $restaurantWebSite = $_POST['website'];
 $username = $_SESSION['login-user'];
 $services = $_POST['services'];
 $categories = $_POST['categories'];
+$price = $_POST['price'];
 
 $arrayServices=[];
 $arrayCategories=[];
 
 
 if($restaurantName && $restaurantAddress){
-    addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite);
+    addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price);
 } //else echo "You must fill at least name and address field";
 
 $id =  getIdRestaurantByName($restaurantName)["id"];
