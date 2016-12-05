@@ -29,7 +29,7 @@ function getRestaurantIdFromCategory($category){
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE category LIKE ?");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
     $stmt->execute([$string]);
     return $stmt->fetchAll();
 }
