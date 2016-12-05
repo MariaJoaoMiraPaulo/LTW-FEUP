@@ -5,7 +5,7 @@ include_once ('config.php');
 
 function selectTopCategories(){
     global $db;
-    $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
+    $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
     $stmt->execute();
 
     echo '<option value="Category">Category</option> ';
@@ -20,8 +20,6 @@ function getRestaurantIdFromName($name){
     global $db;
     $trimmed = trim($name);
     $cleanedString=preg_replace(array('/\s{2,]/','/[\t\n]/'), ' ', $trimmed);
-    /*$string = explode(' ', strtolower($cleanedString));
-    $keywords = "%" . implode("% OR name LIKE '%", $string) . "%'";*/
     $stmt = $where = '"%' . str_replace(' ', '%" OR LOWER(Name) LIKE "%', $cleanedString) . '%"';
     $sqlString = "SELECT * FROM restaurant WHERE name LIKE " . $stmt;
     $statement = $db->prepare($sqlString);
