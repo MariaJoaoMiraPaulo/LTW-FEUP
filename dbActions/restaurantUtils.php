@@ -5,7 +5,7 @@ include_once ('config.php');
 
 function selectTopCategories(){
     global $db;
-    $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
+    $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
     $stmt->execute();
 
     echo '<option value="Category">Category</option> ';
@@ -29,7 +29,7 @@ function getRestaurantIdFromCategory($category){
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE category LIKE ?");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
     $stmt->execute([$string]);
     return $stmt->fetchAll();
 }
@@ -67,4 +67,41 @@ function getUserRestaurants($username){
         }
         return true;
     }
+}
+
+function selectAllCategories(){
+    global $db;
+    $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC ');
+    $stmt->execute();
+
+
+
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+
+        echo '<li>';
+        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="category'.$i.'">';
+        echo '<label class="checkbox-label" for="category'.$i.'">'. $row['category'] .'</label>';
+        echo '</li>';
+        $i++;
+    }
+    return true;
+}
+
+
+function selectAllServices(){
+    global $db;
+    $stmt = $db->prepare('SELECT  service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
+    $stmt->execute();
+
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+
+        echo '<li>';
+        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="service'.$i.'">';
+        echo '<label class="checkbox-label" for="service'.$i.'">'. $row['service'] .'</label>';
+        echo '</li>';
+        $i++;
+    }
+    return true;
 }
