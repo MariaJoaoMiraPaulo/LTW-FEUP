@@ -57,7 +57,7 @@ include "header.php";
             <span>Select Open Hours here</span>
         </li>
         <li>
-            <label for="openHours">Open Hours</label>
+            <label for="Price">Price for two people</label>
             <input placeholder="€/ two people" name="price" class="form-control" type="text"><br>
             <span>Enter price for two people Here</span>
         </li>
