@@ -43,9 +43,9 @@ function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$resta
         $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website) VALUES (?,?,?,?,?)');
 
         if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite])){
-            echo "Added Restaurant";
+            return true;
         }
-        else echo "Impossible to add Restaurant";
+        return false;
     }
 }
 
@@ -116,9 +116,9 @@ function addServicesToRestaurant($idRestaurant,$service){
     $statement = $db->prepare('INSERT INTO services (restaurant_id,service) VALUES (?,?)');
 
     if($statement->execute([$idRestaurant,$service])){
-        echo "Done";
+        return true;
     }
-    else echo "Impossible to add service";
+    return false;
 }
 
 function addCategoryToRestaurant($idRestaurant,$category){
@@ -127,7 +127,7 @@ function addCategoryToRestaurant($idRestaurant,$category){
     $statement = $db->prepare('INSERT INTO categories (restaurant_id,category) VALUES (?,?)');
 
     if($statement->execute([$idRestaurant,$category])){
-        echo "Done";
+        return true;
     }
-    else echo "Impossible to add category";
+    return false;
 }

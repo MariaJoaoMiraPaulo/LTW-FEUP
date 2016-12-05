@@ -17,7 +17,7 @@ $arrayCategories=[];
 
 if($restaurantName && $restaurantAddress){
     addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite);
-} else echo "You must fill at least name and address field";
+} //else echo "You must fill at least name and address field";
 
 $id =  getIdRestaurantByName($restaurantName)["id"];
 
@@ -39,4 +39,5 @@ foreach ($arrayCategories as $category){
     addCategoryToRestaurant($id,$category);
 }
 
+header("location:../pages/profile.php");
 
