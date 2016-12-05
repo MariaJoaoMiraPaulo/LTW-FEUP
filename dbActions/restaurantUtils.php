@@ -118,5 +118,16 @@ function addServicesToRestaurant($idRestaurant,$service){
     if($statement->execute([$idRestaurant,$service])){
         echo "Done";
     }
+    else echo "Impossible to add service";
+}
+
+function addCategoryToRestaurant($idRestaurant,$category){
+    global $db;
+
+    $statement = $db->prepare('INSERT INTO categories (restaurant_id,category) VALUES (?,?)');
+
+    if($statement->execute([$idRestaurant,$category])){
+        echo "Done";
+    }
     else echo "Impossible to add category";
 }

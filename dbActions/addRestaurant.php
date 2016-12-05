@@ -8,9 +8,11 @@ $restaurantAddress = $_POST['address'];
 $restaurantLocation = $_POST['location'];
 $restaurantWebSite = $_POST['website'];
 $username = $_SESSION['login-user'];
-$services = $_POST['services']; //array de serviços
+$services = $_POST['services'];
+$categories = $_POST['categories'];
 
 $arrayServices=[];
+$arrayCategories=[];
 
 
 if($restaurantName && $restaurantAddress){
@@ -25,10 +27,16 @@ for($i=0; $i < $N; $i++) {
 }
 
 foreach ($arrayServices as $service){
-    echo $service;
-    echo '<br>';
     addServicesToRestaurant($id,$service);
-    echo "insert done";
+}
+
+$C = count($categories);
+for($i=0; $i < $C; $i++) {
+    array_push($arrayCategories,$categories[$i]);
+}
+
+foreach ($arrayCategories as $category){
+    addCategoryToRestaurant($id,$category);
 }
 
 

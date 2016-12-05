@@ -39,14 +39,14 @@ include "header.php";
         </li>
         <li>
             <label for="category">Cuisines</label>
-            <input type="checkbox" name="sushi" value="Sushi">Sushi<br>
-            <input type="checkbox" name="portuguese" value="Portuguese">Portuguese<br>
-            <input type="checkbox" name="tapas" value="Tapas">Tapas<br>
-            <input type="checkbox" name="pizza" value="Pizza">Pizza<br>
-            <input type="checkbox" name="iceCream" value="Ice Cream">Ice Cream<br>
-            <input type="checkbox" name="desserts" value="Desserts">Desserts<br>
-            <input type="checkbox" name="Coffee&Tea" value="Coffee and Tea">Coffee and Tea<br>
-            <input type="checkbox" name="Chinese" value="Chinese">Chinese<br>
+            <input type="checkbox" name="categories[]" value="Sushi">Sushi<br>
+            <input type="checkbox" name="categories[]" value="Portuguese">Portuguese<br>
+            <input type="checkbox" name="categories[]" value="Tapas">Tapas<br>
+            <input type="checkbox" name="categories[]" value="Pizza">Pizza<br>
+            <input type="checkbox" name="categories[]" value="Ice Cream">Ice Cream<br>
+            <input type="checkbox" name="categories[]" value="Desserts">Desserts<br>
+            <input type="checkbox" name="categories[]" value="Coffee and Tea">Coffee and Tea<br>
+            <input type="checkbox" name="categories[]" value="Chinese">Chinese<br>
             <span>Choose Restaurant cuisines here</span>
         </li>
         <li>
