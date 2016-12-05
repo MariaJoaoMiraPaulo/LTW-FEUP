@@ -5,7 +5,7 @@ include_once ('config.php');
 
 function selectTopCategories(){
     global $db;
-    $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
+    $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
     $stmt->execute();
 
     echo '<option value="Category">Category</option> ';
@@ -18,17 +18,19 @@ function selectTopCategories(){
 
 function getRestaurantIdFromName($name){
     global $db;
-    $keywords = explode(' ', $name);
-    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare('SELECT * FROM restaurant WHERE name LIKE ?');
-    $stmt->execute([$string]);
-    return $stmt->fetchAll();
+    $trimmed = trim($name);
+    $cleanedString=preg_replace(array('/\s{2,]/','/[\t\n]/'), ' ', $trimmed);
+    $stmt = $where = '"%' . str_replace(' ', '%" OR LOWER(Name) LIKE "%', $cleanedString) . '%"';
+    $sqlString = "SELECT * FROM restaurant WHERE name LIKE " . $stmt;
+    $statement = $db->prepare($sqlString);
+    $statement->execute();
+    return $statement->fetchAll();
 }
 
 function getRestaurantIdFromCategory($category){
     global $db;
     $keywords = explode(' ', $category);
-    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $string = '%' . implode('% OR name LIKE %', $keywords) . '%';
     $stmt = $db->prepare("SELECT * FROM restaurant WHERE category LIKE ?");
     $stmt->execute([$string]);
     return $stmt->fetchAll();
