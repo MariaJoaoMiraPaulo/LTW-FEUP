@@ -12,27 +12,23 @@ $services = $_POST['services']; //array de serviços
 
 $arrayServices=[];
 
-$aDoor = $_POST['services'];
-if(empty($aDoor))
-{
-    echo("You didn't select any buildings.");
-}
-else
-{
-    $N = count($aDoor);
 
-    echo("You selected $N door(s): ");
-    for($i=0; $i < $N; $i++)
-    {
-        array_push($arrayServices,$aDoor[$i]);
-    }
+if($restaurantName && $restaurantAddress){
+    addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite);
+} else echo "You must fill at least name and address field";
+
+$id =  getIdRestaurantByName($restaurantName)["id"];
+
+$N = count($services);
+for($i=0; $i < $N; $i++) {
+    array_push($arrayServices,$services[$i]);
 }
 
 foreach ($arrayServices as $service){
-    echo $service . '<br>';
+    echo $service;
+    echo '<br>';
+    addServicesToRestaurant($id,$service);
+    echo "insert done";
 }
 
 
-if($restaurantName && $restaurantAddress){
-    addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$arrayServices);
-} else echo "You must fill at least name and address field";

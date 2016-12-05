@@ -51,13 +51,7 @@ INSERT INTO restaurant VALUES (NULL, 1, 'portarossa', 'Rua de Corte Real, 289, F
 INSERT INTO categories VALUES (NULL, 1, 'Sushi');
 INSERT INTO categories VALUES (NULL, 1, 'Meditarrânia');
 INSERT INTO categories VALUES (NULL, 1, 'Snacks');
-INSERT INTO categories VALUES (NULL, 2, 'Italian');
-INSERT INTO categories VALUES (NULL, 3, 'Portuguese');
-INSERT INTO categories VALUES (NULL, 3, 'Italian');
-
 
 INSERT INTO services VALUES (NULL, 1, 'Breakfast');
 INSERT INTO services VALUES (NULL, 1, 'Lunch');
-INSERT INTO services VALUES (NULL, 2, 'Dinner');
-INSERT INTO services VALUES (NULL, 2, 'Lunch');
-INSERT INTO services VALUES (NULL, 3, 'Take away');
+
