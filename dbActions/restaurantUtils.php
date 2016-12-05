@@ -18,9 +18,19 @@ function selectTopCategories(){
 
 function getRestaurantIdFromName($name){
     global $db;
-    $stmt = $db->prepare('SELECT id FROM restaurant WHERE name LIKE ?');
-    $stmt->execute([$name]);
+    $keywords = explode(' ', $name);
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare('SELECT * FROM restaurant WHERE name LIKE ?');
+    $stmt->execute([$string]);
+    return $stmt->fetchAll();
+}
 
+function getRestaurantIdFromCategory($category){
+    global $db;
+    $keywords = explode(' ', $category);
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE category LIKE ?");
+    $stmt->execute([$string]);
     return $stmt->fetchAll();
 }
 

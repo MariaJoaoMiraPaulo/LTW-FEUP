@@ -43,13 +43,9 @@ include_once "header.php";
 
         <p id="pomodoro">Pomodoro</p>
 
-        <form method="post" action="../dbActions/searchRestaurants.php" class="action-wrapper">
-            <input class="select-location" type="text" name="search" placeholder="Local..">
-
-           <select class ="select-category">
-                <?php include_once "../dbActions/searchBar.php"; ?>
-            </select>
-            <input class="search-bar" type="text" name="restaurant" placeholder="Restaurante..">
+        <form method="post" action="searchRestaurants.php" class="action-wrapper">
+            <input class="select-location" type="text" name="search" placeholder="Location">
+            <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
             <input class="button" type="submit" name="submit" value="Search">
         </form>
 

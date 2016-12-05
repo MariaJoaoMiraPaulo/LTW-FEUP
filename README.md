@@ -18,6 +18,7 @@ TO-DO:
     - [ ] Alterar password
     - [ ] Quando se apaga base de dados, é necessário apagar também as fotos!! ?
 - [ ] Pagina Pesquisa Restaurantes
+    - [ ] Call function similar_text to sort the most similar restaurants to given search  
 - [ ] Pagina restaurante
 - [ ] Pagina User Adicionar Restaurente
     - [ ] Css 
