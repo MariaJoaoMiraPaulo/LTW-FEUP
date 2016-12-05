@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "db/config.php";
+include_once "../dbActions/user.php";
 include_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include_once "header.php";
 <section class="cd-intro video">
     <div class="cd-intro-content video">
         <h1 class="svg-wrapper">
-            <svg class="svg-mask" x="0px" y="0px" width="4000px" height="3000px" viewBox="0 0 4000 3000">
+          <!--  <svg class="svg-mask" x="0px" y="0px" width="4000px" height="3000px" viewBox="0 0 4000 3000">
                 <title>El Capitáno Ristorante</title>
                 <path
                         d="M1836.9,1488h-2.9v24h2.1c3.5,0,6.1-1,7.7-3.1s2.5-5.2,2.5-9.4c0-3.9-0.8-6.8-2.3-8.7   C1842.5,1488.9,1840.1,1488,1836.9,1488z"
@@ -24,7 +24,7 @@ include_once "header.php";
                         fill="#FFFFFF" />
             </svg> <!-- .svg-mask -->
 
-            <svg class="svg-mask-mobile" x="0px" y="0px" width="2000px" height="3000px" viewBox="0 0 2000 3000">
+        <!--    <svg class="svg-mask-mobile" x="0px" y="0px" width="2000px" height="3000px" viewBox="0 0 2000 3000">
                 <title>El Capitáno Ristorante</title>
                 <path
                         fill="#FFFFFF"
@@ -43,56 +43,42 @@ include_once "header.php";
 
         <p id="pomodoro">Pomodoro</p>
 
-        <div class="action-wrapper">
-            <input class="select-location" type="text" name="search" placeholder="Local..">
-            <!-- SELECT DISTINCT category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5; -->
-            <select class ="select-category">
-                <?php
-                echo '<option value="Category">Category</option> ';
-                $db = new PDO('sqlite:db/restaurant.db');
-                $stmt = $db->prepare('SELECT  category FROM restaurant GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
-                $stmt->execute();
-                while ($row = $stmt->fetch()) {
-                    echo '<option value="'. $row['category'] .'">'. $row['category'] .'</option>';
-                }
-                ?>
-            </select>
-            <input class="search-bar" type="text" name="search" placeholder="Restaurante..">
-            <button class="button" type="button" onclick="location.href='searchRestaurants.php';">Procurar</button>
-        </div>
+        <form method="post" action="searchRestaurants.php" class="action-wrapper">
+            <input class="select-location" type="text" name="search" placeholder="Location">
+            <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
+            <input class="button" type="submit" name="submit" value="Search">
+        </form>
 
-        <div class="cd-bg-video-wrapper" data-video="assets/video">
+        <div class="cd-bg-video-wrapper" data-video="../assets/video">
             <!-- video element will be loaded using jQuery -->
         </div>
     </div>
 </section>
-
-
-<section >
+<section class="quick-servicesItems">
     <div class="quick-services">
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp">
-            <div>Pequeno Almoço</div>
+            <div>Breakfast</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_9.png?output-format=webp">
-            <div>Almoço</div>
+            <div>Lunch</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_10.png?output-format=webp">
-            <div>Jantar</div>
+            <div>Dinner</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_1.png?output-format=webp">
-            <div>Entrega ao domicilio</div>
+            <div>Home delivery</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_3.png?output-format=webp">
-            <div>Beber um copo</div>
+            <div>Have a drink</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_6.png?output-format=webp">
-            <div>Cafés e pastelarias</div>
+            <div>Coffees and Pastries</div>
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_5.png?output-format=webp">
@@ -100,7 +86,7 @@ include_once "header.php";
         </a>
         <a href="">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/special_23.png?output-format=webp">
-            <div>Refeições de luxo</div>
+            <div>Luxury Meals</div>
         </a>
     </div>
 </section>
