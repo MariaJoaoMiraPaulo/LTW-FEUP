@@ -1005,9 +1005,6 @@ xgallery
   }
 }
 
-
-
-
 /* --------------------------------
 
 xfilter
@@ -1455,4 +1452,15 @@ xcustom form elements
 .addRestaurantForm input[type="button"]:hover{
   background: #6B9FFF;
   color:$background-color;
+}
+
+/* --------------------------------
+
+Restaurant Page
+
+-------------------------------- */
+
+.restaurantInfo{
+  border: 2px solid;
+  margin: 25px;
 }

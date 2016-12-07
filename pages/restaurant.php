@@ -11,7 +11,7 @@ $nameRestaurant = getRestaurantNameById($id);
 ?>
 
 
-<div class="restaurant">
+<div class="restaurantInfo">
     <h1><?php echo $nameRestaurant ?></h1>
     <!-- Image -->
 </div>

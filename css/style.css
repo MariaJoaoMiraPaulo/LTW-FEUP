@@ -1272,4 +1272,13 @@ xcustom form elements
   background: #6B9FFF;
   color: #F3F3F3; }
 
+/* --------------------------------
+
+Restaurant Page
+
+-------------------------------- */
+.restaurantInfo {
+  border: 2px solid;
+  margin: 25px; }
+
 /*# sourceMappingURL=style.css.map */
