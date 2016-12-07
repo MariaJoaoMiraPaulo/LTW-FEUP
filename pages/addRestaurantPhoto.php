@@ -1,8 +1,9 @@
 <?php
 include_once "header.php";
 $id = $_GET['id'];
-echo $id;
 ?>
+
+<p>Add your first photo to restaurant album...</p>
 
 <form class="addRestaurantForm" action="../dbActions/uploadRestaurantPhoto.php?id=<?echo $id?>" method="post" enctype="multipart/form-data">
     <li>
