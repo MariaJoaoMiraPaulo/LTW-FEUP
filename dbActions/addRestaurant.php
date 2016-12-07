@@ -20,7 +20,7 @@ if($restaurantName && $restaurantAddress){
     addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price);
 } //else echo "You must fill at least name and address field";
 
-$id =  getIdRestaurantByName($restaurantName)["id"];
+$id =  getIdRestaurantByName($restaurantName);
 
 $N = count($services);
 for($i=0; $i < $N; $i++) {
@@ -40,5 +40,5 @@ foreach ($arrayCategories as $category){
     addCategoryToRestaurant($id,$category);
 }
 
-header("location:../pages/profile.php");
+header("Location:../pages/addRestaurantPhoto.php?id=".$id);
 

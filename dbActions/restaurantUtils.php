@@ -126,7 +126,8 @@ function getIdRestaurantByName($restaurantName){
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant WHERE name = ? ');
     $statement->execute([$restaurantName]);
-    return $statement->fetch(SQLITE_ASSOC);
+    $res = $statement->fetch();
+    return $res[0];
 }
 
 function getRestaurantNameById($idRestaurant){
@@ -154,6 +155,15 @@ function addCategoryToRestaurant($idRestaurant,$category){
     $statement = $db->prepare('INSERT INTO categories (restaurant_id,category) VALUES (?,?)');
 
     if($statement->execute([$idRestaurant,$category])){
+        return true;
+    }
+    return false;
+}
+
+function uploadPhotoToRestaurant($target_file,$idRest){
+    global $db;
+    $statement = $db->prepare('INSERT INTO photo (name,restaurant_id) VALUES (?,?)');
+    if($statement->execute([$target_file,$idRest])){
         return true;
     }
     return false;
