@@ -34,19 +34,18 @@ function getRestaurantIdFromCategory($category){
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite){
+function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price){
     if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
         $id = getUserInfoByUserName($username,'id');
 
         global $db;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website) VALUES (?,?,?,?,?)');
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price) VALUES (?,?,?,?,?,?)');
 
-        if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite])){
-            header("location:../pages/profile.php");
-            exit();
+        if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price])){
+            return true;
         }
-        else echo "Impossible to add Restaurant";
+        return false;
     }
 }
 
@@ -69,12 +68,29 @@ function getUserRestaurants($username){
     }
 }
 
+function getUserRestaurantsName($username){
+
+    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
+        $id = getUserInfoByUserName($username,'id');
+
+        global $db;
+        $statement = $db->prepare('SELECT * FROM restaurant WHERE OwnerId = ? ');
+        $statement->execute([$id]);
+
+        while ($row = $statement->fetch()) {
+            $id = getIdRestaurantByName($row['name'])[0];
+            echo '<li>';
+            echo '<a href="restaurant.php?id='.$id.'">'.$row['name'].'</a>';
+            echo '</li>';
+        }
+        return true;
+    }
+}
+
 function selectAllCategories(){
     global $db;
     $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC ');
     $stmt->execute();
-
-
 
     $i = 0;
     while ($row = $stmt->fetch()) {
@@ -104,4 +120,40 @@ function selectAllServices(){
         $i++;
     }
     return true;
+}
+
+function getIdRestaurantByName($restaurantName){
+    global $db;
+    $statement = $db->prepare('SELECT id FROM restaurant WHERE name = ? ');
+    $statement->execute([$restaurantName]);
+    return $statement->fetch();
+}
+
+function getRestaurantNameById($idRestaurant){
+    global $db;
+    $statement = $db->prepare('SELECT name FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaurant]);
+    return $statement->fetch();
+}
+
+function addServicesToRestaurant($idRestaurant,$service){
+    global $db;
+
+    $statement = $db->prepare('INSERT INTO services (restaurant_id,service) VALUES (?,?)');
+
+    if($statement->execute([$idRestaurant,$service])){
+        return true;
+    }
+    return false;
+}
+
+function addCategoryToRestaurant($idRestaurant,$category){
+    global $db;
+
+    $statement = $db->prepare('INSERT INTO categories (restaurant_id,category) VALUES (?,?)');
+
+    if($statement->execute([$idRestaurant,$category])){
+        return true;
+    }
+    return false;
 }

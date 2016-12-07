@@ -10,11 +10,11 @@ include "header.php";
     <main class="cd-main-content">
         <div class="cd-tab-filter-wrapper">
             <div class="cd-tab-filter">
-                <!-- <form method="post" action="searchRestaurants.php" class="action-wrapper">
+                <form method="post" action="searchRestaurants.php" class="action-wrapper">
                     <input class="select-location" type="text" name="search" placeholder="Location">
                     <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
                     <input class="button" type="submit" name="submit" value="Search">
-                </form>-->
+                </form>
             </div> <!-- cd-tab-filter -->
         </div> <!-- cd-tab-filter-wrapper -->
 
@@ -27,15 +27,32 @@ include "header.php";
                         $result = getRestaurantIdFromName($name);
                         foreach($result as $row){
                             $restaurantName = $row['name'];
+                            $restaurantLocation = $row['location'];
+                            $restaurantAddress = $row['address'];
+                            $restaurantPrice = $row['price'];
+                            $restaurantOpenHours = $row['openHours'];
                             echo "<li class='item'>";
                             echo "<h1>" .$restaurantName."</h1>";
-
+                            echo "<h1>" .$restaurantLocation."</h1>";
+                            echo "<h1>" .$restaurantAddress."</h1>";
+                            echo "<h1>" .$restaurantPrice."</h1>";
+                            echo "<h1>" .$restaurantOpenHours."</h1>";
                             echo "</li>\n";
                         }
                         $result = getRestaurantIdFromCategory($name);
                         foreach($result as $row){
                             $restaurantName = $row['name'];
-                            echo "<li>"   .$restaurantName . "</a></li>\n";
+                            $restaurantLocation = $row['location'];
+                            $restaurantAddress = $row['address'];
+                            $restaurantPrice = $row['price'];
+                            $restaurantOpenHours = $row['openHours'];
+                            echo "<li class='item'>";
+                            echo "<h1>" .$restaurantName."</h1>";
+                            echo "<h1>" .$restaurantLocation."</h1>";
+                            echo "<h1>" .$restaurantAddress."</h1>";
+                            echo "<h1>" .$restaurantPrice."</h1>";
+                            echo "<h1>" .$restaurantOpenHours."</h1>";
+                            echo "</li>\n";
                         }
                     }
                 }
@@ -75,5 +92,5 @@ include "header.php";
     </main> <!-- cd-main-content -->
 
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>
