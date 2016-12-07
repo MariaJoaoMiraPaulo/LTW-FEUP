@@ -10,11 +10,11 @@ include "header.php";
     <main class="cd-main-content">
         <div class="cd-tab-filter-wrapper">
             <div class="cd-tab-filter">
-                <!-- <form method="post" action="searchRestaurants.php" class="action-wrapper">
+                <form method="post" action="searchRestaurants.php" class="action-wrapper">
                     <input class="select-location" type="text" name="search" placeholder="Location">
                     <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
                     <input class="button" type="submit" name="submit" value="Search">
-                </form>-->
+                </form>
             </div> <!-- cd-tab-filter -->
         </div> <!-- cd-tab-filter-wrapper -->
 

@@ -105,3 +105,7 @@ function selectAllServices(){
     }
     return true;
 }
+
+function writeReview($restauranteName,$text,$user){
+
+}
