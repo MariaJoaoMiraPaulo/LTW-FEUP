@@ -3,6 +3,7 @@ session_start();
 $title = "Welcome";      // Set the title
 include_once "header.php";
 include_once "../dbActions/user.php";
+include_once "../dbActions/restaurantUtils.php"
 ?>
 
     <h1 id="editProfile">Edit Profile</h1>
@@ -84,17 +85,22 @@ include_once "../dbActions/user.php";
                 echo '<div class="ownerColumn">';
                 echo 'Cannot find your Restaurant?'.'<br>'.'<br>';
                 echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'addRestaurant.php\';">Add a Restaurant</button>';
-                echo '<br>'.'<br>'.'<br>'.'<br>';
-                echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'userRestaurants.php\';"> My Restaurants </button>';
                 echo '</div>';
-
             }
             ?>
+
+            <div class="userRest">
+                <ol>
+                    <?php
+                        getUserRestaurantsName($username);
+                    ?>
+                </ol>
+            </div>
         </div>
 
         <div class="clear">
             <?php
-            include "footer.php";
+            include_once "footer.php";
             ?>
         </div>
     </div>

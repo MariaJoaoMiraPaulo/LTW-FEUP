@@ -643,6 +643,13 @@ Quick Services
   text-align: center;
   align-items: center; }
 
+.userRest {
+  padding-top: 20%;
+  text-align: center;
+  float: left; }
+  .userRest ol {
+    color: #ccc; }
+
 /*----------------------------------
 
   searchRestaurants
@@ -1158,5 +1165,111 @@ xcustom form elements
 .cd-filter-block input[type=radio]:checked + label::after,
 .cd-filter-block input[type=checkbox]:checked + label::after {
   display: block; }
+
+/*----------------------------------
+
+  addRestaurants
+
+ -----------------------------------*/
+.addRestaurantForm {
+  max-width: 600px;
+  margin: 50px auto;
+  margin-left: 30%;
+  background: #F3F3F3;
+  border-radius: 2px;
+  padding: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.addRestaurantForm h1 {
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+  color: #5C5C5C;
+  font-size: x-large; }
+
+.addRestaurantForm ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.addRestaurantForm li {
+  display: block;
+  padding: 9px;
+  border: 1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 3px; }
+
+.addRestaurantForm li:last-child {
+  border: none;
+  margin-bottom: 0px;
+  text-align: center; }
+
+.addRestaurantForm li > label {
+  display: block;
+  float: left;
+  margin-top: -19px;
+  background: #F3F3F3;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif; }
+
+.addRestaurantForm input[type="text"],
+.addRestaurantForm input[type="date"],
+.addRestaurantForm input[type="datetime"],
+.addRestaurantForm input[type="email"],
+.addRestaurantForm input[type="number"],
+.addRestaurantForm input[type="search"],
+.addRestaurantForm input[type="time"],
+.addRestaurantForm input[type="url"],
+.addRestaurantForm input[type="password"],
+.addRestaurantForm textarea,
+.addRestaurantForm select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #F3F3F3; }
+
+.addRestaurantForm li > span {
+  background: #b4b4b4;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: #F3F3F3;
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px; }
+
+.addRestaurantForm textarea {
+  resize: none; }
+
+.addRestaurantForm button,
+.addRestaurantForm input[type="submit"],
+.addRestaurantForm input[type="button"] {
+  background: #34495E;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #F3F3F3; }
+
+#button-add:hover,
+.addRestaurantForm button:hover,
+.addRestaurantForm input[type="submit"]:hover,
+.addRestaurantForm input[type="button"]:hover {
+  background: #6B9FFF;
+  color: #F3F3F3; }
 
 /*# sourceMappingURL=style.css.map */

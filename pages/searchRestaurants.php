@@ -75,5 +75,5 @@ include "header.php";
     </main> <!-- cd-main-content -->
 
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>

@@ -20,6 +20,7 @@ TO-DO:
 - [ ] Pagina Pesquisa Restaurantes
     - [ ] Call function similar_text to sort the most similar restaurants to given search  
 - [ ] Pagina restaurante
+   - [ ] Open Hours
 - [ ] Pagina User Adicionar Restaurente
     - [ ] Css 
     - [ ] Dados
