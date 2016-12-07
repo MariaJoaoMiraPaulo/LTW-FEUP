@@ -10,6 +10,12 @@ $id = $_GET["id"];
 $nameRestaurant = getRestaurantNameById($id);
 ?>
 
+
+<div class="restaurant">
+    <h1><?php echo $nameRestaurant ?></h1>
+    <!-- Image -->
+</div>
+
 <form class="cd-form floating-labels">
     <fieldset>
         <legend>Write a review</legend>

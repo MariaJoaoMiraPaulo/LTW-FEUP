@@ -126,14 +126,15 @@ function getIdRestaurantByName($restaurantName){
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant WHERE name = ? ');
     $statement->execute([$restaurantName]);
-    return $statement->fetch();
+    return $statement->fetch(SQLITE_ASSOC);
 }
 
 function getRestaurantNameById($idRestaurant){
     global $db;
     $statement = $db->prepare('SELECT name FROM restaurant WHERE id = ? ');
     $statement->execute([$idRestaurant]);
-    return $statement->fetch();
+    $res = $statement->fetch();
+    return $res[0];
 }
 
 function addServicesToRestaurant($idRestaurant,$service){
