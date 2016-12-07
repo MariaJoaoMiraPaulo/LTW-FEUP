@@ -2,7 +2,7 @@
 $title = "Restaurants";      // Set the title
 
 include_once('../dbActions/restaurantUtils.php');
-include "header.php";
+include_once "header.php";
 
 if(isset($_POST['submit'])) {
     if (preg_match("/[a-zA-Z]/", $_POST['restaurant'])) {
@@ -85,5 +85,5 @@ if(isset($_POST['submit'])) {
     </main> <!-- cd-main-content -->
 
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>

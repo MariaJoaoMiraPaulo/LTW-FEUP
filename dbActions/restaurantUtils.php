@@ -68,6 +68,25 @@ function getUserRestaurants($username){
     }
 }
 
+function getUserRestaurantsName($username){
+
+    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
+        $id = getUserInfoByUserName($username,'id');
+
+        global $db;
+        $statement = $db->prepare('SELECT * FROM restaurant WHERE OwnerId = ? ');
+        $statement->execute([$id]);
+
+        while ($row = $statement->fetch()) {
+            $id = getIdRestaurantByName($row['name'])[0];
+            echo '<li>';
+            echo '<a href="restaurant.php?id='.$id.'">'.$row['name'].'</a>';
+            echo '</li>';
+        }
+        return true;
+    }
+}
+
 function selectAllCategories(){
     global $db;
     $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC ');
@@ -107,6 +126,13 @@ function getIdRestaurantByName($restaurantName){
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant WHERE name = ? ');
     $statement->execute([$restaurantName]);
+    return $statement->fetch();
+}
+
+function getRestaurantNameById($idRestaurant){
+    global $db;
+    $statement = $db->prepare('SELECT name FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaurant]);
     return $statement->fetch();
 }
 

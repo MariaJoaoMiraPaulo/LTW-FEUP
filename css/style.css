@@ -643,6 +643,13 @@ Quick Services
   text-align: center;
   align-items: center; }
 
+.userRest {
+  padding-top: 20%;
+  text-align: center;
+  float: left; }
+  .userRest ol {
+    color: #ccc; }
+
 /*----------------------------------
 
   searchRestaurants

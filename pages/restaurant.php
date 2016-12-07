@@ -1,10 +1,16 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <?php
-$title = "Welcome";      // Set the title
-include "header.php";
+$title = "Welcome";
+include_once "header.php";
+include_once "../dbActions/restaurantUtils.php";
+$id = $_GET["id"];
+$nameRestaurant = getRestaurantNameById($id);
 ?>
 
 
 <?php
-include "footer.php";
+include_once "footer.php";
 ?>
