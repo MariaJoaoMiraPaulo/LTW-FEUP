@@ -18,20 +18,18 @@ function selectTopCategories(){
 
 function getRestaurantIdFromName($name){
     global $db;
-    $trimmed = trim($name);
-    $cleanedString=preg_replace(array('/\s{2,]/','/[\t\n]/'), ' ', $trimmed);
-    $stmt = $where = '"%' . str_replace(' ', '%" OR LOWER(Name) LIKE "%', $cleanedString) . '%"';
-    $sqlString = "SELECT * FROM restaurant WHERE name LIKE " . $stmt;
-    $statement = $db->prepare($sqlString);
-    $statement->execute();
-    return $statement->fetchAll();
+    $keywords = explode(' ', $name);
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare('SELECT * FROM restaurant WHERE name LIKE ?');
+    $stmt->execute([$string]);
+    return $stmt->fetchAll();
 }
 
 function getRestaurantIdFromCategory($category){
     global $db;
     $keywords = explode(' ', $category);
-    $string = '%' . implode('% OR name LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE category LIKE ?");
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
     $stmt->execute([$string]);
     return $stmt->fetchAll();
 }
@@ -69,4 +67,45 @@ function getUserRestaurants($username){
         }
         return true;
     }
+}
+
+function selectAllCategories(){
+    global $db;
+    $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC ');
+    $stmt->execute();
+
+
+
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+
+        echo '<li>';
+        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="category'.$i.'">';
+        echo '<label class="checkbox-label" for="category'.$i.'">'. $row['category'] .'</label>';
+        echo '</li>';
+        $i++;
+    }
+    return true;
+}
+
+
+function selectAllServices(){
+    global $db;
+    $stmt = $db->prepare('SELECT  service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
+    $stmt->execute();
+
+    $i = 0;
+    while ($row = $stmt->fetch()) {
+
+        echo '<li>';
+        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="service'.$i.'">';
+        echo '<label class="checkbox-label" for="service'.$i.'">'. $row['service'] .'</label>';
+        echo '</li>';
+        $i++;
+    }
+    return true;
+}
+
+function writeReview($restauranteName,$text,$user){
+
 }

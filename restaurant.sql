@@ -1,7 +1,7 @@
 CREATE TABLE restaurant (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	OwnerID INTEGER,
-	name VARCHAR NOT NULL,
+	name VARCHAR UNIQUE NOT NULL,
 	address VARCHAR,
 	location VARCHAR,
 	website VARCHAR,
@@ -21,13 +21,24 @@ CREATE TABLE users (
   password VARCHAR
 );
 
-CREATE TABLE comments (
+CREATE TABLE reviews (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER REFERENCES restaurant,
 	id_autor INTEGER REFERENCES users,
 	title VARCHAR,
 	userRate INTEGER,
-	text VARCHAR
+	text VARCHAR,
+	date TEXT,
+	likes INTEGER
+);
+
+CREATE TABLE comments (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	review_id INTEGER REFERENCES reviews,
+	id_autor INTEGER REFERENCES users,
+	text VARCHAR,
+	date TEXT,
+	likes INTEGER
 );
 
 

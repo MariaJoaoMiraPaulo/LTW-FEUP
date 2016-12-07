@@ -120,7 +120,7 @@ Header
 }
 
 /* The Modal (background) */
-.modal {R name LIKE
+.modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 4; /* Sit on top */
@@ -734,7 +734,7 @@ padding: 15px;
 
 .cd-tab-filter-wrapper {
   background-color: #ffffff;
-  z-index: 1;
+
 }
 
 .cd-filter {
@@ -744,7 +744,6 @@ padding: 15px;
   width: 280px;
   height: 100%;
   background: #ffffff;
-  z-index: 2;
   transform: translateX(-100%);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -755,7 +754,7 @@ padding: 15px;
   left: 0;
   height: 50px;
   width: 60px;
-  z-index: 3;
+
 }
 
 .cd-main-content.is-fixed .cd-tab-filter-wrapper {
@@ -833,7 +832,7 @@ xtab-filter
 .cd-tab-filter-wrapper {
   background-color: #ffffff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  z-index: 1;
+
 }
 
 .cd-tab-filter-wrapper::after {
@@ -848,30 +847,9 @@ xtab-filter
   height: 50px;
   width: 140px;
   margin: 0 auto;
-  z-index: 1;
+
 }
 
-.cd-tab-filter::after {
-  /* small arrow icon */
-  content: '';
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  bottom: auto;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background: url("../assets/cd-icon-arrow.svg") no-repeat center center;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  pointer-events: none;
-}
 
 .cd-tab-filter ul {
   position: absolute;
@@ -998,17 +976,20 @@ xgallery
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
   transition: width 0.3s;
-}
-
-.cd-gallery li {
-  margin-bottom: 1.6em;
-  box-shadow: 1px 4px rgba(0, 0, 0, 0.1);
-  width: 48%;
-}
-
-.cd-gallery img {
-  display: block;
-  width: 100%;
+  li {
+    margin-bottom: 1.6em;
+    box-shadow: 1px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 4px;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+  h1{
+    width: 100%;
+  }
 }
 
 
@@ -1027,7 +1008,7 @@ xfilter
   height: 100%;
   background: #ffffff;
   box-shadow: 4px 4px 20px transparent;
-  z-index: 2;
+
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -1045,7 +1026,7 @@ xfilter
   height: 50px;
   width: 100%;
   background-color: $primary-color;
-  z-index: 2;
+
 }
 
 .cd-filter form {
@@ -1067,7 +1048,7 @@ xfilter
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  z-index: 3;
+
 }
 
 .no-touch .cd-filter .cd-close:hover {
@@ -1107,7 +1088,7 @@ xfilter
   color: transparent;
   white-space: nowrap;
   background: transparent url("../assets/cd-icon-filter.svg") no-repeat center center;
-  z-index: 3;
+
 }
 
 .cd-filter-trigger.filter-is-visible {
@@ -1234,7 +1215,7 @@ xcustom form elements
   /* switcher arrow for select element */
   content: '';
   position: absolute;
-  z-index: 1;
+
   right: 14px;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -1271,7 +1252,7 @@ xcustom form elements
   margin: 0;
   padding: 0;
   opacity: 0;
-  z-index: 2;
+
 }
 .cd-filter-block .checkbox-label,
 .cd-filter-block .radio-label {
