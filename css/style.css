@@ -649,8 +649,7 @@ Quick Services
 
  -----------------------------------*/
 .cd-tab-filter-wrapper {
-  background-color: #ffffff;
-  z-index: 1; }
+  background-color: #ffffff; }
 
 .cd-filter {
   position: absolute;
@@ -659,7 +658,6 @@ Quick Services
   width: 280px;
   height: 100%;
   background: #ffffff;
-  z-index: 2;
   transform: translateX(-100%);
   transition: transform 0.3s, box-shadow 0.3s; }
 
@@ -668,8 +666,7 @@ Quick Services
   top: 0;
   left: 0;
   height: 50px;
-  width: 60px;
-  z-index: 3; }
+  width: 60px; }
 
 .cd-main-content.is-fixed .cd-tab-filter-wrapper {
   position: fixed;
@@ -729,8 +726,7 @@ xtab-filter
 -------------------------------- */
 .cd-tab-filter-wrapper {
   background-color: #ffffff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  z-index: 1; }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08); }
 
 .cd-tab-filter-wrapper::after {
   clear: both;
@@ -742,29 +738,7 @@ xtab-filter
   position: relative;
   height: 50px;
   width: 140px;
-  margin: 0 auto;
-  z-index: 1; }
-
-.cd-tab-filter::after {
-  /* small arrow icon */
-  content: '';
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  bottom: auto;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background: url("../assets/cd-icon-arrow.svg") no-repeat center center;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  pointer-events: none; }
+  margin: 0 auto; }
 
 .cd-tab-filter ul {
   position: absolute;
@@ -876,15 +850,17 @@ xgallery
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
   transition: width 0.3s; }
-
-.cd-gallery li {
-  margin-bottom: 1.6em;
-  box-shadow: 1px 4px rgba(0, 0, 0, 0.1);
-  width: 48%; }
-
-.cd-gallery img {
-  display: block;
-  width: 100%; }
+  .cd-gallery li {
+    margin-bottom: 1.6em;
+    box-shadow: 1px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 4px; }
+  .cd-gallery img {
+    display: block;
+    width: 100%; }
+  .cd-gallery h1 {
+    width: 100%; }
 
 /* --------------------------------
 
@@ -899,7 +875,6 @@ xfilter
   height: 100%;
   background: #ffffff;
   box-shadow: 4px 4px 20px transparent;
-  z-index: 1;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -915,8 +890,7 @@ xfilter
   left: 0;
   height: 50px;
   width: 100%;
-  background-color: #34495E;
-  z-index: 2; }
+  background-color: #34495E; }
 
 .cd-filter form {
   padding: 70px 20px; }
@@ -935,8 +909,7 @@ xfilter
   opacity: 0;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  z-index: 3; }
+  transition: opacity 0.3s; }
 
 .no-touch .cd-filter .cd-close:hover {
   background: #34495E; }
@@ -967,8 +940,7 @@ xfilter
   text-indent: 100%;
   color: transparent;
   white-space: nowrap;
-  background: transparent url("../assets/cd-icon-filter.svg") no-repeat center center;
-  z-index: 3; }
+  background: transparent url("../assets/cd-icon-filter.svg") no-repeat center center; }
 
 .cd-filter-trigger.filter-is-visible {
   pointer-events: none; }
@@ -1090,7 +1062,6 @@ xcustom form elements
   /* switcher arrow for select element */
   content: '';
   position: absolute;
-  z-index: 1;
   right: 14px;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -1126,8 +1097,7 @@ xcustom form elements
   top: 0;
   margin: 0;
   padding: 0;
-  opacity: 0;
-  z-index: 2; }
+  opacity: 0; }
 
 .cd-filter-block .checkbox-label,
 .cd-filter-block .radio-label {
