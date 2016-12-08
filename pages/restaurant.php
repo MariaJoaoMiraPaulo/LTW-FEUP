@@ -6,29 +6,29 @@ session_start();
 $title = "Welcome";
 include_once "header.php";
 include_once "../dbActions/restaurantUtils.php";
+include_once "../dbActions/reviewsUtils.php";
 $id = $_GET["id"];
+$_SESSION['restID']=$id;
 $nameRestaurant = getRestaurantNameById($id);
 ?>
 
-
-<div class="restaurantInfo">
-    <h1><?php echo $nameRestaurant ?></h1>
-    <!-- Image -->
-</div>
-
-<form class="cd-form floating-labels">
-    <fieldset>
-        <legend>Write a review</legend>
-        <div class="icon">
-            <label class="cd-label" for="cd-textarea">Write a review</label>
-            <textarea class="message" name="cd-textarea" id="cd-textarea" required></textarea>
+    <div id="restaurantImage">
+        <div class="container">
+            <div class="restaurantInfo">
+            </div>
+            <h1><?php echo $nameRestaurant ?></h1>
         </div>
+    </div>
 
-        <div>
-            <input type="submit" value="Send">
-        </div>
-    </fieldset>
-</form>
+    <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
+        Write a review:<br>
+        <input type="text" name="title">Title<br>
+        <input type="text" name="review">Review<br>
+        <input type="text" name="rate">User Rate<br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php getRestaurantReviews($_SESSION['restID'])?>
 
 <?php
 include_once "footer.php";

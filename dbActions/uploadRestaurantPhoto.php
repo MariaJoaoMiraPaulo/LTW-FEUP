@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once ('restaurantUtils.php');
 
-$id = $_GET['id'];
+$id = $_SESSION['restID'];
 
 $target_dir = "../assets/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

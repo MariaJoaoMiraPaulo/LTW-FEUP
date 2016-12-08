@@ -34,7 +34,7 @@ CREATE TABLE reviews (
 	title VARCHAR,
 	userRate INTEGER,
 	text VARCHAR,
-	date TEXT,
+	date DATE,
 	likes INTEGER
 );
 

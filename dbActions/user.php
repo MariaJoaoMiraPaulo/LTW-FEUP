@@ -53,7 +53,14 @@ function getIdByUserName($userName){
     global $db;
     $statement = $db->prepare('SELECT id FROM users WHERE username = ? ');
     $statement->execute([$userName]);
-    return $statement->fetch();
+    return $statement->fetch()['id'];
+}
+
+function getUserNameById($idUser){
+    global $db;
+    $statement = $db->prepare('SELECT username FROM users WHERE id = ? ');
+    $statement->execute([$idUser]);
+    return $statement->fetch()['username'];
 }
 
 function getUserInfoByUserName($username,$info){
