@@ -8,6 +8,7 @@ include_once "header.php";
 include_once "../dbActions/restaurantUtils.php";
 include_once "../dbActions/reviewsUtils.php";
 $id = $_GET["id"];
+$userId = $_SESSION['login-user'];
 $_SESSION['restID']=$id;
 $nameRestaurant = getRestaurantNameById($id);
 ?>
@@ -28,8 +29,10 @@ $nameRestaurant = getRestaurantNameById($id);
         <input type="submit" value="Submit">
     </form>
 
-    <?php getRestaurantReviews($_SESSION['restID'])?>
+    <?php
+    getRestaurantReviews($_SESSION['restID'],$userId);
 
+    ?>
 <?php
 include_once "footer.php";
 ?>

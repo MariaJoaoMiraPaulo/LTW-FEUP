@@ -19,7 +19,7 @@ function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date)
     return false;
 }
 
-function getRestaurantReviews($idRest){
+function getRestaurantReviews($idRest,$idUser){
 
     global $db;
     $statement = $db->prepare('SELECT * FROM reviews WHERE restaurant_id = ? ');
@@ -34,6 +34,9 @@ function getRestaurantReviews($idRest){
         echo '<p>'. $row['title'] .'</p>';
         echo '<p>'. $row['userRate'] .'</p>';
         echo '<p>'. $row['date'] .'</p>';
+
+        if(restaurantOwner($idRest,$idUser))
+            echo '<br>'.'<p>Responder</p>'.'</br>';
     }
     return true;
 }

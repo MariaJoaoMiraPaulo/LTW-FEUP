@@ -168,3 +168,17 @@ function uploadPhotoToRestaurant($target_file,$idRest){
     }
     return false;
 }
+
+function restaurantOwner($idRestaurant,$userId){
+    global $db;
+    $statement = $db->prepare('SELECT OwnerID FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaurant]);
+    $res = $statement->fetch()['OwnerID'];
+
+    $id = getIdByUserName($userId);
+
+    if($res == $id)
+        return true;
+
+    return false;
+}
