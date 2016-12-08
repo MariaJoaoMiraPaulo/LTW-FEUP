@@ -36,7 +36,7 @@ function getRestaurantReviews($idRest,$idUser){
         echo '<p>'. $row['date'] .'</p>';
 
         if(restaurantOwner($idRest,$idUser))
-            echo '<br>'.'<p>Responder</p>'.'</br>';
+            echo '<br>'.'<a href="answerReview.php">Responder</a>'.'</br>';
     }
     return true;
 }
