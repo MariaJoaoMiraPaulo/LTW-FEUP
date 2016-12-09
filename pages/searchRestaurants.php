@@ -68,7 +68,7 @@ include "header.php";
         </section> <!-- cd-gallery -->
 
         <div class="cd-filter">
-            <form>
+            <form method="post" action="searchRestaurants.php" class="action-wrapper">
 
                 <div class="cd-filter-block">
                     <h4>Category</h4>
@@ -89,7 +89,11 @@ include "header.php";
                         ?>
                     </ul> <!-- cd-filter-content -->
                 </div> <!-- cd-filter-block -->
+                <li>
+                    <input type="checkbox" name="restaurant" value="porta">Breakfast<br>
+                    <input class="button" type="submit" name="submit" value="Search">
 
+                </li>
             </form>
 
         </div> <!-- cd-filter -->

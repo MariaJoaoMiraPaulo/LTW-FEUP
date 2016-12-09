@@ -111,10 +111,12 @@ function selectAllServices(){
     $stmt->execute();
 
     $i = 0;
+
     while ($row = $stmt->fetch()) {
 
         echo '<li>';
-        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="service'.$i.'">';
+       // echo '<input type="checkbox" name="services[]" value="'. $row['service'] .'">'. $row['service'] .'<br>';
+        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" name="restaurant" id="service'.$i.'" value="porta">';
         echo '<label class="checkbox-label" for="service'.$i.'">'. $row['service'] .'</label>';
         echo '</li>';
         $i++;

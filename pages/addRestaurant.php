@@ -26,10 +26,10 @@ include_once "header.php";
             <span>Enter Restaurant WebSite here</span>
         </li>
         <li>
-            <label for="services">Services</label>
+                <label for="services">Services</label>
             <input type="checkbox" name="services[]" value="Breakfast">Breakfast<br>
             <input type="checkbox" name="services[]" value="Lunch">Lunch<br>
-            <input type="checkbox" name="services[]" value="Dinner">Dinner<br>
+            <input type="checkbox" name="services[]" value= "Dinner">Dinner<br>
             <input type="checkbox" name="services[]" value="Home Delivery">Home Delivery<br>
             <input type="checkbox" name="services[]" value="Home and Drink">Have a Drink<br>
             <input type="checkbox" name="services[]" value="Coffees and Pastries">Coffees and Pastries<br>
