@@ -1,3 +1,5 @@
+
+
 jQuery(document).ready(function($){
 	//this is used for the video effect only
 	if( $('.cd-bg-video-wrapper').length > 0 ) {
@@ -32,3 +34,4 @@ function exitCreateAcc() {
 function exitUser() {
 	session_destroy();
 }
+

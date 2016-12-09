@@ -1301,6 +1301,10 @@ Restaurant Page
     position: relative;
     min-width: 500px;
     width: 100%; }
+  .restaurantPage .arrowRight {
+    position: absolute; }
+  .restaurantPage .arrowLeft {
+    position: absolute; }
 
 @media only screen and (min-width: 850px) {
   .restaurantPage {
@@ -1315,13 +1319,16 @@ Restaurant Page
       min-width: 400px;
       width: 400px;
       float: right; } }
-.album {
-  min-height: 320px;
-  box-sizing: border-box; }
-
 .mySlides {
   width: 100%;
-  height: auto; }
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  object-fit: cover; }
+  .mySlides img {
+    position: fixed;
+    width: 100%; }
 
 .reviewForm {
   padding-left: 50px;

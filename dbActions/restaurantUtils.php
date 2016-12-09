@@ -78,7 +78,7 @@ function getUserRestaurantsName($username){
         $statement->execute([$id]);
 
         while ($row = $statement->fetch()) {
-            $id = getIdRestaurantByName($row['name'])[0];
+            $id = getIdRestaurantByName($row['name']);
             echo '<li>';
             echo '<a href="restaurant.php?id='.$id.'">'.$row['name'].'</a>';
             echo '</li>';
@@ -223,7 +223,8 @@ function getRestaurantPhotos($idRest){
     $stmt->execute([$idRest]);
 
     while ($row = $stmt->fetch()) {
-        echo $row['name'].'<br>';
+        echo '<img class="mySlides" src='.$row['name'].' hidden="hidden">';
+
     }
     return true;
 }

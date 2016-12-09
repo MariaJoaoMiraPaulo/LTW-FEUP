@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-    <!DOCTYPE html>
     <?php
     $title = "Welcome";
     include_once "header.php";
@@ -12,20 +11,22 @@ session_start();
     $_SESSION['restID'] = $id;
     $nameRestaurant = getRestaurantNameById($id);
     ?>
+    <script src="../js/slider.js"></script> <!-- Resource jQuery -->
 
     <div class="restaurantPage">
         <div class="main">
             <div class="container">
                 <div class="album">
-                    <img class="mySlides" src="../assets/url.jpg">
+                    <div id="photos">
+                        <?php getRestaurantPhotos($id);?>
+                    </div>
+                    <a class="arrowLeft" onclick="plusDivs(-1)">&#10094;</a>
+                    <a class="arrowRight" onclick="plusDivs(+1)">&#10095;</a>
                 </div>
 
                 <h1><?php echo $nameRestaurant ?></h1>
                 <div class="addPhotos">
                     <?php
-                    echo "Fotos Album" . '<br>';
-                    getRestaurantPhotos($id);
-
                     if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
                         echo '<form class="addRestaurantForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
                         echo '<li>';
