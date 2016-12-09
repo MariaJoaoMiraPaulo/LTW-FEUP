@@ -182,3 +182,37 @@ function restaurantOwner($idRestaurant,$userId){
 
     return false;
 }
+
+function getRestaurantInfoById($idRestaurant,$info){
+
+    global $db;
+    $statement = $db->prepare('SELECT * FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaurant]);
+
+    return $statement->fetch()[$info];
+}
+
+function updateRestaurantInfo($idRestaurant,$restName, $restAddress,$restLocation,$restWebSite,$restPrice){
+    if(!trim($restName))
+        $restName = getUserInfogetRestaurantInfoById($idRestaurant,'name');
+
+
+    if(!trim($restAddress))
+         $restAddress = getUserInfogetRestaurantInfoById($idRestaurant,'address');
+
+    if(!trim($restLocation))
+        $restLocation = getUserInfogetRestaurantInfoById($restLocation,'location');
+
+    if(!trim($restWebSite)){
+        $restLocation = getUserInfogetRestaurantInfoById($restLocation,'website');
+    }
+
+    if(!trim($restPrice)){
+        $restPrice = getUserInfogetRestaurantInfoById($restPrice,'price');
+    }
+
+    global $db;
+    $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ? WHERE id = ?');
+    $statement->execute([$restName,$restAddress,$restLocation,$restWebSite,$restPrice,$idRestaurant]);
+    return $statement->errorCode();
+}
