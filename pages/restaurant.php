@@ -14,32 +14,31 @@ session_start();
     ?>
 
     <div class="restaurantPage">
-
         <div class="main">
-            <div id="restaurantImage">
-                <div class="container">
-                    <div class="album">
-                        <img class="mySlides" src="../assets/url.jpg">
-                    </div>
-
-                    <h1><?php echo $nameRestaurant ?></h1>
-                    <div class="addPhotos">
-                        <?php
-                        echo "Fotos Album" . '<br>';
-                        getRestaurantPhotos($id);
-
-                        if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
-                            echo '<form class="addRestaurantForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
-                            echo '<li>';
-                            echo '<input type="file" name="fileToUpload" id="fileToUpload">';
-                            echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
-                            echo '</li>';
-                            echo '</form>';
-                        }
-                        ?>
-                    </div>
-
+            <div class="container">
+                <div class="album">
+                    <img class="mySlides" src="../assets/url.jpg">
                 </div>
+
+                <h1><?php echo $nameRestaurant ?></h1>
+                <div class="addPhotos">
+                    <?php
+                    echo "Fotos Album" . '<br>';
+                    getRestaurantPhotos($id);
+
+                    if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
+                        echo '<form class="addRestaurantForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                        echo '<li>';
+                        echo '<input type="file" name="fileToUpload" id="fileToUpload">';
+                        echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
+                        echo '</li>';
+                        echo '</form>';
+                    }
+                    ?>
+                </div>
+
+            </div>
+            <div class="container">
                 <div class="editRestaurant">
                     <form class="formEditRestaurant" action="../dbActions/editRestaurant.php" method="post">
                         <fieldset>
@@ -62,31 +61,39 @@ session_start();
                     </form>
                 </div>
             </div>
-            <div class="reviewsForm">
-                <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
-                    Write a review:<br>
-                    <input type="text" name="title">Title<br>
-                    <input type="text" name="review">Review<br>
-                    <input type="text" name="rate">User Rate<br>
-                    <input type="submit" value="Submit">
-                </form>
+            <div class="container">
+
+                <div class="reviewsForm">
+                    <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
+                        Write a review:<br>
+                        <input type="text" name="title">Title<br>
+                        <input type="text" name="review">Review<br>
+                        <input type="text" name="rate">User Rate<br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
-            <div class="reviews">
-                <?php
-                getRestaurantReviews($_SESSION['restID'], $userId);
-                ?>
+
+            <div class="container">
+                <div class="reviews">
+                    <?php
+                    getRestaurantReviews($_SESSION['restID'], $userId);
+                    ?>
+                </div>
             </div>
         </div>
 
         <div class="related">
-            <div class="reviewsForm">
-                <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
-                    Write a review:<br>
-                    <input type="text" name="title">Title<br>
-                    <input type="text" name="review">Review<br>
-                    <input type="text" name="rate">User Rate<br>
-                    <input type="submit" value="Submit">
-                </form>
+            <div class="container">
+                <div class="reviewsForm">
+                    <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
+                        Write a review:<br>
+                        <input type="text" name="title">Title<br>
+                        <input type="text" name="review">Review<br>
+                        <input type="text" name="rate">User Rate<br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
         </div>
 

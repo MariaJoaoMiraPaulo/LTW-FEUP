@@ -1286,11 +1286,18 @@ Restaurant Page
   flex-wrap: wrap;
   -webkit-align-content: center;
   align-content: center; }
+  .restaurantPage .container {
+    margin-bottom: 1.6em;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 10px 10px 10px 10px; }
   .restaurantPage .main {
+    padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
     width: 100%; }
   .restaurantPage .related {
+    padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
     width: 100%; }
