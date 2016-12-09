@@ -1470,6 +1470,44 @@ Restaurant Page
 
 -------------------------------- */
 
+.restaurantPage{
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  align-content: center;
+
+  .main{
+    position: relative;
+    min-width: 500px;
+    width: 100%;
+  }
+
+  .related{
+    position: relative;
+    min-width: 500px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .restaurantPage{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+    .main{
+      max-width: 770px;
+      min-width: 400px;
+      float: left;
+    }
+
+    .related{
+      min-width: 400px;
+      width: 400px;
+      float: right;
+    }
+  }
+}
+
 .album{
   min-height: 320px;
   box-sizing: border-box;
@@ -1484,4 +1522,3 @@ Restaurant Page
   padding-left: 50px;
   padding-bottom: 50px;
 }
-
