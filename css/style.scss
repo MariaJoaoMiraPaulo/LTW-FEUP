@@ -746,6 +746,8 @@ padding: 15px;
  -----------------------------------*/
 
 .cd-tab-filter-wrapper {
+  position: absolute;
+  z-index: 2;
   background-color: #ffffff;
 
 }
@@ -770,60 +772,6 @@ padding: 15px;
 
 }
 
-.cd-main-content.is-fixed .cd-tab-filter-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.cd-main-content.is-fixed .cd-filter {
-  position: fixed;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.cd-main-content.is-fixed .cd-filter-trigger {
-  position: fixed;
-}
-
-.cd-main-content {
-  position: relative;
-  min-height: 100vh;
-}
-
-.cd-main-content::after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.cd-main-content.is-fixed .cd-tab-filter-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.cd-main-content.is-fixed .cd-gallery {
-  padding-top: 76px;
-}
-
-.cd-main-content.is-fixed .cd-filter {
-  position: fixed;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.cd-main-content.is-fixed .cd-filter form {
-  height: 100vh;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.cd-main-content.is-fixed .cd-filter-trigger {
-  position: fixed;
-}
 
 @media only screen and (min-width: 768px) {
   .cd-main-content.is-fixed .cd-gallery {
@@ -1043,6 +991,7 @@ xfilter
 }
 
 .cd-filter form {
+
   padding: 70px 20px;
 }
 

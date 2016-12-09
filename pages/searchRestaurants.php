@@ -9,13 +9,13 @@ include "header.php";
 
     <main class="cd-main-content">
         <div class="cd-tab-filter-wrapper">
-            <div class="cd-tab-filter">
+
                 <form method="post" action="searchRestaurants.php" class="action-wrapper">
                     <input class="select-location" type="text" name="search" placeholder="Location">
                     <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
                     <input class="button" type="submit" name="submit" value="Search">
                 </form>
-            </div> <!-- cd-tab-filter -->
+
         </div> <!-- cd-tab-filter-wrapper -->
 
         <section class="cd-gallery">
@@ -24,8 +24,11 @@ include "header.php";
                 if(isset($_POST['submit'])) {
                     if (preg_match("/[a-zA-Z]/", $_POST['restaurant'])) {
                         $name = $_POST['restaurant'];
+
                         $result = getRestaurantIdFromName($name);
+
                         foreach($result as $row){
+                            $restaurantId = $row['id'];
                             $restaurantName = $row['name'];
                             $restaurantLocation = $row['location'];
                             $restaurantAddress = $row['address'];
@@ -35,12 +38,14 @@ include "header.php";
                             echo "<h1>" .$restaurantName."</h1>";
                             echo "<h1>" .$restaurantLocation."</h1>";
                             echo "<h1>" .$restaurantAddress."</h1>";
-                            echo "<h1>" .$restaurantPrice."</h1>";
-                            echo "<h1>" .$restaurantOpenHours."</h1>";
+                            selectAllServicesFromIdRestaurant($restaurantId);
+                            echo "<h1>Price: " .$restaurantPrice."</h1>";
+                            echo "<h1>Hours: ".$restaurantOpenHours."</h1>";
                             echo "</li>\n";
                         }
                         $result = getRestaurantIdFromCategory($name);
                         foreach($result as $row){
+                            $restaurantId = $row['id'];
                             $restaurantName = $row['name'];
                             $restaurantLocation = $row['location'];
                             $restaurantAddress = $row['address'];
@@ -50,13 +55,14 @@ include "header.php";
                             echo "<h1>" .$restaurantName."</h1>";
                             echo "<h1>" .$restaurantLocation."</h1>";
                             echo "<h1>" .$restaurantAddress."</h1>";
-                            echo "<h1>" .$restaurantPrice."</h1>";
-                            echo "<h1>" .$restaurantOpenHours."</h1>";
+                            selectAllServicesFromIdRestaurant($restaurantId);
+                            echo "<h1>Price: " .$restaurantPrice."</h1>";
+                            echo "<h1>Hours: ".$restaurantOpenHours."</h1>";
                             echo "</li>\n";
                         }
                     }
                 }
-                ?>
+                ?>'
                 <li class="gap"></li>
             </ul>
         </section> <!-- cd-gallery -->

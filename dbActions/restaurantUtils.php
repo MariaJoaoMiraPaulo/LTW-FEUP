@@ -157,3 +157,26 @@ function addCategoryToRestaurant($idRestaurant,$category){
     }
     return false;
 }
+
+function selectAllServicesFromIdRestaurant($idRestaurant){
+    global $db;
+    $statement = $db->prepare('SELECT  service FROM services WHERE restaurant_id LIKE ? GROUP BY service ORDER BY COUNT(*) DESC ');
+    $statement->execute([$idRestaurant]);
+
+    echo "<h1>Cuisine: ";
+    $i = 0;
+    $j = 1;
+    while ($row = $statement->fetch())
+        $i++;
+    $statement->execute([$idRestaurant]);
+    while ($row = $statement->fetch()) {
+
+        $service = $row['service'];
+        if($j == $i){
+        echo  $service ."";}
+        else{
+        echo  $service .", ";}
+        $j++;
+    }
+   echo "</h1>";
+}
