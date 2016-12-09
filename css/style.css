@@ -1339,8 +1339,194 @@ Restaurant Page
     width: 100%;
     z-index: -1; }
 
+#restaurantName {
+  font-family: 'PT Serif',Georgia;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: x-large;
+  font-weight: bold; }
+
+#restaurantLocation {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: medium; }
+
+#findPhoto {
+  align-content: center;
+  padding-right: 20px;
+  padding-top: 20px; }
+
+.editRestForm {
+  margin-left: 20px;
+  border-radius: 2px;
+  align-content: center;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.editRestForm button,
+.editRestForm input[type="submit"],
+.editRestForm input[type="button"] {
+  margin-top: 10px;
+  align-content: center;
+  background: #34495E;
+  border: none;
+  padding: 10px 10px 10px 10px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #F3F3F3; }
+
+#button-add:hover,
+.editRestForm button:hover,
+.editRestForm input[type="submit"]:hover,
+.editRestForm input[type="button"]:hover {
+  background: #6B9FFF;
+  color: #F3F3F3; }
+
+.editRestForm input[type="text"],
+.editRestForm input[type="date"],
+.editRestForm input[type="datetime"],
+.editRestForm input[type="email"],
+.editRestForm input[type="number"],
+.editRestForm input[type="search"],
+.editRestForm input[type="time"],
+.editRestForm input[type="url"],
+.editRestForm input[type="password"],
+.editRestForm textarea,
+.editRestForm select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.editRestForm label {
+  float: left;
+  height: 14px;
+  margin: 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+addRestaurantPhotoForm {
+  max-width: 600px;
+  margin: 50px auto;
+  margin-left: 30%;
+  border-radius: 2px;
+  padding: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.addRestaurantPhotoForm button,
+.addRestaurantPhotoForm input[type="submit"],
+.addRestaurantPhotoForm input[type="button"] {
+  background: #34495E;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  margin-top: 10px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #F3F3F3; }
+
+.addRestaurantPhotoForm button:hover,
+.addRestaurantPhotoForm input[type="submit"]:hover,
+.addRestaurantPhotoForm input[type="button"]:hover {
+  background: #6B9FFF;
+  color: #F3F3F3; }
+
+.addPhotos {
+  padding-left: 20px;
+  padding-bottom: 20px; }
+
 .reviewForm {
-  padding-left: 50px;
+  padding-left: 20px;
   padding-bottom: 50px; }
+
+.reviewForm button,
+.reviewForm input[type="submit"],
+.reviewForm input[type="button"] {
+  margin-top: 10px;
+  align-content: center;
+  background: #34495E;
+  border: none;
+  padding: 10px 10px 10px 10px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #F3F3F3; }
+
+#button-add:hover,
+.reviewForm button:hover,
+.reviewForm input[type="submit"]:hover,
+.reviewForm input[type="button"]:hover {
+  background: #6B9FFF;
+  color: #F3F3F3; }
+
+.reviewForm input[type="text"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 90%;
+  display: block;
+  height: 25px;
+  margin: 5px;
+  line-height: 25px;
+  font-size: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+#reviewArea {
+  height: 80px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 90%;
+  display: block;
+  margin: 5px;
+  line-height: 25px;
+  font-size: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.reviewForm label {
+  float: left;
+  height: 14px;
+  margin: 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
+.boxTitle {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-size: medium;
+  font-weight: bold; }
+
+.rating {
+  text-align: left;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: xx-large;
+  margin-bottom: 20px; }
+
+.rating > span:hover:before {
+  content: "\2605";
+  position: absolute; }
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  color: gold;
+  position: absolute; }
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em; }
 
 /*# sourceMappingURL=style.css.map */
