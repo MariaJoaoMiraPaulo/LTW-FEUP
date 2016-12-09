@@ -31,11 +31,13 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 1)
+if ($uploadOk == 1){
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+    uploadPhotoToRestaurant($target_file,$id);
+}
 
-uploadPhotoToRestaurant($target_file,$id);
-
-header('Location: ../pages/profile.php');
+if(strpos($_SERVER['HTTP_REFERER'],"addRestaurantPhoto.php"))
+    header('Location: ../pages/profile.php');
+else header("Location:".$_SERVER['HTTP_REFERER']."");
 
 ?>

@@ -107,7 +107,7 @@ function selectAllCategories(){
 
 function selectAllServices(){
     global $db;
-    $stmt = $db->prepare('SELECT  service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
+    $stmt = $db->prepare('SELECT service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
     $stmt->execute();
 
     $i = 0;
@@ -215,4 +215,15 @@ function updateRestaurantInfo($idRestaurant,$restName, $restAddress,$restLocatio
     $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ? WHERE id = ?');
     $statement->execute([$restName,$restAddress,$restLocation,$restWebSite,$restPrice,$idRestaurant]);
     return $statement->errorCode();
+}
+
+function getRestaurantPhotos($idRest){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM photo WHERE restaurant_id=?');
+    $stmt->execute([$idRest]);
+
+    while ($row = $stmt->fetch()) {
+        echo $row['name'].'<br>';
+    }
+    return true;
 }

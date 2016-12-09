@@ -18,6 +18,22 @@ session_start();
             <div class="restaurantInfo">
             </div>
             <h1><?php echo $nameRestaurant ?></h1>
+            <div class="addPhotos">
+                <?php
+                echo "Fotos Album".'<br>';
+                getRestaurantPhotos($id);
+
+                if(restaurantOwner($_SESSION["restID"],$_SESSION['login-user'])){
+                    echo '<form class="addRestaurantForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                    echo '<li>';
+                    echo '<input type="file" name="fileToUpload" id="fileToUpload">';
+                    echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
+                    echo '</li>';
+                    echo '</form>';
+                }
+                ?>
+            </div>
+
         </div>
         <div class="editRestaurant">
             <form class="formEditRestaurant" action="../dbActions/editRestaurant.php" method="post">
