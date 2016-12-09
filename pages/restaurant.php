@@ -70,6 +70,10 @@ $location = getRestaurantInfoById($id, 'location');
         </div>
 
         <div class="container">
+            <?php
+            $photo = '../assets/'.getUserPhoto($_SESSION['login-user']);
+            ?>
+            <img id="userPhoto" src=<?php echo $photo?>>
             <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
                 <p class="boxTitle">Write a review:</p>
                 <label>Choose a title:</label>

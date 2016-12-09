@@ -1529,4 +1529,16 @@ addRestaurantPhotoForm {
   position: relative;
   width: 1.1em; }
 
+#userPhoto {
+  border-radius: 50%;
+  width: 85px;
+  height: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border: 1.5px solid #34495E; }
+  #userPhoto img {
+    object-fit: cover; }
+
 /*# sourceMappingURL=style.css.map */

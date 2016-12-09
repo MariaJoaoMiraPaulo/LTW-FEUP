@@ -131,3 +131,10 @@ function validatePassword($password){
 
     return false;
 }
+
+function getUserPhoto($username){
+    global $db;
+    $statement = $db->prepare('SELECT photoId FROM users WHERE username = ?');
+    $statement->execute([$username]);
+    return $statement->fetch()['photoId'];
+}
