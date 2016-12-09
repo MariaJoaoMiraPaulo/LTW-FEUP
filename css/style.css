@@ -68,18 +68,22 @@ Header
   float: right;
   text-align: left;
   margin: 2px 10px;
-  display: inline; }
-
-.header-login {
-  vertical-align: middle;
-  text-align: center;
-  padding-right: 60px;
-  padding-top: 20px; }
-
-.header-login .link {
+  display: inline;
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #F3F3F3; }
+  .header-right .header-login {
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px; }
+  .header-right .header-error {
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px; }
 
 .login-button {
   background-color: #34495E;
@@ -1271,5 +1275,56 @@ xcustom form elements
 .addRestaurantForm input[type="button"]:hover {
   background: #6B9FFF;
   color: #F3F3F3; }
+
+/* --------------------------------
+
+Restaurant Page
+
+-------------------------------- */
+.restaurantPage {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  align-content: center; }
+  .restaurantPage .container {
+    margin-bottom: 1.6em;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 10px 10px 10px 10px; }
+  .restaurantPage .main {
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    min-width: 500px;
+    width: 100%; }
+  .restaurantPage .related {
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    min-width: 500px;
+    width: 100%; }
+
+@media only screen and (min-width: 850px) {
+  .restaurantPage {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; }
+    .restaurantPage .main {
+      max-width: 770px;
+      min-width: 400px;
+      float: left; }
+    .restaurantPage .related {
+      min-width: 400px;
+      width: 400px;
+      float: right; } }
+.album {
+  min-height: 320px;
+  box-sizing: border-box; }
+
+.mySlides {
+  width: 100%;
+  height: auto; }
+
+.reviewForm {
+  padding-left: 50px;
+  padding-bottom: 50px; }
 
 /*# sourceMappingURL=style.css.map */

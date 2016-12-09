@@ -61,14 +61,12 @@ include_once "header.php";
             <input placeholder="€/ two people" name="price" class="form-control" type="text"><br>
             <span>Enter price for two people Here</span>
         </li>
-
         <li>
             <input type="submit" value="Save Changes">
-            <button class="button-item" type="button" onclick="location.href='index.php';">Cancel</button>
+            <button class="button-item" type="button" onclick='location.href="index.php"'>Cancel</button>
         </li>
         </ul>
 </form>
-
 
 <?php
 include_once "footer.php";

@@ -77,24 +77,34 @@ Header
   height: 1.5cm;
   width: 1.5cm;
 }
+
+
 .header-right {
   float: right;
   text-align: left;
   margin: 2px 10px;
-  display: inline
-}
-
-.header-login{
-  vertical-align: middle;
-  text-align: center;
-  padding-right: 60px;
-  padding-top: 20px;
-}
-
-.header-login .link{
+  display: inline;
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #F3F3F3;
+
+
+  .header-login{
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px;
+  }
+
+  .header-error{
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px;
+
+  }
 }
 
 .login-button{
@@ -1005,9 +1015,6 @@ xgallery
   }
 }
 
-
-
-
 /* --------------------------------
 
 xfilter
@@ -1455,4 +1462,70 @@ xcustom form elements
 .addRestaurantForm input[type="button"]:hover{
   background: #6B9FFF;
   color:$background-color;
+}
+
+/* --------------------------------
+
+Restaurant Page
+
+-------------------------------- */
+
+.restaurantPage{
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  align-content: center;
+  .container{
+      margin-bottom: 1.6em;
+      background-color: #ffffff;
+      border-radius: 4px;
+      padding: 10px 10px 10px 10px;
+  }
+  .main{
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    min-width: 500px;
+    width: 100%;
+  }
+
+  .related{
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    min-width: 500px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .restaurantPage{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+    .main{
+      max-width: 770px;
+      min-width: 400px;
+      float: left;
+    }
+
+    .related{
+      min-width: 400px;
+      width: 400px;
+      float: right;
+    }
+  }
+}
+
+.album{
+  min-height: 320px;
+  box-sizing: border-box;
+}
+
+.mySlides{
+  width: 100%;
+  height: auto;
+}
+
+.reviewForm{
+  padding-left: 50px;
+  padding-bottom: 50px;
 }

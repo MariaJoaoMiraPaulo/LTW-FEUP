@@ -14,11 +14,14 @@ function login($username, $password) {
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
+        unset($_SESSION["ERROR"]);
         header("location:../pages/index.php");
         exit();
     }
     else {
-
+        $_SESSION["ERROR"] = "Incorrect Password or Username, try again!";
+        header("Location:".$_SERVER['HTTP_REFERER']."");
+        exit();
     }
 }
 
@@ -36,7 +39,9 @@ function signUp($username,$fullname,$date,$type,$password,$gender){
         header("location:../pages/index.php");
         exit();
     }
-    else echo "Impossible to regist user";
+    else{
+        $_SESSION["ERROR"] = "Error on sign Up";
+    }
 }
 
 function getUserInfo($idUser,$info){
@@ -53,7 +58,14 @@ function getIdByUserName($userName){
     global $db;
     $statement = $db->prepare('SELECT id FROM users WHERE username = ? ');
     $statement->execute([$userName]);
-    return $statement->fetch();
+    return $statement->fetch()['id'];
+}
+
+function getUserNameById($idUser){
+    global $db;
+    $statement = $db->prepare('SELECT username FROM users WHERE id = ? ');
+    $statement->execute([$idUser]);
+    return $statement->fetch()['username'];
 }
 
 function getUserInfoByUserName($username,$info){

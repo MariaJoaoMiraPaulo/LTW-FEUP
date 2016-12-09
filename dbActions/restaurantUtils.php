@@ -107,7 +107,7 @@ function selectAllCategories(){
 
 function selectAllServices(){
     global $db;
-    $stmt = $db->prepare('SELECT  service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
+    $stmt = $db->prepare('SELECT service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
     $stmt->execute();
 
     $i = 0;
@@ -126,14 +126,16 @@ function getIdRestaurantByName($restaurantName){
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant WHERE name = ? ');
     $statement->execute([$restaurantName]);
-    return $statement->fetch();
+    $res = $statement->fetch();
+    return $res[0];
 }
 
 function getRestaurantNameById($idRestaurant){
     global $db;
     $statement = $db->prepare('SELECT name FROM restaurant WHERE id = ? ');
     $statement->execute([$idRestaurant]);
-    return $statement->fetch();
+    $res = $statement->fetch();
+    return $res[0];
 }
 
 function addServicesToRestaurant($idRestaurant,$service){
@@ -156,4 +158,72 @@ function addCategoryToRestaurant($idRestaurant,$category){
         return true;
     }
     return false;
+}
+
+function uploadPhotoToRestaurant($target_file,$idRest){
+    global $db;
+    $statement = $db->prepare('INSERT INTO photo (name,restaurant_id) VALUES (?,?)');
+    if($statement->execute([$target_file,$idRest])){
+        return true;
+    }
+    return false;
+}
+
+function restaurantOwner($idRestaurant,$userId){
+    global $db;
+    $statement = $db->prepare('SELECT OwnerID FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaurant]);
+    $res = $statement->fetch()['OwnerID'];
+
+    $id = getIdByUserName($userId);
+
+    if($res == $id)
+        return true;
+
+    return false;
+}
+
+function getRestaurantInfoById($idRestaurant,$info){
+
+    global $db;
+    $statement = $db->prepare('SELECT * FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaurant]);
+
+    return $statement->fetch()[$info];
+}
+
+function updateRestaurantInfo($idRestaurant,$restName, $restAddress,$restLocation,$restWebSite,$restPrice){
+    if(!trim($restName))
+        $restName = getUserInfogetRestaurantInfoById($idRestaurant,'name');
+
+
+    if(!trim($restAddress))
+         $restAddress = getUserInfogetRestaurantInfoById($idRestaurant,'address');
+
+    if(!trim($restLocation))
+        $restLocation = getUserInfogetRestaurantInfoById($restLocation,'location');
+
+    if(!trim($restWebSite)){
+        $restLocation = getUserInfogetRestaurantInfoById($restLocation,'website');
+    }
+
+    if(!trim($restPrice)){
+        $restPrice = getUserInfogetRestaurantInfoById($restPrice,'price');
+    }
+
+    global $db;
+    $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ? WHERE id = ?');
+    $statement->execute([$restName,$restAddress,$restLocation,$restWebSite,$restPrice,$idRestaurant]);
+    return $statement->errorCode();
+}
+
+function getRestaurantPhotos($idRest){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM photo WHERE restaurant_id=?');
+    $stmt->execute([$idRest]);
+
+    while ($row = $stmt->fetch()) {
+        echo $row['name'].'<br>';
+    }
+    return true;
 }
