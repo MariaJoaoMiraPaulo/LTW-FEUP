@@ -1460,15 +1460,14 @@ Restaurant Page
 
 -------------------------------- */
 
-#restaurantImage{
-  min-height: 450px;
-  position: relative;
+.album{
+  min-height: 320px;
+  box-sizing: border-box;
 }
 
-.restaurantInfo{
-  background: url("../assets/portarossa_banner_home_01.jpg") no-repeat center center;
-  min-height: 420px;
-  box-sizing: border-box;
+.mySlides{
+  width: 100%;
+  height: auto;
 }
 
 .reviewForm{

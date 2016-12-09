@@ -1277,14 +1277,13 @@ xcustom form elements
 Restaurant Page
 
 -------------------------------- */
-#restaurantImage {
-  min-height: 450px;
-  position: relative; }
-
-.restaurantInfo {
-  background: url("../assets/portarossa_banner_home_01.jpg") no-repeat center center;
-  min-height: 420px;
+.album {
+  maxs-height: 320px;
   box-sizing: border-box; }
+
+.mySlides {
+  width: 100%;
+  height: auto; }
 
 .reviewForm {
   padding-left: 50px;

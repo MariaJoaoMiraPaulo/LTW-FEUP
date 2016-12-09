@@ -15,8 +15,10 @@ session_start();
 
     <div id="restaurantImage">
         <div class="container">
-            <div class="restaurantInfo">
+            <div class="album">
+                <img class="mySlides" src="../assets/url.jpg">
             </div>
+
             <h1><?php echo $nameRestaurant ?></h1>
             <div class="addPhotos">
                 <?php
