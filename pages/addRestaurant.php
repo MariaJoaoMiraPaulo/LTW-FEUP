@@ -63,7 +63,7 @@ include_once "header.php";
         </li>
         <li>
             <input type="submit" value="Save Changes">
-            <button class="button-item" type="button" onclick="location.href='index.php';">Cancel</button>
+            <button class="button-item" type="button" onclick='location.href="index.php"'>Cancel</button>
         </li>
         </ul>
 </form>
