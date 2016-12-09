@@ -77,24 +77,34 @@ Header
   height: 1.5cm;
   width: 1.5cm;
 }
+
+
 .header-right {
   float: right;
   text-align: left;
   margin: 2px 10px;
-  display: inline
-}
-
-.header-login{
-  vertical-align: middle;
-  text-align: center;
-  padding-right: 60px;
-  padding-top: 20px;
-}
-
-.header-login .link{
+  display: inline;
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #F3F3F3;
+
+
+  .header-login{
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px;
+  }
+
+  .header-error{
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 60px;
+    padding-top: 20px;
+
+  }
 }
 
 .login-button{
