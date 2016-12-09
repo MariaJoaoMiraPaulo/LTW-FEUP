@@ -1280,6 +1280,21 @@ xcustom form elements
 Restaurant Page
 
 -------------------------------- */
+.searchBarContainer {
+  width: 100%;
+  padding: 10px 5px 5px 0px;
+  display: flex;
+  justify-content: center; }
+  .searchBarContainer form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 1150px;
+    min-width: 500px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 5px 5px 5px 5px; }
+
 .restaurantPage {
   display: flex;
   flex-wrap: wrap;

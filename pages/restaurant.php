@@ -12,7 +12,11 @@ session_start();
     $_SESSION['restID'] = $id;
     $nameRestaurant = getRestaurantNameById($id);
     ?>
-
+    <div class="searchBarContainer">
+        <?php
+        include "../dbActions/searchBar.php";
+        ?>
+    </div>
     <div class="restaurantPage">
         <div class="main">
             <div class="container">
