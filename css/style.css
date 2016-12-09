@@ -1302,9 +1302,17 @@ Restaurant Page
     min-width: 500px;
     width: 100%; }
   .restaurantPage .arrowRight {
-    position: absolute; }
+    position: absolute;
+    top: 150px;
+    left: 720px;
+    font-size: xx-large;
+    color: white; }
   .restaurantPage .arrowLeft {
-    position: absolute; }
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    font-size: xx-large;
+    color: white; }
 
 @media only screen and (min-width: 850px) {
   .restaurantPage {
@@ -1328,7 +1336,8 @@ Restaurant Page
   object-fit: cover; }
   .mySlides img {
     position: fixed;
-    width: 100%; }
+    width: 100%;
+    z-index: -1; }
 
 .reviewForm {
   padding-left: 50px;

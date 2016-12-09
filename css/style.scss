@@ -1497,10 +1497,18 @@ Restaurant Page
 
   .arrowRight{
      position: absolute;
+      top: 150px;
+     left: 720px;
+      font-size: xx-large;
+    color: white;
   }
 
   .arrowLeft{
      position: absolute;
+    top: 150px;
+    left: 30px;
+    font-size: xx-large;
+    color: white;
   }
 
 }
@@ -1510,6 +1518,7 @@ Restaurant Page
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
+
     .main{
       max-width: 770px;
       min-width: 400px;
@@ -1534,6 +1543,7 @@ Restaurant Page
   img{
     position: fixed;
     width: 100%;
+    z-index: -1;
   }
 }
 
