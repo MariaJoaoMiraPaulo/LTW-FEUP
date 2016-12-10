@@ -1282,7 +1282,7 @@ Restaurant Page
 -------------------------------- */
 .searchBarContainer {
   width: 100%;
-  padding: 10px 5px 5px 0px;
+  padding: 10px 5px 5px 5px;
   display: flex;
   justify-content: center; }
   .searchBarContainer form {
