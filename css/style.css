@@ -1571,4 +1571,44 @@ addRestaurantPhotoForm {
   border-radius: 4px;
   padding: 10px 10px 10px 10px; }
 
+/* --------------------------------
+
+Restaurant Search Page
+
+-------------------------------- */
+.restaurantSearchPage {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  align-content: center; }
+  .restaurantSearchPage .container {
+    margin-bottom: 1.6em;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 10px 10px 10px 10px; }
+  .restaurantSearchPage .main {
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    min-width: 500px;
+    width: 100%; }
+  .restaurantSearchPage .advancedSearch {
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    min-width: 500px;
+    width: 100%; }
+
+@media only screen and (min-width: 850px) {
+  .restaurantSearchPage {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; }
+    .restaurantSearchPage .main {
+      max-width: 770px;
+      min-width: 400px;
+      float: left; }
+    .restaurantSearchPage .advancedSearch {
+      min-width: 400px;
+      width: 400px;
+      float: right; } }
+
 /*# sourceMappingURL=style.css.map */

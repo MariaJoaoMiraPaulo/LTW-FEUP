@@ -16,7 +16,7 @@ function selectTopCategories(){
     return true;
 }
 
-function getRestaurantIdFromName($name){
+function getRestaurantFromName($name){
     global $db;
     $keywords = explode(' ', $name);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
