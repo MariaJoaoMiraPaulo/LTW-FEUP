@@ -1,9 +1,10 @@
 <?php
 
-include_once ('user.php');
-include_once ('config.php');
+include_once('user.php');
+include_once('config.php');
 
-function selectTopCategories(){
+function selectTopCategories()
+{
     global $db;
     $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC LIMIT 5');
     $stmt->execute();
@@ -11,12 +12,13 @@ function selectTopCategories(){
     echo '<option value="Category">Category</option> ';
 
     while ($row = $stmt->fetch()) {
-        echo '<option value="'. $row['category'] .'">'. $row['category'] .'</option>';
+        echo '<option value="' . $row['category'] . '">' . $row['category'] . '</option>';
     }
     return true;
 }
 
-function getRestaurantFromName($name){
+function getRestaurantFromName($name)
+{
     global $db;
     $keywords = explode(' ', $name);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
@@ -25,7 +27,8 @@ function getRestaurantFromName($name){
     return $stmt->fetchAll();
 }
 
-function getRestaurantFromLocation($location){
+function getRestaurantFromLocation($location)
+{
     global $db;
     $keywords = explode(' ', $location);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
@@ -34,7 +37,8 @@ function getRestaurantFromLocation($location){
     return $stmt->fetchAll();
 }
 
-function getRestaurantFromNameAndLocation($name,$location){
+function getRestaurantFromNameAndLocation($name, $location)
+{
     global $db;
     $keywords = explode(' ', $name);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
@@ -43,14 +47,16 @@ function getRestaurantFromNameAndLocation($name,$location){
     return $stmt->fetchAll();
 }
 
-function getRestaurantFromService($service){
+function getRestaurantFromService($service)
+{
     global $db;
     $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM services WHERE service LIKE ?)");
     $stmt->execute([$service]);
     return $stmt->fetchAll();
 }
 
-function getRestaurantFromCategory($category){
+function getRestaurantFromCategory($category)
+{
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
@@ -59,33 +65,86 @@ function getRestaurantFromCategory($category){
     return $stmt->fetchAll();
 }
 
-function getRestaurantFromCategoryAndLocation($category,$location){
+function getRestaurantFromCategoryAndLocation($category, $location)
+{
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?) and location LIKE ?");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?) AND location LIKE ?");
     $stmt->execute([$string, $location]);
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price){
-    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
-        $id = getUserInfoByUserName($username,'id');
+function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category, $location)
+{
+    global $db;
+    $namekeywords = explode(' ', $name);
+    $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
+    $locationkeywords = explode(' ', $location);
+    $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
+    $servicekeywords = explode(' ', $service);
+    $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
+    $ratingkeywords = explode(' ', $rating);
+    $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
+    $categorykeywords = explode(' ', $category);
+    $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
+
+    if ($service != "" && $category != ""){
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
+id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
+AND location LIKE ? 
+AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?;");
+    $stmt->execute([$categorystring, $locationstring, $servicestring, $namestring, $ratingstring, $priceMin, $priceMax]);
+}else if($service != ""){
+        $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
+id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
+AND location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?;");
+        $stmt->execute([$servicestring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+}else if($category!= ""){
+        $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
+id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
+AND location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?;");
+        $stmt->execute([$categorystring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    }else{
+        $stmt = $db->prepare("SELECT * FROM restaurant WHERE
+location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?;");
+        $stmt->execute([$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    }
+    return $stmt->fetchAll();
+}
+
+function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price)
+{
+    if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
+        $id = getUserInfoByUserName($username, 'id');
 
         global $db;
 
         $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price) VALUES (?,?,?,?,?,?)');
 
-        if($statement->execute([$id,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price])){
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price])) {
             return true;
         }
         return false;
     }
 }
 
-function getUserRestaurants($username){
-    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
-        $id = getUserInfoByUserName($username,'id');
+function getUserRestaurants($username)
+{
+    if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
+        $id = getUserInfoByUserName($username, 'id');
 
         global $db;
 
@@ -93,19 +152,20 @@ function getUserRestaurants($username){
         $statement->execute([$id]);
 
         while ($row = $statement->fetch()) {
-            echo '<p>'. $row['name'] .'</p>';
-            echo '<p>'. $row['address'] .'</p>';
-            echo '<p>'. $row['location'] .'</p>';
-            echo '<p>'. $row['website'] .'</p>';
+            echo '<p>' . $row['name'] . '</p>';
+            echo '<p>' . $row['address'] . '</p>';
+            echo '<p>' . $row['location'] . '</p>';
+            echo '<p>' . $row['website'] . '</p>';
         }
         return true;
     }
 }
 
-function getUserRestaurantsName($username){
+function getUserRestaurantsName($username)
+{
 
-    if(strtoupper(getUserInfoByUserName($username,'type'))=='OWNER'){
-        $id = getUserInfoByUserName($username,'id');
+    if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
+        $id = getUserInfoByUserName($username, 'id');
 
         global $db;
         $statement = $db->prepare('SELECT * FROM restaurant WHERE OwnerId = ? ');
@@ -114,14 +174,15 @@ function getUserRestaurantsName($username){
         while ($row = $statement->fetch()) {
             $id = getIdRestaurantByName($row['name']);
             echo '<li>';
-            echo '<a href="restaurant.php?id='.$id.'">'.$row['name'].'</a>';
+            echo '<a href="restaurant.php?id=' . $id . '">' . $row['name'] . '</a>';
             echo '</li>';
         }
         return true;
     }
 }
 
-function selectAllCategories(){
+function selectAllCategories()
+{
     global $db;
     $stmt = $db->prepare('SELECT  category FROM categories GROUP BY category ORDER BY COUNT(*) DESC ');
     $stmt->execute();
@@ -130,8 +191,8 @@ function selectAllCategories(){
     while ($row = $stmt->fetch()) {
 
         echo '<li>';
-        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="category'.$i.'">';
-        echo '<label class="checkbox-label" for="category'.$i.'">'. $row['category'] .'</label>';
+        echo ' <input class="filter" data-filter=".check' . $i . '" type="checkbox" id="category' . $i . '">';
+        echo '<label class="checkbox-label" for="category' . $i . '">' . $row['category'] . '</label>';
         echo '</li>';
         $i++;
     }
@@ -139,7 +200,8 @@ function selectAllCategories(){
 }
 
 
-function selectAllServices(){
+function selectAllServices()
+{
     global $db;
     $stmt = $db->prepare('SELECT service FROM services GROUP BY service ORDER BY COUNT(*) DESC ');
     $stmt->execute();
@@ -148,15 +210,16 @@ function selectAllServices(){
     while ($row = $stmt->fetch()) {
 
         echo '<li>';
-        echo ' <input class="filter" data-filter=".check'.$i.'" type="checkbox" id="service'.$i.'">';
-        echo '<label class="checkbox-label" for="service'.$i.'">'. $row['service'] .'</label>';
+        echo ' <input class="filter" data-filter=".check' . $i . '" type="checkbox" id="service' . $i . '">';
+        echo '<label class="checkbox-label" for="service' . $i . '">' . $row['service'] . '</label>';
         echo '</li>';
         $i++;
     }
     return true;
 }
 
-function getIdRestaurantByName($restaurantName){
+function getIdRestaurantByName($restaurantName)
+{
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant WHERE name = ? ');
     $statement->execute([$restaurantName]);
@@ -164,7 +227,8 @@ function getIdRestaurantByName($restaurantName){
     return $res[0];
 }
 
-function getRestaurantNameById($idRestaurant){
+function getRestaurantNameById($idRestaurant)
+{
     global $db;
     $statement = $db->prepare('SELECT name FROM restaurant WHERE id = ? ');
     $statement->execute([$idRestaurant]);
@@ -172,38 +236,42 @@ function getRestaurantNameById($idRestaurant){
     return $res[0];
 }
 
-function addServicesToRestaurant($idRestaurant,$service){
+function addServicesToRestaurant($idRestaurant, $service)
+{
     global $db;
 
     $statement = $db->prepare('INSERT INTO services (restaurant_id,service) VALUES (?,?)');
 
-    if($statement->execute([$idRestaurant,$service])){
+    if ($statement->execute([$idRestaurant, $service])) {
         return true;
     }
     return false;
 }
 
-function addCategoryToRestaurant($idRestaurant,$category){
+function addCategoryToRestaurant($idRestaurant, $category)
+{
     global $db;
 
     $statement = $db->prepare('INSERT INTO categories (restaurant_id,category) VALUES (?,?)');
 
-    if($statement->execute([$idRestaurant,$category])){
+    if ($statement->execute([$idRestaurant, $category])) {
         return true;
     }
     return false;
 }
 
-function uploadPhotoToRestaurant($target_file,$idRest){
+function uploadPhotoToRestaurant($target_file, $idRest)
+{
     global $db;
     $statement = $db->prepare('INSERT INTO photo (name,restaurant_id) VALUES (?,?)');
-    if($statement->execute([$target_file,$idRest])){
+    if ($statement->execute([$target_file, $idRest])) {
         return true;
     }
     return false;
 }
 
-function restaurantOwner($idRestaurant,$userId){
+function restaurantOwner($idRestaurant, $userId)
+{
     global $db;
     $statement = $db->prepare('SELECT OwnerID FROM restaurant WHERE id = ? ');
     $statement->execute([$idRestaurant]);
@@ -211,13 +279,14 @@ function restaurantOwner($idRestaurant,$userId){
 
     $id = getIdByUserName($userId);
 
-    if($res == $id)
+    if ($res == $id)
         return true;
 
     return false;
 }
 
-function getRestaurantInfoById($idRestaurant,$info){
+function getRestaurantInfoById($idRestaurant, $info)
+{
 
     global $db;
     $statement = $db->prepare('SELECT * FROM restaurant WHERE id = ? ');
@@ -226,38 +295,40 @@ function getRestaurantInfoById($idRestaurant,$info){
     return $statement->fetch()[$info];
 }
 
-function updateRestaurantInfo($idRestaurant,$restName, $restAddress,$restLocation,$restWebSite,$restPrice){
-    if(!trim($restName))
-        $restName = getRestaurantInfoById($idRestaurant,'name');
+function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocation, $restWebSite, $restPrice)
+{
+    if (!trim($restName))
+        $restName = getRestaurantInfoById($idRestaurant, 'name');
 
 
-    if(!trim($restAddress))
-         $restAddress = getRestaurantInfoById($idRestaurant,'address');
+    if (!trim($restAddress))
+        $restAddress = getRestaurantInfoById($idRestaurant, 'address');
 
-    if(!trim($restLocation))
-        $restLocation = getRestaurantInfoById($restLocation,'location');
+    if (!trim($restLocation))
+        $restLocation = getRestaurantInfoById($restLocation, 'location');
 
-    if(!trim($restWebSite)){
-        $restLocation = getRestaurantInfoById($restLocation,'website');
+    if (!trim($restWebSite)) {
+        $restLocation = getRestaurantInfoById($restLocation, 'website');
     }
 
-    if(!trim($restPrice)){
-        $restPrice = getRestaurantInfoById($restPrice,'price');
+    if (!trim($restPrice)) {
+        $restPrice = getRestaurantInfoById($restPrice, 'price');
     }
 
     global $db;
     $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ? WHERE id = ?');
-    $statement->execute([$restName,$restAddress,$restLocation,$restWebSite,$restPrice,$idRestaurant]);
+    $statement->execute([$restName, $restAddress, $restLocation, $restWebSite, $restPrice, $idRestaurant]);
     return $statement->errorCode();
 }
 
-function getRestaurantPhotos($idRest){
+function getRestaurantPhotos($idRest)
+{
     global $db;
     $stmt = $db->prepare('SELECT * FROM photo WHERE restaurant_id=?');
     $stmt->execute([$idRest]);
 
     while ($row = $stmt->fetch()) {
-        echo '<img class="mySlides" src='.$row['name'].' hidden="hidden">';
+        echo '<img class="mySlides" src=' . $row['name'] . ' hidden="hidden">';
 
     }
     return true;
