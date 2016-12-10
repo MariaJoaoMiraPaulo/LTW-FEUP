@@ -1,8 +1,15 @@
 <?php
 
 $id_autor=$_GET['id'];
-echo $id_autor;
-$text=$_POST['answer'];
+$idRev=$_GET['idRev'];
+
+echo $id_autor.'<br>';
+echo $idRev.'<br>';
+
+$name = "answer".$idRev;
+
+$text = $_POST[$name];
+
 echo $text;
 
 date_default_timezone_set('UTC');

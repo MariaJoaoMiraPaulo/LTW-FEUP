@@ -48,12 +48,14 @@ function getRestaurantReviews($idRest,$idUser){
         if(restaurantOwner($idRest,$idUser)){
             echo '<br>';
             $button = "buttonAnswer".$idRev;
-            $textArea = "answerReviewTextArea".$idRev;
-            $submit = "buttonReviewAnswer".$idRev;
+            $name = "answer".$idRev;
+            $form = "form".$idRev;
 
             echo '<br>'.'<button class="buttonAnswer" id='.$button.' onclick=openAnswerForm("'.$idRev.'");>Answer</button>';
-            echo '<input class="answerReviewTextArea" id ='.$textArea.' type="search" name="answer" hidden="hidden"><br>';
-            echo '<br>'.'<button class="buttonReviewAnswer" id='.$submit.' hidden= "hidden" onclick="window.location.href=\'/../dbActions/answerReview.php?id='.$id.'\'">Submit</button>';
+            echo '<form id='.$form.' action="../dbActions/answerReview.php?id='.$id.'&idRev='.$idRev.'" hidden="hidden" method="post">';
+            echo '<input class="answerReviewTextArea" type="search" name='.$name.'><br>';
+            echo '<input class="buttonReviewAnswer" type="submit" value="Submit">';
+            echo '</form>';
         }
 
 

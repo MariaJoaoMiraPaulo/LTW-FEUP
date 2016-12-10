@@ -36,8 +36,6 @@ function exitUser() {
 }
 
 function openAnswerForm($idRev) {
-    $('#answerReviewTextArea'+ $idRev).show();
-    $('#buttonReviewAnswer'+ $idRev).show();
-    $('#buttonAnswer'+ $idRev).hide();
+    $('#form'+ $idRev).show();
 }
 
