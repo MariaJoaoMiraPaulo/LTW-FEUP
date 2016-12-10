@@ -1541,4 +1541,20 @@ addRestaurantPhotoForm {
   #userPhoto img {
     object-fit: cover; }
 
+#userPhotoReview {
+  border-radius: 50%;
+  width: 75px;
+  height: 80px;
+  display: block;
+  margin: 20px;
+  border: 1.5px solid #34495E; }
+  #userPhotoReview img {
+    object-fit: cover; }
+
+.reviewContainer {
+  margin-bottom: 1.6em;
+  background-color: lightgoldenrodyellow;
+  border-radius: 4px;
+  padding: 10px 10px 10px 10px; }
+
 /*# sourceMappingURL=style.css.map */

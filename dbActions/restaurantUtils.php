@@ -194,21 +194,21 @@ function getRestaurantInfoById($idRestaurant,$info){
 
 function updateRestaurantInfo($idRestaurant,$restName, $restAddress,$restLocation,$restWebSite,$restPrice){
     if(!trim($restName))
-        $restName = getUserInfogetRestaurantInfoById($idRestaurant,'name');
+        $restName = getRestaurantInfoById($idRestaurant,'name');
 
 
     if(!trim($restAddress))
-         $restAddress = getUserInfogetRestaurantInfoById($idRestaurant,'address');
+         $restAddress = getRestaurantInfoById($idRestaurant,'address');
 
     if(!trim($restLocation))
-        $restLocation = getUserInfogetRestaurantInfoById($restLocation,'location');
+        $restLocation = getRestaurantInfoById($restLocation,'location');
 
     if(!trim($restWebSite)){
-        $restLocation = getUserInfogetRestaurantInfoById($restLocation,'website');
+        $restLocation = getRestaurantInfoById($restLocation,'website');
     }
 
     if(!trim($restPrice)){
-        $restPrice = getUserInfogetRestaurantInfoById($restPrice,'price');
+        $restPrice = getRestaurantInfoById($restPrice,'price');
     }
 
     global $db;

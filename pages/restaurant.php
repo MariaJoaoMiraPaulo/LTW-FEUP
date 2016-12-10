@@ -54,7 +54,7 @@ $location = getRestaurantInfoById($id, 'location');
 
             <div class="container">
                 <div class="addPhotos">
-                <p class="boxTitle">Add photo to your galery:</p>
+                <p class="boxTitle">Add a photo to your galery:</p>
                 <div class="addPhotos">
                     <?php
                     if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
@@ -99,15 +99,7 @@ $location = getRestaurantInfoById($id, 'location');
 
     <div class="related">
         <div class="container">
-            <div class="reviewsForm">
-                <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
-                    Write a review:<br>
-                    <input type="text" name="title">Title<br>
-                    <input type="text" name="review">Review<br>
-                    <input type="text" name="rate">User Rate<br>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
+           <p>FILTROS de procura</p>
         </div>
     </div>
 
