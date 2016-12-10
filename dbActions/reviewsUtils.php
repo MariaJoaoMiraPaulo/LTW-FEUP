@@ -37,13 +37,13 @@ function getRestaurantReviews($idRest,$idUser){
         echo '<div class="reviewContainer">';
         echo $html;
         echo '<p>'.$fullName.'</p>';
-
         echo '<p>'.$userName.'</p>';
-
         echo '<p>'. $row['title'] .'</p>';
         // echo '<p>'. $row['userRate'] .'</p>';
         echo '<p>'. $row['date'] .'</p>';
         echo '</div>';
+
+        getAllCommentsOfReview($idRev);
 
         if(restaurantOwner($idRest,$idUser)){
             echo '<br>';
@@ -74,4 +74,18 @@ function addCommentToReview($idRev,$id_autor,$text,$currentDate){
         return true;
     }
     return false;
+}
+
+function getAllCommentsOfReview($idRev){
+    global $db;
+
+    $statement = $db->prepare('SELECT * FROM comments WHERE review_id = ? ');
+    $statement->execute([$idRev]);
+
+    while ($row = $statement->fetch()) {
+        echo '<p>'.$row['text'].'</p>';
+        echo '<p>'.$row['date'].'</p>';
+    }
+
+    return true;
 }
