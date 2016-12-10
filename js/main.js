@@ -13,6 +13,12 @@ jQuery(document).ready(function($){
 			video.get(0).play();
 		}
 	}
+
+    $('stars').on('hover', function(){
+        $(this).trigger('click');
+    });
+
+
 });
 
 function visibleLogin() {
@@ -38,4 +44,3 @@ function exitUser() {
 function openAnswerForm($idRev) {
     $('#form'+ $idRev).show();
 }
-

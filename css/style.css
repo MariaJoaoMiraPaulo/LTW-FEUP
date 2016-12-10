@@ -3,6 +3,7 @@
 Primary style
 
 -------------------------------- */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 *, *::after, *::before {
   box-sizing: border-box; }
 
@@ -1530,7 +1531,6 @@ addRestaurantPhotoForm {
 
 .reviewForm label {
   float: left;
-  height: 14px;
   margin: 5px;
   color: #B9B9B9;
   font-size: 14px;
@@ -1543,28 +1543,6 @@ addRestaurantPhotoForm {
   padding-bottom: 20px;
   font-size: medium;
   font-weight: bold; }
-
-.rating {
-  text-align: left;
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  font-size: xx-large;
-  margin-bottom: 20px; }
-
-.rating > span:hover:before {
-  content: "\2605";
-  position: absolute; }
-
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-  content: "\2605";
-  color: gold;
-  position: absolute; }
-
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em; }
 
 #userPhoto {
   border-radius: 50%;
@@ -1594,5 +1572,30 @@ addRestaurantPhotoForm {
   background-color: lightgoldenrodyellow;
   border-radius: 4px;
   padding: 10px 10px 10px 10px; }
+
+.rating {
+  border: none;
+  float: left; }
+
+.rating > input {
+  display: none; }
+
+.rating > label:before {
+  font-size: 1.5em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005"; }
+
+.rating > label {
+  color: #ddd;
+  float: right; }
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700; }
+
+/* hover previous stars in list */
+.rating > input:checked ~ label {
+  color: #d6b600; }
 
 /*# sourceMappingURL=style.css.map */
