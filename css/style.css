@@ -50,40 +50,39 @@ Header
 
  ---------------------------------*/
 .header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   background: #34495E;
-  height: 70px; }
-
-.header-left-icon {
-  float: left;
-  width: 125px;
-  text-align: right;
-  margin: 2px 10px;
-  display: inline; }
-
-.logo {
-  height: 1.5cm;
-  width: 1.5cm; }
-
-.header-right {
-  float: right;
-  text-align: left;
-  margin: 2px 10px;
-  display: inline;
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  color: #F3F3F3; }
-  .header-right .header-login {
+  height-min: 70px;
+  height: auto; }
+  .header .header-left-icon {
     float: left;
-    vertical-align: middle;
-    text-align: center;
-    padding-right: 60px;
-    padding-top: 20px; }
-  .header-right .header-error {
-    float: left;
-    vertical-align: middle;
-    text-align: center;
-    padding-right: 60px;
-    padding-top: 20px; }
+    width: 125px;
+    text-align: right;
+    margin: 2px 10px; }
+  .header .logo {
+    height: 1.5cm;
+    width: 1.5cm; }
+  .header .header-right {
+    float: right;
+    text-align: left;
+    align-self: center;
+    margin: 2px 10px;
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #F3F3F3; }
+    .header .header-right .header-login {
+      float: left;
+      align-self: center;
+      vertical-align: middle;
+      text-align: center; }
+    .header .header-right .header-error {
+      float: left;
+      vertical-align: middle;
+      text-align: center;
+      padding-right: 60px;
+      padding-top: 20px; }
 
 .login-button {
   background-color: #34495E;
@@ -1281,6 +1280,21 @@ xcustom form elements
 Restaurant Page
 
 -------------------------------- */
+.searchBarContainer {
+  width: 100%;
+  padding: 10px 5px 5px 5px;
+  display: flex;
+  justify-content: center; }
+  .searchBarContainer form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 1150px;
+    min-width: 500px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 5px 5px 5px 5px; }
+
 .restaurantPage {
   display: flex;
   flex-wrap: wrap;
@@ -1543,7 +1557,7 @@ addRestaurantPhotoForm {
 
 #userPhotoReview {
   border-radius: 50%;
-  width: 75px;
+  width: 85px;
   height: 80px;
   display: block;
   margin: 20px;

@@ -43,11 +43,10 @@ include_once "header.php";
 
         <p id="pomodoro">Pomodoro</p>
 
-        <form method="post" action="searchRestaurants.php" class="action-wrapper">
-            <input class="select-location" type="text" name="search" placeholder="Location">
-            <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
-            <input class="button" type="submit" name="submit" value="Search">
-        </form>
+        <?php
+        include "../dbActions/searchBar.php";
+        ?>
+
 
         <div class="cd-bg-video-wrapper" data-video="../assets/video">
             <!-- video element will be loaded using jQuery -->

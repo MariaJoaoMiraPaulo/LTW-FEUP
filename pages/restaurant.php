@@ -1,19 +1,25 @@
 <?php
 session_start();
 ?>
-<?php
-$title = "Welcome";
-include_once "header.php";
-include_once "../dbActions/restaurantUtils.php";
-include_once "../dbActions/reviewsUtils.php";
-$id = $_GET["id"];
-$userId = $_SESSION['login-user'];
-$_SESSION['restID'] = $id;
-$nameRestaurant = getRestaurantNameById($id);
-$location = getRestaurantInfoById($id, 'location');
-?>
-    <script src="../js/slider.js"></script>
+    <!DOCTYPE html>
+    <?php
+    $title = "Welcome";
+    include_once "header.php";
+    include_once "../dbActions/restaurantUtils.php";
+    include_once "../dbActions/reviewsUtils.php";
+    $id = $_GET["id"];
+    $userId = $_SESSION['login-user'];
+    $_SESSION['restID'] = $id;
+    $nameRestaurant = getRestaurantNameById($id);
+    $location = getRestaurantInfoById($id, 'location');
+    ?>
+    <div class="searchBarContainer">
+        <?php
+        include "../dbActions/searchBar.php";
+        ?>
+    </div>
 
+    <script src="../js/slider.js"></script>
     <div class="restaurantPage">
         <div class="main">
             <div class="container">
