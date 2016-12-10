@@ -36,6 +36,7 @@ function signUp($username,$fullname,$date,$type,$password,$gender){
 
     if($statement->execute([$username,$fullname,$date,$photo,$gender,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
+        unset($_SESSION["ERROR"]);
         header("location:../pages/index.php");
         exit();
     }
@@ -130,4 +131,11 @@ function validatePassword($password){
         return true;
 
     return false;
+}
+
+function getUserPhoto($username){
+    global $db;
+    $statement = $db->prepare('SELECT photoId FROM users WHERE username = ?');
+    $statement->execute([$username]);
+    return $statement->fetch()['photoId'];
 }

@@ -28,15 +28,24 @@ function getRestaurantReviews($idRest,$idUser){
     while ($row = $statement->fetch()) {
         $id = $row['id_autor'];
         $userName = getUserNameById($id);
+        $photoUser = "../assets/".getUserPhoto($userName);
         $fullName = getUserInfoByUserName($userName,'fullName');
-        echo '<p>'.$userName.'</p>';
-        echo '<p>'.$fullName.'</p>';
-        echo '<p>'. $row['title'] .'</p>';
-        echo '<p>'. $row['userRate'] .'</p>';
-        echo '<p>'. $row['date'] .'</p>';
 
+        $html = '<img id="userPhotoReview" src=' . $photoUser .'>';
+
+        echo '<div class="reviewContainer">';
+        echo $html;
+        echo '<p>'.$fullName.'</p>';
+
+        echo '<p>'.$userName.'</p>';
+
+        echo '<p>'. $row['title'] .'</p>';
+        // echo '<p>'. $row['userRate'] .'</p>';
+        echo '<p>'. $row['date'] .'</p>';
+        echo '</div>';
         if(restaurantOwner($idRest,$idUser))
-            echo '<br>'.'<a href="answerReview.php">Responder</a>'.'</br>';
+            echo '<br>'.'<a href="answerReview.php">Responder</a>'.'<br>';
+
     }
     return true;
 }

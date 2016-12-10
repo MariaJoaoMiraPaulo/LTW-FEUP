@@ -10,6 +10,8 @@ $type = $_POST['type'];
 $gender = $_POST['gender'];
 
 
+
+
 if($username && $password){
     if(!usernameAlreadyExists($username)){
         if(validatePassword($password))
