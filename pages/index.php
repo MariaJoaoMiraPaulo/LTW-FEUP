@@ -55,35 +55,35 @@ include_once "header.php";
 </section>
 <section class="quick-servicesItems">
     <div class="quick-services">
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Breakfast';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp">
             <div>Breakfast</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Lunch';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_9.png?output-format=webp">
             <div>Lunch</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Dinner';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_10.png?output-format=webp">
             <div>Dinner</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Home delivery';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_1.png?output-format=webp">
             <div>Home delivery</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Have a drink';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_3.png?output-format=webp">
             <div>Have a drink</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Coffees and Pastries';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_6.png?output-format=webp">
             <div>Coffees and Pastries</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Breakfast';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_5.png?output-format=webp">
             <div>Take away</div>
         </a>
-        <a href="">
+        <a onclick="location.href='searchRestaurants.php?service=Breakfast';">
             <img src="https://b.zmtcdn.com/images/search_tokens/app_icons/special_23.png?output-format=webp">
             <div>Luxury Meals</div>
         </a>

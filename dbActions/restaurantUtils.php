@@ -43,7 +43,14 @@ function getRestaurantFromNameAndLocation($name,$location){
     return $stmt->fetchAll();
 }
 
-function getRestaurantIdFromCategory($category){
+function getRestaurantFromService($service){
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM services WHERE service LIKE ?)");
+    $stmt->execute([$service]);
+    return $stmt->fetchAll();
+}
+
+function getRestaurantFromCategory($category){
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
@@ -52,7 +59,7 @@ function getRestaurantIdFromCategory($category){
     return $stmt->fetchAll();
 }
 
-function getRestaurantIdFromCategoryAndLocation($category,$location){
+function getRestaurantFromCategoryAndLocation($category,$location){
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';

@@ -7,6 +7,10 @@ session_start();
     include_once "header.php";
     include_once "../dbActions/restaurantUtils.php";
     include_once "../dbActions/reviewsUtils.php";
+    if(preg_match("/[a-z A-Z]/", $_GET['service'])){
+        $service = $_GET['service'];
+        $title = $service;
+    }
     if (isset($_POST['submit'])) {
         if (preg_match("/[a-zA-Z]/", $_POST['restaurant']) && preg_match("/[a-zA-Z]/", $_POST['location'])) {
             $name = $_POST['restaurant'];
@@ -42,16 +46,18 @@ session_start();
                     $name = $_POST['restaurant'];
                     $location = $_POST['location'];
                     $result1 = getRestaurantFromNameAndLocation($name,$location);
-                    $result2 = getRestaurantIdFromCategoryAndLocation($name, $location);
+                    $result2 = getRestaurantFromCategoryAndLocation($name, $location);
                 }else if(preg_match("/[a-zA-Z]/", $_POST['restaurant']) && $_POST['location']==""){
                     $name = $_POST['restaurant'];
                     $title = "Searching ".$name;
                     $result1 = getRestaurantFromName($name);
-                    $result2 = getRestaurantIdFromCategory($name);
+                    $result2 = getRestaurantFromCategory($name);
                 }else if(preg_match("/[a-zA-Z]/", $_POST['location']) && $_POST['restaurant']==""){
                     $location = $_POST['location'];
                     $title = "Restaurants at " . $location;
                     $result1 = getRestaurantFromLocation($location);
+                }else if(preg_match("/[a-zA-Z]/", $_POST['service'])){
+                    $result1 = getRestaurantFromService($service);
                 }
                 if(sizeof($result1)>0 || sizeof($result2)>0){
                     foreach ($result1 as $row) {
@@ -62,6 +68,17 @@ session_start();
                         echo "</div>";
                     }
                     foreach ($result2 as $row) {
+                        echo "<div class=\"container\">";
+                        $restaurantName = $row['name'];
+                        $id = getIdRestaurantByName($restaurantName);
+                        echo "<h1 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h1>";
+                        echo "</div>";
+                    }
+                }
+            }else{
+                $result1 = getRestaurantFromService($service);
+                if(sizeof($result1)>0 || sizeof($result2)>0){
+                    foreach ($result1 as $row) {
                         echo "<div class=\"container\">";
                         $restaurantName = $row['name'];
                         $id = getIdRestaurantByName($restaurantName);
