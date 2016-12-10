@@ -52,7 +52,7 @@ function getRestaurantReviews($idRest,$idUser){
             $form = "form".$idRev;
 
             echo '<br>'.'<button class="buttonAnswer" id='.$button.' onclick=openAnswerForm("'.$idRev.'");>Answer</button>';
-            echo '<form id='.$form.' action="../dbActions/answerReview.php?id='.$id.'&idRev='.$idRev.'" hidden="hidden" method="post">';
+            echo '<form id='.$form.' action="../dbActions/reviewAnswer.php?id='.$id.'&idRev='.$idRev.'" hidden="hidden" method="post">';
             echo '<input class="answerReviewTextArea" type="search" name='.$name.'><br>';
             echo '<input class="buttonReviewAnswer" type="submit" value="Submit">';
             echo '</form>';
@@ -61,4 +61,17 @@ function getRestaurantReviews($idRest,$idUser){
 
     }
     return true;
+}
+
+function addCommentToReview($idRev,$id_autor,$text,$currentDate){
+    $likes = 0;
+
+    global $db;
+
+    $statement = $db->prepare('INSERT INTO comments (review_id,id_autor,text,"date",likes) VALUES (?,?,?,?,?)');
+
+    if ($statement->execute([$idRev, $id_autor, $text, $currentDate, $likes])) {
+        return true;
+    }
+    return false;
 }
