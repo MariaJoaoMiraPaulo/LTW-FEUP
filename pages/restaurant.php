@@ -11,13 +11,14 @@ session_start();
     $userId = $_SESSION['login-user'];
     $_SESSION['restID'] = $id;
     $nameRestaurant = getRestaurantNameById($id);
+    $location = getRestaurantInfoById($id, 'location');
     ?>
     <div class="searchBarContainer">
         <?php
         include "../dbActions/searchBar.php";
         ?>
     </div>
-$location = getRestaurantInfoById($id, 'location');
+
     <script src="../js/slider.js"></script>
     <div class="restaurantPage">
         <div class="main">
