@@ -25,12 +25,39 @@ function getRestaurantFromName($name){
     return $stmt->fetchAll();
 }
 
+function getRestaurantFromLocation($location){
+    global $db;
+    $keywords = explode(' ', $location);
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare('SELECT * FROM restaurant WHERE location LIKE ?');
+    $stmt->execute([$string]);
+    return $stmt->fetchAll();
+}
+
+function getRestaurantFromNameAndLocation($name,$location){
+    global $db;
+    $keywords = explode(' ', $name);
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare('SELECT * FROM restaurant WHERE name LIKE ? AND location LIKE ?');
+    $stmt->execute([$string, $location]);
+    return $stmt->fetchAll();
+}
+
 function getRestaurantIdFromCategory($category){
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
     $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
     $stmt->execute([$string]);
+    return $stmt->fetchAll();
+}
+
+function getRestaurantIdFromCategoryAndLocation($category,$location){
+    global $db;
+    $keywords = explode(' ', $category);
+    $string = '%' . implode('% OR LIKE %', $keywords) . '%';
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?) and location LIKE ?");
+    $stmt->execute([$string, $location]);
     return $stmt->fetchAll();
 }
 
