@@ -35,10 +35,12 @@ function getRestaurantReviews($idRest,$idUser){
 
         echo '<div class="reviewContainer">';
         echo $html;
-        echo '<p>'.$userName.'</p>';
         echo '<p>'.$fullName.'</p>';
+
+        echo '<p>'.$userName.'</p>';
+
         echo '<p>'. $row['title'] .'</p>';
-        echo '<p>'. $row['userRate'] .'</p>';
+        // echo '<p>'. $row['userRate'] .'</p>';
         echo '<p>'. $row['date'] .'</p>';
         echo '</div>';
         if(restaurantOwner($idRest,$idUser))
