@@ -1462,6 +1462,30 @@ addRestaurantPhotoForm {
   padding-left: 20px;
   padding-bottom: 50px; }
 
+.buttonReviewAnswer,
+.buttonAnswer {
+  align-content: center;
+  background: #34495E;
+  border: none;
+  padding: 10px 10px 10px 10px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #F3F3F3;
+  margin-bottom: 20px; }
+
+.buttonReviewAnswer:hover,
+.buttonAnswer:hover {
+  background: #6B9FFF;
+  color: #F3F3F3; }
+
+.answerReviewTextArea {
+  width: 90%;
+  height: 55px;
+  margin: 5px;
+  line-height: 25px;
+  font-size: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
 .reviewForm button,
 .reviewForm input[type="submit"],
 .reviewForm input[type="button"] {
@@ -1474,7 +1498,6 @@ addRestaurantPhotoForm {
   border-radius: 3px;
   color: #F3F3F3; }
 
-#button-add:hover,
 .reviewForm button:hover,
 .reviewForm input[type="submit"]:hover,
 .reviewForm input[type="button"]:hover {
@@ -1566,7 +1589,8 @@ addRestaurantPhotoForm {
     object-fit: cover; }
 
 .reviewContainer {
-  margin-bottom: 1.6em;
+  margin-bottom: 1em;
+  margin-top: 2em;
   background-color: lightgoldenrodyellow;
   border-radius: 4px;
   padding: 10px 10px 10px 10px; }

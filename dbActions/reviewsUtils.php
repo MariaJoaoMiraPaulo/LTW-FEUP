@@ -27,6 +27,7 @@ function getRestaurantReviews($idRest,$idUser){
 
     while ($row = $statement->fetch()) {
         $id = $row['id_autor'];
+        $idRev = $row['id'];
         $userName = getUserNameById($id);
         $photoUser = "../assets/".getUserPhoto($userName);
         $fullName = getUserInfoByUserName($userName,'fullName');
@@ -43,8 +44,18 @@ function getRestaurantReviews($idRest,$idUser){
         // echo '<p>'. $row['userRate'] .'</p>';
         echo '<p>'. $row['date'] .'</p>';
         echo '</div>';
-        if(restaurantOwner($idRest,$idUser))
-            echo '<br>'.'<a href="answerReview.php">Responder</a>'.'<br>';
+
+        if(restaurantOwner($idRest,$idUser)){
+            echo '<br>';
+            $button = "buttonAnswer".$idRev;
+            $textArea = "answerReviewTextArea".$idRev;
+            $submit = "buttonReviewAnswer".$idRev;
+
+            echo '<br>'.'<button class="buttonAnswer" id='.$button.' onclick=openAnswerForm("'.$idRev.'");>Answer</button>';
+            echo '<input class="answerReviewTextArea" id ='.$textArea.' type="search" name="answer" hidden="hidden"><br>';
+            echo '<br>'.'<button class="buttonReviewAnswer" id='.$submit.' hidden= "hidden" onclick="window.location.href=\'/../dbActions/answerReview.php?id='.$id.'\'">Submit</button>';
+        }
+
 
     }
     return true;

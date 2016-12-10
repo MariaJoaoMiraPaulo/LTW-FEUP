@@ -35,3 +35,9 @@ function exitUser() {
 	session_destroy();
 }
 
+function openAnswerForm($idRev) {
+    $('#answerReviewTextArea'+ $idRev).show();
+    $('#buttonReviewAnswer'+ $idRev).show();
+    $('#buttonAnswer'+ $idRev).hide();
+}
+
