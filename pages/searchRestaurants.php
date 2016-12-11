@@ -16,19 +16,24 @@ session_start();
     $location = "";
     if (preg_match("/[a-z A-Z]/", $_GET['service'])) {
         $service = $_GET['service'];
-        $title = $service;
     }
     if (preg_match("/[a-z A-Z]/", $_GET['category'])) {
         $service = $_GET['service'];
-        $title = $service;
     }
     if (preg_match("/[a-zA-Z]/", $_GET['restaurant'])) {
         $name = $_GET['restaurant'];
-        $title = "Searching " . $name;
     }
     if (preg_match("/[a-zA-Z]/", $_GET['location'])) {
         $location = $_GET['location'];
-        $title = "Restaurants at " . $location;
+    }
+    if (preg_match("/[a-zA-Z0-9]/", $_GET['priceMin'])) {
+        $priceMin = $_GET['priceMin'];
+    }
+    if (preg_match("/[a-zA-Z0-9]/", $_GET['priceMax'])) {
+        $priceMax = $_GET['priceMax'];
+    }
+    if (preg_match("/[a-zA-Z0-9]/", $_GET['rating'])) {
+        $rating = $_GET['rating'];
     }
 
 
@@ -42,9 +47,15 @@ session_start();
         <div class="advancedSearch">
             <div class="container">
                 <section>
-                    <h1>Services</h1>
-                    <a method="post" action="searchRestaurants.php?"> </a>
-                </section>
+                    <h2>Services</h2>
+                    <form action="get">
+                        <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+                        <input type="checkbox" name="vehicle" value="Car">I have a car
+                    </form>
+                    <?php
+                        echo "<a onclick=\"location.href='searchRestaurants.php?id=$id&name=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=&location';\">SDad</a>";
+                    ?>
+                    </section>
             </div>
         </div>
         <div class="main">
