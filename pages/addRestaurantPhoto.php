@@ -11,6 +11,8 @@ $_SESSION['restID'] = $id;
         <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Upload Restaurant Photo" name="submit">
     </li>
+
+    <button type="button" onclick="window.location.href='profile.php'" >Not Yet!</button>
 </form>
 
 <?php
