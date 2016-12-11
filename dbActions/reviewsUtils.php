@@ -31,6 +31,7 @@ function getRestaurantReviews($idRest,$idUser){
         $userName = getUserNameById($id);
         $photoUser = "../assets/".getUserPhoto($userName);
         $fullName = getUserInfoByUserName($userName,'fullName');
+        $userRate = $row['userRate'];
 
         $html = '<img id="userPhotoReview" src=' . $photoUser .'>';
 
@@ -41,7 +42,9 @@ function getRestaurantReviews($idRest,$idUser){
         echo '<p>'. $row['title'] .'</p>';
         // echo '<p>'. $row['userRate'] .'</p>';
         echo '<p>'. $row['date'] .'</p>';
+        printRate($userRate);
         echo '</div>';
+
 
         getAllCommentsOfReview($idRev);
 
@@ -88,4 +91,9 @@ function getAllCommentsOfReview($idRev){
     }
 
     return true;
+}
+
+function printRate($userRate){
+    $total = " estrelas em 5";
+    echo '<p>'.$userRate.$total.'</p>';
 }

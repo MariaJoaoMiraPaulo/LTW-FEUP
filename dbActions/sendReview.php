@@ -8,6 +8,7 @@ $title = $_POST['title'];
 $rate = $_POST['rate'];
 $user = $_SESSION['login-user'];
 $idRest = $_SESSION['restID'];
+$photo = $_SESSION['fileToUpload'];
 
 if(isset($_POST['rating1'])){
     $rate=1;

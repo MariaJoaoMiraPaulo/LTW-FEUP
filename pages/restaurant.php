@@ -21,6 +21,7 @@ session_start();
 
     <script src="../js/slider.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/review.js"></script>
     <div class="restaurantPage">
         <div class="main">
             <div class="container">
@@ -81,7 +82,7 @@ session_start();
             $photo = '../assets/'.getUserPhoto($_SESSION['login-user']);
             ?>
             <img id="userPhoto" src=<?php echo $photo?>>
-            <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
+            <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post" nctype="multipart/form-data">
                 <p class="boxTitle">Write a review:</p>
                 <label>Choose a title:</label>
                 <input type="text" name="title"><br>
@@ -99,10 +100,15 @@ session_start();
                     <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
                     <input class="stars" type="radio" id="star1" name="rating1" value="1" />
                     <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                </fieldset><br><br>
+                </fieldset>
 
-                <!-- <input type="text" name="rate">User Rate<br>-->
-                <input type="submit" value="Publish">
+                <br><br>
+
+                <input type="file" name="fileToUpload" id="fileToUpload">
+
+                <br><br>
+                <div class="containerUserPhotos">Photos</div>
+                <input id="submit" type="submit" value="Publish">
             </form>
         </div>
 
