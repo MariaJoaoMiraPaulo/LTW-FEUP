@@ -22,6 +22,8 @@ session_start();
     <script src="../js/slider.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/review.js"></script>
+
+
     <div class="restaurantPage">
         <div class="main">
             <div class="container">
@@ -39,43 +41,48 @@ session_start();
                 <div class="editRestaurant">
                     <form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">
                         <fieldset>
-                            <label>Address</label>
-                            <input type="text" name="restAddress"
-                                   value="<?php echo getRestaurantInfoById($id, 'address') ?>"><br>
-                            <label>Location</label>
-                            <input type="text" name="restLocation"
-                                   value="<?php echo getRestaurantInfoById($id, 'location') ?>"><br>
-                            <label>WebSite</label>
-                            <input type="url" name="restWebSite"
-                                   value="<?php echo getRestaurantInfoById($id, 'website') ?>"><br>
-                            <label>Cost</label>
-                            <input type="text" name="restPrice"
-                                   value="<?php echo getRestaurantInfoById($id, 'price') ?>"><br>
                             <?php
-                            if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"]))
-                                echo ' <input type="submit" value="Submit">';
+                            if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                                echo '<label>Address</label>';
+                                $address = getRestaurantInfoById($id, 'address');
+                                echo '<input type="text" name="restAddress" value=' . $address . '>';
+                                echo '<br>';
+                                echo '<label>Location</label>';
+                                $location = getRestaurantInfoById($id, 'location');
+                                echo ' <input type="text" name="restLocation" value=' . $location . '>';
+                                echo '<br>';
+                                echo '<label>WebSite</label>';
+                                $website = getRestaurantInfoById($id, 'website');
+                                echo ' <input type="url" name="restWebSite" value=' . $website . '>';
+                                echo '<br>';
+                                echo '<label>Cost</label>';
+                                $price = getRestaurantInfoById($id, 'price');
+                                echo ' <input type="text" name="restPrice" value=' . $price . '>';
+                                echo '<input type="submit" value="Submit">';
+                            }
                             ?>
+
                         </fieldset>
                     </form>
                 </div>
             </div>
 
-            <div class="container">
-                <div class="addPhotos">
-                    <p class="boxTitle">Add a photo to your galery:</p>
-                    <div class="addPhotos">
-                        <?php
-                        if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
-                            echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
-                            echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
-                            echo '<br>';
-                            echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
-                            echo '</form>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
+            <?php
+            if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                echo '<div class="container">';
+                echo '<div class="addPhotos">';
+                echo '<p class="boxTitle">Add a photo to your galery:</p>';
+                echo '<div class="addPhotos">';
+                echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
+                echo '<br>';
+                echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
+                echo '</form>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
 
             <div class="container">
                 <iframe id="map" frameborder="0"
