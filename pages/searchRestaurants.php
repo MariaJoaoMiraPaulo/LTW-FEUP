@@ -45,7 +45,7 @@ session_start();
     </div>
     <div class="restaurantSearchPage">
         <div class="advancedSearch">
-            <div class="container">
+            <div class="containerSearchPage">
                 <section>
                     <h2>Services</h2>
                     <form action="get">
@@ -58,11 +58,11 @@ session_start();
                     </section>
             </div>
         </div>
-        <div class="main">
+        <div class="mainSearchPage">
             <?php
             $result = getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category, $location);
             foreach ($result as $row) {
-                echo "<div class=\"container\">";
+                echo "<div class=\"containerSearchPage\">";
                 $restaurantName = $row['name'];
                 $id = getIdRestaurantByName($restaurantName);
                 echo "<h1 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h1>";

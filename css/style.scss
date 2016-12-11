@@ -1833,13 +1833,13 @@ Restaurant Search Page
   flex-wrap: wrap;
   -webkit-align-content: center;
   align-content: center;
-  .container{
+  .containerSearchPage{
     margin-bottom: 1.6em;
     background-color: #ffffff;
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
   }
-  .main{
+  .mainSearchPage{
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
@@ -1861,7 +1861,7 @@ Restaurant Search Page
     flex-wrap: nowrap;
     justify-content: center;
 
-    .main{
+    .mainSearchPage{
       max-width: 770px;
       min-width: 400px;
       float: left;
@@ -1873,9 +1873,4 @@ Restaurant Search Page
       float: right;
     }
   }
-}
-
-#map {
-  height: 400px;
-  width: 100%;
 }

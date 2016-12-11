@@ -1581,12 +1581,12 @@ Restaurant Search Page
   flex-wrap: wrap;
   -webkit-align-content: center;
   align-content: center; }
-  .restaurantSearchPage .container {
+  .restaurantSearchPage .containerSearchPage {
     margin-bottom: 1.6em;
     background-color: #ffffff;
     border-radius: 4px;
     padding: 10px 10px 10px 10px; }
-  .restaurantSearchPage .main {
+  .restaurantSearchPage .mainSearchPage {
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
@@ -1602,7 +1602,7 @@ Restaurant Search Page
     display: flex;
     flex-wrap: nowrap;
     justify-content: center; }
-    .restaurantSearchPage .main {
+    .restaurantSearchPage .mainSearchPage {
       max-width: 770px;
       min-width: 400px;
       float: left; }
@@ -1610,8 +1610,5 @@ Restaurant Search Page
       min-width: 400px;
       width: 400px;
       float: right; } }
-#map {
-  height: 400px;
-  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
