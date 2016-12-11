@@ -17,6 +17,44 @@ function selectTopCategories()
     return true;
 }
 
+function getServices($name, $priceMin, $priceMax, $rating, $category, $location)
+{
+    global $db;
+    $namekeywords = explode(' ', $name);
+    $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
+    $locationkeywords = explode(' ', $location);
+    $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
+    $servicekeywords = explode(' ', $service);
+    $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
+    $ratingkeywords = explode(' ', $rating);
+    $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
+    $categorykeywords = explode(' ', $category);
+    $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
+
+        if($category!=""){
+            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IS (SELECT id FROM restaurant WHERE  id 
+LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
+AND location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?);");
+            $stmt->execute([$categorystring,$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+        }else{
+            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IS (SELECT id FROM restaurant WHERE  
+location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?);");
+            $stmt->execute([$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+        }
+
+    while ($row = $stmt->fetch()) {
+        echo '<input type=checkbox value="' . $row['service'] . '">' . $row['service'] . '</option>';
+    }
+
+}
+
+
 function getRestaurantFromName($name)
 {
     global $db;

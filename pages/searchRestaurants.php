@@ -7,7 +7,7 @@ session_start();
     include_once "header.php";
     include_once "../dbActions/restaurantUtils.php";
     include_once "../dbActions/reviewsUtils.php";
-    $name = "";
+    $restaurant = "";
     $service = "";
     $priceMin = 0;
     $priceMax = 100000;
@@ -18,10 +18,10 @@ session_start();
         $service = $_GET['service'];
     }
     if (preg_match("/[a-z A-Z]/", $_GET['category'])) {
-        $service = $_GET['service'];
+        $category = $_GET['category'];
     }
     if (preg_match("/[a-zA-Z]/", $_GET['restaurant'])) {
-        $name = $_GET['restaurant'];
+        $restaurant = $_GET['restaurant'];
     }
     if (preg_match("/[a-zA-Z]/", $_GET['location'])) {
         $location = $_GET['location'];
@@ -48,19 +48,17 @@ session_start();
             <div class="container">
                 <section>
                     <h2>Services</h2>
-                    <form action="get">
-                        <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
-                        <input type="checkbox" name="vehicle" value="Car">I have a car
-                    </form>
+
                     <?php
-                        echo "<a onclick=\"location.href='searchRestaurants.php?id=$id&name=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=&location';\">SDad</a>";
+                        getServices($restaurant, $priceMin, $priceMax, $rating, $category, $location);
+                        echo "<a onclick=\"location.href='searchRestaurants.php?id=$id&restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=&location';\">SDad</a>";
                     ?>
                     </section>
             </div>
         </div>
         <div class="main">
             <?php
-            $result = getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category, $location);
+            $result = getRestaurant($restaurant, $service, $priceMin, $priceMax, $rating, $category, $location);
             foreach ($result as $row) {
                 echo "<div class=\"container\">";
                 $restaurantName = $row['name'];
