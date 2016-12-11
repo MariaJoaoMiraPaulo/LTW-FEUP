@@ -1,78 +1,76 @@
 <?php
-$title = "Restaurants";      // Set the title
-
-include_once('../dbActions/restaurantUtils.php');
-include "header.php";
+session_start();
 ?>
     <!DOCTYPE html>
+    <?php
+
+    include_once "header.php";
+    include_once "../dbActions/restaurantUtils.php";
+    include_once "../dbActions/reviewsUtils.php";
+    $restaurant = "";
+    $service = "";
+    $priceMin = 0;
+    $priceMax = 100000;
+    $rating = "";
+    $category = "";
+    $location = "";
+    if (preg_match("/[a-z A-Z]/", $_GET['service'])) {
+        $service = $_GET['service'];
+    }
+    if (preg_match("/[a-z A-Z]/", $_GET['category'])) {
+        $category = $_GET['category'];
+    }
+    if (preg_match("/[a-zA-Z]/", $_GET['restaurant'])) {
+        $restaurant = $_GET['restaurant'];
+    }
+    if (preg_match("/[a-zA-Z]/", $_GET['location'])) {
+        $location = $_GET['location'];
+    }
+    if (preg_match("/[a-zA-Z0-9]/", $_GET['priceMin'])) {
+        $priceMin = $_GET['priceMin'];
+    }
+    if (preg_match("/[a-zA-Z0-9]/", $_GET['priceMax'])) {
+        $priceMax = $_GET['priceMax'];
+    }
+    if (preg_match("/[a-zA-Z0-9]/", $_GET['rating'])) {
+        $rating = $_GET['rating'];
+    }
 
 
-    <main class="cd-main-content">
-        <div class="cd-tab-filter-wrapper">
-            <div class="cd-tab-filter">
-                <form method="post" action="searchRestaurants.php" class="action-wrapper">
-                    <input class="select-location" type="text" name="search" placeholder="Location">
-                    <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
-                    <input class="button" type="submit" name="submit" value="Search">
-                </form>
-            </div> <!-- cd-tab-filter -->
-        </div> <!-- cd-tab-filter-wrapper -->
+    ?>
+    <div class="searchBarContainer">
+        <?php
+        include "../dbActions/searchBar.php";
+        ?>
+    </div>
+    <div class="restaurantSearchPage">
+        <div class="advancedSearch">
+            <div class="container">
+                <section>
+                    <h2>Services</h2>
 
-        <section class="cd-gallery">
-            <ul>
-                <?php
-                if(isset($_POST['submit'])) {
-                    if (preg_match("/[a-zA-Z]/", $_POST['restaurant'])) {
-                        $name = $_POST['restaurant'];
-                        $result = getRestaurantIdFromName($name);
-                        foreach($result as $row){
-                            $restaurantName = $row['name'];
-                            echo "<li class='item'>";
-                            echo "<h1>" .$restaurantName."</h1>";
+                    <?php
+                        getServices($restaurant, $priceMin, $priceMax, $rating, $category, $location);
+                        echo "<a onclick=\"location.href='searchRestaurants.php?id=$id&restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=&location';\">SDad</a>";
+                    ?>
+                    </section>
+            </div>
+        </div>
+        <div class="main">
+            <?php
+            $result = getRestaurant($restaurant, $service, $priceMin, $priceMax, $rating, $category, $location);
+            foreach ($result as $row) {
+                echo "<div class=\"container\">";
+                $restaurantName = $row['name'];
+                $id = getIdRestaurantByName($restaurantName);
+                echo "<h1 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h1>";
+                echo "</div>";
+            }
+            ?>
 
-                            echo "</li>\n";
-                        }
-                        $result = getRestaurantIdFromCategory($name);
-                        foreach($result as $row){
-                            $restaurantName = $row['name'];
-                            echo "<li>"   .$restaurantName . "</a></li>\n";
-                        }
-                    }
-                }
-                ?>
-                <li class="gap"></li>
-            </ul>
-        </section> <!-- cd-gallery -->
+        </div>
+    </div>
 
-        <div class="cd-filter">
-            <form>
-
-                <div class="cd-filter-block">
-                    <h4>Category</h4>
-
-                    <ul class="cd-filter-content cd-filters list">
-                        <?php
-                        selectAllCategories();
-                        ?>
-                    </ul> <!-- cd-filter-content -->
-                </div> <!-- cd-filter-block -->
-
-                <div class="cd-filter-block">
-                    <h4>Cuisine</h4>
-
-                    <ul class="cd-filter-content cd-filters list">
-                        <?php
-                        selectAllServices();
-                        ?>
-                    </ul> <!-- cd-filter-content -->
-                </div> <!-- cd-filter-block -->
-
-            </form>
-
-        </div> <!-- cd-filter -->
-
-        <a href="#0" class="cd-filter-trigger">Filters</a>
-    </main> <!-- cd-main-content -->
 
 <?php
 include_once "footer.php";
