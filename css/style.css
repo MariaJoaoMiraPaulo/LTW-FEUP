@@ -1306,6 +1306,14 @@ Restaurant Page
     background-color: #ffffff;
     border-radius: 4px;
     padding: 10px 10px 10px 10px; }
+    .restaurantPage .container flexPhotos {
+      display: flex;
+      max-height: 30px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      float: left; }
   .restaurantPage .containerUserPhotos {
     width: 90%;
     height: 50px;
@@ -1636,6 +1644,8 @@ addRestaurantPhotoForm {
   color: #FFD700; }
 
 .relatedPhotos {
-  max-width: 50%; }
+  max-width: 49%;
+  max-height: 120px;
+  margin: 1px; }
 
 /*# sourceMappingURL=style.css.map */

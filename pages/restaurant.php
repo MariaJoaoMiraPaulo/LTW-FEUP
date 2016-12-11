@@ -123,9 +123,12 @@ session_start();
 
     <div class="related">
         <div class="container">
-            <?php
-            getAllRelatedPhotos($_SESSION['restID']);
-            ?>
+            <div class="flexPhotos">
+                <?php
+                getAllRelatedPhotos($_SESSION['restID']);
+                ?>
+            </div>
+
         </div>
     </div>
 

@@ -1501,6 +1501,16 @@ Restaurant Page
       background-color: #ffffff;
       border-radius: 4px;
       padding: 10px 10px 10px 10px;
+
+    flexPhotos{
+     display: flex;
+      max-height: 30px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      float: left;
+    }
   }
   .containerUserPhotos{
     width: 90%;
@@ -1895,14 +1905,7 @@ addRestaurantPhotoForm{
 }
 
 .relatedPhotos{
-  padding: .5vw;
-  font-size: 0;
-  display: -ms-flexbox;
-  -ms-flex-wrap: wrap;
-  -ms-flex-direction: column;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  display: -webkit-box;
-  display: flex;
-}
+  max-width: 49%;
+  max-height: 120px;
+  margin: 1px;
 }
