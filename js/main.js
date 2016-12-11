@@ -34,4 +34,3 @@ function exitCreateAcc() {
 function exitUser() {
 	session_destroy();
 }
-
