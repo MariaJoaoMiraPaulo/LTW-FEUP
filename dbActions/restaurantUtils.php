@@ -367,9 +367,13 @@ function getRestaurantPhotos($idRest)
     $stmt = $db->prepare('SELECT * FROM photo WHERE restaurant_id=?');
     $stmt->execute([$idRest]);
 
+    $ret = false;
+
     while ($row = $stmt->fetch()) {
         echo '<img class="mySlides" src=' . $row['name'] . ' hidden="hidden">';
+        $ret = true;
 
     }
-    return true;
+
+    return $ret;
 }

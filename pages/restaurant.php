@@ -29,10 +29,15 @@ session_start();
             <div class="container">
                 <div class="album">
                     <div id="photos">
-                        <?php getRestaurantPhotos($id); ?>
-                    </div>
-                    <a class="arrowLeft" onclick="plusDivs(-1)">&#10094;</a>
-                    <a class="arrowRight" onclick="plusDivs(+1)">&#10095;</a>
+                        <?php $var = getRestaurantPhotos($id);
+                        echo '</div>';
+                        if($var){
+                            echo '<a class="arrowLeft" onclick="plusDivs(-1)">&#10094;</a>';
+                            echo '<a class="arrowRight" onclick="plusDivs(+1)">&#10095;</a>';
+                        }
+                        ?>
+
+
                 </div>
                 <p id="restaurantName"><?php echo $nameRestaurant ?></p>
                 <p id="restaurantLocation"><?php echo $location ?></p>
