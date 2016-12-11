@@ -62,74 +62,81 @@ session_start();
 
             <div class="container">
                 <div class="addPhotos">
-                <p class="boxTitle">Add a photo to your galery:</p>
-                <div class="addPhotos">
+                    <p class="boxTitle">Add a photo to your galery:</p>
+                    <div class="addPhotos">
+                        <?php
+                        if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
+                            echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                            echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
+                            echo '<br>';
+                            echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
+                            echo '</form>';
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <iframe id="map" frameborder="0"
+                        src="https://www.google.com/maps/embed/v1/place?q=<?php echo getRestaurantInfoById($id, 'address'); ?>&key=AIzaSyDimmPV0QbEGkv-JRiam6HfdatZriwafgM"
+                        allowfullscreen></iframe>
+            </div>
+
+            <div class="container">
+                <?php
+                $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
+                ?>
+                <img id="userPhoto" src=<?php echo $photo ?>>
+                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"
+                      nctype="multipart/form-data">
+                    <p class="boxTitle">Write a review:</p>
+                    <label>Choose a title:</label>
+                    <input type="text" name="title"><br>
+                    <label>Write your review:</label>
+                    <input id="reviewArea" type="text" name="review"><br>
+
+                    <fieldset class="rating">
+                        <input class="stars" type="radio" id="star5" name="rating5" value="5"/>
+                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                        <input class="stars" type="radio" id="star4" name="rating4" value="4"/>
+                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input class="stars" type="radio" id="star3" name="rating3" value="3"/>
+                        <label class="full" for="star3" title="Meh - 3 stars"></label>
+                        <input class="stars" type="radio" id="star2" name="rating2" value="2"/>
+                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                        <input class="stars" type="radio" id="star1" name="rating1" value="1"/>
+                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                    </fieldset>
+
+                    <br><br>
+
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+
+                    <br><br>
+                    <input id="submit" type="submit" value="Publish">
+                </form>
+            </div>
+
+            <div class="container">
+                <div class="reviews">
                     <?php
-                    if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
-                        echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
-                        echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
-                        echo '<br>';
-                        echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
-                        echo '</form>';
-                    }
+                    getRestaurantReviews($_SESSION['restID'], $userId);
                     ?>
                 </div>
             </div>
         </div>
 
-        <div class="container">
-            <?php
-            $photo = '../assets/'.getUserPhoto($_SESSION['login-user']);
-            ?>
-            <img id="userPhoto" src=<?php echo $photo?>>
-            <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post" nctype="multipart/form-data">
-                <p class="boxTitle">Write a review:</p>
-                <label>Choose a title:</label>
-                <input type="text" name="title"><br>
-                <label>Write your review:</label>
-                <input id="reviewArea" type="text" name="review"><br>
+        <div class="related">
+            <div class="container">
+                <div class="flexPhotos">
+                    <?php
+                    getAllRelatedPhotos($_SESSION['restID']);
+                    ?>
+                </div>
 
-                <fieldset class="rating">
-                    <input class="stars" type="radio" id="star5" name="rating5" value="5" />
-                    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                    <input class="stars" type="radio" id="star4" name="rating4" value="4" />
-                    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                    <input class="stars" type="radio" id="star3" name="rating3" value="3" />
-                    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-                    <input class="stars" type="radio" id="star2" name="rating2" value="2" />
-                    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                    <input class="stars" type="radio" id="star1" name="rating1" value="1" />
-                    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                </fieldset>
-
-                <br><br>
-
-                <input type="file" name="fileToUpload" id="fileToUpload">
-
-                <br><br>
-                <input id="submit" type="submit" value="Publish">
-            </form>
-        </div>
-
-        <div class="container">
-            <div class="reviews">
-                <?php
-                getRestaurantReviews($_SESSION['restID'], $userId);
-                ?>
             </div>
         </div>
-    </div>
-
-    <div class="related">
-        <div class="container">
-            <div class="flexPhotos">
-                <?php
-                getAllRelatedPhotos($_SESSION['restID']);
-                ?>
-            </div>
-
-        </div>
-    </div>
 
     </div>
 
