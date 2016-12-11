@@ -1715,5 +1715,40 @@ Restaurant Search Pages
       min-width: 400px;
       width: 400px;
       float: right; } }
+/****** Style Star Rating Widget *****/
+.ratingSearch {
+  border: none;
+  float: left; }
+
+.ratingSearch > input {
+  display: none; }
+
+.ratingSearch > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005"; }
+
+.ratingSearch > .half:before {
+  content: "\f089";
+  position: absolute; }
+
+.ratingSearch > label {
+  color: #ddd;
+  float: right; }
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+.ratingSearch > input:checked ~ label,
+.ratingSearch:not(:checked) > label:hover,
+.ratingSearch:not(:checked) > label:hover ~ label {
+  color: #FFD700; }
+
+/* hover previous stars in list */
+.ratingSearch > input:checked + label:hover,
+.ratingSearch > input:checked ~ label:hover,
+.ratingSearch > label:hover ~ input:checked ~ label,
+.ratingSearch > input:checked ~ label:hover ~ label {
+  color: #FFED85; }
 
 /*# sourceMappingURL=style.css.map */

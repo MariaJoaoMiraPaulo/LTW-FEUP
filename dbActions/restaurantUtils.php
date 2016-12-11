@@ -24,14 +24,13 @@ function getServices($name, $priceMin, $priceMax, $rating, $category, $location)
     $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
     $locationkeywords = explode(' ', $location);
     $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
-
     $ratingkeywords = explode(' ', $rating);
     $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
     $categorykeywords = explode(' ', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
         if($category!=""){
-            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IS (SELECT id FROM restaurant WHERE  id 
+            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  id 
 LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
@@ -39,7 +38,7 @@ AND rating LIKE ?
 AND price BETWEEN ? AND ?);");
             $stmt->execute([$categorystring,$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
         }else{
-            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IS (SELECT id FROM restaurant WHERE  
+            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
 location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
@@ -48,10 +47,49 @@ AND price BETWEEN ? AND ?);");
         }
 
     while ($row = $stmt->fetch()) {
-        echo '<input type=checkbox value="' . $row['service'] . '">' . $row['service'] . '</option>';
+        $service = $row['service'];
+        echo "<a onclick=\"href='searchRestaurants.php?restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=$location&service=$service';\">$service</a><br>";
     }
 
 }
+
+
+function getCategories($name, $priceMin, $priceMax, $rating, $service, $location)
+{
+    global $db;
+    $namekeywords = explode(' ', $name);
+    $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
+    $locationkeywords = explode(' ', $location);
+    $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
+    $ratingkeywords = explode(' ', $rating);
+    $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
+    $servicekeywords = explode(' ', $service);
+    $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
+
+    if($service!=""){
+        $stmt=$db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  id 
+LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
+AND location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?);");
+        $stmt->execute([$servicestring,$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    }else{
+        $stmt=$db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
+location LIKE ? 
+AND name LIKE ?
+AND rating LIKE ?
+AND price BETWEEN ? AND ?);");
+        $stmt->execute([$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    }
+
+    while ($row = $stmt->fetch()) {
+        $category = $row['category'];
+        echo "<a onclick=\"href='searchRestaurants.php?restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=$location&service=$service';\">$category</a><br>";
+    }
+
+}
+
 
 
 function getRestaurantFromName($name)
