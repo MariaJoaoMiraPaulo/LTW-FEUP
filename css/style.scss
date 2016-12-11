@@ -1601,6 +1601,7 @@ Restaurant Page
     left: 720px;
     font-size: xx-large;
     color: white;
+    cursor:pointer;
   }
 
   .arrowLeft {
@@ -1609,6 +1610,7 @@ Restaurant Page
     left: 30px;
     font-size: xx-large;
     color: white;
+    cursor: pointer;
   }
 
 }
@@ -2027,4 +2029,5 @@ Restaurant Search Pages
 }
 .reviewPhoto{
   max-width: 30%;
+  padding: 5px;
 }

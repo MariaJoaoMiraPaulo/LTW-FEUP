@@ -113,7 +113,7 @@ session_start();
                 $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
                 ?>
                 <img id="userPhoto" src=<?php echo $photo ?>>
-                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post" nctype="multipart/form-data">
+                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post" enctype="multipart/form-data">
                     <p class="boxTitle">Write a review:</p>
                     <label>Choose a title:</label>
                     <input type="text" name="title"><br>
@@ -135,7 +135,7 @@ session_start();
 
                     <br><br>
 
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">
 
                     <br><br>
                     <input id="submit" type="submit" value="Publish">

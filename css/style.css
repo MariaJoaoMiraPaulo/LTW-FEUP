@@ -1343,13 +1343,15 @@ Restaurant Page
     top: 150px;
     left: 720px;
     font-size: xx-large;
-    color: white; }
+    color: white;
+    cursor: pointer; }
   .restaurantPage .arrowLeft {
     position: absolute;
     top: 150px;
     left: 30px;
     font-size: xx-large;
-    color: white; }
+    color: white;
+    cursor: pointer; }
 
 @media only screen and (min-width: 850px) {
   .restaurantPage {
@@ -1692,6 +1694,7 @@ Restaurant Search Pages
       width: 400px;
       float: right; } }
 .reviewPhoto {
-  max-width: 30%; }
+  max-width: 30%;
+  padding: 5px; }
 
 /*# sourceMappingURL=style.css.map */
