@@ -30,5 +30,4 @@ date_default_timezone_set('UTC');
 $currentDate =  date("Y/m/d h:i:s");
 
 sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate,$photo);
-
 header("Location:".$_SERVER['HTTP_REFERER']."");

@@ -38,6 +38,7 @@ function getRestaurantReviews($idRest,$idUser){
         $photoUser = "../assets/".getUserPhoto($userName);
         $fullName = getUserInfoByUserName($userName,'fullName');
         $userRate = $row['userRate'];
+        $review = $row['text'];
 
         $html = '<img id="userPhotoReview" src=' . $photoUser .'>';
 
@@ -45,15 +46,14 @@ function getRestaurantReviews($idRest,$idUser){
         echo $html;
         echo '<p>'.$fullName.'</p>';
         echo '<p>'.$userName.'</p>';
+        echo '<p>'.$review.'</p>';
         echo '<p>'. $row['title'] .'</p>';
-        // echo '<p>'. $row['userRate'] .'</p>';
         printRate($userRate);
         echo '<div class="containerUserPhotos">';
-        getReviewPhotos($idRev);
+            getReviewPhotos($idRev);
         echo '</div>';
         echo '<p>'. $row['date'] .'</p>';
         echo '</div>';
-
 
         getAllCommentsOfReview($idRev);
 

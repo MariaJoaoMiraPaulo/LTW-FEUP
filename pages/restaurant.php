@@ -42,23 +42,36 @@ session_start();
                     <form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">
                         <fieldset>
                             <?php
+                            $address = getRestaurantInfoById($id, 'address');
+                            $location = getRestaurantInfoById($id, 'location');
+                            $website = getRestaurantInfoById($id, 'website');
+                            $price = getRestaurantInfoById($id, 'price');
+
                             if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
                                 echo '<label>Address</label>';
-                                $address = getRestaurantInfoById($id, 'address');
                                 echo '<input type="text" name="restAddress" value=' . $address . '>';
                                 echo '<br>';
                                 echo '<label>Location</label>';
-                                $location = getRestaurantInfoById($id, 'location');
                                 echo ' <input type="text" name="restLocation" value=' . $location . '>';
                                 echo '<br>';
                                 echo '<label>WebSite</label>';
-                                $website = getRestaurantInfoById($id, 'website');
                                 echo ' <input type="url" name="restWebSite" value=' . $website . '>';
                                 echo '<br>';
                                 echo '<label>Cost</label>';
-                                $price = getRestaurantInfoById($id, 'price');
                                 echo ' <input type="text" name="restPrice" value=' . $price . '>';
                                 echo '<input type="submit" value="Submit">';
+                            }
+                            else{
+                                echo '<label>'.$address.'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.$location.'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.$website.'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.$price.'</label>';
                             }
                             ?>
 
@@ -95,13 +108,12 @@ session_start();
                 $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
                 ?>
                 <img id="userPhoto" src=<?php echo $photo ?>>
-                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"
-                      nctype="multipart/form-data">
+                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post" nctype="multipart/form-data">
                     <p class="boxTitle">Write a review:</p>
                     <label>Choose a title:</label>
                     <input type="text" name="title"><br>
                     <label>Write your review:</label>
-                    <input id="reviewArea" type="text" name="review"><br>
+                    ​<textarea name="review" id="review" rows="10" cols="70"></textarea>
 
                     <fieldset class="rating">
                         <input class="stars" type="radio" id="star5" name="rating5" value="5"/>
