@@ -114,7 +114,9 @@ function getAllRelatedPhotos($idRest){
 
     while ($row = $statement->fetch()) {
         $photoDir = "../assets/".$row['name'];
-        echo "<img class='relatedPhotos' src='$photoDir'>";
+        echo "<div class='flexContainer'>";
+        echo "<img src='$photoDir'>";
+        echo "</div>";
     }
 
     return true;

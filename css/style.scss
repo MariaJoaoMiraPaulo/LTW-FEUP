@@ -1,4 +1,4 @@
-$font-stack:    "Open Sans", sans-serif;
+$font-stack: "Open Sans", sans-serif;
 $primary-color: #34495E;
 $background-color: #F3F3F3;
 
@@ -22,7 +22,7 @@ body {
   background-color: $background-color;
 }
 
-body h1{
+body h1 {
   font-size: 3.6rem;
   font-family: $font-stack;
   color: #040404;
@@ -35,7 +35,6 @@ a {
   text-decoration: none;
 }
 
-
 /*--------------------------------
 
 Footer
@@ -43,9 +42,10 @@ Footer
  ---------------------------------*/
 .footer {
   background: $primary-color;
-  height: 50px; }
+  height: 50px;
+}
 
-.footer .workdoneby{
+.footer .workdoneby {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #F3F3F3;
@@ -55,13 +55,12 @@ Footer
   font-size: 16px;
 }
 
-
 /*--------------------------------
 
 Header
 
  ---------------------------------*/
-.header{
+.header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -75,11 +74,10 @@ Header
     margin: 2px 10px;
   }
 
-  .logo{
+  .logo {
     height: 1.5cm;
     width: 1.5cm;
   }
-
 
   .header-right {
     float: right;
@@ -90,15 +88,14 @@ Header
     font-family: "Open Sans", sans-serif;
     color: #F3F3F3;
 
-
-    .header-login{
+    .header-login {
       float: left;
       align-self: center;
       vertical-align: middle;
       text-align: center;
     }
 
-    .header-error{
+    .header-error {
       float: left;
       vertical-align: middle;
       text-align: center;
@@ -109,8 +106,7 @@ Header
   }
 }
 
-
-.login-button{
+.login-button {
   background-color: $primary-color;
   border: none;
   color: #ffffff;
@@ -121,7 +117,7 @@ Header
   padding-right: 60px;
 }
 
-.createAccount-button{
+.createAccount-button {
   background-color: $primary-color;
   border: none;
   color: #ffffff;
@@ -144,7 +140,7 @@ Header
   overflow: auto; /* Enable scroll if needed */
 }
 
-.modal-content{
+.modal-content {
   font: 95% Arial, Helvetica, sans-serif;
   max-width: 350px;
   margin: 200px auto;
@@ -155,7 +151,7 @@ Header
   border-radius: 12px;
 }
 
-.modal-content h1{
+.modal-content h1 {
   background: $primary-color;
   padding: 20px 0;
   font-size: 140%;
@@ -166,13 +162,11 @@ Header
   border-radius: 12px;
 }
 
-
 .modal-content input[type="date"],
 .modal-content input[type="text"],
 .modal-content input[type="email"],
 .modal-content input[type="password"],
-.modal-content input[type="number"]
-{
+.modal-content input[type="number"] {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
@@ -191,8 +185,7 @@ Header
 }
 
 #gender,
-#type
-{
+#type {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
@@ -206,7 +199,7 @@ Header
 }
 
 .modal-content input[type="submit"],
-.modal-content input[type="button"]{
+.modal-content input[type="button"] {
 
   width: 100%;
   padding: 3%;
@@ -216,6 +209,7 @@ Header
   border-radius: 20px;
   margin-top: 20px;
 }
+
 /* The Close Button */
 .close {
   color: #aaa;
@@ -256,10 +250,12 @@ General Style
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .cd-intro-content h1 {
   font-size: 2.4rem;
   color: #ffffff;
 }
+
 .cd-intro-content p {
   font-family: 'Satisfy', cursive;
   font-size: 10rem;
@@ -267,19 +263,23 @@ General Style
   line-height: 1.4;
   margin: 1em 0;
 }
+
 .cd-intro-content .action-wrapper {
   display: inline-block;
   z-index: 3;
 }
+
 .cd-intro-content .action-wrapper::after {
   clear: both;
   content: "";
   display: table;
   z-index: 3;
 }
+
 .cd-intro-content .action-wrapper > * {
   float: left;
 }
+
 @media only screen and (min-width: 768px) {
   .cd-intro-content h1 {
     font-size: 5.2rem;
@@ -304,17 +304,21 @@ General Style
   border-radius: .25em;
   margin-right: 1.5em;
 }
+
 .cd-btn:nth-of-type(2) {
   margin-right: 0;
 }
+
 .cd-btn.main-action {
   background-color: $primary-color;
 }
+
 @media only screen and (min-width: 480px) {
   .cd-btn {
     padding: 1.2em 1.6em;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .cd-btn {
     padding: 1.4em 1.8em;
@@ -336,6 +340,7 @@ General Style
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
 .no-cssanimations .cd-intro-content h1, .no-cssanimations
 .cd-intro-content h1 span, .no-cssanimations
 .cd-intro-content p, .no-cssanimations
@@ -343,7 +348,7 @@ General Style
   opacity: 1;
 }
 
-logo{
+logo {
   position: absolute;
   display: block;
   left: 50%;
@@ -367,9 +372,11 @@ Video
   height: 100%;
   position: relative;
 }
+
 .video.cd-intro-content * {
   opacity: 1;
 }
+
 .video.cd-intro-content .svg-wrapper {
   position: absolute;
   z-index: 2;
@@ -378,6 +385,7 @@ Video
   height: 100%;
   width: 100%;
 }
+
 .video.cd-intro-content svg {
   position: absolute;
   left: 50%;
@@ -391,10 +399,12 @@ Video
   transform: translateX(-50%) translateY(-50%);
   opacity: 0.6;
 }
+
 .video.cd-intro-content svg.svg-mask {
   /* this is the svg mask used on desktop version */
   display: none;
 }
+
 .video.cd-intro-content p, .video.cd-intro-content .action-wrapper {
   position: absolute;
   z-index: 3;
@@ -405,24 +415,29 @@ Video
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .video.cd-intro-content p {
   bottom: calc(50% + 40px);
   margin: 0;
   min-width: 90%;
   color: white;
 }
+
 .video.cd-intro-content .action-wrapper {
   top: calc(50% + 120px);
   width: 50vw;
   min-width: 295px;
   z-index: 3;
 }
+
 .video.cd-intro-content .cd-btn {
   background-color: rgba(4, 4, 4, 0.4);
 }
+
 .video.cd-intro-content .cd-btn.main-action {
   background-color: $primary-color;
 }
+
 @media only screen and (min-width: 768px) {
   .video.cd-intro-content svg.svg-mask-mobile {
     display: none;
@@ -453,6 +468,7 @@ Video
   background: url(../assets/bg-img.jpg) no-repeat center center;
   background-size: cover;
 }
+
 .cd-bg-video-wrapper video {
   /* you won't see this element in the html, but it will be injected using js */
   display: block;
@@ -472,17 +488,18 @@ Video
   height: auto;
   width: auto;
 }
+
 .cd-bg-video-wrapper::after {
   /* never visible - this is used in jQuery to check the current MQ */
   display: none;
   content: 'mobile';
 }
+
 @media only screen and (min-width: 768px) {
   .cd-bg-video-wrapper::after {
     content: 'desktop';
   }
 }
-
 
 /* --------------------------------
 
@@ -499,6 +516,7 @@ Search Form
   background: white url(../assets/searchicon.png) no-repeat 10px 10px;
   padding-left: 40px;
 }
+
 .button {
   background-color: $primary-color;
   border: none;
@@ -509,7 +527,8 @@ Search Form
   text-decoration: none;
   font-size: 16px;
 }
-.select-category{
+
+.select-category {
   background: white url(../assets/foodcategory.png) no-repeat 10px 10px;
   padding-left: 40px;
   padding-right: 40px;
@@ -520,7 +539,8 @@ Search Form
   text-decoration: none;
   font-size: 16px
 }
-.select-location{
+
+.select-location {
   border: 2px solid white;
   border-radius: 0px;
   min-width: 100px;
@@ -528,7 +548,6 @@ Search Form
   background: white url(../assets/locationsymbol.png) no-repeat 10px 10px;
   padding-left: 40px;
 }
-
 
 /* --------------------------------
 
@@ -557,18 +576,18 @@ Quick Services
  -----------------------------------*/
 
 .img-item {
-    border-radius: 50%;
-    border: 2px solid $primary-color;
-    width: 128px;
-    height: 128px;
+  border-radius: 50%;
+  border: 2px solid $primary-color;
+  width: 128px;
+  height: 128px;
 
-    img {
-      object-fit: cover;
-    }
+  img {
+    object-fit: cover;
+  }
 }
 
-.button-item{
-    align-self: flex-end;
+.button-item {
+  align-self: flex-end;
 }
 
 #left {
@@ -579,7 +598,7 @@ Quick Services
   padding-top: 10%;
 }
 
-#center{
+#center {
   float: left;
 }
 
@@ -588,44 +607,50 @@ Quick Services
   padding-left: 10%;
   /* Change this to whatever the width of your left column is*/
 }
+
 .clear {
   clear: both;
 }
 
-.editProfileForm{
-  max-width:400px;
-  margin:50px auto;
-  background:$background-color;
-  border-radius:2px;
-  padding:20px;
+.editProfileForm {
+  max-width: 400px;
+  margin: 50px auto;
+  background: $background-color;
+  border-radius: 2px;
+  padding: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-.editProfileForm h1{
+
+.editProfileForm h1 {
   display: block;
   text-align: center;
   padding: 0;
   margin: 0px 0px 20px 0px;
   color: #5C5C5C;
-  font-size:x-large;
+  font-size: x-large;
 }
-.editProfileForm ul{
-  list-style:none;
-  padding:0;
-  margin:0;
+
+.editProfileForm ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.editProfileForm li{
+
+.editProfileForm li {
   display: block;
   padding: 9px;
-  border:1px solid #DDDDDD;
+  border: 1px solid #DDDDDD;
   margin-bottom: 30px;
   border-radius: 3px;
 }
-.editProfileForm li:last-child{
-  border:none;
+
+.editProfileForm li:last-child {
+  border: none;
   margin-bottom: 0px;
   text-align: center;
 }
-.editProfileForm li > label{
+
+.editProfileForm li > label {
   display: block;
   float: left;
   margin-top: -19px;
@@ -649,8 +674,7 @@ Quick Services
 .editProfileForm input[type="url"],
 .editProfileForm input[type="password"],
 .editProfileForm textarea,
-.editProfileForm select
-{
+.editProfileForm select {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -667,7 +691,7 @@ Quick Services
 
 }
 
-.editProfileForm inputGender{
+.editProfileForm inputGender {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -682,10 +706,10 @@ Quick Services
 .editProfileForm input[type="url"]:focus,
 .editProfileForm input[type="password"]:focus,
 .editProfileForm textarea:focus,
-.editProfileForm select:focus
-{
+.editProfileForm select:focus {
 }
-.editProfileForm li > span{
+
+.editProfileForm li > span {
   background: #b4b4b4;
   display: block;
   padding: 3px;
@@ -695,15 +719,16 @@ Quick Services
   font-family: $font-stack;
   font-size: 11px;
 }
-.editProfileForm textarea{
-  resize:none;
+
+.editProfileForm textarea {
+  resize: none;
 }
 
 #button-add,
 .editProfileForm button,
 .editProfileForm input[type="submit"],
-.editProfileForm input[type="button"]{
-  background:$primary-color;
+.editProfileForm input[type="button"] {
+  background: $primary-color;
   border: none;
   padding: 10px 20px 10px 20px;
   border-bottom: 3px solid #5994FF;
@@ -714,31 +739,31 @@ Quick Services
 #button-add:hover,
 .editProfileForm button:hover,
 .editProfileForm input[type="submit"]:hover,
-.editProfileForm input[type="button"]:hover{
+.editProfileForm input[type="button"]:hover {
   background: #6B9FFF;
-  color:$background-color;
+  color: $background-color;
 }
 
-.uploadPhoto{
-padding: 15px;
+.uploadPhoto {
+  padding: 15px;
   align-items: center;
 }
 
-#editProfile{
+#editProfile {
   border-bottom: 2px solid gainsboro;
   text-align: left;
   padding-left: 10%;
   font-family: $font-stack;
 }
 
-.ownerColumn{
+.ownerColumn {
   padding-left: 20px;
   padding-top: 150px;
   text-align: center;
   align-items: center;
 }
 
-.userRest{
+.userRest {
   padding-top: 20%;
   text-align: center;
   float: left;
@@ -748,9 +773,6 @@ padding: 15px;
   }
 
 }
-
-
-
 
 /*----------------------------------
 
@@ -875,7 +897,6 @@ xtab-filter
   margin: 0 auto;
 
 }
-
 
 .cd-tab-filter ul {
   position: absolute;
@@ -1013,7 +1034,7 @@ xgallery
     display: block;
     width: 100%;
   }
-  h1{
+  h1 {
     width: 100%;
   }
 }
@@ -1087,8 +1108,6 @@ xfilter
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-
-
 @media only screen and (min-width: 1170px) {
   .cd-filter {
     width: 20%;
@@ -1149,6 +1168,7 @@ xcustom form elements
 .cd-filter-block {
   margin-bottom: 1.6em;
 }
+
 .cd-filter-block h4 {
   /* filter block title */
   position: relative;
@@ -1164,9 +1184,11 @@ xcustom form elements
   user-select: none;
   cursor: pointer;
 }
+
 .no-touch .cd-filter-block h4:hover {
   color: $primary-color;
 }
+
 .cd-filter-block h4::before {
   /* arrow */
   content: '';
@@ -1185,6 +1207,7 @@ xcustom form elements
   -moz-transition: -moz-transform 0.3s;
   transition: transform 0.3s;
 }
+
 .cd-filter-block h4.closed::before {
   -webkit-transform: translateY(-50%) rotate(-90deg);
   -moz-transform: translateY(-50%) rotate(-90deg);
@@ -1192,6 +1215,7 @@ xcustom form elements
   -o-transform: translateY(-50%) rotate(-90deg);
   transform: translateY(-50%) rotate(-90deg);
 }
+
 .cd-filter-block input, .cd-filter-block select,
 .cd-filter-block .radio-label::before,
 .cd-filter-block .checkbox-label::before {
@@ -1201,6 +1225,7 @@ xcustom form elements
   background-color: #ffffff;
   border: 2px solid #e6e6e6;
 }
+
 .cd-filter-block input[type='search'],
 .cd-filter-block input[type='text'],
 .cd-filter-block select {
@@ -1213,6 +1238,7 @@ xcustom form elements
   appearance: none;
   box-shadow: none;
 }
+
 .cd-filter-block input[type='search']:focus,
 .cd-filter-block input[type='text']:focus,
 .cd-filter-block select:focus {
@@ -1220,6 +1246,7 @@ xcustom form elements
   background-color: #ffffff;
   border-color: $primary-color;
 }
+
 .cd-filter-block input[type='search'] {
   /* custom style for the search element */
   border-color: transparent;
@@ -1227,13 +1254,16 @@ xcustom form elements
   /* prevent jump - ios devices */
   font-size: 1.6rem !important;
 }
+
 .cd-filter-block input[type='search']::-webkit-search-cancel-button {
   display: none;
 }
+
 .cd-filter-block .cd-select {
   /* select element wrapper */
   position: relative;
 }
+
 .cd-filter-block .cd-select::after {
   /* switcher arrow for select element */
   content: '';
@@ -1252,20 +1282,25 @@ xcustom form elements
   background: url("../assets/cd-icon-arrow.svg") no-repeat center center;
   pointer-events: none;
 }
+
 .cd-filter-block select {
   cursor: pointer;
   font-size: 1.4rem;
 }
+
 .cd-filter-block select::-ms-expand {
   display: none;
 }
+
 .cd-filter-block .list li {
   position: relative;
   margin-bottom: .8em;
 }
+
 .cd-filter-block .list li:last-of-type {
   margin-bottom: 0;
 }
+
 .cd-filter-block input[type=radio],
 .cd-filter-block input[type=checkbox] {
   /* hide original check and radio buttons */
@@ -1277,6 +1312,7 @@ xcustom form elements
   opacity: 0;
 
 }
+
 .cd-filter-block .checkbox-label,
 .cd-filter-block .radio-label {
   padding-left: 24px;
@@ -1286,6 +1322,7 @@ xcustom form elements
   -ms-user-select: none;
   user-select: none;
 }
+
 .cd-filter-block .checkbox-label::before, .cd-filter-block .checkbox-label::after,
 .cd-filter-block .radio-label::before,
 .cd-filter-block .radio-label::after {
@@ -1300,27 +1337,32 @@ xcustom form elements
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
 .cd-filter-block .checkbox-label::before,
 .cd-filter-block .radio-label::before {
   width: 16px;
   height: 16px;
   left: 0;
 }
+
 .cd-filter-block .checkbox-label::after,
 .cd-filter-block .radio-label::after {
   /* check mark - hidden */
   display: none;
 }
+
 .cd-filter-block .checkbox-label::after {
   /* check mark style for check boxes */
   width: 16px;
   height: 16px;
   background: url("../assets/cd-icon-check.svg") no-repeat center center;
 }
+
 .cd-filter-block .radio-label::before,
 .cd-filter-block .radio-label::after {
   border-radius: 50%;
 }
+
 .cd-filter-block .radio-label::after {
   /* check mark style for radio buttons */
   width: 6px;
@@ -1328,11 +1370,13 @@ xcustom form elements
   background-color: #ffffff;
   left: 5px;
 }
+
 .cd-filter-block input[type=radio]:checked + label::before,
 .cd-filter-block input[type=checkbox]:checked + label::before {
   border-color: $primary-color;
   background-color: $primary-color;
 }
+
 .cd-filter-block input[type=radio]:checked + label::after,
 .cd-filter-block input[type=checkbox]:checked + label::after {
   display: block;
@@ -1344,41 +1388,46 @@ xcustom form elements
 
  -----------------------------------*/
 
-.addRestaurantForm{
-  max-width:600px;
-  margin:50px auto;
+.addRestaurantForm {
+  max-width: 600px;
+  margin: 50px auto;
   margin-left: 30%;
-  background:$background-color;
-  border-radius:2px;
-  padding:20px;
+  background: $background-color;
+  border-radius: 2px;
+  padding: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-.addRestaurantForm h1{
+
+.addRestaurantForm h1 {
   display: block;
   text-align: center;
   padding: 0;
   margin: 0px 0px 20px 0px;
   color: #5C5C5C;
-  font-size:x-large;
+  font-size: x-large;
 }
-.addRestaurantForm ul{
-  list-style:none;
-  padding:0;
-  margin:0;
+
+.addRestaurantForm ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.addRestaurantForm li{
+
+.addRestaurantForm li {
   display: block;
   padding: 9px;
-  border:1px solid #DDDDDD;
+  border: 1px solid #DDDDDD;
   margin-bottom: 30px;
   border-radius: 3px;
 }
-.addRestaurantForm li:last-child{
-  border:none;
+
+.addRestaurantForm li:last-child {
+  border: none;
   margin-bottom: 0px;
   text-align: center;
 }
-.addRestaurantForm li > label{
+
+.addRestaurantForm li > label {
   display: block;
   float: left;
   margin-top: -19px;
@@ -1401,8 +1450,7 @@ xcustom form elements
 .addRestaurantForm input[type="url"],
 .addRestaurantForm input[type="password"],
 .addRestaurantForm textarea,
-.addRestaurantForm select
-{
+.addRestaurantForm select {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1419,7 +1467,6 @@ xcustom form elements
 
 }
 
-
 .addRestaurantForm input[type="text"]:focus,
 .addRestaurantForm input[type="date"]:focus,
 .addRestaurantForm input[type="datetime"]:focus,
@@ -1430,11 +1477,10 @@ xcustom form elements
 .addRestaurantForm input[type="url"]:focus,
 .addRestaurantForm input[type="password"]:focus,
 .addRestaurantForm textarea:focus,
-.addRestaurantForm select:focus
-{
+.addRestaurantForm select:focus {
 }
 
-.addRestaurantForm li > span{
+.addRestaurantForm li > span {
   background: #b4b4b4;
   display: block;
   padding: 3px;
@@ -1444,14 +1490,15 @@ xcustom form elements
   font-family: $font-stack;
   font-size: 11px;
 }
-.addRestaurantForm textarea{
-  resize:none;
+
+.addRestaurantForm textarea {
+  resize: none;
 }
 
 .addRestaurantForm button,
 .addRestaurantForm input[type="submit"],
-.addRestaurantForm input[type="button"]{
-  background:$primary-color;
+.addRestaurantForm input[type="button"] {
+  background: $primary-color;
   border: none;
   padding: 10px 20px 10px 20px;
   border-bottom: 3px solid #5994FF;
@@ -1462,9 +1509,9 @@ xcustom form elements
 #button-add:hover,
 .addRestaurantForm button:hover,
 .addRestaurantForm input[type="submit"]:hover,
-.addRestaurantForm input[type="button"]:hover{
+.addRestaurantForm input[type="button"]:hover {
   background: #6B9FFF;
-  color:$background-color;
+  color: $background-color;
 }
 
 /* --------------------------------
@@ -1473,46 +1520,58 @@ Restaurant Page
 
 -------------------------------- */
 
-.searchBarContainer{
+.searchBarContainer {
   width: 100%;
   padding: 10px 5px 5px 5px;
   display: flex;
   justify-content: center;
-    form{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      max-width: 1150px;
-      min-width: 500px;
-      background-color: #ffffff;
-      border-radius: 4px;
-      padding: 5px 5px 5px 5px;
-    }
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 1150px;
+    min-width: 500px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 5px 5px 5px 5px;
+  }
 
 }
 
-.restaurantPage{
+
+.restaurantPage {
   display: flex;
   flex-wrap: wrap;
   -webkit-align-content: center;
   align-content: center;
-  .container{
-      margin-bottom: 1.6em;
-      background-color: #ffffff;
-      border-radius: 4px;
-      padding: 10px 10px 10px 10px;
+  .container {
+    margin-bottom: 1.6em;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 10px 10px 10px 10px;
 
-    flexPhotos{
-     display: flex;
-      max-height: 30px;
+    .flexPhotos {
+      display: flex;
       flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-items: stretch;
-      float: left;
+      flex-wrap: wrap;
+      .flexContainer {
+        width: 47%;
+        height: 150px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        overflow:hidden;
+        img {
+          min-width: 100%;
+          height:100%;
+          margin: 3px;
+
+        }
+      }
+
     }
   }
-  .containerUserPhotos{
+  .containerUserPhotos {
     width: 90%;
     margin-bottom: 1.6em;
     background-color: whitesmoke;
@@ -1521,30 +1580,30 @@ Restaurant Page
     margin-left: 20px;
     margin-top: 10px;
   }
-  .main{
+  .main {
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
     width: 100%;
   }
 
-  .related{
+  .related {
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
     width: 100%;
   }
 
-  .arrowRight{
-     position: absolute;
-      top: 150px;
-     left: 720px;
-      font-size: xx-large;
+  .arrowRight {
+    position: absolute;
+    top: 150px;
+    left: 720px;
+    font-size: xx-large;
     color: white;
   }
 
-  .arrowLeft{
-     position: absolute;
+  .arrowLeft {
+    position: absolute;
     top: 150px;
     left: 30px;
     font-size: xx-large;
@@ -1554,18 +1613,18 @@ Restaurant Page
 }
 
 @media only screen and (min-width: 850px) {
-  .restaurantPage{
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
+  .restaurantPage {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 
-    .main{
+    .main {
       max-width: 770px;
       min-width: 400px;
       float: left;
     }
 
-    .related{
+    .related {
       min-width: 400px;
       width: 400px;
       float: right;
@@ -1573,54 +1632,54 @@ Restaurant Page
   }
 }
 
-.mySlides{
+.mySlides {
   width: 100%;
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
   object-fit: cover;
-  img{
+  img {
     position: fixed;
     width: 100%;
     z-index: -1;
   }
 }
 
-#restaurantName{
-  font-family: 'PT Serif',Georgia;
+#restaurantName {
+  font-family: 'PT Serif', Georgia;
   padding-top: 10px;
   padding-left: 5px;
   font-size: x-large;
   font-weight: bold;
 }
 
-#restaurantLocation{
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+#restaurantLocation {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-top: 10px;
   padding-left: 5px;
   font-size: medium;
 }
 
-#findPhoto{
+#findPhoto {
   align-content: center;
   padding-right: 20px;
   padding-top: 20px;
 }
 
-.editRestForm{
+.editRestForm {
   margin-left: 20px;
-  border-radius:2px;
+  border-radius: 2px;
   align-content: center;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .editRestForm button,
 .editRestForm input[type="submit"],
-.editRestForm input[type="button"]{
+.editRestForm input[type="button"] {
   margin-top: 10px;
   align-content: center;
-  background:$primary-color;
+  background: $primary-color;
   border: none;
   padding: 10px 10px 10px 10px;
   border-bottom: 3px solid #5994FF;
@@ -1631,9 +1690,9 @@ Restaurant Page
 #button-add:hover,
 .editRestForm button:hover,
 .editRestForm input[type="submit"]:hover,
-.editRestForm input[type="button"]:hover{
+.editRestForm input[type="button"]:hover {
   background: #6B9FFF;
-  color:$background-color;
+  color: $background-color;
 }
 
 .editRestForm input[type="text"],
@@ -1646,8 +1705,7 @@ Restaurant Page
 .editRestForm input[type="url"],
 .editRestForm input[type="password"],
 .editRestForm textarea,
-.editRestForm select
-{
+.editRestForm select {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1663,8 +1721,7 @@ Restaurant Page
 
 }
 
-
-.editRestForm label{
+.editRestForm label {
   float: left;
   height: 14px;
   margin: 5px;
@@ -1674,19 +1731,19 @@ Restaurant Page
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-addRestaurantPhotoForm{
-  max-width:600px;
-  margin:50px auto;
+addRestaurantPhotoForm {
+  max-width: 600px;
+  margin: 50px auto;
   margin-left: 30%;
-  border-radius:2px;
-  padding:20px;
+  border-radius: 2px;
+  padding: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .addRestaurantPhotoForm button,
 .addRestaurantPhotoForm input[type="submit"],
-.addRestaurantPhotoForm input[type="button"]{
-  background:$primary-color;
+.addRestaurantPhotoForm input[type="button"] {
+  background: $primary-color;
   border: none;
   padding: 10px 20px 10px 20px;
   margin-top: 10px;
@@ -1697,32 +1754,31 @@ addRestaurantPhotoForm{
 
 .addRestaurantPhotoForm button:hover,
 .addRestaurantPhotoForm input[type="submit"]:hover,
-.addRestaurantPhotoForm input[type="button"]:hover{
+.addRestaurantPhotoForm input[type="button"]:hover {
   background: #6B9FFF;
-  color:$background-color;
+  color: $background-color;
 }
 
-.addPhotos{
+.addPhotos {
   padding-left: 20px;
   padding-bottom: 20px;
 }
 
-
-.reviewForm{
+.reviewForm {
   padding-left: 20px;
   padding-bottom: 50px;
 }
 
-.reviewFormPhoto{
+.reviewFormPhoto {
   padding-left: 20px;
   padding-bottom: 20px;
 
 }
 
 .buttonReviewAnswer,
-.buttonAnswer{
+.buttonAnswer {
   align-content: center;
-  background:$primary-color;
+  background: $primary-color;
   border: none;
   padding: 10px 10px 10px 10px;
   border-bottom: 3px solid #5994FF;
@@ -1734,10 +1790,10 @@ addRestaurantPhotoForm{
 .buttonReviewAnswer:hover,
 .buttonAnswer:hover {
   background: #6B9FFF;
-  color:$background-color;
+  color: $background-color;
 }
 
-.answerReviewTextArea{
+.answerReviewTextArea {
   width: 90%;
   height: 55px;
   margin: 5px;
@@ -1748,10 +1804,10 @@ addRestaurantPhotoForm{
 
 .reviewForm button,
 .reviewForm input[type="submit"],
-.reviewForm input[type="button"]{
+.reviewForm input[type="button"] {
   margin-top: 10px;
   align-content: center;
-  background:$primary-color;
+  background: $primary-color;
   border: none;
   padding: 10px 10px 10px 10px;
   border-bottom: 3px solid #5994FF;
@@ -1761,14 +1817,12 @@ addRestaurantPhotoForm{
 
 .reviewForm button:hover,
 .reviewForm input[type="submit"]:hover,
-.reviewForm input[type="button"]:hover{
+.reviewForm input[type="button"]:hover {
   background: #6B9FFF;
-  color:$background-color;
+  color: $background-color;
 }
 
-
-.reviewForm input[type="text"]
-{
+.reviewForm input[type="text"] {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1782,7 +1836,7 @@ addRestaurantPhotoForm{
 
 }
 
-#reviewArea{
+#reviewArea {
   height: 80px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1795,8 +1849,7 @@ addRestaurantPhotoForm{
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-
-.reviewForm label{
+.reviewForm label {
   float: left;
   margin: 5px;
   color: #B9B9B9;
@@ -1805,15 +1858,15 @@ addRestaurantPhotoForm{
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.boxTitle{
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+.boxTitle {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-top: 10px;
   padding-bottom: 20px;
   font-size: medium;
   font-weight: bold;
 }
 
-#userPhoto{
+#userPhoto {
   border-radius: 50%;
   width: 85px;
   height: 80px;
@@ -1828,7 +1881,7 @@ addRestaurantPhotoForm{
   }
 }
 
-#userPhotoReview{
+#userPhotoReview {
   border-radius: 50%;
   width: 85px;
   height: 80px;
@@ -1841,9 +1894,9 @@ addRestaurantPhotoForm{
   }
 }
 
-.reviewContainer{
+.reviewContainer {
   margin-bottom: 1em;
-  margin-top: 2em ;
+  margin-top: 2em;
   background-color: lightgoldenrodyellow;
   border-radius: 4px;
   padding: 10px 10px 10px 10px;
@@ -1854,14 +1907,18 @@ addRestaurantPhotoForm{
   float: left;
 }
 
-.rating > input { display: none; }
+.rating > input {
+  display: none;
+}
+
 .rating > label:before {
   font-size: 1.5em;
   font-family: FontAwesome;
   display: inline-block;
-  content:  "\f005";
+  content: "\f005";
 
 }
+
 .rating > label {
   color: #ddd;
   float: right;
@@ -1869,26 +1926,33 @@ addRestaurantPhotoForm{
 
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700;
+}
 
+/* hover previous stars in list */
 
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #d6b600;  }
-
+.rating > input:checked ~ label:hover ~ label {
+  color: #d6b600;
+}
 
 .reviewRating {
   border: none;
   float: left;
 }
 
-.reviewRating > input { display: none; }
+.reviewRating > input {
+  display: none;
+}
+
 .reviewRating > label:before {
   font-size: 1.5em;
   font-family: FontAwesome;
   display: inline-block;
-  content:  "\f005";
+  content: "\f005";
 }
 
 .reviewRating > label {
@@ -1896,49 +1960,43 @@ addRestaurantPhotoForm{
   float: right;
 }
 
-.reviewRating > input:checked ~ label{
+.reviewRating > input:checked ~ label {
   color: #FFD700;
 }
 
-.relatedPhotos{
-  max-width: 49%;
-  max-height: 120px;
-  margin: 1px;
+.mySlides {
+
 }
 
-.reviewPhoto{
-  max-width: 20%;
-}
-
-
-#map{
+#map {
   width: 100%;
   height: 100%;
 }
+
 /* --------------------------------
 
 Restaurant Search Pages
 
 -------------------------------- */
-.restaurantSearchPage{
+.restaurantSearchPage {
   display: flex;
   flex-wrap: wrap;
   -webkit-align-content: center;
   align-content: center;
-  .container{
+  .container {
     margin-bottom: 1.6em;
     background-color: #ffffff;
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
   }
-  .main{
+  .main {
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
     width: 100%;
   }
 
-  .advancedSearch{
+  .advancedSearch {
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
@@ -1948,21 +2006,24 @@ Restaurant Search Pages
 }
 
 @media only screen and (min-width: 850px) {
-  .restaurantSearchPage{
+  .restaurantSearchPage {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
 
-    .main{
+    .main {
       max-width: 770px;
       min-width: 400px;
       float: left;
     }
 
-    .advancedSearch{
+    .advancedSearch {
       min-width: 400px;
       width: 400px;
       float: right;
     }
   }
+}
+.reviewPhoto{
+  max-width: 30%;
 }
