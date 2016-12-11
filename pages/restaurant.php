@@ -107,7 +107,6 @@ session_start();
                 <input type="file" name="fileToUpload" id="fileToUpload">
 
                 <br><br>
-                <div class="containerUserPhotos">Photos</div>
                 <input id="submit" type="submit" value="Publish">
             </form>
         </div>

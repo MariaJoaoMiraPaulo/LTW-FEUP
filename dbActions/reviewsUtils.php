@@ -47,8 +47,11 @@ function getRestaurantReviews($idRest,$idUser){
         echo '<p>'.$userName.'</p>';
         echo '<p>'. $row['title'] .'</p>';
         // echo '<p>'. $row['userRate'] .'</p>';
-        echo '<p>'. $row['date'] .'</p>';
         printRate($userRate);
+        echo '<div class="containerUserPhotos">';
+        getReviewPhotos($idRev);
+        echo '</div>';
+        echo '<p>'. $row['date'] .'</p>';
         echo '</div>';
 
 
@@ -112,6 +115,19 @@ function getAllRelatedPhotos($idRest){
     while ($row = $statement->fetch()) {
         $photoDir = "../assets/".$row['name'];
         echo "<img class='relatedPhotos' src='$photoDir'>";
+    }
+
+    return true;
+}
+
+function getReviewPhotos($idRev){
+    global $db;
+    $statement = $db->prepare('SELECT * FROM reviewPhoto WHERE review_id = ? ');
+    $statement->execute([$idRev]);
+
+    while ($row = $statement->fetch()) {
+        $photoDir = "../assets/".$row['name'];
+        echo "<img class='reviewPhoto' src='$photoDir'>";
     }
 
     return true;

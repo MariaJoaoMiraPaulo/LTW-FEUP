@@ -1514,7 +1514,6 @@ Restaurant Page
   }
   .containerUserPhotos{
     width: 90%;
-    height: 50px;
     margin-bottom: 1.6em;
     background-color: whitesmoke;
     border-radius: 4px;
@@ -1908,4 +1907,8 @@ addRestaurantPhotoForm{
   max-width: 49%;
   max-height: 120px;
   margin: 1px;
+}
+
+.reviewPhoto{
+  max-width: 20%;
 }
