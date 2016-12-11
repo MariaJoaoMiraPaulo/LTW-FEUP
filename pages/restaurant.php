@@ -60,54 +60,88 @@ session_start();
 
             <div class="container">
                 <div class="addPhotos">
-                <p class="boxTitle">Add a photo to your galery:</p>
-                <div class="addPhotos">
-                    <?php
-                    if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
-                        echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
-                        echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
-                        echo '<br>';
-                        echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
-                        echo '</form>';
+                    <p class="boxTitle">Add a photo to your galery:</p>
+                    <div class="addPhotos">
+                        <?php
+                        if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
+                            echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                            echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
+                            echo '<br>';
+                            echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
+                            echo '</form>';
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div id="map"></div>
+                <script>
+                    var geocoder;
+                    var map;
+                    function initialize() {
+                        geocoder = new google.maps.Geocoder();
+                        var latlng = new google.maps.LatLng(-34.397, 150.644);
+                        var mapOptions = {
+                            zoom: 8,
+                            center: latlng
+                        }
+                        map = new google.maps.Map(document.getElementById('map'), mapOptions);
                     }
+
+                    function codeAddress() {
+                        var address = document.getElementById('address').value;
+                        geocoder.geocode( { 'address': address}, function(results, status) {
+                            if (status == 'OK') {
+                                map.setCenter(results[0].geometry.location);
+                                var marker = new google.maps.Marker({
+                                    map: map,
+                                    position: results[0].geometry.location
+                                });
+                            } else {
+                                alert('Geocode was not successful for the following reason: ' + status);
+                            }
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmme_QOyZVjYZL2_idSt_J42mYeCtk5vE&callback=initMap">
+                </script>
+            </div>
+
+            <div class="container">
+                <?php
+                $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
+                ?>
+                <img id="userPhoto" src=<?php echo $photo ?>>
+                <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
+                    <p class="boxTitle">Write a review:</p>
+                    <label>Choose a title:</label>
+                    <input type="text" name="title"><br>
+                    <label>Write your review:</label>
+                    <input id="reviewArea" type="text" name="review"><br>
+                    <div class="rating">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    </div>
+                    <!-- <input type="text" name="rate">User Rate<br>-->
+                    <input type="submit" value="Publish">
+                </form>
+            </div>
+
+            <div class="container">
+                <div class="reviews">
+                    <?php
+                    getRestaurantReviews($_SESSION['restID'], $userId);
                     ?>
                 </div>
             </div>
         </div>
 
-        <div class="container">
-            <?php
-            $photo = '../assets/'.getUserPhoto($_SESSION['login-user']);
-            ?>
-            <img id="userPhoto" src=<?php echo $photo?>>
-            <form class="reviewForm" action="../dbActions/sendReview.php" method="post">
-                <p class="boxTitle">Write a review:</p>
-                <label>Choose a title:</label>
-                <input type="text" name="title"><br>
-                <label>Write your review:</label>
-                <input id="reviewArea" type="text" name="review"><br>
-                <div class="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                </div>
-                <!-- <input type="text" name="rate">User Rate<br>-->
-                <input type="submit" value="Publish">
-            </form>
-        </div>
-
-        <div class="container">
-            <div class="reviews">
-                <?php
-                getRestaurantReviews($_SESSION['restID'], $userId);
-                ?>
+        <div class="related">
+            <div class="container">
+                <p>FILTROS de procura</p>
             </div>
         </div>
-    </div>
-
-    <div class="related">
-        <div class="container">
-           <p>FILTROS de procura</p>
-        </div>
-    </div>
 
     </div>
 

@@ -1610,5 +1610,8 @@ Restaurant Search Page
       min-width: 400px;
       width: 400px;
       float: right; } }
+#map {
+  height: 400px;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
