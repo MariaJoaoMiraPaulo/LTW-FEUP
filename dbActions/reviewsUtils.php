@@ -12,13 +12,13 @@ function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date,
 
     global $db;
 
-    $statement = $db->prepare('INSERT INTO reviews (restaurant_id, id_autor,title,userRate,text,date,likes) VALUES (?,?,?,?,?,?,?)');
+    $statement = $db->prepare('INSERT INTO reviews (restaurant_id, id_autor,title,userRate,text,date,likes) VALUES (?,?,?,?,?,?,?);SELECT SCOPE_IDENTITY() as id; RETURN;');
 
-    if ($statement->execute([$idRest, $id_autor, $title, $userRate, $text, $date,$likes])) {
+    if ($result=$statement->execute([$idRest, $id_autor, $title, $userRate, $text, $date,$likes])) {
         if(trim($name)){
-           // $idRev;
-            $statement1 = $db->prepare('INSERT INTO reviewPhoto (name, restaurant_id) VALUES (?,?)');
-            $statement1->execute([$name, $idRest]);
+            $idRev = $db->lastInsertId();
+            $statement1 = $db->prepare('INSERT INTO reviewPhoto (name, restaurant_id,review_id) VALUES (?,?,?)');
+            $statement1->execute([$name, $idRest,$idRev]);
     }
         return true;
     }
