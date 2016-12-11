@@ -1893,3 +1893,16 @@ addRestaurantPhotoForm{
 .reviewRating > input:checked ~ label{
   color: #FFD700;
 }
+
+.relatedPhotos{
+  padding: .5vw;
+  font-size: 0;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-direction: column;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  display: -webkit-box;
+  display: flex;
+}
+}

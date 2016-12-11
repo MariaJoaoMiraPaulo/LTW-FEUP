@@ -123,7 +123,9 @@ session_start();
 
     <div class="related">
         <div class="container">
-           <p>FILTROS de procura</p>
+            <?php
+            getAllRelatedPhotos($_SESSION['restID']);
+            ?>
         </div>
     </div>
 

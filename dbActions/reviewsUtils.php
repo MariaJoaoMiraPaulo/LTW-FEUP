@@ -103,3 +103,16 @@ function printRate($userRate){
     $total = " estrelas em 5";
     echo '<p>'.$userRate.$total.'</p>';
 }
+
+function getAllRelatedPhotos($idRest){
+    global $db;
+    $statement = $db->prepare('SELECT * FROM reviewPhoto WHERE restaurant_id = ? ');
+    $statement->execute([$idRest]);
+
+    while ($row = $statement->fetch()) {
+        $photoDir = "../assets/".$row['name'];
+        echo "<img class='relatedPhotos' src='$photoDir'>";
+    }
+
+    return true;
+}

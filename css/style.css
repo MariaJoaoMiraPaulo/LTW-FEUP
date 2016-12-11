@@ -1635,4 +1635,7 @@ addRestaurantPhotoForm {
 .reviewRating > input:checked ~ label {
   color: #FFD700; }
 
+.relatedPhotos {
+  max-width: 50%; }
+
 /*# sourceMappingURL=style.css.map */
