@@ -163,7 +163,7 @@ AND price BETWEEN ? AND ?;");
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price)
+function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number)
 {
     if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
         $id = getUserInfoByUserName($username, 'id');
@@ -172,9 +172,9 @@ function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $re
 
         $rating = 0;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating) VALUES (?,?,?,?,?,?,?)');
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber) VALUES (?,?,?,?,?,?,?,?)');
 
-        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price,$rating])) {
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price,$rating,$number])) {
             return true;
         }
         return false;
@@ -335,7 +335,7 @@ function getRestaurantInfoById($idRestaurant, $info)
     return $statement->fetch()[$info];
 }
 
-function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocation, $restWebSite, $restPrice)
+function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocation, $restWebSite, $restPrice,$number)
 {
     if (!trim($restName))
         $restName = getRestaurantInfoById($idRestaurant, 'name');
@@ -345,19 +345,23 @@ function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocat
         $restAddress = getRestaurantInfoById($idRestaurant, 'address');
 
     if (!trim($restLocation))
-        $restLocation = getRestaurantInfoById($restLocation, 'location');
+        $restLocation = getRestaurantInfoById($idRestaurant, 'location');
 
     if (!trim($restWebSite)) {
-        $restLocation = getRestaurantInfoById($restLocation, 'website');
+        $restLocation = getRestaurantInfoById($idRestaurant, 'website');
     }
 
     if (!trim($restPrice)) {
-        $restPrice = getRestaurantInfoById($restPrice, 'price');
+        $restPrice = getRestaurantInfoById($idRestaurant, 'price');
+    }
+
+    if (!trim($number)) {
+        $number = getRestaurantInfoById($idRestaurant, 'phoneNumber');
     }
 
     global $db;
-    $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ? WHERE id = ?');
-    $statement->execute([$restName, $restAddress, $restLocation, $restWebSite, $restPrice, $idRestaurant]);
+    $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ?, phoneNumber= ? WHERE id = ?');
+    $statement->execute([$restName, $restAddress, $restLocation, $restWebSite, $restPrice,$number,$idRestaurant]);
     return $statement->errorCode();
 }
 

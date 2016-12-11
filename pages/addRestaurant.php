@@ -16,6 +16,11 @@ include_once "header.php";
             <span>Enter Restaurant Address here</span>
         </li>
         <li>
+            <label for="Phone number">Phone Number</label>
+            <input type="number" name="number" placeholder="Phone Number"><br>
+            <span>Enter Restaurant Phone Number here</span>
+        </li>
+        <li>
             <label for="date">Location</label>
             <input placeholder="Location" name="location" class="form-control" type="text"><br>
             <span>Enter Restaurant Location here</span>

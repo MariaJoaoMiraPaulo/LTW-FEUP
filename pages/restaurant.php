@@ -44,44 +44,44 @@ session_start();
             </div>
             <div class="container">
                 <div class="editRestaurant">
-                    <form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">
-                        <fieldset>
                             <?php
-                            $address = getRestaurantInfoById($id, 'address');
-                            $location = getRestaurantInfoById($id, 'location');
-                            $website = getRestaurantInfoById($id, 'website');
-                            $price = getRestaurantInfoById($id, 'price');
-
                             if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                                echo '<form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">';
+                                echo '<fieldset>';
                                 echo '<label>Address</label>';
-                                echo '<input type="text" name="restAddress" value=' . $address . '>';
+                                echo '<input type="text" name="restAddress" value="'.getRestaurantInfoById($_SESSION["restID"],'address').'"">';
                                 echo '<br>';
                                 echo '<label>Location</label>';
-                                echo ' <input type="text" name="restLocation" value=' . $location . '>';
+                                echo ' <input type="text" name="restLocation" value="'.getRestaurantInfoById($_SESSION["restID"],'location').'">';
+                                echo '<br>';
+                                echo '<label>Phone Number</label>';
+                                echo ' <input type="number" name="number" value="'.getRestaurantInfoById($_SESSION["restID"],'phoneNumber').'">';
                                 echo '<br>';
                                 echo '<label>WebSite</label>';
-                                echo ' <input type="url" name="restWebSite" value=' . $website . '>';
+                                echo ' <input type="url" name="restWebSite" value="'.getRestaurantInfoById($_SESSION["restID"],'website').'">';
                                 echo '<br>';
                                 echo '<label>Cost</label>';
-                                echo ' <input type="text" name="restPrice" value=' . $price . '>';
+                                echo ' <input type="text" name="restPrice" value="'.getRestaurantInfoById($_SESSION["restID"],'price').'">';
                                 echo '<input type="submit" value="Submit">';
+                                echo '</fieldset>';
+                                echo ' </form>';
                             }
                             else{
-                                echo '<label>'.$address.'</label>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'address').'</label>';
                                 echo '<br>';
                                 echo '</br>';
-                                echo '<label>'.$location.'</label>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'location').'</label>';
                                 echo '<br>';
                                 echo '</br>';
-                                echo '<label>'.$website.'</label>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'website').'</label>';
                                 echo '<br>';
                                 echo '</br>';
-                                echo '<label>'.$price.'</label>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'price').'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'phoneNumber').'</label>';
                             }
                             ?>
-
-                        </fieldset>
-                    </form>
                 </div>
             </div>
 
