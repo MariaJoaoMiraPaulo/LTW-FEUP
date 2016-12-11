@@ -10,19 +10,19 @@ $user = $_SESSION['login-user'];
 $idRest = $_SESSION['restID'];
 
 if(isset($_POST['rating1'])){
-    $rate+=1;
+    $rate=1;
 }
 if(isset($_POST['rating2'])){
-    $rate+=1;
+    $rate=2;
 }
 if(isset($_POST['rating3'])){
-    $rate+=1;
+    $rate=3;
 }
 if(isset($_POST['rating4'])){
-    $rate+=1;
+    $rate=4;
 }
 if(isset($_POST['rating5'])){
-    $rate+=1;
+    $rate=5;
 }
 
 date_default_timezone_set('UTC');
