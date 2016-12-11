@@ -1840,14 +1840,11 @@ addRestaurantPhotoForm{
   content:  "\f005";
 
 }
-
 .rating > label {
   color: #ddd;
   float: right;
 }
 
-
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating:not(:checked) > label:hover{ color: #FFD700;  } /* hover previous stars in list */
 
 .rating > input:checked ~ label{ color: #d6b600;  }

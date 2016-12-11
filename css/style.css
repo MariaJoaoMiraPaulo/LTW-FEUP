@@ -1590,12 +1590,11 @@ addRestaurantPhotoForm {
   color: #ddd;
   float: right; }
 
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
+.rating:not(:checked) > label:hover {
   color: #FFD700; }
 
 /* hover previous stars in list */
-.rating > input:checked ~ label {
+.rating > input:checked ~ label:f {
   color: #d6b600; }
 
 /*# sourceMappingURL=style.css.map */
