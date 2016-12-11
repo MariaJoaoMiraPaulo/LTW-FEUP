@@ -4,16 +4,22 @@ include_once('user.php');
 include_once('config.php');
 include_once('restaurantUtils.php');
 
-function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date)
+function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date,$name)
 {
     $id_autor = getIdByUserName($user);
     $likes = 0;
+    $photo = "../assets/".$name;
 
     global $db;
 
     $statement = $db->prepare('INSERT INTO reviews (restaurant_id, id_autor,title,userRate,text,date,likes) VALUES (?,?,?,?,?,?,?)');
 
     if ($statement->execute([$idRest, $id_autor, $title, $userRate, $text, $date,$likes])) {
+        if(trim($name)){
+           // $idRev;
+            $statement1 = $db->prepare('INSERT INTO reviewPhoto (name, restaurant_id) VALUES (?,?)');
+            $statement1->execute([$name, $idRest]);
+    }
         return true;
     }
     return false;

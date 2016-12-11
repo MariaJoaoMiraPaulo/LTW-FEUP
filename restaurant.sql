@@ -16,6 +16,13 @@ CREATE TABLE photo (
 	restaurant_id INTEGER REFERENCES restaurant
 );
 
+CREATE TABLE reviewPhoto (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR UNIQUE NOT NULL,
+	restaurant_id INTEGER REFERENCES restaurant,
+	review_id INTEGER REFERENCES reviews
+);
+
 CREATE TABLE users (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
   username VARCHAR,

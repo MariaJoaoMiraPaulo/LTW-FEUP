@@ -8,7 +8,7 @@ $title = $_POST['title'];
 $rate = $_POST['rate'];
 $user = $_SESSION['login-user'];
 $idRest = $_SESSION['restID'];
-$photo = $_SESSION['fileToUpload'];
+$photo = $_POST['fileToUpload'];
 
 if(isset($_POST['rating1'])){
     $rate=1;
@@ -29,6 +29,6 @@ if(isset($_POST['rating5'])){
 date_default_timezone_set('UTC');
 $currentDate =  date("Y/m/d h:i:s");
 
-sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate);
+sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate,$photo);
 
 header("Location:".$_SERVER['HTTP_REFERER']."");

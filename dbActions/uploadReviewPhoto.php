@@ -1,13 +1,5 @@
 <?php
 
-$id = $_SESSION['restID'];
-
-var_dump($_FILES);
-
-echo '<p>';
-echo "OP";
-echo '<p>';
-
 $target_dir = "../assets/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 echo $target_file;
