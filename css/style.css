@@ -1668,6 +1668,29 @@ Restaurant Search Pages
     background-color: #ffffff;
     border-radius: 4px;
     padding: 10px 10px 10px 10px; }
+  .restaurantSearchPage .container h1 {
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #34495E;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px; }
+  .restaurantSearchPage .container h2 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #34495E;
+    font-size: 30px;
+    text-align: left;
+    float: right;
+    padding: 5px; }
+  .restaurantSearchPage .container h3 {
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #34495E;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px; }
   .restaurantSearchPage .main {
     padding: 10px 10px 10px 10px;
     position: relative;

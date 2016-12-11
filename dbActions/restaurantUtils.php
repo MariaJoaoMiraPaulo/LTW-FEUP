@@ -24,8 +24,7 @@ function getServices($name, $priceMin, $priceMax, $rating, $category, $location)
     $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
     $locationkeywords = explode(' ', $location);
     $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
-    $servicekeywords = explode(' ', $service);
-    $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
+
     $ratingkeywords = explode(' ', $rating);
     $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
     $categorykeywords = explode(' ', $category);
@@ -129,7 +128,7 @@ function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category
 
     if ($service != "" && $category != ""){
     $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
+i d LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
 AND location LIKE ? 
 AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND name LIKE ?

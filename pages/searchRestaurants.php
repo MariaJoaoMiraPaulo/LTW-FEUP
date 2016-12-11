@@ -7,6 +7,7 @@ session_start();
     include_once "header.php";
     include_once "../dbActions/restaurantUtils.php";
     include_once "../dbActions/reviewsUtils.php";
+    include_once "../dbActions/searchRestaurants.php";
     $restaurant = "";
     $service = "";
     $priceMin = 0;
@@ -14,7 +15,7 @@ session_start();
     $rating = "";
     $category = "";
     $location = "";
-    if (preg_match("/[a-z A-Z]/", $_GET['service'])) {
+    if (preg_match("/[a-z A-Z]/",    $_GET['service'])) {
         $service = $_GET['service'];
     }
     if (preg_match("/[a-z A-Z]/", $_GET['category'])) {
@@ -49,11 +50,8 @@ session_start();
                 <section>
                     <h2>Services</h2>
 
-                    <?php
-                        getServices($restaurant, $priceMin, $priceMax, $rating, $category, $location);
-                        echo "<a onclick=\"location.href='searchRestaurants.php?id=$id&restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=&location';\">SDad</a>";
-                    ?>
-                    </section>
+
+                </section>
             </div>
         </div>
         <div class="main">
@@ -62,8 +60,19 @@ session_start();
             foreach ($result as $row) {
                 echo "<div class=\"container\">";
                 $restaurantName = $row['name'];
+                $restaurantLocation = $row['location'];
+                $restaurantAddress = $row['address'];
+                $restaurantPrice = $row['price'];
+                $restaurantOpenHours = $row['openHours'];
                 $id = getIdRestaurantByName($restaurantName);
-                echo "<h1 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h1>";
+
+                echo "<h2 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h2>";
+                echo "<h3>" .$restaurantLocation."</h3>";
+                echo "<h3>".$restaurantAddress."</h3>";
+                selectAllServicesFromIdRestaurant($id);
+                selectAllCategoriesFromIdRestaurant($id);
+                echo "<h1><span style=\"font-weight:bold;font-size:20px\">Cost for two: </span>" .$restaurantPrice." €</h1>";
+                echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
                 echo "</div>";
             }
             ?>
