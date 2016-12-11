@@ -170,9 +170,11 @@ function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $re
 
         global $db;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price) VALUES (?,?,?,?,?,?)');
+        $rating = 0;
 
-        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price])) {
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating) VALUES (?,?,?,?,?,?,?)');
+
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price,$rating])) {
             return true;
         }
         return false;
