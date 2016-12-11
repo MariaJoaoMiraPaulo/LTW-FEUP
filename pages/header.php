@@ -9,6 +9,7 @@ include_once "../dbActions/user.php";
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../js/main.js"></script> <!-- Resource jQuery -->
+    <script src="https://use.fontawesome.com/0b68c59fc5.js"></script>
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
     <div class="header">
