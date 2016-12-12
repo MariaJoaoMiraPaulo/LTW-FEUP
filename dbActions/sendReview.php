@@ -4,25 +4,12 @@ include_once ('reviewsUtils.php');
 
 $rate=0;
 
-if (preg_match("/[a-z A-Z0-9]/",    $_POST['review'])) {
-    $review = $_POST['review'];
-}
-if (preg_match("/[a-z A-Z0-9]/",    $_POST['title'])) {
-    $title = $_POST['title'];
-}
-if (preg_match("/[a-z A-Z0-9]/",     $_POST['rate'])) {
-    $rate = $_POST['rate'];
-}
-if (preg_match("/[a-z A-Z0-9]/",    $_SESSION['login-user'])) {
-    $user = $_SESSION['login-user'];
-}
-if (preg_match("/[a-z A-Z0-9]/",    $_SESSION['restID'])) {
-    $idRest = $_SESSION['restID'];
-}
-if (preg_match("/[a-z A-Z0-9]/",     $_POST['title'])) {
-    $title = $_POST['title'];
-}
 
+$title = htmlspecialchars($_POST['title']);
+$review = htmlspecialchars($_POST['review']);
+$rate = htmlspecialchars($_POST['rate']);
+$user = htmlspecialchars($_SESSION['login-user']);
+$idRest = htmlspecialchars($_SESSION['restID']);
 
 
 date_default_timezone_set('UTC');
@@ -52,4 +39,4 @@ for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
     }
 }
 
-header("Location:".$_SERVER['HTTP_REFERER']."");
+//header("Location:".$_SERVER['HTTP_REFERER']."");
