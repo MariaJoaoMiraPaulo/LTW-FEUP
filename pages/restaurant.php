@@ -21,7 +21,7 @@ session_start();
 
     <script src="../js/slider.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/review.js"></script>
+    <script src="../js/slider.js"></script>
 
 
     <div class="restaurantPage">
@@ -92,7 +92,7 @@ session_start();
                 echo '<p class="boxTitle">Add a photo to your galery:</p>';
                 echo '<div class="addPhotos">';
                 echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
-                echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
+                echo '<input id="findPhoto" type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">';
                 echo '<br>';
                 echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
                 echo '</form>';

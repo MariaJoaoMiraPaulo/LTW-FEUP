@@ -4,40 +4,26 @@ include_once ('restaurantUtils.php');
 
 $id = $_SESSION['restID'];
 
-$target_dir = "../assets/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        $uploadOk = 1;
-    } else {
-        $uploadOk = 0;
+for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
+    $j = 0; //Variable for indexing uploaded image
+    $target_path = "../assets/"; //Declaring Path for uploaded images
+    $validextensions = array("jpeg", "jpg", "png"); //Extensions which are allowed
+    $ext = explode('.', basename($_FILES['fileToUpload']['name'][$i])); //explode file name from dot(.)
+    $file_extension = end($ext); //store extensions in the variable
+
+    $target_path = $target_path.md5(uniqid()). ".".$ext[count($ext) - 1]; //set the target path with a new name of image
+    $j = $j + 1; //increment the number of uploaded images according to the files in array
+
+    if (($_FILES["fileToUpload"]["size"][$i] < 100000) && in_array($file_extension, $validextensions)) {
+        $target_file = $target_path.$_FILES["fileToUpload"]["name"][$i];
+        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i],$target_file);
+        uploadPhotoToRestaurant($target_file,$id);
     }
-}
-// Check if file already exists
-if (file_exists($target_file)) {
-    $uploadOk = 0;
-}
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 1){
-    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-    uploadPhotoToRestaurant($target_file,$id);
 }
 
 if(strpos($_SERVER['HTTP_REFERER'],"addRestaurantPhoto.php"))
     header('Location: ../pages/profile.php');
 else header("Location:".$_SERVER['HTTP_REFERER']."");
+
 
 ?>
