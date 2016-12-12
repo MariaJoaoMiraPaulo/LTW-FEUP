@@ -12,7 +12,11 @@ include_once "../dbActions/user.php";
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../js/main.js"></script> <!-- Resource jQuery -->
+    <script src="../js/signUp.js"></script> <!-- Resource jQuery -->
     <script src="https://use.fontawesome.com/0b68c59fc5.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/strength.js"></script>
+    <link rel="stylesheet" type="text/css" href="strength.css">
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
     <div class="header">
@@ -68,7 +72,26 @@ include_once "../dbActions/user.php";
                         <input type="radio" name="gender" value="Male"> Male 
                         <input type="radio" name="gender" value="Female"> Female 
                     </div>
-                    <input type="password" name="password" placeholder="Password">
+
+
+                        <input id="myPassword" type="password" name="password" value="">
+
+                    <script>
+                        $(document).ready(function ($) {
+
+
+                            $('#myPassword').strength({
+                                strengthClass: 'strength',
+                                strengthMeterClass: 'strength_meter',
+                                strengthButtonClass: 'button_strength',
+                                strengthButtonText: 'Show password',
+                                strengthButtonTextToggle: 'Hide Password'
+                            });
+
+                        });
+                    </script>
+                    <script type="text/javascript" src="../js/strength.js"></script>
+                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
                     <input type="date" name="birthDate">
                     <div id="type">
                         <input type="radio" name="type" value="Owner"> Owner 
