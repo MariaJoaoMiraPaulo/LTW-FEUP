@@ -1,5 +1,4 @@
 
-
 jQuery(document).ready(function($){
 	//this is used for the video effect only
 	if( $('.cd-bg-video-wrapper').length > 0 ) {
@@ -17,8 +16,6 @@ jQuery(document).ready(function($){
     $('stars').on('hover', function(){
         $(this).trigger('click');
     });
-
-
 });
 
 function visibleLogin() {
@@ -45,17 +42,40 @@ function openAnswerForm($idRev) {
     $('#form'+ $idRev).show();
 }
 
-
 $( function() {
-    $( "#slider-range" ).slider({
+    let slider = $('#slider-range');
+
+    slider.slider({
         range: true,
         min: 0,
         max: 150,
-        values: [ 15, 50 ],
+        values: [ slider.attr('min'), slider.attr('max') ],
         slide: function( event, ui ) {
             $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            var string = "searchRestaurants.php?priceMin=" + ui.values[0] + "&priceMax=" + ui.values[1];
+            console.log(event);
+        },
+        stop: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            var string = "searchRestaurants.php?priceMin=" + ui.values[0] + "&priceMax=" + ui.values[1];
+            console.log(event);
+            minV=ui.values[0];
+            maxV=ui.values[1];
+            location.href=string;
         }
     });
+    console.log(minValue());
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
         " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
 } );
+
+function minValue() {
+    return  $( "#slider-range" ).slider( "values", 0 );
+}
+
+function maxValue() {
+    return  $( "#slider-range" ).slider( "values", 1 );
+}
+

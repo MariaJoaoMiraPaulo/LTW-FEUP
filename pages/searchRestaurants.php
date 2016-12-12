@@ -10,8 +10,8 @@ session_start();
     include_once "../dbActions/searchRestaurants.php";
     $restaurant = "";
     $service = "";
-    $priceMin = 0;
-    $priceMax = 100000;
+    $priceMin = 15;
+    $priceMax = 100;
     $rating = "";
     $category = "";
     $location = "";
@@ -72,23 +72,13 @@ session_start();
                     </fieldset><br><br>
 
                     <h2>Price</h2>
-
-                    <?php
-
-                    echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=5&category=$category&location=$location&service=$service';\" id=\"star5S\" name=\"rating\" value=\"5\" /><label class = \"full\" for=\"star5S\" title=\"5 stars\"></label>";
-                    echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=4&category=$category&location=$location&service=$service';\" id=\"star4S\" name=\"rating\" value=\"4\" /><label class = \"full\" for=\"star4S\" title=\"4 stars\"></label>";
-                    echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=3&category=$category&location=$location&service=$service';\" id=\"star3S\" name=\"rating\" value=\"3\" /><label class = \"full\" for=\"star3S\" title=\"3 stars\"></label>";
-                    echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=2&category=$category&location=$location&service=$service';\" id=\"star2S\" name=\"rating\" value=\"2\" /><label class = \"full\" for=\"star2S\" title=\"2 stars\"></label>";
-                    echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=1&category=$category&location=$location&service=$service';\" id=\"star1S\" name=\"rating\" value=\"1\" /><label class = \"full\" for=\"star1S\" title=\"1 star\"></label>";
-
-                    ?>
-
-
                     <p>
                         <label for="amount">Price range:</label>
                         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
                     </p>
-                    <div id="slider-range"></div>
+                    <?php
+                    echo "<div id=\"slider-range\" min=\"" . $priceMin . "\" max=\"" . $priceMax . "\"></div>";
+                    ?>
                     <label id="minValue"></label>
                     <label id="maxValue"></label>
 
