@@ -166,7 +166,7 @@ function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category
 
     if ($service != "" && $category != ""){
     $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-i d LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
+id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
 AND location LIKE ? 
 AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND name LIKE ?
@@ -417,4 +417,69 @@ function getRestaurantPhotos($idRest)
     }
 
     return $ret;
+}
+function selectAllServicesFromIdRestaurant($idRestaurant){
+    global $db;
+    $statement = $db->prepare('SELECT  service FROM services WHERE restaurant_id LIKE ? GROUP BY service ORDER BY COUNT(*) DESC ');
+    $statement->execute([$idRestaurant]);
+
+    echo "<h4> Services:</h4>";
+    echo "<h1>";
+    $i = 0;
+    $j = 1;
+    while ($row = $statement->fetch())
+        $i++;
+    $statement->execute([$idRestaurant]);
+    while ($row = $statement->fetch()) {
+
+        $service = $row['service'];
+        if($j == $i){
+            echo  $service.', ';}
+        else{
+            echo  $service.', ';}
+        $j++;
+    }
+    echo "</h1>";
+}
+
+function selectAllCategoriesFromIdRestaurant($idRestaurant){
+    global $db;
+    $statement = $db->prepare('SELECT  category FROM categories WHERE restaurant_id LIKE ? GROUP BY category ORDER BY COUNT(*) DESC ');
+    $statement->execute([$idRestaurant]);
+
+    echo "<h4> Cuisines:</h4>";
+    echo "<h1>";
+    $i = 0;
+    $j = 1;
+    while ($row = $statement->fetch())
+        $i++;
+    $statement->execute([$idRestaurant]);
+    while ($row = $statement->fetch()) {
+
+        $service = $row['category'];
+        if($j == $i){
+            echo  $service.', ' ;}
+        else{
+            echo  $service.', ' ;}
+        $j++;
+    }
+    echo "</h1>";
+}
+
+function showFirstRestaurantImage($idRestaurant){
+
+    global $db;
+    $statement = $db->prepare('SELECT  name FROM photo WHERE restaurant_id = ?');
+    $statement->execute([$idRestaurant]);
+    $row = $statement->fetch();
+    $fileName = $row['name'];
+
+    if(!trim($fileName)){
+        $fileName = "../assets/default-Restaurant.png";
+        echo "<img src=" .$fileName. " />";
+    }
+
+    echo "<img src=" .$fileName. " />";
+
+
 }
