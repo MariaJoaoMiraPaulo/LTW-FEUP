@@ -166,7 +166,7 @@ function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category
 
     if ($service != "" && $category != ""){
     $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-i d LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
+id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
 AND location LIKE ? 
 AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND name LIKE ?
