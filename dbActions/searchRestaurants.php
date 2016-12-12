@@ -49,6 +49,18 @@ function selectAllCategoriesFromIdRestaurant($idRestaurant){
     echo "</h1>";
 }
 
+function showImage($idRestaurant){
+
+    global $db;
+    $statement = $db->prepare('SELECT  name FROM photo WHERE restaurant_id LIKE ? GROUP BY name ORDER BY COUNT(*) DESC ');
+    $statement->execute([$idRestaurant]);
+    $row = $statement->fetch();
+    $fileName = $row['name'];
+
+    echo "<img src=" .$fileName. " />";
+
+
+}
 
 
 
