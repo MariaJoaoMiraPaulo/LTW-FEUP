@@ -1992,7 +1992,41 @@ Restaurant Search Pages
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
   }
-  .main {
+  .container h1 {
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #34495E;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px; }
+ .container h2 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #34495E;
+    font-size: 30px;
+    text-align: left;
+    float: right;
+    padding: 5px; }
+   .container h3 {
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #34495E;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px; }
+  .container img {
+
+    float: right;
+    margin-left:10px;
+    width:17%;
+    height:17%;
+    border:none;
+
+
+  }
+
+  .main{
     padding: 10px 10px 10px 10px;
     position: relative;
     min-width: 500px;
@@ -2031,3 +2065,40 @@ Restaurant Search Pages
   max-width: 30%;
   padding: 5px;
 }
+
+/****** Style Star Rating Widget *****/
+
+.ratingSearch {
+  border: none;
+  float: left;
+}
+
+.ratingSearch > input { display: none; }
+.ratingSearch > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.ratingSearch > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.ratingSearch > label {
+  color: #ddd;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.ratingSearch> input:checked ~ label, /* show gold star when clicked */
+.ratingSearch:not(:checked) > label:hover, /* hover current star */
+.ratingSearch:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.ratingSearch > input:checked + label:hover, /* hover current star when changing rating */
+.ratingSearch > input:checked ~ label:hover,
+.ratingSearch > label:hover ~ input:checked ~ label, /* lighten current selection */
+.ratingSearch > input:checked ~ label:hover ~ label { color: #FFED85;  }
