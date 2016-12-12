@@ -418,3 +418,32 @@ function getRestaurantPhotos($idRest)
 
     return $ret;
 }
+
+function setRating($idRestaurant){
+
+    global $db;
+    $statement = $db->prepare('SELECT AVG(userRate) AS rating FROM (SELECT  userRate FROM reviews WHERE restaurant_id LIKE ? GROUP BY userRate ORDER BY COUNT(*) DESC)');
+    $statement->execute([$idRestaurant]);
+    if($row = $statement->fetch())
+    $rating = $row['rating'];
+
+    if(is_null($rating))
+        $rating = 0;
+
+    $statement1 = $db->prepare('UPDATE restaurant SET rating = ? WHERE id = ?');
+    $statement1->execute([$rating,$idRestaurant]);
+
+
+}
+
+function setAllRating(){
+
+    global $db;
+    $statement = $db->prepare('SELECT id FROM restaurant');
+    $statement->execute();
+     while($row = $statement->fetch()){
+         $restaurantId = $row['id'];
+         setRating($restaurantId);
+     }
+
+}
