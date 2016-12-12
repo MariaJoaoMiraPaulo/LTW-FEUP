@@ -1716,7 +1716,10 @@ Restaurant Search Pages
       min-width: 400px;
       width: 400px;
       float: right; } }
-<<<<<<< HEAD
+.reviewPhoto {
+  max-width: 30%;
+  padding: 5px; }
+
 /****** Style Star Rating Widget *****/
 .ratingSearch {
   border: none;
@@ -1752,10 +1755,5 @@ Restaurant Search Pages
 .ratingSearch > label:hover ~ input:checked ~ label,
 .ratingSearch > input:checked ~ label:hover ~ label {
   color: #FFED85; }
-=======
-.reviewPhoto {
-  max-width: 30%;
-  padding: 5px; }
->>>>>>> restaurant_Page
 
 /*# sourceMappingURL=style.css.map */
