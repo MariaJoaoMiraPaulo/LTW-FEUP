@@ -2,11 +2,12 @@
 session_start();
 include_once 'user.php';
 
-$newUsername = $_POST['userName'];
-$newFullName = $_POST['name'];
-$userName = $_SESSION['login-user'];
-$data = $_POST['birthdate'];
-$gender = $_POST['gender'];
+$newUsername = htmlspecialchars($_POST['userName']);
+$newFullName = htmlspecialchars($_POST['name']);
+$userName = htmlspecialchars($_SESSION['login-user']);
+$data = htmlspecialchars($_POST['birthdate']);
+$gender = htmlspecialchars($_POST['gender']);
+
 
 updateUserProfile($userName,$newUsername,$newFullName,$data,$gender);
 

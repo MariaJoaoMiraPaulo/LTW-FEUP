@@ -14,9 +14,7 @@ $idRest = htmlspecialchars($_SESSION['restID']);
 
 date_default_timezone_set('UTC');
 $currentDate =  date("Y/m/d h:i:s");
-if (preg_match("/[a-z A-Z0-9]/",    $_POST['rating'])) {
-    $rate=$_POST['rating'];
-}
+$rate = htmlspecialchars($_POST['rating']);
 
 
 $idRev = sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate);
@@ -40,4 +38,4 @@ for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
     }
 }
 
-//header("Location:".$_SERVER['HTTP_REFERER']."");
+header("Location:".$_SERVER['HTTP_REFERER']."");
