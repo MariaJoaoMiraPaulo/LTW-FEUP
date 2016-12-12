@@ -60,13 +60,28 @@ session_start();
                     ?>
                     <h2>Rating</h2>
                     <fieldset class="ratingSearch">
-                        <?php
 
-                          echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=5&category=$category&location=$location&service=$service';\" id=\"star5S\" name=\"rating\" value=\"5\" /><label class = \"full\" for=\"star5S\" title=\"5 stars\"></label>";
-                          echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=4&category=$category&location=$location&service=$service';\" id=\"star4S\" name=\"rating\" value=\"4\" /><label class = \"full\" for=\"star4S\" title=\"4 stars\"></label>";
-                          echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=3&category=$category&location=$location&service=$service';\" id=\"star3S\" name=\"rating\" value=\"3\" /><label class = \"full\" for=\"star3S\" title=\"3 stars\"></label>";
-                          echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=2&category=$category&location=$location&service=$service';\" id=\"star2S\" name=\"rating\" value=\"2\" /><label class = \"full\" for=\"star2S\" title=\"2 stars\"></label>";
-                          echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=1&category=$category&location=$location&service=$service';\" id=\"star1S\" name=\"rating\" value=\"1\" /><label class = \"full\" for=\"star1S\" title=\"1 star\"></label>";
+                        <?php
+                        if($rating == 5 )
+                            echo "<input type=\"radio\" checked  onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=5&category=$category&location=$location&service=$service';\" id=\"star5S\" name=\"rating\" value=\"5\" /><label class = \"full\" for=\"star5S\" title=\"5 stars\"></label>";
+                        else
+                            echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=5&category=$category&location=$location&service=$service';\" id=\"star5S\" name=\"rating\" value=\"5\" /><label class = \"full\" for=\"star5S\" title=\"5 stars\"></label>";
+                        if($rating == 4 )
+                            echo "<input type=\"radio\" checked  onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=4&category=$category&location=$location&service=$service';\" id=\"star54S\" name=\"rating\" value=\"4\" /><label class = \"full\" for=\"star4S\" title=\"4 stars\"></label>";
+                        else
+                            echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=4&category=$category&location=$location&service=$service';\" id=\"star4S\" name=\"rating\" value=\"4\" /><label class = \"full\" for=\"star4S\" title=\"4 stars\"></label>";
+                        if($rating == 3 )
+                            echo "<input type=\"radio\" checked  onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=3&category=$category&location=$location&service=$service';\" id=\"star3S\" name=\"rating\" value=\"3\" /><label class = \"full\" for=\"star3S\" title=\"3 stars\"></label>";
+                        else
+                            echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=3&category=$category&location=$location&service=$service';\" id=\"star3S\" name=\"rating\" value=\"3\" /><label class = \"full\" for=\"star3S\" title=\"3 stars\"></label>";
+                        if($rating == 2 )
+                            echo "<input type=\"radio\" checked  onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=2&category=$category&location=$location&service=$service';\" id=\"star2S\" name=\"rating\" value=\"2\" /><label class = \"full\" for=\"star2S\" title=\"2 stars\"></label>";
+                        else
+                            echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=2&category=$category&location=$location&service=$service';\" id=\"star2S\" name=\"rating\" value=\"2\" /><label class = \"full\" for=\"star2S\" title=\"2 stars\"></label>";
+                        if($rating == 1 )
+                            echo "<input type=\"radio\" checked  onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=1&category=$category&location=$location&service=$service';\" id=\"star1S\" name=\"rating\" value=\"1\" /><label class = \"full\" for=\"star1S\" title=\"1 stars\"></label>";
+                        else
+                            echo "<input type=\"radio\" onclick=\"location.href = 'searchRestaurants.php?restaurant=$restaurant&priceMin=$priceMin&priceMax=$priceMax&rating=1&category=$category&location=$location&service=$service';\" id=\"star1S\" name=\"rating\" value=\"1\" /><label class = \"full\" for=\"star1S\" title=\"1 stars\"></label>";
 
                         ?>
                     </fieldset><br><br>

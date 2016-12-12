@@ -8,7 +8,7 @@ function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date)
 {
     $id_autor = getIdByUserName($user);
     $likes = 0;
-
+    var_dump($userRate);
 
     global $db;
 

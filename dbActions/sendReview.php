@@ -11,21 +11,10 @@ $idRest = $_SESSION['restID'];
 date_default_timezone_set('UTC');
 $currentDate =  date("Y/m/d h:i:s");
 
-if(isset($_POST['rating1'])){
-    $rate=1;
+if(isset($_POST['rating'])){
+    $rate=$_POST['rating'];
 }
-if(isset($_POST['rating2'])){
-    $rate=2;
-}
-if(isset($_POST['rating3'])){
-    $rate=3;
-}
-if(isset($_POST['rating4'])){
-    $rate=4;
-}
-if(isset($_POST['rating5'])){
-    $rate=5;
-}
+
 
 $idRev = sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate);
 

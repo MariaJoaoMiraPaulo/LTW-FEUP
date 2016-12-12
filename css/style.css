@@ -1609,15 +1609,21 @@ addRestaurantPhotoForm {
   display: none; }
 
 .rating > label:before {
-  font-size: 1.5em;
+  margin: 5px;
+  font-size: 1.25em;
   font-family: FontAwesome;
   display: inline-block;
   content: "\f005"; }
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute; }
 
 .rating > label {
   color: #ddd;
   float: right; }
 
+/***** CSS Magic to Highlight Stars on Hover  *****/
 .rating > input:checked ~ label,
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
@@ -1628,27 +1634,7 @@ addRestaurantPhotoForm {
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label,
 .rating > input:checked ~ label:hover ~ label {
-  color: #d6b600; }
-
-.reviewRating {
-  border: none;
-  float: left; }
-
-.reviewRating > input {
-  display: none; }
-
-.reviewRating > label:before {
-  font-size: 1.5em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005"; }
-
-.reviewRating > label {
-  color: #ddd;
-  float: right; }
-
-.reviewRating > input:checked ~ label {
-  color: #FFD700; }
+  color: #FFED85; }
 
 #map {
   width: 100%;
