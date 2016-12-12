@@ -423,6 +423,7 @@ function selectAllServicesFromIdRestaurant($idRestaurant){
     $statement = $db->prepare('SELECT  service FROM services WHERE restaurant_id LIKE ? GROUP BY service ORDER BY COUNT(*) DESC ');
     $statement->execute([$idRestaurant]);
 
+    echo "<h4> Services:</h4>";
     echo "<h1>";
     $i = 0;
     $j = 1;
@@ -433,9 +434,9 @@ function selectAllServicesFromIdRestaurant($idRestaurant){
 
         $service = $row['service'];
         if($j == $i){
-            echo  $service;}
+            echo  $service.', ';}
         else{
-            echo  $service;}
+            echo  $service.', ';}
         $j++;
     }
     echo "</h1>";
@@ -446,6 +447,7 @@ function selectAllCategoriesFromIdRestaurant($idRestaurant){
     $statement = $db->prepare('SELECT  category FROM categories WHERE restaurant_id LIKE ? GROUP BY category ORDER BY COUNT(*) DESC ');
     $statement->execute([$idRestaurant]);
 
+    echo "<h4> Cuisines:</h4>";
     echo "<h1>";
     $i = 0;
     $j = 1;
@@ -456,9 +458,9 @@ function selectAllCategoriesFromIdRestaurant($idRestaurant){
 
         $service = $row['category'];
         if($j == $i){
-            echo  $service ;}
+            echo  $service.', ' ;}
         else{
-            echo  $service ;}
+            echo  $service.', ' ;}
         $j++;
     }
     echo "</h1>";
@@ -472,5 +474,12 @@ function showFirstRestaurantImage($idRestaurant){
     $row = $statement->fetch();
     $fileName = $row['name'];
 
+    if(!trim($fileName)){
+        $fileName = "../assets/default-Restaurant.png";
+        echo "<img src=" .$fileName. " />";
+    }
+
     echo "<img src=" .$fileName. " />";
+
+
 }

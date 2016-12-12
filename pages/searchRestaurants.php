@@ -111,16 +111,19 @@ session_start();
 
                 echo '<div class="row">';
 
-
                 selectAllServicesFromIdRestaurant($id);
                 echo '<br>'.'</br>';
                 selectAllCategoriesFromIdRestaurant($id);
 
-                echo '</div>';
+                echo '<br>'.'</br>';
+
+                echo "<h4> Cust for Two:</h4>";
+
+                echo '<h1>'.$restaurantPrice."€".'</h1>';
 /*
-                echo "<h1><span style=\"font-weight:bold;font-size:20px\">Cost for two: </span>" .$restaurantPrice." €</h1>";
                 echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
 */
+                echo '</div>';
                 echo "</div>";
             }
             ?>
