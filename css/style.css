@@ -1799,7 +1799,7 @@ Search Pages
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding: 10px;
+  padding: 13px 13px 13px 4px;
   float: left; }
 
 .star {

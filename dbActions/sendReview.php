@@ -17,6 +17,7 @@ if(isset($_POST['rating'])){
 
 
 $idRev = sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate);
+setRating($idRest);
 
 
 for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
