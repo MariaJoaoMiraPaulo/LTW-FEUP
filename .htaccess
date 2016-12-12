@@ -11,10 +11,6 @@ Deny from all
 </Files>
 
 # Protect folders
-<Files ./assets/>
-Order Allow,Deny
-Deny from all
-</Files>
 <Files ./css>
 Order Allow,Deny
 Deny from all

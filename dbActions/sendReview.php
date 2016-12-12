@@ -3,15 +3,31 @@ session_start();
 include_once ('reviewsUtils.php');
 
 $rate=0;
-$review = $_POST['review'];
-$title = $_POST['title'];
-$rate = $_POST['rate'];
-$user = $_SESSION['login-user'];
-$idRest = $_SESSION['restID'];
+
+if (preg_match("/[a-z A-Z0-9]/",    $_POST['review'])) {
+    $review = $_POST['review'];
+}
+if (preg_match("/[a-z A-Z0-9]/",    $_POST['title'])) {
+    $title = $_POST['title'];
+}
+if (preg_match("/[a-z A-Z0-9]/",     $_POST['rate'])) {
+    $rate = $_POST['rate'];
+}
+if (preg_match("/[a-z A-Z0-9]/",    $_SESSION['login-user'])) {
+    $user = $_SESSION['login-user'];
+}
+if (preg_match("/[a-z A-Z0-9]/",    $_SESSION['restID'])) {
+    $idRest = $_SESSION['restID'];
+}
+if (preg_match("/[a-z A-Z0-9]/",     $_POST['title'])) {
+    $title = $_POST['title'];
+}
+
+
+
 date_default_timezone_set('UTC');
 $currentDate =  date("Y/m/d h:i:s");
-
-if(isset($_POST['rating'])){
+if (preg_match("/[a-z A-Z0-9]/",    $_POST['rating'])) {
     $rate=$_POST['rating'];
 }
 
