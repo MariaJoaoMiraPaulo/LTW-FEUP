@@ -1,9 +1,10 @@
 <?php
 include_once "header.php";
+$_SESSION['token'] = generate_random_token();
+
 ?>
-
-
 <form class = "addRestaurantForm" action="../dbActions/addRestaurant.php" method="post">
+    <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
     <ul>
         <li>
             <label for="Name">Name</label>

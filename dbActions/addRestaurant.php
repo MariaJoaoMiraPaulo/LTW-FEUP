@@ -3,6 +3,14 @@
 include_once ('config.php');
 include_once ('restaurantUtils.php');
 
+if ($_SESSION['token'] !== $_POST['token']) {
+    header('HTTP/1.0 403 Forbidden');
+    die();
+}
+
+$_SESSION['token'] = generate_random_token();
+
+
 $restaurantName = $_POST['name'];
 $restaurantAddress = $_POST['address'];
 $restaurantLocation = $_POST['location'];
