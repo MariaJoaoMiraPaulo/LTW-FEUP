@@ -7,7 +7,6 @@ session_start();
     include_once "header.php";
     include_once "../dbActions/restaurantUtils.php";
     include_once "../dbActions/reviewsUtils.php";
-    include_once "../dbActions/searchRestaurants.php";
     $restaurant = "";
     $service = "";
     $priceMin = 15;
@@ -98,18 +97,30 @@ session_start();
                 $restaurantOpenHours = $row['openHours'];
                 $id = getIdRestaurantByName($restaurantName);
 
+                echo '<div class="row">';
+
+                echo '<div class="contentPhoto">';
+                showFirstRestaurantImage($id);
+                echo '</div>';
                 echo "<h2 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h2>";
-
+                echo '<br>'.'</br>';
                 echo "<h3>" .$restaurantLocation."</h3>";
+                echo '<br>'.'</br>';
+                echo "<h1>".$restaurantAddress."</h1>";
+                echo '</div>';
 
-                echo "<h3>".$restaurantAddress."</h3>";
-                showImage($id);
+                echo '<div class="row">';
+
+
                 selectAllServicesFromIdRestaurant($id);
+                echo '<br>'.'</br>';
                 selectAllCategoriesFromIdRestaurant($id);
 
+                echo '</div>';
+/*
                 echo "<h1><span style=\"font-weight:bold;font-size:20px\">Cost for two: </span>" .$restaurantPrice." €</h1>";
                 echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
-
+*/
                 echo "</div>";
             }
             ?>

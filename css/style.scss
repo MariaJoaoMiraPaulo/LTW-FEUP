@@ -1991,37 +1991,75 @@ Restaurant Search Pages
     background-color: #ffffff;
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
-  }
-  .container h1 {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
-    color: #34495E;
-    font-size: 16px;
-    text-align: left;
-    padding: 5px; }
- .container h2 {
-    font-weight: bold;
-    font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
-    color: #34495E;
-    font-size: 30px;
-    text-align: left;
-    float: right;
-    padding: 5px; }
-   .container h3 {
-    font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
-    color: #34495E;
-    font-size: 16px;
-    text-align: left;
-    padding: 5px; }
-  .container img {
 
-    float: right;
-    margin-left:10px;
-    width:17%;
-    height:17%;
-    border:none;
+    .row:first-child{
+      border-bottom: 1px solid lightgrey;
+    }
+
+    .row{
+      width:100%;
+      margin-left: -10px;
+      margin-right: -10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: inline-block;
+      padding-bottom: 15px;
+      padding-top: 15px;
+
+
+      .contentPhoto{
+        position: relative;
+        height: 150px;
+        width: 150px;
+        overflow: hidden;
+        float: left;
+      }
+
+      img{
+        position: absolute;
+        background-position: center;
+        object-fit: cover;
+        height: 100%;
+        width: auto;
+        margin-bottom: 20px;
+        margin-left: 10px;
+
+      }
+
+      h2 {
+        cursor: pointer;
+        font-weight: bold;
+        color: $primary-color;
+        font-size: 20px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left;
+
+      }
+
+      h3 {
+        color: grey;
+        font-weight: bold;
+        font-size: 13px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left;
+
+      }
+
+      h1 {
+        color: grey;
+        font-size: 13px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left;
+
+      }
+    }
+
 
 
   }
@@ -2102,3 +2140,11 @@ Restaurant Search Pages
 .ratingSearch > input:checked ~ label:hover,
 .ratingSearch > label:hover ~ input:checked ~ label, /* lighten current selection */
 .ratingSearch > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+/* --------------------------------
+
+Search Pages
+
+-------------------------------- */
+
+

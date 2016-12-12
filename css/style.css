@@ -1668,36 +1668,56 @@ Restaurant Search Pages
     margin-bottom: 1.6em;
     background-color: #ffffff;
     border-radius: 4px;
-    padding: 10px 10px 10px 10px; }
-  .restaurantSearchPage .container h1 {
+    padding: 10px 10px 10px 10px;
     font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
-    color: #34495E;
-    font-size: 16px;
-    text-align: left;
-    padding: 5px; }
-  .restaurantSearchPage .container h2 {
-    font-weight: bold;
-    font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
-    color: #34495E;
-    font-size: 30px;
-    text-align: left;
-    float: right;
-    padding: 5px; }
-  .restaurantSearchPage .container h3 {
-    font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
-    color: #34495E;
-    font-size: 16px;
-    text-align: left;
-    padding: 5px; }
-  .restaurantSearchPage .container img {
-    float: right;
-    margin-left: 10px;
-    width: 17%;
-    height: 17%;
-    border: none; }
+    font-family: "Open Sans", sans-serif; }
+    .restaurantSearchPage .container .row:first-child {
+      border-bottom: 1px solid lightgrey; }
+    .restaurantSearchPage .container .row {
+      width: 100%;
+      margin-left: -10px;
+      margin-right: -10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: inline-block;
+      padding-bottom: 15px;
+      padding-top: 15px; }
+      .restaurantSearchPage .container .row .contentPhoto {
+        position: relative;
+        height: 150px;
+        width: 150px;
+        overflow: hidden;
+        float: left; }
+      .restaurantSearchPage .container .row img {
+        position: absolute;
+        background-position: center;
+        object-fit: cover;
+        height: 100%;
+        width: auto;
+        margin-bottom: 20px;
+        margin-left: 10px; }
+      .restaurantSearchPage .container .row h2 {
+        cursor: pointer;
+        font-weight: bold;
+        color: #34495E;
+        font-size: 20px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left; }
+      .restaurantSearchPage .container .row h3 {
+        color: grey;
+        font-weight: bold;
+        font-size: 13px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left; }
+      .restaurantSearchPage .container .row h1 {
+        color: grey;
+        font-size: 13px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left; }
   .restaurantSearchPage .main {
     padding: 10px 10px 10px 10px;
     position: relative;
@@ -1761,5 +1781,11 @@ Restaurant Search Pages
 .ratingSearch > label:hover ~ input:checked ~ label,
 .ratingSearch > input:checked ~ label:hover ~ label {
   color: #FFED85; }
+
+/* --------------------------------
+
+Search Pages
+
+-------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
