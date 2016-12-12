@@ -28,10 +28,5 @@ Order Allow,Deny
 Deny from all
 </Files>
 
-
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC]
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost.*$ [NC]
-RewriteRule \.(gif|jpg)$ - [F]
-
 # Disable directory browsing
 Options All -Indexes
