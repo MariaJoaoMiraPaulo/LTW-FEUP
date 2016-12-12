@@ -1691,6 +1691,12 @@ Restaurant Search Pages
     font-size: 16px;
     text-align: left;
     padding: 5px; }
+  .restaurantSearchPage .container img {
+    float: right;
+    margin-left: 10px;
+    width: 17%;
+    height: 17%;
+    border: none; }
   .restaurantSearchPage .main {
     padding: 10px 10px 10px 10px;
     position: relative;

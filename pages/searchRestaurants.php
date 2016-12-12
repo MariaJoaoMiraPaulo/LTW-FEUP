@@ -90,6 +90,7 @@ session_start();
             $result = getRestaurant($restaurant, $service, $priceMin, $priceMax, $rating, $category, $location);
             foreach ($result as $row) {
                 echo "<div class=\"container\">";
+
                 $restaurantName = $row['name'];
                 $restaurantLocation = $row['location'];
                 $restaurantAddress = $row['address'];
@@ -98,12 +99,17 @@ session_start();
                 $id = getIdRestaurantByName($restaurantName);
 
                 echo "<h2 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h2>";
+
                 echo "<h3>" .$restaurantLocation."</h3>";
+
                 echo "<h3>".$restaurantAddress."</h3>";
+                showImage($id);
                 selectAllServicesFromIdRestaurant($id);
                 selectAllCategoriesFromIdRestaurant($id);
+
                 echo "<h1><span style=\"font-weight:bold;font-size:20px\">Cost for two: </span>" .$restaurantPrice." €</h1>";
                 echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
+
                 echo "</div>";
             }
             ?>
