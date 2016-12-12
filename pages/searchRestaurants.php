@@ -110,6 +110,7 @@ session_start();
                 $restaurantAddress = $row['address'];
                 $restaurantPrice = $row['price'];
                 $restaurantOpenHours = $row['openHours'];
+                $restRating = $row['rating'];
                 $id = getIdRestaurantByName($restaurantName);
 
                 echo '<div class="row">';
@@ -122,6 +123,10 @@ session_start();
                 echo "<h3>" .$restaurantLocation."</h3>";
                 echo '<br>'.'</br>';
                 echo "<h1>".$restaurantAddress."</h1>";
+                echo '<br>'.'</br>';
+
+               printStarsRating(intval($restRating));
+
                 echo '</div>';
 
                 echo '<div class="row">';
@@ -135,9 +140,9 @@ session_start();
                 echo "<h4> Cust for Two:</h4>";
 
                 echo '<h1>'.$restaurantPrice."€".'</h1>';
-/*
-                echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
-*/
+                /*
+                                echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
+                */
                 echo '</div>';
                 echo "</div>";
             }

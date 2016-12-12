@@ -20,6 +20,7 @@ if (preg_match("/[a-z A-Z0-9]/",    $_POST['rating'])) {
 
 
 $idRev = sendReviewToRestaurant($idRest,$user,$title,$rate,$review,$currentDate);
+setRating($idRest);
 
 
 for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {

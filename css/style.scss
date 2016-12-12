@@ -2157,3 +2157,29 @@ Search Pages
 -------------------------------- */
 
 
+.restRatingStars{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 13px 13px 13px 4px;
+  float: left;
+}
+
+.star{
+  width:20px;
+  height:20px;
+  background-image: url("../assets/starY.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.blackStar{
+  width:20px;
+  height:20px;
+  background-image: url("../assets/star.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+
