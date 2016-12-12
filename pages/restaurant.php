@@ -22,60 +22,85 @@ session_start();
     <script src="../js/slider.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/review.js"></script>
+
+
     <div class="restaurantPage">
         <div class="main">
             <div class="container">
                 <div class="album">
                     <div id="photos">
-                        <?php getRestaurantPhotos($id); ?>
-                    </div>
-                    <a class="arrowLeft" onclick="plusDivs(-1)">&#10094;</a>
-                    <a class="arrowRight" onclick="plusDivs(+1)">&#10095;</a>
+                        <?php $var = getRestaurantPhotos($id);
+                        echo '</div>';
+                        if($var){
+                            echo '<a class="arrowLeft" onclick="plusDivs(-1)">&#10094;</a>';
+                            echo '<a class="arrowRight" onclick="plusDivs(+1)">&#10095;</a>';
+                        }
+                        ?>
+
+
                 </div>
                 <p id="restaurantName"><?php echo $nameRestaurant ?></p>
                 <p id="restaurantLocation"><?php echo $location ?></p>
             </div>
             <div class="container">
                 <div class="editRestaurant">
-                    <form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">
-                        <fieldset>
-                            <label>Address</label>
-                            <input type="text" name="restAddress"
-                                   value="<?php echo getRestaurantInfoById($id, 'address') ?>"><br>
-                            <label>Location</label>
-                            <input type="text" name="restLocation"
-                                   value="<?php echo getRestaurantInfoById($id, 'location') ?>"><br>
-                            <label>WebSite</label>
-                            <input type="url" name="restWebSite"
-                                   value="<?php echo getRestaurantInfoById($id, 'website') ?>"><br>
-                            <label>Cost</label>
-                            <input type="text" name="restPrice"
-                                   value="<?php echo getRestaurantInfoById($id, 'price') ?>"><br>
                             <?php
-                            if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"]))
-                                echo ' <input type="submit" value="Submit">';
+                            if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                                echo '<form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">';
+                                echo '<fieldset>';
+                                echo '<label>Address</label>';
+                                echo '<input type="text" name="restAddress" value="'.getRestaurantInfoById($_SESSION["restID"],'address').'"">';
+                                echo '<br>';
+                                echo '<label>Location</label>';
+                                echo ' <input type="text" name="restLocation" value="'.getRestaurantInfoById($_SESSION["restID"],'location').'">';
+                                echo '<br>';
+                                echo '<label>Phone Number</label>';
+                                echo ' <input type="number" name="number" value="'.getRestaurantInfoById($_SESSION["restID"],'phoneNumber').'">';
+                                echo '<br>';
+                                echo '<label>WebSite</label>';
+                                echo ' <input type="url" name="restWebSite" value="'.getRestaurantInfoById($_SESSION["restID"],'website').'">';
+                                echo '<br>';
+                                echo '<label>Cost</label>';
+                                echo ' <input type="text" name="restPrice" value="'.getRestaurantInfoById($_SESSION["restID"],'price').'">';
+                                echo '<input type="submit" value="Submit">';
+                                echo '</fieldset>';
+                                echo ' </form>';
+                            }
+                            else{
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'address').'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'location').'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'website').'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'price').'</label>';
+                                echo '<br>';
+                                echo '</br>';
+                                echo '<label>'.getRestaurantInfoById($_SESSION["restID"], 'phoneNumber').'</label>';
+                            }
                             ?>
-                        </fieldset>
-                    </form>
                 </div>
             </div>
 
-            <div class="container">
-                <div class="addPhotos">
-                    <p class="boxTitle">Add a photo to your galery:</p>
-                    <div class="addPhotos">
-                        <?php
-                        if (restaurantOwner($_SESSION["restID"], $_SESSION['login-user'])) {
-                            echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
-                            echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
-                            echo '<br>';
-                            echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
-                            echo '</form>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
+            <?php
+            if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                echo '<div class="container">';
+                echo '<div class="addPhotos">';
+                echo '<p class="boxTitle">Add a photo to your galery:</p>';
+                echo '<div class="addPhotos">';
+                echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                echo '<input id="findPhoto" type="file" name="fileToUpload" id="fileToUpload">';
+                echo '<br>';
+                echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
+                echo '</form>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
 
             <div class="container">
                 <iframe id="map" frameborder="0"
@@ -88,13 +113,12 @@ session_start();
                 $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
                 ?>
                 <img id="userPhoto" src=<?php echo $photo ?>>
-                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"
-                      nctype="multipart/form-data">
+                <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post" enctype="multipart/form-data">
                     <p class="boxTitle">Write a review:</p>
                     <label>Choose a title:</label>
                     <input type="text" name="title"><br>
                     <label>Write your review:</label>
-                    <input id="reviewArea" type="text" name="review"><br>
+                    ​<textarea name="review" id="review" rows="10" cols="70"></textarea>
 
                     <fieldset class="rating">
                         <input class="stars" type="radio" id="star5" name="rating5" value="5"/>
@@ -111,7 +135,7 @@ session_start();
 
                     <br><br>
 
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">
 
                     <br><br>
                     <input id="submit" type="submit" value="Publish">

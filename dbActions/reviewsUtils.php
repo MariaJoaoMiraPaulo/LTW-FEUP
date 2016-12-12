@@ -4,28 +4,33 @@ include_once('user.php');
 include_once('config.php');
 include_once('restaurantUtils.php');
 
-function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date,$name)
+function sendReviewToRestaurant($idRest, $user, $title, $userRate, $text, $date)
 {
     $id_autor = getIdByUserName($user);
     $likes = 0;
-    $photo = "../assets/".$name;
+
 
     global $db;
 
     $statement = $db->prepare('INSERT INTO reviews (restaurant_id, id_autor,title,userRate,text,date,likes) VALUES (?,?,?,?,?,?,?);SELECT SCOPE_IDENTITY() as id; RETURN;');
 
-    if ($result=$statement->execute([$idRest, $id_autor, $title, $userRate, $text, $date,$likes])) {
-        if(trim($name)){
-            $idRev = $db->lastInsertId();
-            $statement1 = $db->prepare('INSERT INTO reviewPhoto (name, restaurant_id,review_id) VALUES (?,?,?)');
-            $statement1->execute([$name, $idRest,$idRev]);
-    }
-        return true;
+    if ($result = $statement->execute([$idRest, $id_autor, $title, $userRate, $text, $date, $likes])) {
+        $idRev = $db->lastInsertId();
+        return $idRev;
     }
     return false;
 }
 
-function getRestaurantReviews($idRest,$idUser){
+function addPhotoToReview($name, $idRev, $idRest)
+{
+    global $db;
+    $statement1 = $db->prepare('INSERT INTO reviewPhoto (name, restaurant_id,review_id) VALUES (?,?,?)');
+    $statement1->execute([$name, $idRest, $idRev]);
+    return true;
+}
+
+function getRestaurantReviews($idRest, $idUser)
+{
 
     global $db;
     $statement = $db->prepare('SELECT * FROM reviews WHERE restaurant_id = ? ');
@@ -35,37 +40,37 @@ function getRestaurantReviews($idRest,$idUser){
         $id = $row['id_autor'];
         $idRev = $row['id'];
         $userName = getUserNameById($id);
-        $photoUser = "../assets/".getUserPhoto($userName);
-        $fullName = getUserInfoByUserName($userName,'fullName');
+        $photoUser = "../assets/" . getUserPhoto($userName);
+        $fullName = getUserInfoByUserName($userName, 'fullName');
         $userRate = $row['userRate'];
+        $review = $row['text'];
 
-        $html = '<img id="userPhotoReview" src=' . $photoUser .'>';
+        $html = '<img id="userPhotoReview" src=' . $photoUser . '>';
 
         echo '<div class="reviewContainer">';
         echo $html;
-        echo '<p>'.$fullName.'</p>';
-        echo '<p>'.$userName.'</p>';
-        echo '<p>'. $row['title'] .'</p>';
-        // echo '<p>'. $row['userRate'] .'</p>';
+        echo '<p>' . $fullName . '</p>';
+        echo '<p>' . $userName . '</p>';
+        echo '<p>' . $review . '</p>';
+        echo '<p>' . $row['title'] . '</p>';
         printRate($userRate);
         echo '<div class="containerUserPhotos">';
         getReviewPhotos($idRev);
         echo '</div>';
-        echo '<p>'. $row['date'] .'</p>';
+        echo '<p>' . $row['date'] . '</p>';
         echo '</div>';
-
 
         getAllCommentsOfReview($idRev);
 
-        if(restaurantOwner($idRest,$idUser)){
+        if (restaurantOwner($idRest, $idUser)) {
             echo '<br>';
-            $button = "buttonAnswer".$idRev;
-            $name = "answer".$idRev;
-            $form = "form".$idRev;
+            $button = "buttonAnswer" . $idRev;
+            $name = "answer" . $idRev;
+            $form = "form" . $idRev;
 
-            echo '<br>'.'<button class="buttonAnswer" id='.$button.' onclick=openAnswerForm("'.$idRev.'");>Answer</button>';
-            echo '<form id='.$form.' action="../dbActions/reviewAnswer.php?id='.$id.'&idRev='.$idRev.'" hidden="hidden" method="post">';
-            echo '<input class="answerReviewTextArea" type="search" name='.$name.'><br>';
+            echo '<br>' . '<button class="buttonAnswer" id=' . $button . ' onclick=openAnswerForm("' . $idRev . '");>Answer</button>';
+            echo '<form id=' . $form . ' action="../dbActions/reviewAnswer.php?id=' . $id . '&idRev=' . $idRev . '" hidden="hidden" method="post">';
+            echo '<input class="answerReviewTextArea" type="search" name=' . $name . '><br>';
             echo '<input class="buttonReviewAnswer" type="submit" value="Submit">';
             echo '</form>';
         }
@@ -75,7 +80,8 @@ function getRestaurantReviews($idRest,$idUser){
     return true;
 }
 
-function addCommentToReview($idRev,$id_autor,$text,$currentDate){
+function addCommentToReview($idRev, $id_autor, $text, $currentDate)
+{
     $likes = 0;
 
     global $db;
@@ -88,46 +94,52 @@ function addCommentToReview($idRev,$id_autor,$text,$currentDate){
     return false;
 }
 
-function getAllCommentsOfReview($idRev){
+function getAllCommentsOfReview($idRev)
+{
     global $db;
 
     $statement = $db->prepare('SELECT * FROM comments WHERE review_id = ? ');
     $statement->execute([$idRev]);
 
     while ($row = $statement->fetch()) {
-        echo '<p>'.$row['text'].'</p>';
-        echo '<p>'.$row['date'].'</p>';
+        echo '<p>' . $row['text'] . '</p>';
+        echo '<p>' . $row['date'] . '</p>';
     }
 
     return true;
 }
 
-function printRate($userRate){
+function printRate($userRate)
+{
     $total = " estrelas em 5";
-    echo '<p>'.$userRate.$total.'</p>';
+    echo '<p>' . $userRate . $total . '</p>';
 }
 
-function getAllRelatedPhotos($idRest){
+function getAllRelatedPhotos($idRest)
+{
     global $db;
     $statement = $db->prepare('SELECT * FROM reviewPhoto WHERE restaurant_id = ? ');
     $statement->execute([$idRest]);
 
     while ($row = $statement->fetch()) {
-        $photoDir = "../assets/".$row['name'];
-        echo "<img class='relatedPhotos' src='$photoDir'>";
+        $photoDir = $row['name'];
+        echo "<div class='flexContainer'>";
+        echo "<img src='$photoDir'>";
+        echo "</div>";
     }
 
     return true;
 }
 
-function getReviewPhotos($idRev){
+function getReviewPhotos($idRev)
+{
     global $db;
     $statement = $db->prepare('SELECT * FROM reviewPhoto WHERE review_id = ? ');
     $statement->execute([$idRev]);
 
     while ($row = $statement->fetch()) {
-        $photoDir = "../assets/".$row['name'];
-        echo "<img class='reviewPhoto' src='$photoDir'>";
+        $photoDir = $row['name'];
+        echo "<img class='reviewPhoto' src=$photoDir>";
     }
 
     return true;

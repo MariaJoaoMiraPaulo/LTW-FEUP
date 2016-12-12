@@ -8,9 +8,11 @@ $_SESSION['restID'] = $id;
 
 <form class="addRestaurantForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">
     <li>
-        <input type="file" multiple="true" name="fileToUpload[]" id="fileToUpload">
+        <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Upload Restaurant Photo" name="submit">
     </li>
+
+    <button type="button" onclick="window.location.href='profile.php'" >Not Yet!</button>
 </form>
 
 <?php
