@@ -52,7 +52,11 @@ function getRestaurantReviews($idRest, $idUser)
         echo '<p>' . $userName . '</p>';
         echo '<p>' . $review . '</p>';
         echo '<p>' . $row['title'] . '</p>';
-        printRate($userRate);
+
+
+        printStarsRating($userRate);
+
+
         echo '<div class="containerUserPhotos">';
         getReviewPhotos($idRev);
         echo '</div>';
@@ -106,12 +110,6 @@ function getAllCommentsOfReview($idRev)
     }
 
     return true;
-}
-
-function printRate($userRate)
-{
-    $total = " estrelas em 5";
-    echo '<p>' . $userRate . $total . '</p>';
 }
 
 function getAllRelatedPhotos($idRest)
