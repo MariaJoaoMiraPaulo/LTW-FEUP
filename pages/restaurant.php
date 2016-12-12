@@ -96,6 +96,7 @@ session_start();
                     echo '<p class="boxTitle">Add a photo to your galery:</p>';
                     echo '<div class="addPhotos">';
                     echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                    echo '<input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
                     echo '<input id="findPhoto" type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">';
                     echo '<br>';
                     echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';

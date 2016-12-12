@@ -2,6 +2,12 @@
 session_start();
 include_once ('restaurantUtils.php');
 
+if ($_SESSION['token'] !== $_POST['token']) {
+    header('HTTP/1.0 403 Forbidden');
+    die();
+}
+$_SESSION['token'] = generate_random_token();
+
 $id = $_SESSION['restID'];
 
 for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
