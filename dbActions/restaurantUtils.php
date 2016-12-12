@@ -29,22 +29,22 @@ function getServices($name, $priceMin, $priceMax, $rating, $category, $location)
     $categorykeywords = explode(' ', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
-        if($category!=""){
-            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  id 
+    if ($category != "") {
+        $stmt = $db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  id 
 LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
 AND price BETWEEN ? AND ?);");
-            $stmt->execute([$categorystring,$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
-        }else{
-            $stmt=$db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
+        $stmt->execute([$categorystring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    } else {
+        $stmt = $db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
 location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
 AND price BETWEEN ? AND ?);");
-            $stmt->execute([$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
-        }
+        $stmt->execute([$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    }
 
     while ($row = $stmt->fetch()) {
         $service = $row['service'];
@@ -66,16 +66,16 @@ function getCategories($name, $priceMin, $priceMax, $rating, $service, $location
     $servicekeywords = explode(' ', $service);
     $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
 
-    if($service!=""){
-        $stmt=$db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  id 
+    if ($service != "") {
+        $stmt = $db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  id 
 LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
 AND price BETWEEN ? AND ?);");
-        $stmt->execute([$servicestring,$locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
-    }else{
-        $stmt=$db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
+        $stmt->execute([$servicestring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    } else {
+        $stmt = $db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
 location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
@@ -89,7 +89,6 @@ AND price BETWEEN ? AND ?);");
     }
 
 }
-
 
 
 function getRestaurantFromName($name)
@@ -164,16 +163,16 @@ function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category
     $categorykeywords = explode(' ', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
-    if ($service != "" && $category != ""){
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
+    if ($service != "" && $category != "") {
+        $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
 id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
 AND location LIKE ? 
 AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND name LIKE ?
 AND rating LIKE ?
 AND price BETWEEN ? AND ?;");
-    $stmt->execute([$categorystring, $locationstring, $servicestring, $namestring, $ratingstring, $priceMin, $priceMax]);
-}else if($service != ""){
+        $stmt->execute([$categorystring, $locationstring, $servicestring, $namestring, $ratingstring, $priceMin, $priceMax]);
+    } else if ($service != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
 id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND location LIKE ? 
@@ -181,7 +180,7 @@ AND name LIKE ?
 AND rating LIKE ?
 AND price BETWEEN ? AND ?;");
         $stmt->execute([$servicestring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
-}else if($category!= ""){
+    } else if ($category != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
 id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
 AND location LIKE ? 
@@ -189,7 +188,7 @@ AND name LIKE ?
 AND rating LIKE ?
 AND price BETWEEN ? AND ?;");
         $stmt->execute([$categorystring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
-    }else{
+    } else {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE
 location LIKE ? 
 AND name LIKE ?
@@ -211,7 +210,7 @@ function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $re
 
         $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber) VALUES (?,?,?,?,?,?,?,?)');
 
-        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price,$rating,$number])) {
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number])) {
             return true;
         }
         return false;
@@ -372,7 +371,7 @@ function getRestaurantInfoById($idRestaurant, $info)
     return $statement->fetch()[$info];
 }
 
-function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocation, $restWebSite, $restPrice,$number)
+function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocation, $restWebSite, $restPrice, $number)
 {
     if (!trim($restName))
         $restName = getRestaurantInfoById($idRestaurant, 'name');
@@ -398,7 +397,7 @@ function updateRestaurantInfo($idRestaurant, $restName, $restAddress, $restLocat
 
     global $db;
     $statement = $db->prepare('UPDATE restaurant SET name = ?, address = ? , location= ?, website= ?, price= ?, phoneNumber= ? WHERE id = ?');
-    $statement->execute([$restName, $restAddress, $restLocation, $restWebSite, $restPrice,$number,$idRestaurant]);
+    $statement->execute([$restName, $restAddress, $restLocation, $restWebSite, $restPrice, $number, $idRestaurant]);
     return $statement->errorCode();
 }
 
@@ -418,7 +417,9 @@ function getRestaurantPhotos($idRest)
 
     return $ret;
 }
-function selectAllServicesFromIdRestaurant($idRestaurant){
+
+function selectAllServicesFromIdRestaurant($idRestaurant)
+{
     global $db;
     $statement = $db->prepare('SELECT  service FROM services WHERE restaurant_id LIKE ? GROUP BY service ORDER BY COUNT(*) DESC ');
     $statement->execute([$idRestaurant]);
@@ -433,16 +434,18 @@ function selectAllServicesFromIdRestaurant($idRestaurant){
     while ($row = $statement->fetch()) {
 
         $service = $row['service'];
-        if($j == $i){
-            echo  $service.', ';}
-        else{
-            echo  $service.', ';}
+        if ($j == $i) {
+            echo $service . ', ';
+        } else {
+            echo $service . ', ';
+        }
         $j++;
     }
     echo "</h1>";
 }
 
-function selectAllCategoriesFromIdRestaurant($idRestaurant){
+function selectAllCategoriesFromIdRestaurant($idRestaurant)
+{
     global $db;
     $statement = $db->prepare('SELECT  category FROM categories WHERE restaurant_id LIKE ? GROUP BY category ORDER BY COUNT(*) DESC ');
     $statement->execute([$idRestaurant]);
@@ -457,16 +460,18 @@ function selectAllCategoriesFromIdRestaurant($idRestaurant){
     while ($row = $statement->fetch()) {
 
         $service = $row['category'];
-        if($j == $i){
-            echo  $service.', ' ;}
-        else{
-            echo  $service.', ' ;}
+        if ($j == $i) {
+            echo $service . ', ';
+        } else {
+            echo $service . ', ';
+        }
         $j++;
     }
     echo "</h1>";
 }
 
-function showFirstRestaurantImage($idRestaurant){
+function showFirstRestaurantImage($idRestaurant)
+{
 
     global $db;
     $statement = $db->prepare('SELECT  name FROM photo WHERE restaurant_id = ?');
@@ -474,12 +479,35 @@ function showFirstRestaurantImage($idRestaurant){
     $row = $statement->fetch();
     $fileName = $row['name'];
 
-    if(!trim($fileName)){
+    if (!trim($fileName)) {
         $fileName = "../assets/default-Restaurant.png";
-        echo "<img src=" .$fileName. " />";
+        echo "<img src=" . $fileName . " />";
     }
 
-    echo "<img src=" .$fileName. " />";
+    echo "<img src=" . $fileName . " />";
+}
 
+function printStarsRating($stars)
+{
+
+    $i = 1;
+    $j = 1;
+    $temp = 5-$stars;
+
+    echo '<div class = "restRatingStars">';
+
+    for ($i; $i <= $stars; $i++) {
+        echo '<div class = "star">'.'</div>';
+    }
+
+    for ($j; $j <= $temp; $j++) {
+        echo '<div class = "blackStar">';
+        echo '</div>';
+    }
+
+
+    echo '</div>';
+
+    return true;
 
 }
