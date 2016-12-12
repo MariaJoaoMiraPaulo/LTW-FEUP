@@ -16,6 +16,11 @@ $number = $_POST['number'];
 $arrayServices=[];
 $arrayCategories=[];
 
+if ($_SESSION['csrf'] !== $_POST['csrf']) {
+    echo "ERROR: Request does not appear to be legitimate";
+}
+else generate_random_token();
+
 
 if($restaurantName && $restaurantAddress){
     addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price,$number);

@@ -43,7 +43,7 @@ function openAnswerForm($idRev) {
 }
 
 $( function() {
-    let slider = $('#slider-range');
+    slider = $('#slider-range');
 
     slider.slider({
         range: true,
@@ -69,7 +69,7 @@ $( function() {
         " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
 
-} );
+});
 
 function minValue() {
     return  $( "#slider-range" ).slider( "values", 0 );
@@ -78,4 +78,3 @@ function minValue() {
 function maxValue() {
     return  $( "#slider-range" ).slider( "values", 1 );
 }
-

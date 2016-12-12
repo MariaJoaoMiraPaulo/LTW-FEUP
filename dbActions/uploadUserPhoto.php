@@ -1,6 +1,12 @@
 <?php
 include_once ('user.php');
 
+// If the user didn't come from a valid page.
+if ($_SESSION['token'] !== $_POST['token']) {
+    header('HTTP/1.0 403 Forbidden');
+    die();
+}
+$_SESSION['token'] = generate_random_token();
 
 $id = getUserInfoByUserName($_SESSION['login-user'],'id');
 $photo_name = 'photo'.$id.'.jpg';

@@ -95,8 +95,7 @@ function updateUserProfile($username,$newUsername,$newFullName,$data,$gender){
     if(!trim($data))
         $data = getUserInfoByUserName($username,'birthDate');
 
-    if(!trim($gender)){
-        $gender = getUserInfoByUserName($username,'gender');
+    if(strtoupper($gender) == strtoupper(getUserInfoByUserName($username,'gender'))){
         $photo = getUserInfoByUserName($username,'photoId');
     }
     else{
@@ -138,4 +137,10 @@ function getUserPhoto($username){
     $statement = $db->prepare('SELECT photoId FROM users WHERE username = ?');
     $statement->execute([$username]);
     return $statement->fetch()['photoId'];
+}
+
+
+function generate_random_token() {
+    $token = bin2hex(openssl_random_pseudo_bytes(16));
+    return $token;
 }

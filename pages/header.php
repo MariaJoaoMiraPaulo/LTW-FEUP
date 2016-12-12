@@ -1,5 +1,6 @@
 <?php
 include_once "../dbActions/user.php";
+$_SESSION['signup-token'] = generate_random_token();
 ?>
 <html lang="en">
 <head>
@@ -62,6 +63,7 @@ include_once "../dbActions/user.php";
             <div class="modal-content">
                 <h1>Sign Up</h1>
                 <form action="../dbActions/register.php" method="post"> 
+                    <input type="hidden" name="signup-token" value="<?php echo $_SESSION['signup-token']; ?>">
                     <input type="email" name="username" placeholder="UserName">
                     <input type="text" name="fullname" placeholder="Full Name">
                     <div id="gender">
