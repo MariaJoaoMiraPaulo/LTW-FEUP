@@ -1,0 +1,41 @@
+IndexIgnore *
+ErrorDocument 401 /error_pages/401.html
+AddHandler server-parsed .html
+RewriteEngine On
+RewriteBase /
+
+# Protect the htaccess file
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+
+# Protect folders
+<Files ./assets/>
+Order Allow,Deny
+Deny from all
+</Files>
+<Files ./css>
+Order Allow,Deny
+Deny from all
+</Files>
+<Files ./dbActions>
+Order Allow,Deny
+Deny from all
+</Files>
+<Files ./js>
+Order Allow,Deny
+Deny from all
+</Files>
+<Files ./pages>
+Order Allow,Deny
+Deny from all
+</Files>
+
+
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost.*$ [NC]
+RewriteRule \.(gif|jpg)$ - [F]
+
+# Disable directory browsing
+Options All -Indexes
