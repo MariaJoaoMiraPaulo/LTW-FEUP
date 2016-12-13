@@ -38,7 +38,7 @@ AND rating LIKE ?
 AND price BETWEEN ? AND ?);");
         $stmt->execute([$categorystring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
     } else {
-        $stmt = $db->prepare("SELECT * FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
+        $stmt = $db->prepare("SELECT DISTINCT service  FROM services WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
 location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
@@ -75,7 +75,7 @@ AND rating LIKE ?
 AND price BETWEEN ? AND ?);");
         $stmt->execute([$servicestring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
     } else {
-        $stmt = $db->prepare("SELECT * FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
+        $stmt = $db->prepare("SELECT DISTINCT category FROM categories WHERE restaurant_id IN (SELECT id FROM restaurant WHERE  
 location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
