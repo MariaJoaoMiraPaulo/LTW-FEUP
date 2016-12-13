@@ -25,6 +25,7 @@ $_SESSION['signup-token'] = generate_random_token();
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -34,6 +35,7 @@ $_SESSION['signup-token'] = generate_random_token();
     <script src="../js/main.js"></script> <!-- Resource jQuery -->
     <script src="../js/signUp.js"></script> <!-- Resource jQuery -->
     <script src="https://use.fontawesome.com/0b68c59fc5.js"></script>
+
     <script type="text/javascript" src="../js/strength.js"></script>
      <div class="header">
         <div class="header-left-icon">

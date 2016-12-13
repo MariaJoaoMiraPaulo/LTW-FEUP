@@ -11,13 +11,13 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #040404;
   background-color: #F3F3F3; }
 
 body h1 {
   font-size: 3.6rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #040404;
   text-align: center;
   padding: 20px; }
@@ -37,7 +37,7 @@ Footer
 
 .footer .workdoneby {
   font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #F3F3F3;
   padding-top: 20px;
   padding-left: 35%;
@@ -70,7 +70,7 @@ Header
     align-self: center;
     margin: 2px 10px;
     font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     color: #F3F3F3;
     position: relative;
     z-index: 2; }
@@ -147,7 +147,7 @@ form#myform input[type="password"], #myform input[type="text"] {
   background: transparent;
   border: 2px solid #46AC84;
   color: #777;
-  font-family: "Lato", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 14px;
   padding: 9px 5px;
   height: 21px;
@@ -875,7 +875,7 @@ Quick Services
   background: transparent;
   border-radius: 2px;
   padding: 20px;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .editProfileForm h1 {
   display: block;
@@ -912,7 +912,7 @@ Quick Services
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .editProfileForm genderProfile,
 .editProfileForm input[type="text"],
@@ -937,11 +937,11 @@ Quick Services
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Source Sans Pro", sans-serif;
   background-color: transparent; }
 
 .editProfileForm inputGender {
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .editProfileForm li > span {
   background: #b4b4b4;
@@ -950,7 +950,7 @@ Quick Services
   margin: 0 -9px -9px -9px;
   text-align: center;
   color: #F3F3F3;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 11px; }
 
 .editProfileForm textarea {
@@ -982,7 +982,7 @@ Quick Services
   border-bottom: 2px solid gainsboro;
   text-align: left;
   padding-left: 10%;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .ownerColumn {
   padding: 30px;
@@ -1373,7 +1373,7 @@ xcustom form elements
 .cd-filter-block .radio-label::before,
 .cd-filter-block .checkbox-label::before {
   /* shared style for input elements */
-  font-family: "Open Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   border-radius: 0;
   background-color: #ffffff;
   border: 2px solid #e6e6e6; }
@@ -1524,7 +1524,7 @@ xcustom form elements
   background: #F3F3F3;
   border-radius: 2px;
   padding: 20px;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .addRestaurantForm h1 {
   display: block;
@@ -1561,7 +1561,7 @@ xcustom form elements
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .addRestaurantForm input[type="text"],
 .addRestaurantForm input[type="date"],
@@ -1585,7 +1585,7 @@ xcustom form elements
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Source Sans Pro", sans-serif;
   background-color: #F3F3F3; }
 
 .addRestaurantForm li > span {
@@ -1722,14 +1722,14 @@ Restaurant Page
     z-index: -1; }
 
 #restaurantName {
-  font-family: 'PT Serif', Georgia;
+  font-family: "Source Sans Pro", sans-serif;
   padding-top: 10px;
   padding-left: 5px;
   font-size: x-large;
   font-weight: bold; }
 
 #restaurantLocation {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   padding-top: 10px;
   padding-left: 5px;
   font-size: medium; }
@@ -1743,7 +1743,7 @@ Restaurant Page
   margin-left: 20px;
   border-radius: 2px;
   align-content: center;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .editRestForm button,
 .editRestForm input[type="submit"],
@@ -1786,7 +1786,7 @@ Restaurant Page
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .editRestForm label {
   float: left;
@@ -1795,7 +1795,7 @@ Restaurant Page
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 addRestaurantPhotoForm {
   max-width: 600px;
@@ -1803,7 +1803,7 @@ addRestaurantPhotoForm {
   margin-left: 30%;
   border-radius: 2px;
   padding: 20px;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .addRestaurantPhotoForm button,
 .addRestaurantPhotoForm input[type="submit"],
@@ -1856,7 +1856,7 @@ addRestaurantPhotoForm {
   margin: 5px;
   line-height: 25px;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .reviewForm button,
 .reviewForm input[type="submit"],
@@ -1886,7 +1886,7 @@ addRestaurantPhotoForm {
   margin: 5px;
   line-height: 25px;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 #reviewArea {
   height: 80px;
@@ -1898,7 +1898,7 @@ addRestaurantPhotoForm {
   margin: 5px;
   line-height: 25px;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .reviewForm label {
   float: left;
@@ -1906,10 +1906,10 @@ addRestaurantPhotoForm {
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Source Sans Pro", sans-serif; }
 
 .boxTitle {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   padding-top: 10px;
   padding-bottom: 20px;
   font-size: medium;
@@ -1953,7 +1953,7 @@ addRestaurantPhotoForm {
 
 .rating > label:before {
   font-size: 1.5em;
-  font-family: FontAwesome;
+  font-family: "Source Sans Pro", sans-serif;
   display: inline-block;
   content: "\f005"; }
 
@@ -1982,7 +1982,7 @@ addRestaurantPhotoForm {
 
 .reviewRating > label:before {
   font-size: 1.5em;
-  font-family: FontAwesome;
+  font-family: "Source Sans Pro", sans-serif;
   display: inline-block;
   content: "\f005"; }
 
@@ -2013,7 +2013,7 @@ Restaurant Search Pages
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
     font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif; }
+    font-family: "Source Sans Pro", sans-serif; }
     .restaurantSearchPage .container .row:first-child {
       border-bottom: 1px solid lightgrey; }
     .restaurantSearchPage .container .row {
@@ -2121,7 +2121,7 @@ Restaurant Search Pages
 .ratingSearch > label:before {
   margin: 5px;
   font-size: 1.25em;
-  font-family: FontAwesome;
+  font-family: "Source Sans Pro", sans-serif;
   display: inline-block;
   content: "\f005"; }
 
