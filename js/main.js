@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
 
         stretchyNavs.each(function(){
             var stretchyNav = $(this),
-                stretchyNavTrigger = stretchyNav.find('.stretchy-nav-bg');
+                stretchyNavTrigger = stretchyNav.find('.cd-nav-trigger');
 
             stretchyNavTrigger.on('click', function(event){
                 event.preventDefault();
@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
         });
 
         $(document).on('click', function(event){
-            ( !$(event.target).is('.stretchy-nav-bg') && !$(event.target).is('.stretchy-nav-bg span') ) && stretchyNavs.removeClass('nav-is-visible');
+            ( !$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span') ) && stretchyNavs.removeClass('nav-is-visible');
         });
     }
 

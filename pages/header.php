@@ -31,13 +31,13 @@ $_SESSION['signup-token'] = generate_random_token();
                     $photoUser = getUserInfoByUserName($username,'photoId');
                     $srcPhoto  = '../assets/'.$photoUser;
                     $fullname = getUserInfoByUserName($_SESSION['login-user'], 'fullName');
-                    echo " <img class=\"stretchy-nav-bg\" src='$srcPhoto' href=\"#0\"><span aria-hidden=\"true\"></span>";
+                    echo " <img class=\"cd-nav-trigger\" src='$srcPhoto'><span aria-hidden=\"true\"></span>";
 
                     echo "<ul>";
-                    echo '<li><a  onclick="location.href=\'profile.php\'">Profile</a></li>';
-                    echo "<li><a  onclick=\"location.href='../dbActions/logout.php'\">Logout</a></li>";
+                    echo '<li><img  src=\'../assets/profile.png\' onclick="location.href=\'profile.php\'"></img></li>';
+                    echo "<li><img  src='../assets/logout.png' onclick=\"location.href='../dbActions/logout.php'\"></img></li>";
                     echo ' </ul>';
-
+                    echo ' <span aria-hidden="true" class="stretchy-nav-bg"></span>';
 
                 } else {
                     echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
