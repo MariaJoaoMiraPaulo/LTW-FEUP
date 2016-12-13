@@ -124,7 +124,7 @@ function getRestaurantFromNameAndLocation($name, $location)
 function getRestaurantFromService($service)
 {
     global $db;
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM services WHERE service LIKE ?)");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IN (SELECT restaurant_id FROM services WHERE service LIKE ?)");
     $stmt->execute([$service]);
     return $stmt->fetchAll();
 }
@@ -134,7 +134,7 @@ function getRestaurantFromCategory($category)
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
     $stmt->execute([$string]);
     return $stmt->fetchAll();
 }
@@ -144,7 +144,7 @@ function getRestaurantFromCategoryAndLocation($category, $location)
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?) AND location LIKE ?");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?) AND location LIKE ?");
     $stmt->execute([$string, $location]);
     return $stmt->fetchAll();
 }
@@ -165,7 +165,7 @@ function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category
 
     if ($service != "" && $category != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
+id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
 AND location LIKE ? 
 AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND name LIKE ?
@@ -174,7 +174,7 @@ AND price BETWEEN ? AND ?;");
         $stmt->execute([$categorystring, $locationstring, $servicestring, $namestring, $ratingstring, $priceMin, $priceMax]);
     } else if ($service != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
+id IN (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
@@ -182,7 +182,7 @@ AND price BETWEEN ? AND ?;");
         $stmt->execute([$servicestring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
     } else if ($category != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
+id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
