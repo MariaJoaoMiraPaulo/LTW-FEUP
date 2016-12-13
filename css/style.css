@@ -909,7 +909,7 @@ Quick Services
   padding: 0;
   margin: 0px 0px 20px 0px;
   background: transparent;
-  font-size: x-large; }
+  font-size: medium; }
 
 .editProfileForm ul {
   list-style: none;
@@ -1015,12 +1015,16 @@ Quick Services
   text-align: center;
   align-items: center; }
 
-.userRest .userRestaurantsLi {
-  text-align: center;
-  padding: 10px; }
-.userRest .userRestaurantsLi a {
-  background-color: #F3F3F3;
-  padding: 5px; }
+.userRest {
+  text-align: center; }
+  .userRest .userRestaurantsLi {
+    display: inline-block;
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #F3F3F3; }
+  .userRest .userRestaurantsLi a {
+    padding: 5px; }
 
 /*----------------------------------
 

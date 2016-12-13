@@ -1017,8 +1017,9 @@ Quick Services
   padding: 0;
   margin: 0px 0px 20px 0px;
   background: transparent;
-  font-size: x-large;
+  font-size: medium;
 }
+
 
 .editProfileForm ul {
   list-style: none;
@@ -1153,14 +1154,18 @@ Quick Services
 }
 
 .userRest {
+  text-align: center;
 
   .userRestaurantsLi{
-    text-align: center;
+    display: inline-block;
+    width: 90%;
+    margin: 10px;
     padding: 10px;
+    background-color: $background-color;
+
   }
 
   .userRestaurantsLi a {
-    background-color: $background-color;
     padding: 5px;
 
   }
