@@ -11,15 +11,15 @@ if ($_SESSION['token'] !== $_POST['token']) {
 $_SESSION['token'] = generate_random_token();
 
 
-$restaurantName = $_POST['name'];
-$restaurantAddress = $_POST['address'];
-$restaurantLocation = $_POST['location'];
-$restaurantWebSite = $_POST['website'];
-$username = $_SESSION['login-user'];
-$services = $_POST['services'];
-$categories = $_POST['categories'];
-$price = $_POST['price'];
-$number = $_POST['number'];
+$restaurantName = htmlspecialchars($_POST['name']);
+$restaurantAddress = htmlspecialchars($_POST['address']);
+$restaurantLocation = htmlspecialchars($_POST['location']);
+$restaurantWebSite = htmlspecialchars($_POST['website']);
+$username = htmlspecialchars($_SESSION['login-user']);
+$services = htmlspecialchars($_POST['services']);
+$categories = htmlspecialchars($_POST['categories']);
+$price = htmlspecialchars($_POST['price']);
+$number = htmlspecialchars($_POST['number']);
 
 $arrayServices=[];
 $arrayCategories=[];
