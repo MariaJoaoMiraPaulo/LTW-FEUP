@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+session_regenerate_id(true);
 include_once "config.php";
 include_once "restaurantUtils.php";
 

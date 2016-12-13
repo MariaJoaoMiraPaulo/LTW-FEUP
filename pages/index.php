@@ -1,5 +1,6 @@
 <?php
 session_start();
+session_regenerate_id(true);
 include_once "../dbActions/user.php";
 include_once "header.php";
 ?>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+session_regenerate_id(true);
 include_once ('restaurantUtils.php');
 
 if ($_SESSION['token'] !== $_POST['token']) {

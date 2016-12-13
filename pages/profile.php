@@ -1,5 +1,6 @@
 <?php
 session_start();
+session_regenerate_id(true);
 $title = "Welcome";      // Set the title
 include_once "header.php";
 include_once "../dbActions/user.php";
