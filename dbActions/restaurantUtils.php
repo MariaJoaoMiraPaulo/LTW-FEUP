@@ -20,13 +20,14 @@ function selectTopCategories()
 function getServices($name, $priceMin, $priceMax, $rating, $category, $location)
 {
     global $db;
-    $namekeywords = explode(' ', $name);
+
+    $namekeywords = explode('%20', $name);
     $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
-    $locationkeywords = explode(' ', $location);
+    $locationkeywords = explode('%20', $location);
     $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
-    $ratingkeywords = explode(' ', $rating);
+    $ratingkeywords = explode('%20', $rating);
     $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
-    $categorykeywords = explode(' ', $category);
+    $categorykeywords = explode('%20', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
     if ($category != "") {
@@ -124,7 +125,7 @@ function getRestaurantFromNameAndLocation($name, $location)
 function getRestaurantFromService($service)
 {
     global $db;
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM services WHERE service LIKE ?)");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IN (SELECT restaurant_id FROM services WHERE service LIKE ?)");
     $stmt->execute([$service]);
     return $stmt->fetchAll();
 }
@@ -134,7 +135,7 @@ function getRestaurantFromCategory($category)
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?)");
     $stmt->execute([$string]);
     return $stmt->fetchAll();
 }
@@ -144,7 +145,7 @@ function getRestaurantFromCategoryAndLocation($category, $location)
     global $db;
     $keywords = explode(' ', $category);
     $string = '%' . implode('% OR LIKE %', $keywords) . '%';
-    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IS (SELECT restaurant_id FROM categories WHERE category LIKE ?) AND location LIKE ?");
+    $stmt = $db->prepare("SELECT * FROM restaurant WHERE  id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?) AND location LIKE ?");
     $stmt->execute([$string, $location]);
     return $stmt->fetchAll();
 }
@@ -152,20 +153,20 @@ function getRestaurantFromCategoryAndLocation($category, $location)
 function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category, $location)
 {
     global $db;
-    $namekeywords = explode(' ', $name);
+    $namekeywords = explode('%20', $name);
     $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
-    $locationkeywords = explode(' ', $location);
+    $locationkeywords = explode('%20', $location);
     $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
-    $servicekeywords = explode(' ', $service);
+    $servicekeywords = explode('%20', $service);
     $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
-    $ratingkeywords = explode(' ', $rating);
+    $ratingkeywords = explode('%20', $rating);
     $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
-    $categorykeywords = explode(' ', $category);
+    $categorykeywords = explode('%20', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
     if ($service != "" && $category != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
+id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?) 
 AND location LIKE ? 
 AND id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND name LIKE ?
@@ -174,7 +175,7 @@ AND price BETWEEN ? AND ?;");
         $stmt->execute([$categorystring, $locationstring, $servicestring, $namestring, $ratingstring, $priceMin, $priceMax]);
     } else if ($service != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM services WHERE service LIKE ?)
+id IN (SELECT restaurant_id FROM services WHERE service LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
@@ -182,7 +183,7 @@ AND price BETWEEN ? AND ?;");
         $stmt->execute([$servicestring, $locationstring, $namestring, $ratingstring, $priceMin, $priceMax]);
     } else if ($category != "") {
         $stmt = $db->prepare("SELECT * FROM restaurant WHERE  
-id LIKE (SELECT restaurant_id FROM categories WHERE category LIKE ?)
+id IN (SELECT restaurant_id FROM categories WHERE category LIKE ?)
 AND location LIKE ? 
 AND name LIKE ?
 AND rating LIKE ?
@@ -199,7 +200,7 @@ AND price BETWEEN ? AND ?;");
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number)
+function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number, $openHour, $closeHour)
 {
     if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
         $id = getUserInfoByUserName($username, 'id');
@@ -208,9 +209,9 @@ function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $re
 
         $rating = 0;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber) VALUES (?,?,?,?,?,?,?,?)');
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber,openHour,closeHour) VALUES (?,?,?,?,?,?,?,?,?,?)');
 
-        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number])) {
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number, $openHour, $closeHour])) {
             return true;
         }
         return false;
@@ -491,12 +492,12 @@ function printStarsRating($stars)
 {
     $i = 1;
     $j = 1;
-    $temp = 5-$stars;
+    $temp = 5 - $stars;
 
     echo '<div class = "restRatingStars">';
 
     for ($i; $i <= $stars; $i++) {
-        echo '<div class = "star">'.'</div>';
+        echo '<div class = "star">' . '</div>';
     }
 
     for ($j; $j <= $temp; $j++) {
@@ -509,25 +510,51 @@ function printStarsRating($stars)
     return true;
 }
 
-function setRating($idRestaurant){
+function setRating($idRestaurant)
+{
     global $db;
     $statement = $db->prepare('SELECT AVG(userRate) AS rating FROM (SELECT  userRate FROM reviews WHERE restaurant_id LIKE ? GROUP BY userRate ORDER BY COUNT(*) DESC)');
     $statement->execute([$idRestaurant]);
-    if($row = $statement->fetch())
+    if ($row = $statement->fetch())
         $rating = floor($row['rating']);
-    if(is_null($rating))
+    if (is_null($rating))
         $rating = 0;
     $statement1 = $db->prepare('UPDATE restaurant SET rating = ? WHERE id = ?');
-    $statement1->execute([$rating,$idRestaurant]);
+    $statement1->execute([$rating, $idRestaurant]);
 }
 
 
-function setAllRating(){
+function setAllRating()
+{
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant');
     $statement->execute();
-    while($row = $statement->fetch()){
+    while ($row = $statement->fetch()) {
         $restaurantId = $row['id'];
         setRating($restaurantId);
     }
+}
+
+function isOpen($idRestaraunt)
+{
+    global $db;
+
+    $statement = $db->prepare('SELECT * FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaraunt]);
+    $row = $statement->fetch();
+
+    $openHour = $row['openHour'];
+    $closeHour = $row['closeHour'];
+    date_default_timezone_set('UTC');
+    $currentDate = date("G:i");
+
+    if (strtotime($closeHour) < strtotime("12:00")) {
+        if ((strtotime($openHour) < strtotime($currentDate)) && (strtotime($currentDate) > strtotime($closeHour)))
+            echo '<h5 id="openNow" >Open Now</h5>';
+        else echo '<h5 id="closeNow">Close Now</h5>';
+    } else if ((strtotime($openHour) < strtotime($currentDate)) && (strtotime($currentDate) < strtotime($closeHour)))
+        echo '<h5 id="openNow">Open Now</h5>';
+    else echo '<h5 id="closeNow">Close Now</h5>';
+
+
 }

@@ -20,6 +20,8 @@ $services = htmlspecialchars($_POST['services']);
 $categories = htmlspecialchars($_POST['categories']);
 $price = htmlspecialchars($_POST['price']);
 $number = htmlspecialchars($_POST['number']);
+$openHour = htmlspecialchars($_POST['openHour']);
+$closeHour = htmlspecialchars($_POST['closeHour']);
 
 $arrayServices=[];
 $arrayCategories=[];
@@ -31,7 +33,7 @@ else generate_random_token();
 
 
 if($restaurantName && $restaurantAddress){
-    addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price,$number);
+    addRestaurantToUser($username,$restaurantName,$restaurantAddress,$restaurantLocation,$restaurantWebSite,$price,$number,$openHour,$closeHour);
 } //else echo "You must fill at least name and address field";
 
 $id =  getIdRestaurantByName($restaurantName);
