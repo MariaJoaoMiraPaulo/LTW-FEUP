@@ -26,6 +26,8 @@
         this.options = $.extend( {}, defaults, options );
         this.init();
     }
+    
+
 
     Plugin.prototype = {
 
@@ -68,17 +70,17 @@
                       thismeter.removeClass().html('');
                 }else if (total <= 1) {
                     thismeter.removeClass();
-                    thismeter.addClass('weak').html('<p> </p>');
+                    thismeter.addClass('weak').html('<script>function validateSignUp() { return false; }</script>');
                 } else if (total == 2){
                     thismeter.removeClass();
-                    thismeter.addClass('medium').html('<p> </p>');
+                    thismeter.addClass('medium').html('<script>function validateSignUp() { return true; }</script>');
                 } else if(total == 3){
                     thismeter.removeClass();
-                    thismeter.addClass('strong').html('<p> </p>');
+                    thismeter.addClass('strong').html('<script>function validateSignUp() { return true; }</script>');
 
                 } else {
                      thismeter.removeClass();
-                   thismeter.addClass('strong').html('<p> </p>');
+                   thismeter.addClass('strong').html('<script>function validateSignUp() { return true; }</script>');
                 } 
                 console.log(total);
             }
