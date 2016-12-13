@@ -2254,8 +2254,8 @@ addRestaurantPhotoForm {
 
 #userPhotoReview {
   border-radius: 50%;
-  width: 85px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   display: block;
   margin: 20px;
   border: 1.5px solid $primary-color;
@@ -2265,12 +2265,28 @@ addRestaurantPhotoForm {
   }
 }
 
+
 .reviewContainer {
+
+  border-bottom: 1px solid darkgray;
   margin-bottom: 1em;
-  margin-top: 2em;
-  background-color: lightgoldenrodyellow;
-  border-radius: 4px;
+  background-color: #ffffff;
   padding: 10px 10px 10px 10px;
+
+  .Row
+  {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 10px;
+  }
+
+  .Column
+  {
+    display: table-cell;
+    background-color: transparent; /*Optional*/
+    float: left;
+  }
 }
 
 .rating {
@@ -2610,3 +2626,5 @@ Search Pages
     margin: 15px;
   }
 }
+
+

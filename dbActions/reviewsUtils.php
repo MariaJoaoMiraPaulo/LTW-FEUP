@@ -36,6 +36,7 @@ function getRestaurantReviews($idRest, $idUser)
     $statement->execute([$idRest]);
 
     while ($row = $statement->fetch()) {
+
         $id = $row['id_autor'];
         $idRev = $row['id'];
         $userName = getUserNameById($id);
@@ -43,13 +44,22 @@ function getRestaurantReviews($idRest, $idUser)
         $fullName = getUserInfoByUserName($userName, 'fullName');
         $userRate = $row['userRate'];
         $review = $row['text'];
-
         $html = '<img id="userPhotoReview" src=' . $photoUser . '>';
 
         echo '<div class="reviewContainer">';
+        echo '<div class="Row">';
+        echo '<div class="Column">';
         echo $html;
+        echo '</div>';
+        echo '<br></br>';
+        echo '<div class="Column">';
         echo '<p>' . $fullName . '</p>';
+        echo '</div>';
+        echo '<br></br>';
+        echo '<div class="Column">';
         echo '<p>' . $userName . '</p>';
+        echo '</div>';
+        echo '</div>';
         echo '<p>' . $review . '</p>';
         echo '<p>' . $row['title'] . '</p>';
 

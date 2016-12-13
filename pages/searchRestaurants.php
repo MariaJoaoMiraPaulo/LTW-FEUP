@@ -155,10 +155,6 @@ session_regenerate_id(true);
                 echo ' to ';
                 echo $closeHour.'</h1>';
 
-                /*
-                                echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
-                */
-
                 echo '<br>'.'</br>';
 
                 isOpen($id);
