@@ -2565,7 +2565,7 @@ Search Pages
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding: 13px 13px 13px 4px;
+  padding: 13px 13px 13px 10px;
   float: left;
 }
 
@@ -2583,4 +2583,47 @@ Search Pages
   background-image: url("../assets/star.jpg");
   background-position: center;
   background-size: cover;
+}
+
+.restaurantSearchPage{
+
+  h1{
+    text-align: center;
+    font-size: medium;
+  }
+
+  h2{
+    font-weight: bold;
+    text-align: left;
+    margin: 10px 0px 10px 0px;
+  }
+
+  a{
+    display: inline-block;
+    margin-bottom: 4.5px;
+    font-size: small;
+    cursor: pointer;
+  }
+
+  label{
+    font-size: small;
+  }
+
+  h4{
+    font-weight: bold;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .filters{
+    margin-left: 10px;
+  }
+
+  .ratingSearch{
+    cursor: pointer;
+  }
+
+  #slider-range{
+    margin: 15px;
+  }
 }

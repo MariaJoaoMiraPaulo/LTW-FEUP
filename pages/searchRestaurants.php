@@ -47,9 +47,8 @@ session_regenerate_id(true);
     <div class="restaurantSearchPage">
         <div class="advancedSearch">
             <div class="container">
-                <section>
+                <section class="filters">
                     <h2>Services</h2>
-
                     <?php
                     getServices($restaurant, $priceMin, $priceMax, $rating, $category, $location);
                     ?>

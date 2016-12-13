@@ -48,7 +48,7 @@ AND price BETWEEN ? AND ?);");
 
     while ($row = $stmt->fetch()) {
         $service = $row['service'];
-        echo "<a onclick=\"href='searchRestaurants.php?restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=$location&service=$service';\">$service</a><br>";
+        echo "<a class='servicesLink' onclick=\"href='searchRestaurants.php?restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=$location&service=$service';\">$service</a><br>";
     }
 
 }
@@ -85,7 +85,7 @@ AND price BETWEEN ? AND ?);");
 
     while ($row = $stmt->fetch()) {
         $category = $row['category'];
-        echo "<a onclick=\"href='searchRestaurants.php?restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=$location&service=$service';\">$category</a><br>";
+        echo "<a class='servicesLink' onclick=\"href='searchRestaurants.php?restaurant=$name&priceMin=$priceMin&priceMax=$priceMax&rating=$rating&category=$category&location=$location&service=$service';\">$category</a><br>";
     }
 
 }
