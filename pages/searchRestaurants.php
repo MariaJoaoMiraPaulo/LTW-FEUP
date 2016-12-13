@@ -101,6 +101,7 @@ session_start();
         </div>
         <div class="main">
             <?php
+            setAllRating();
             $result = getRestaurant($restaurant, $service, $priceMin, $priceMax, $rating, $category, $location);
             foreach ($result as $row) {
                 echo "<div class=\"container\">";
