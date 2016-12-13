@@ -34,8 +34,8 @@ $_SESSION['signup-token'] = generate_random_token();
                     echo " <img class=\"cd-nav-trigger\" src='$srcPhoto'><span aria-hidden=\"true\"></span>";
 
                     echo "<ul>";
-                    echo '<li><img  src=\'../assets/profile.png\' onclick="location.href=\'profile.php\'"></img></li>';
-                    echo "<li><img  src='../assets/logout.png' onclick=\"location.href='../dbActions/logout.php'\"></img></li>";
+                    echo '<li  onclick="location.href=\'profile.php\'"><img onclick="location.href=\'profile.php\'" src=\'../assets/profile.png\' ></li>';
+                    echo "<li onclick=\"location.href='../dbActions/logout.php'\" ><img onclick=\"location.href='../dbActions/logout.php'\"  src='../assets/logout.png' ></li>";
                     echo ' </ul>';
                     echo ' <span aria-hidden="true" class="stretchy-nav-bg"></span>';
 
