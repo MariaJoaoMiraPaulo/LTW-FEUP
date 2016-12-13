@@ -121,6 +121,7 @@ session_regenerate_id(true);
                 echo '</div>';
                 echo "<h2 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h2>";
                 echo '<br>'.'</br>';
+                echo '<br>'.'</br>';
                 echo "<h3>" .$restaurantLocation."</h3>";
                 echo '<br>'.'</br>';
                 echo "<h1>".$restaurantAddress."</h1>";
