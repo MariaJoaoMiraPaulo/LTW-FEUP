@@ -2411,11 +2411,29 @@ Restaurant Search Pages
       h3 {
         color: grey;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 16px;
         padding: 5px;
         padding-left: 20px;
         float: left;
 
+      }
+
+      #openNow{
+        color: #448025;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left;
+      }
+
+      #closeNow{
+        color: #80271e;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 5px;
+        padding-left: 20px;
+        float: left;
       }
 
       h1 {

@@ -112,6 +112,8 @@ session_regenerate_id(true);
                 $restaurantPrice = $row['price'];
                 $restaurantOpenHours = $row['openHours'];
                 $restRating = $row['rating'];
+                $openHour = $row['openHour'];
+                $closeHour = $row['closeHour'];
                 $id = getIdRestaurantByName($restaurantName);
 
                 echo '<div class="row">';
@@ -137,14 +139,30 @@ session_regenerate_id(true);
                 echo '<br>'.'</br>';
                 selectAllCategoriesFromIdRestaurant($id);
 
+
                 echo '<br>'.'</br>';
 
                 echo "<h4> Cust for Two:</h4>";
 
+                $temp = ' - ';
+
                 echo '<h1>'.$restaurantPrice."€".'</h1>';
+                echo '<br>'.'</br>';
+
+                echo "<h4> Hours:</h4>";
+
+                echo '<h1>'.$openHour.'';
+                echo ' to ';
+                echo $closeHour.'</h1>';
+
                 /*
                                 echo "<h1><span style=\"font-weight:bold;font-size:20px\">Hours: </span>".$restaurantOpenHours."</h1>";
                 */
+
+                echo '<br>'.'</br>';
+
+                isOpen($id);
+
                 echo '</div>';
                 echo "</div>";
             }

@@ -199,7 +199,7 @@ AND price BETWEEN ? AND ?;");
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number)
+function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number, $openHour, $closeHour)
 {
     if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
         $id = getUserInfoByUserName($username, 'id');
@@ -208,9 +208,9 @@ function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $re
 
         $rating = 0;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber) VALUES (?,?,?,?,?,?,?,?)');
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber,openHour,closeHour) VALUES (?,?,?,?,?,?,?,?,?,?)');
 
-        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number])) {
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number, $openHour, $closeHour])) {
             return true;
         }
         return false;
@@ -491,12 +491,12 @@ function printStarsRating($stars)
 {
     $i = 1;
     $j = 1;
-    $temp = 5-$stars;
+    $temp = 5 - $stars;
 
     echo '<div class = "restRatingStars">';
 
     for ($i; $i <= $stars; $i++) {
-        echo '<div class = "star">'.'</div>';
+        echo '<div class = "star">' . '</div>';
     }
 
     for ($j; $j <= $temp; $j++) {
@@ -509,25 +509,51 @@ function printStarsRating($stars)
     return true;
 }
 
-function setRating($idRestaurant){
+function setRating($idRestaurant)
+{
     global $db;
     $statement = $db->prepare('SELECT AVG(userRate) AS rating FROM (SELECT  userRate FROM reviews WHERE restaurant_id LIKE ? GROUP BY userRate ORDER BY COUNT(*) DESC)');
     $statement->execute([$idRestaurant]);
-    if($row = $statement->fetch())
+    if ($row = $statement->fetch())
         $rating = floor($row['rating']);
-    if(is_null($rating))
+    if (is_null($rating))
         $rating = 0;
     $statement1 = $db->prepare('UPDATE restaurant SET rating = ? WHERE id = ?');
-    $statement1->execute([$rating,$idRestaurant]);
+    $statement1->execute([$rating, $idRestaurant]);
 }
 
 
-function setAllRating(){
+function setAllRating()
+{
     global $db;
     $statement = $db->prepare('SELECT id FROM restaurant');
     $statement->execute();
-    while($row = $statement->fetch()){
+    while ($row = $statement->fetch()) {
         $restaurantId = $row['id'];
         setRating($restaurantId);
     }
+}
+
+function isOpen($idRestaraunt)
+{
+    global $db;
+
+    $statement = $db->prepare('SELECT * FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaraunt]);
+    $row = $statement->fetch();
+
+    $openHour = $row['openHour'];
+    $closeHour = $row['closeHour'];
+    date_default_timezone_set('UTC');
+    $currentDate = date("G:i");
+
+    if (strtotime($closeHour) < strtotime("12:00")) {
+        if ((strtotime($openHour) < strtotime($currentDate)) && (strtotime($currentDate) > strtotime($closeHour)))
+            echo '<h5 id="openNow" >Open Now</h5>';
+        else echo '<h5 id="closeNow">Close Now</h5>';
+    } else if ((strtotime($openHour) < strtotime($currentDate)) && (strtotime($currentDate) < strtotime($closeHour)))
+        echo '<h5 id="openNow">Open Now</h5>';
+    else echo '<h5 id="closeNow">Close Now</h5>';
+
+
 }
