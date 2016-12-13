@@ -367,6 +367,7 @@ Stretchy Nav style - common to:
   -webkit-transition: height 0.2s, box-shadow 0.2s;
   -moz-transition: height 0.2s, box-shadow 0.2s;
   transition: height 0.2s, box-shadow 0.2s;
+  pointer-events: auto;
 }
 .cd-stretchy-nav.nav-is-visible {
   pointer-events: auto;
@@ -377,8 +378,8 @@ Stretchy Nav style - common to:
 }
 
 .cd-nav-trigger {
-  position: fixed;
-  z-index: 3;
+  position: relative;
+  z-index: 4;
   top: 0;
   right: 0;
   height: 60px;
@@ -387,19 +388,17 @@ Stretchy Nav style - common to:
   /* replace text with image */
   overflow: hidden;
   white-space: nowrap;
-  color: transparent;
   pointer-events: auto;
 }
 .cd-nav-trigger span, .cd-nav-trigger span::after, .cd-nav-trigger span::before {
   /* this is the hamburger icon */
-  position: absolute;
+  position: relative;
   width: 16px;
   height: 2px;
   background-color: #ffffff;
 }
 .cd-nav-trigger span {
   /* middle line of the hamburger icon */
-  left: 50%;
   top: 50%;
   bottom: auto;
   right: auto;

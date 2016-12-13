@@ -24,19 +24,20 @@ $_SESSION['signup-token'] = generate_random_token();
         </div>
 
         <div class="header-right">
-
             <nav class="cd-stretchy-nav">
                 <?php
                 if (isset($_SESSION['login-user'])) {
+                    $username = $_SESSION['login-user'];
+                    $photoUser = getUserInfoByUserName($username,'photoId');
+                    $srcPhoto  = '../assets/'.$photoUser;
                     $fullname = getUserInfoByUserName($_SESSION['login-user'], 'fullName');
-                    echo ' <a class="cd-nav-trigger" href="#0"> ' . $fullname . '  <span aria-hidden="true"></span></a>';
+                    echo " <img class=\"stretchy-nav-bg\" src='$srcPhoto' href=\"#0\"><span aria-hidden=\"true\"></span>";
 
                     echo "<ul>";
-                    echo '<li><a class="createAccount-button" onclick="location.href=\'profile.php\'">Profile</a></li>';
-                    echo "<li><a class=\"createAccount-button\" onclick=\"location.href='../dbActions/logout.php'\">Logout</a></li>";
+                    echo '<li><a  onclick="location.href=\'profile.php\'">Profile</a></li>';
+                    echo "<li><a  onclick=\"location.href='../dbActions/logout.php'\">Logout</a></li>";
                     echo ' </ul>';
 
-                    echo ' <span aria-hidden="true" class="stretchy-nav-bg"></span>';
 
                 } else {
                     echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
