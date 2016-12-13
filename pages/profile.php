@@ -85,23 +85,21 @@ $type = getUserInfoByUserName($username, 'type');
         </div>
     </div>
     <div class="related">
-        <div class="container">
-            <?php
-            if (strtoupper($type) == 'OWNER') {
+        <?php
+        if (strtoupper($type) == 'OWNER') {
+             echo ' <div class="container">';
+
             echo '<div class="userRest">';
             echo '<h1 id="editProfile" style="text-align: left">Your restaurants</h1>';
             getUserRestaurantsName($username);
             echo '</div>';
-            }
-            ?>
-        </div>
-        <div class="container">
-            <?php
-            if (strtoupper($type) == 'OWNER') {
-                echo '<div class="ownerColumn">';
-                echo 'Cannot find your Restaurant?' . '<br>' . '<br>';
-                echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'addRestaurant.php\';">Add a Restaurant</button>';
-                echo '</div>';
+            echo '</div>';
+            echo ' <div class="container">';
+            echo '<div class="ownerColumn">';
+            echo 'Cannot find your Restaurant?' . '<br>' . '<br>';
+            echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'addRestaurant.php\';">Add a Restaurant</button>';
+            echo '</div>';
+            echo '</div>';
             }
             ?>
         </div>
