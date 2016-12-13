@@ -20,13 +20,14 @@ function selectTopCategories()
 function getServices($name, $priceMin, $priceMax, $rating, $category, $location)
 {
     global $db;
-    $namekeywords = explode(' ', $name);
+
+    $namekeywords = explode('%20', $name);
     $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
-    $locationkeywords = explode(' ', $location);
+    $locationkeywords = explode('%20', $location);
     $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
-    $ratingkeywords = explode(' ', $rating);
+    $ratingkeywords = explode('%20', $rating);
     $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
-    $categorykeywords = explode(' ', $category);
+    $categorykeywords = explode('%20', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
     if ($category != "") {
@@ -152,15 +153,15 @@ function getRestaurantFromCategoryAndLocation($category, $location)
 function getRestaurant($name, $service, $priceMin, $priceMax, $rating, $category, $location)
 {
     global $db;
-    $namekeywords = explode(' ', $name);
+    $namekeywords = explode('%20', $name);
     $namestring = '%' . implode('% OR LIKE %', $namekeywords) . '%';
-    $locationkeywords = explode(' ', $location);
+    $locationkeywords = explode('%20', $location);
     $locationstring = '%' . implode('% OR LIKE %', $locationkeywords) . '%';
-    $servicekeywords = explode(' ', $service);
+    $servicekeywords = explode('%20', $service);
     $servicestring = '%' . implode('% OR LIKE %', $servicekeywords) . '%';
-    $ratingkeywords = explode(' ', $rating);
+    $ratingkeywords = explode('%20', $rating);
     $ratingstring = '%' . implode('% OR LIKE %', $ratingkeywords) . '%';
-    $categorykeywords = explode(' ', $category);
+    $categorykeywords = explode('%20', $category);
     $categorystring = '%' . implode('% OR LIKE %', $categorykeywords) . '%';
 
     if ($service != "" && $category != "") {
