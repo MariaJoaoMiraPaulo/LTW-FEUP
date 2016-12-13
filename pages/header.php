@@ -24,27 +24,25 @@ $_SESSION['signup-token'] = generate_random_token();
         </div>
 
         <div class="header-right">
-            <nav class="cd-stretchy-nav">
+            <div class="header-error">
+                <?php
+                if (isset($_SESSION["ERROR"]))
+                    echo $_SESSION["ERROR"];
+                ?>
+            </div>
+            <div class="header-login">
                 <?php
                 if (isset($_SESSION['login-user'])) {
-                    $username = $_SESSION['login-user'];
-                    $photoUser = getUserInfoByUserName($username,'photoId');
-                    $srcPhoto  = '../assets/'.$photoUser;
                     $fullname = getUserInfoByUserName($_SESSION['login-user'], 'fullName');
-                    echo " <img class=\"cd-nav-trigger\" src='$srcPhoto'><span aria-hidden=\"true\"></span>";
-
-                    echo "<ul>";
-                    echo '<li  onclick="location.href=\'profile.php\'"><img onclick="location.href=\'profile.php\'" src=\'../assets/profile.png\' ></li>';
-                    echo "<li onclick=\"location.href='../dbActions/logout.php'\" ><img onclick=\"location.href='../dbActions/logout.php'\"  src='../assets/logout.png' ></li>";
-                    echo ' </ul>';
-                    echo ' <span aria-hidden="true" class="stretchy-nav-bg"></span>';
-
+                    echo '<button class="login-button" onclick="location.href=\'profile.php\'" type="button">' . $fullname . '</button>';
+                    echo '<a class="createAccount-button" href="../dbActions/logout.php">Logout</a>';
                 } else {
                     echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
                     echo ' <button class="createAccount-button" id="btnCreateAccount" onclick="visibleCreateAcc()">Sign Up</button>';
                 }
                 ?>
-            </nav>
+
+            </div>
         </div>
 
 
