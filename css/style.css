@@ -993,7 +993,7 @@ Quick Services
   text-align: center;
   padding: 10px; }
 .userRest .userRestaurantsLi a {
-  background-color: #F3F3F3;
+  background-color: transparent;
   padding: 5px; }
 
 /*----------------------------------
