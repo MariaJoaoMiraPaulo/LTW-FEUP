@@ -66,7 +66,7 @@ $_SESSION['signup-token'] = generate_random_token();
             <!-- Modal content -->
             <div class="modal-content">
                 <h1>Sign Up</h1>
-                <form action="../dbActions/register.php" method="post"> 
+                <form action="../dbActions/register.php" method="post" onsubmit="return validateSignUp()"> 
                     <input type="hidden" name="signup-token" value="<?php echo $_SESSION['signup-token']; ?>">
                     <input type="email" name="username" placeholder="UserName">
                     <input type="text" name="fullname" placeholder="Full Name">
@@ -89,7 +89,6 @@ $_SESSION['signup-token'] = generate_random_token();
                                 strengthButtonText: 'Show password',
                                 strengthButtonTextToggle: 'Hide Password'
                             });
-
                         });
                     </script>
                     <script type="text/javascript" src="../js/strength.js"></script>

@@ -1525,6 +1525,12 @@ xcustom form elements
   padding: 20px;
   font-family: Georgia, "Times New Roman", Times, serif; }
 
+.addRestaurantForm .container {
+  margin-bottom: 1.6em;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 10px 10px 10px 10px; }
+
 .addRestaurantForm h1 {
   display: block;
   text-align: center;
@@ -1547,19 +1553,16 @@ xcustom form elements
 
 .addRestaurantForm li:last-child {
   border: none;
-  margin-bottom: 0px;
-  text-align: center; }
+  margin-bottom: 0px; }
 
 .addRestaurantForm li > label {
   display: block;
   float: left;
   margin-top: -19px;
-  background: #F3F3F3;
   height: 14px;
   padding: 2px 5px 2px 5px;
   color: #B9B9B9;
   font-size: 14px;
-  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif; }
 
 .addRestaurantForm input[type="text"],
@@ -1584,8 +1587,7 @@ xcustom form elements
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #F3F3F3; }
+  font-family: Georgia, "Times New Roman", Times, serif; }
 
 .addRestaurantForm li > span {
   background: #b4b4b4;
