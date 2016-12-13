@@ -88,7 +88,7 @@ $( function() {
         " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
 
-} );
+});
 
 function minValue() {
     return  $( "#slider-range" ).slider( "values", 0 );
@@ -97,4 +97,3 @@ function minValue() {
 function maxValue() {
     return  $( "#slider-range" ).slider( "values", 1 );
 }
-

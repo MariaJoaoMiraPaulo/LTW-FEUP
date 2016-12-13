@@ -3,7 +3,11 @@ session_start();
 $title = "Welcome";      // Set the title
 include_once "header.php";
 include_once "../dbActions/user.php";
-include_once "../dbActions/restaurantUtils.php"
+include_once "../dbActions/restaurantUtils.php";
+
+// Generate token for the update action
+$_SESSION['token'] = generate_random_token();
+
 ?>
 
     <h1 id="editProfile">Edit Profile</h1>
@@ -24,12 +28,14 @@ include_once "../dbActions/restaurantUtils.php"
             <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
 
             <form class="uploadPhoto" action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
                 <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:"><br>
                 <input type="submit" value="Upload Image" name="submit">
             </form>
         </div>
         <div id="center">
             <form class="editProfileForm" action="../dbActions/editProfile.php" method="post">
+                <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
                 <ul>
                     <li>
                         <label for="Name">Name</label>

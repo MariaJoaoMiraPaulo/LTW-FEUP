@@ -1,9 +1,10 @@
 <?php
 include_once "header.php";
+$_SESSION['token'] = generate_random_token();
+
 ?>
-
-
-<form class = "addRestaurantForm" action="../dbActions/addRestaurant.php" method="post">
+<form class = "addRestaurantForm" action="../dbActions/addRestaurant.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
     <ul>
         <li>
             <label for="Name">Name</label>
@@ -66,6 +67,14 @@ include_once "header.php";
             <input placeholder="€/ two people" name="price" class="form-control" type="text"><br>
             <span>Enter price for two people Here</span>
         </li>
+
+        <li>
+            <label for="PhotosUpload">Upload first photos </label>
+            <input id="findPhoto" type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">
+            <span>Upload some photos Here</span>
+        </li>
+
+
         <li>
             <input type="submit" value="Save Changes">
             <input action="action" type="button" value="Back" onclick="window.history.go(-1); return false;" />

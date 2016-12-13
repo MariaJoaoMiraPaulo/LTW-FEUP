@@ -7,6 +7,7 @@ session_start();
     include_once "header.php";
     include_once "../dbActions/restaurantUtils.php";
     include_once "../dbActions/reviewsUtils.php";
+    $_SESSION['token'] = generate_random_token();
     $id = $_GET["id"];
     $userId = $_SESSION['login-user'];
     $_SESSION['restID'] = $id;
@@ -49,6 +50,7 @@ session_start();
                         <?php
                         if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
                             echo '<form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">';
+                            echo '<input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
                             echo '<fieldset>';
                             echo '<label>Address</label>';
                             echo '<input type="text" name="restAddress" value="' . getRestaurantInfoById($_SESSION["restID"], 'address') . '"">';
@@ -94,6 +96,7 @@ session_start();
                     echo '<p class="boxTitle">Add a photo to your galery:</p>';
                     echo '<div class="addPhotos">';
                     echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                    echo '<input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
                     echo '<input id="findPhoto" type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">';
                     echo '<br>';
                     echo '<input type="submit" value="Upload Restaurant Photo" name="submit">';
@@ -117,6 +120,7 @@ session_start();
                     <img id="userPhoto" src=<?php echo $photo ?>>
                     <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"
                           enctype="multipart/form-data">
+                        <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
                         <p class="boxTitle">Write a review:</p>
                         <label>Choose a title:</label>
                         <input type="text" name="title"><br>
