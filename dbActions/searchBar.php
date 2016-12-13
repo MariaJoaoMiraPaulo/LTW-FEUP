@@ -1,6 +1,5 @@
 <form method="get" action="searchRestaurants.php" class="action-wrapper">
 
-    <title>Geolocation and Google Maps API</title>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script>
         function writeAddressName(latLng) {
