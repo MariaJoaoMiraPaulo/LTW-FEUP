@@ -16,6 +16,25 @@ jQuery(document).ready(function($){
     $('stars').on('hover', function(){
         $(this).trigger('click');
     });
+    if( $('.cd-stretchy-nav').length > 0 ) {
+        var stretchyNavs = $('.cd-stretchy-nav');
+
+        stretchyNavs.each(function(){
+            var stretchyNav = $(this),
+                stretchyNavTrigger = stretchyNav.find('.cd-nav-trigger');
+
+            stretchyNavTrigger.on('click', function(event){
+                event.preventDefault();
+                stretchyNav.toggleClass('nav-is-visible');
+            });
+        });
+
+        $(document).on('click', function(event){
+            ( !$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span') ) && stretchyNavs.removeClass('nav-is-visible');
+        });
+    }
+
+
 });
 
 function visibleLogin() {
@@ -43,7 +62,7 @@ function openAnswerForm($idRev) {
 }
 
 $( function() {
-    let slider = $('#slider-range');
+    var slider = $('#slider-range');
 
     slider.slider({
         range: true,

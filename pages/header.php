@@ -21,26 +21,29 @@ include_once "../dbActions/user.php";
         </div>
 
         <div class="header-right">
-            <div class="header-error">
-                <?php
-                if (isset($_SESSION["ERROR"]))
-                    echo $_SESSION["ERROR"];
-                ?>
-            </div>
-            <div class="header-login">
+
+        <nav class="cd-stretchy-nav">
                 <?php
                 if (isset($_SESSION['login-user'])) {
                     $fullname = getUserInfoByUserName($_SESSION['login-user'], 'fullName');
-                    echo '<button class="login-button" onclick="location.href=\'profile.php\'" type="button">' . $fullname . '</button>';
-                    echo '<a class="createAccount-button" href="../dbActions/logout.php">Logout</a>';
+                    echo ' <a class="cd-nav-trigger" href="#0"> '. $fullname .'  <span aria-hidden="true"></span></a>';
+
+                    echo "<ul>";
+                    echo '<li><a class="createAccount-button" onclick="location.href=\'profile.php\'">Profile</a></li>';
+                    echo "<li><a class=\"createAccount-button\" onclick=\"location.href='../dbActions/logout.php'\">Logout</a></li>";
+                    echo ' </ul>';
+
+                    echo ' <span aria-hidden="true" class="stretchy-nav-bg"></span>';
+
                 } else {
                     echo '<button class="login-button" id="btnCreateAccount" onclick="visibleLogin()">Sign In</button>';
                     echo ' <button class="createAccount-button" id="btnCreateAccount" onclick="visibleCreateAcc()">Sign Up</button>';
                 }
                 ?>
-
-            </div>
+            </nav>
         </div>
+
+
 
         <div id="login-form" class="modal">
             <!-- Modal content -->
