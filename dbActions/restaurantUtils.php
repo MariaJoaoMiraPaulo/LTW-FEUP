@@ -199,7 +199,7 @@ AND price BETWEEN ? AND ?;");
     return $stmt->fetchAll();
 }
 
-function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number)
+function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $number,$openHour,$closeHour)
 {
     if (strtoupper(getUserInfoByUserName($username, 'type')) == 'OWNER') {
         $id = getUserInfoByUserName($username, 'id');
@@ -208,9 +208,9 @@ function addRestaurantToUser($username, $restaurantName, $restaurantAddress, $re
 
         $rating = 0;
 
-        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber) VALUES (?,?,?,?,?,?,?,?)');
+        $statement = $db->prepare('INSERT INTO restaurant (OwnerID,name,address,location,website,price,rating,phoneNumber,openHour,closeHour) VALUES (?,?,?,?,?,?,?,?,?,?)');
 
-        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number])) {
+        if ($statement->execute([$id, $restaurantName, $restaurantAddress, $restaurantLocation, $restaurantWebSite, $price, $rating, $number, $openHour, $closeHour])) {
             return true;
         }
         return false;
@@ -530,4 +530,32 @@ function setAllRating(){
         $restaurantId = $row['id'];
         setRating($restaurantId);
     }
+}
+
+
+function isOpen($idRestaraunt){
+
+
+    global $db;
+
+    $statement = $db->prepare('SELECT * FROM restaurant WHERE id = ? ');
+    $statement->execute([$idRestaraunt]);
+    $row = $statement->fetch();
+
+    $openHour = $row['openHour'];
+    $closeHour = $row['closeHour'];
+    date_default_timezone_set('UTC');
+    $currentDate =  date("G:i");
+
+    if(strtotime($closeHour)< strtotime("12:00")){
+    if((strtotime($openHour) < strtotime($currentDate) )&& (strtotime($currentDate) > strtotime($closeHour))){
+        return true;}
+    else {
+
+        return false;}}
+        else   if((strtotime($openHour) < strtotime($currentDate) )&& (strtotime($currentDate) < strtotime($closeHour)))
+        {
+            return true;}
+        else {
+            return false;}
 }

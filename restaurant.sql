@@ -5,7 +5,8 @@ CREATE TABLE restaurant (
 	address VARCHAR,
 	location VARCHAR,
 	website VARCHAR,
-	openHours VARCHAR,
+	openHour DATE,
+	closeHour DATE,
 	price INTEGER,
 	phoneNumber VARCHAR,
 	rating INTEGER
@@ -69,9 +70,9 @@ CREATE TABLE services (
 );
 
 
-INSERT INTO restaurant VALUES (NULL, NULL,'casadoro', 'Rua Cais das Pedras,15 4050-46','Porto','http://www.gull.pt/',' 12:30 to 18:00, 19:30 to 01:00','70','220503476','4');
-INSERT INTO restaurant VALUES (NULL, NULL,'cafeína', 'Rua do Padrão, 100, Foz','Porto','http://www.cafeina.pt/',' 12:30 to 18:00, 19:30 to 01:00','70','220503476','4.5');
-INSERT INTO restaurant VALUES (NULL, 1, 'portarossa', 'Rua de Corte Real, 289, Foz','Porto','http://www.cafeina.pt/pt/Portarossa',' 12:30 to 18:00, 19:30 to 01:00','40','220503499','4');
+INSERT INTO restaurant VALUES (NULL, NULL,'casadoro', 'Rua Cais das Pedras,15 4050-46','Porto','http://www.gull.pt/','12:30','01:00','70','220503476','4');
+INSERT INTO restaurant VALUES (NULL, NULL,'cafeína', 'Rua do Padrão, 100, Foz','Porto','http://www.cafeina.pt/','12:30','01:00','70','220503476','4.5');
+INSERT INTO restaurant VALUES (NULL, 1, 'portarossa', 'Rua de Corte Real, 289, Foz','Porto','http://www.cafeina.pt/pt/Portarossa','19:30','01:00','40','220503499','4');
 
 INSERT INTO categories VALUES (NULL, 1, 'Sushi');
 INSERT INTO categories VALUES (NULL, 1, 'Meditarrânia');

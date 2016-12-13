@@ -111,7 +111,7 @@ session_regenerate_id(true);
                 $restaurantLocation = $row['location'];
                 $restaurantAddress = $row['address'];
                 $restaurantPrice = $row['price'];
-                $restaurantOpenHours = $row['openHours'];
+                //$restaurantOpenHours = $row['openHours'];
                 $restRating = $row['rating'];
                 $id = getIdRestaurantByName($restaurantName);
 
@@ -119,7 +119,7 @@ session_regenerate_id(true);
 
                 echo '<div class="contentPhoto">';
                 showFirstRestaurantImage($id);
-                echo '</div>';
+
                 echo "<h2 onclick=\"location.href='restaurant.php?id=$id';\">" . $restaurantName . "</h2>";
                 echo '<br>'.'</br>';
                 echo "<h3>" .$restaurantLocation."</h3>";
@@ -136,7 +136,9 @@ session_regenerate_id(true);
                 selectAllServicesFromIdRestaurant($id);
                 echo '<br>'.'</br>';
                 selectAllCategoriesFromIdRestaurant($id);
-
+                if(isOpen($id)) echo "<h1>isOpen</h1>";
+                else echo "<h1>isClose</h1>";
+                echo '</div>';
                 echo '<br>'.'</br>';
 
                 echo "<h4> Cust for Two:</h4>";
