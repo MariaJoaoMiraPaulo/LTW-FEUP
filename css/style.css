@@ -61,8 +61,9 @@ Header
     text-align: right;
     margin: 2px 10px; }
   .header .logo {
-    height: 3cm;
-    width: 2cm; }
+    height: 1.8cm;
+    width: 4.6cm;
+    margin-left: 40px; }
   .header .header-right {
     float: right;
     text-align: left;
