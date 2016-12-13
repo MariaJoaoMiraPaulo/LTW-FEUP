@@ -879,35 +879,25 @@ Quick Services
   border-radius: 50%;
   border: 2px solid #34495E;
   width: 128px;
-  height: 128px; }
+  height: 128px;
+  display: inline-block; }
   .img-item img {
     object-fit: cover; }
 
-.button-item {
-  align-self: flex-end; }
+.uploadPhotoProfile {
+  display: inline-block;
+  padding-top: 40px; }
 
-#left {
-  width: 40%;
-  float: left;
-  padding-bottom: 50px;
-  padding-left: 10%;
-  padding-top: 10%; }
-
-#center {
-  float: left; }
-
-#right {
-  float: left;
-  padding-left: 10%;
-  /* Change this to whatever the width of your left column is*/ }
-
-.clear {
-  clear: both; }
+.profileCenter {
+  padding-top: 30px;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center; }
 
 .editProfileForm {
-  max-width: 400px;
+  max-width: 500px;
   margin: 50px auto;
-  background: #F3F3F3;
+  background: transparent;
   border-radius: 2px;
   padding: 20px;
   font-family: Georgia, "Times New Roman", Times, serif; }
@@ -917,7 +907,7 @@ Quick Services
   text-align: center;
   padding: 0;
   margin: 0px 0px 20px 0px;
-  color: #5C5C5C;
+  background: transparent;
   font-size: x-large; }
 
 .editProfileForm ul {
@@ -940,8 +930,8 @@ Quick Services
 .editProfileForm li > label {
   display: block;
   float: left;
-  margin-top: -19px;
-  background: #F3F3F3;
+  margin-top: -29px;
+  background: transparent;
   height: 14px;
   padding: 2px 5px 2px 5px;
   color: #B9B9B9;
@@ -973,7 +963,7 @@ Quick Services
   font-size: 16px;
   padding: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #F3F3F3; }
+  background-color: transparent; }
 
 .editProfileForm inputGender {
   font-family: Georgia, "Times New Roman", Times, serif; }
@@ -1020,17 +1010,16 @@ Quick Services
   font-family: "Open Sans", sans-serif; }
 
 .ownerColumn {
-  padding-left: 20px;
-  padding-top: 150px;
+  padding: 30px;
   text-align: center;
   align-items: center; }
 
-.userRest {
-  padding-top: 20%;
+.userRest .userRestaurantsLi {
   text-align: center;
-  float: left; }
-  .userRest ol {
-    color: #ccc; }
+  padding: 10px; }
+.userRest .userRestaurantsLi a {
+  background-color: #F3F3F3;
+  padding: 5px; }
 
 /*----------------------------------
 

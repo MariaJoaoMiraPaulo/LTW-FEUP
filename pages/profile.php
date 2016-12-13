@@ -9,65 +9,63 @@ include_once "../dbActions/restaurantUtils.php";
 // Generate token for the update action
 $_SESSION['token'] = generate_random_token();
 
+$username = $_SESSION['login-user'];
+$fullName = getUserInfoByUserName($username, 'fullName');
+$photoUser = getUserInfoByUserName($username, 'photoId');
+$srcPhoto = '../assets/' . $photoUser;
+$date = getUserInfoByUserName($username, 'birthDate');
+$gender = getUserInfoByUserName($username, 'gender');
+$type = getUserInfoByUserName($username, 'type');
+
 ?>
 
-    <h1 id="editProfile">Edit Profile</h1>
+<div class="restaurantPage">
+    <div class="main">
+        <div class="container">
+            <h1 id="editProfile" style="text-align: left">Edit Profile</h1>
+            <div class="profileCenter">
+                <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
+                <form class="uploadPhotoProfile" action="../dbActions/uploadUserPhoto.php" method="post"
+                      enctype="multipart/form-data">
+                    <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
+                    <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:"><br>
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
+            </div>
 
-    <?php
-    $username = $_SESSION['login-user'];
-    $fullName =  getUserInfoByUserName($username,'fullName');
-    $photoUser = getUserInfoByUserName($username,'photoId');
-    $srcPhoto  = '../assets/'.$photoUser;
-    $date = getUserInfoByUserName($username,'birthDate');
-    $gender = getUserInfoByUserName($username,'gender');
-    $type = getUserInfoByUserName($username,'type');
-    ?>
-
-    <body>
-    <div id="container">
-        <div id="left">
-            <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
-
-            <form class="uploadPhoto" action="../dbActions/uploadUserPhoto.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
-                <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:"><br>
-                <input type="submit" value="Upload Image" name="submit">
-            </form>
-        </div>
-        <div id="center">
             <form class="editProfileForm" action="../dbActions/editProfile.php" method="post">
                 <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
                 <ul>
                     <li>
                         <label for="Name">Name</label>
-                        <input type="text" name="name"  maxlength="100" placeholder="<?php echo $fullName?>"><br>
+                        <input type="text" name="name" maxlength="100" placeholder="<?php echo $fullName ?>"><br>
                         <span>Modify your full name here</span>
                     </li>
                     <li>
                         <label for="UserName">Username</label>
-                        <input type="email" name="userName" maxlength="100" placeholder="<?php echo $username?>"><br>
+                        <input type="email" name="userName" maxlength="100" placeholder="<?php echo $username ?>"><br>
                         <span>Modify your username here</span>
                     </li>
                     <li>
                         <label for="date">Date of Birth</label>
-                        <input placeholder='<?php echo $date?>' name="birthdate" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"><br>
+                        <input placeholder='<?php echo $date ?>' name="birthdate" class="form-control" type="text"
+                               onfocus="(this.type='date')" onblur="(this.type='text')" id="date"><br>
                         <span>Modify your date of birth here</span>
                     </li>
                     <li>
 
                         <label for="gender">Gender</label>
                         <div class="genderProfile">
-                        <?php
-                        if(strtoupper($gender)=='MALE'){
-                            echo '  <input class="inputGender" type="radio" name="gender" checked="checked" value="Male"> Male ';
-                            echo '<input class="inputGender" type="radio" name="gender" value="Female"> Female ';
-                        }
-                        else{
-                            echo '  <input class="inputGender" type="radio" name="gender" value="Male"> Male ';
-                            echo '<input class="inputGender" type="radio" name="gender" checked="checked" value="Female"> Female ';
-                        }
-                        ?>
-                        <br>
+                            <?php
+                            if (strtoupper($gender) == 'MALE') {
+                                echo '  <input class="inputGender" type="radio" name="gender" checked="checked" value="Male"> Male ';
+                                echo '<input class="inputGender" type="radio" name="gender" value="Female"> Female ';
+                            } else {
+                                echo '  <input class="inputGender" type="radio" name="gender" value="Male"> Male ';
+                                echo '<input class="inputGender" type="radio" name="gender" checked="checked" value="Female"> Female ';
+                            }
+                            ?>
+                            <br>
                         </div>
                         <span>Modify your gender here</span>
 
@@ -85,32 +83,26 @@ $_SESSION['token'] = generate_random_token();
                 </ul>
             </form>
         </div>
-
-        <div id = "right">
+    </div>
+    <div class="related">
+        <div class="container">
             <?php
-            if(strtoupper($type) == 'OWNER'){
+            if (strtoupper($type) == 'OWNER') {
                 echo '<div class="ownerColumn">';
-                echo 'Cannot find your Restaurant?'.'<br>'.'<br>';
+                echo 'Cannot find your Restaurant?' . '<br>' . '<br>';
                 echo '<button id="button-add" class="button-item" type="button" onclick="location.href=\'addRestaurant.php\';">Add a Restaurant</button>';
                 echo '</div>';
+
+                echo '<div class="userRest">';
+                getUserRestaurantsName($username);
+                echo '</div>';
             }
-            ?>
 
-            <div class="userRest">
-                <ol>
-                    <?php
-                        getUserRestaurantsName($username);
-                    ?>
-                </ol>
-            </div>
-        </div>
-
-        <div class="clear">
-            <?php
-            include_once "footer.php";
             ?>
         </div>
     </div>
+</div>
 
-    </body>
-
+<?php
+include_once "footer.php";
+?>

@@ -249,9 +249,9 @@ function getUserRestaurantsName($username)
 
         while ($row = $statement->fetch()) {
             $id = getIdRestaurantByName($row['name']);
-            echo '<li>';
+            echo '<div class="userRestaurantsLi">';
             echo '<a href="restaurant.php?id=' . $id . '">' . $row['name'] . '</a>';
-            echo '</li>';
+            echo '</div>';
         }
         return true;
     }
