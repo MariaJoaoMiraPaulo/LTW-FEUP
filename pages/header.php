@@ -15,9 +15,7 @@ $_SESSION['signup-token'] = generate_random_token();
     <script src="../js/main.js"></script> <!-- Resource jQuery -->
     <script src="../js/signUp.js"></script> <!-- Resource jQuery -->
     <script src="https://use.fontawesome.com/0b68c59fc5.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="../js/strength.js"></script>
-    <link rel="stylesheet" type="text/css" href="strength.css">
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
     <div class="header">
@@ -27,11 +25,11 @@ $_SESSION['signup-token'] = generate_random_token();
 
         <div class="header-right">
 
-        <nav class="cd-stretchy-nav">
+            <nav class="cd-stretchy-nav">
                 <?php
                 if (isset($_SESSION['login-user'])) {
                     $fullname = getUserInfoByUserName($_SESSION['login-user'], 'fullName');
-                    echo ' <a class="cd-nav-trigger" href="#0"> '. $fullname .'  <span aria-hidden="true"></span></a>';
+                    echo ' <a class="cd-nav-trigger" href="#0"> ' . $fullname . '  <span aria-hidden="true"></span></a>';
 
                     echo "<ul>";
                     echo '<li><a class="createAccount-button" onclick="location.href=\'profile.php\'">Profile</a></li>';
@@ -96,7 +94,6 @@ $_SESSION['signup-token'] = generate_random_token();
                         });
                     </script>
                     <script type="text/javascript" src="../js/strength.js"></script>
-                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
                     <input type="date" name="birthDate">
                     <div id="type">
                         <input type="radio" name="type" value="Owner"> Owner 

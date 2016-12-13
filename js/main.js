@@ -1,52 +1,33 @@
 
 jQuery(document).ready(function($){
-	//this is used for the video effect only
-	if( $('.cd-bg-video-wrapper').length > 0 ) {
-		var videoWrapper = $('.cd-bg-video-wrapper'),
-			mq = window.getComputedStyle(document.querySelector('.cd-bg-video-wrapper'), '::after').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
-		if( mq == 'desktop' ) {
-			// we are not on a mobile device 
-			var	videoUrl = videoWrapper.data('video'),
-				video = $('<video loop><source src="'+videoUrl+'.mp4" type="video/mp4" /><source src="'+videoUrl+'.webm" type="video/webm" /></video>');
-			video.appendTo(videoWrapper);
-			video.get(0).play();
-		}
-	}
+    //this is used for the video effect only
+    if( $('.cd-bg-video-wrapper').length > 0 ) {
+        var videoWrapper = $('.cd-bg-video-wrapper'),
+            mq = window.getComputedStyle(document.querySelector('.cd-bg-video-wrapper'), '::after').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+        if( mq == 'desktop' ) {
+            // we are not on a mobile device
+            var	videoUrl = videoWrapper.data('video'),
+                video = $('<video loop><source src="'+videoUrl+'.mp4" type="video/mp4" /><source src="'+videoUrl+'.webm" type="video/webm" /></video>');
+            video.appendTo(videoWrapper);
+            video.get(0).play();
+        }
+    }
 
     $('stars').on('hover', function(){
         $(this).trigger('click');
     });
-    if( $('.cd-stretchy-nav').length > 0 ) {
-        var stretchyNavs = $('.cd-stretchy-nav');
-
-        stretchyNavs.each(function(){
-            var stretchyNav = $(this),
-                stretchyNavTrigger = stretchyNav.find('.cd-nav-trigger');
-
-            stretchyNavTrigger.on('click', function(event){
-                event.preventDefault();
-                stretchyNav.toggleClass('nav-is-visible');
-            });
-        });
-
-        $(document).on('click', function(event){
-            ( !$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span') ) && stretchyNavs.removeClass('nav-is-visible');
-        });
-    }
-
-
 });
 
 function visibleLogin() {
-	$("#login-form").show();
+    $("#login-form").show();
 }
 
 function exitLogin() {
-	$("#login-form").hide();
+    $("#login-form").hide();
 }
 
 function visibleCreateAcc() {
-	$("#createAcc-form").show();
+    $("#createAcc-form").show();
 }
 
 function exitCreateAcc() {
@@ -54,7 +35,7 @@ function exitCreateAcc() {
 }
 
 function exitUser() {
-	session_destroy();
+    session_destroy();
 }
 
 function openAnswerForm($idRev) {
@@ -62,7 +43,7 @@ function openAnswerForm($idRev) {
 }
 
 $( function() {
-    var slider = $('#slider-range');
+    slider = $('#slider-range');
 
     slider.slider({
         range: true,
