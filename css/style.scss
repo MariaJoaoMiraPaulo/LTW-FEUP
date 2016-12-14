@@ -57,6 +57,12 @@ xtype
   white-space: nowrap;
   left: 0;
 }
+
+.cd-headline{
+  z-index: 4;
+  top: 100px;
+}
+
 .cd-words-wrapper b.is-visible {
   position: relative;
 }
@@ -982,7 +988,6 @@ Video
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url(../assets/bg-img.jpg) no-repeat center center;
   background-size: cover;
 }
 

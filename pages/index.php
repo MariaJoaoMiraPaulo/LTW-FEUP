@@ -44,7 +44,7 @@ include_once "header.php";
         </h1>
 
         <section class="cd-intro">
-            <h1 id="xtype" class="cd-headline letters type" style="z-index: 4;">
+            <h1 id="xtype" class="cd-headline letters type">
                 <span>My favourite food is</span>
                 <span class="cd-words-wrapper waiting">
 				<b class="is-visible">pizza</b>
