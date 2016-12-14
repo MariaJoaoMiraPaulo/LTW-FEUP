@@ -3,8 +3,8 @@ session_start();
 session_regenerate_id(true);
 $title = "Welcome";      // Set the title
 include_once "header.php";
-include_once "../dbActions/user.php";
-include_once "../dbActions/restaurantUtils.php";
+include_once "dbActions/user.php";
+include_once "dbActions/restaurantUtils.php";
 
 // Generate token for the update action
 $_SESSION['token'] = generate_random_token();
@@ -12,7 +12,7 @@ $_SESSION['token'] = generate_random_token();
 $username = $_SESSION['login-user'];
 $fullName = getUserInfoByUserName($username, 'fullName');
 $photoUser = getUserInfoByUserName($username, 'photoId');
-$srcPhoto = '../assets/' . $photoUser;
+$srcPhoto = 'assets/' . $photoUser;
 $date = getUserInfoByUserName($username, 'birthDate');
 $gender = getUserInfoByUserName($username, 'gender');
 $type = getUserInfoByUserName($username, 'type');
@@ -25,7 +25,7 @@ $type = getUserInfoByUserName($username, 'type');
             <h1 id="editProfile" style="text-align: left">Edit Profile</h1>
             <div class="profileCenter">
                 <img class="img-item" src="<?php echo $srcPhoto ?>"><br>
-                <form class="uploadPhotoProfile" action="../dbActions/uploadUserPhoto.php" method="post"
+                <form class="uploadPhotoProfile" action="dbActions/uploadUserPhoto.php" method="post"
                       enctype="multipart/form-data">
                     <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
                     <input type="file" name="fileToUpload" id="fileToUpload" value="Select image to upload:"><br>
@@ -33,7 +33,7 @@ $type = getUserInfoByUserName($username, 'type');
                 </form>
             </div>
 
-            <form class="editProfileForm" action="../dbActions/editProfile.php" method="post">
+            <form class="editProfileForm" action="dbActions/editProfile.php" method="post">
                 <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
                 <ul>
                     <li>

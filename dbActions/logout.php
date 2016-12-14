@@ -3,5 +3,5 @@
 session_start();
 session_regenerate_id(true);
 session_destroy();
-header("location:../pages/index.php");
+header("location:../index.php");
 exit();

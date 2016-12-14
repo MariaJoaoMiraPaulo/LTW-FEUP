@@ -6,8 +6,8 @@ session_regenerate_id(true);
     <?php
     $title = "Welcome";
     include_once "header.php";
-    include_once "../dbActions/restaurantUtils.php";
-    include_once "../dbActions/reviewsUtils.php";
+    include_once "dbActions/restaurantUtils.php";
+    include_once "dbActions/reviewsUtils.php";
     $_SESSION['token'] = generate_random_token();
     $id = $_GET["id"];
     $userId = $_SESSION['login-user'];
@@ -18,13 +18,13 @@ session_regenerate_id(true);
     ?>
     <div class="searchBarContainer">
         <?php
-        include "../dbActions/searchBar.php";
+        include "dbActions/searchBar.php";
         ?>
     </div>
 
-    <script src="../js/slider.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/slider.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
 
 
     <div class="restaurantPage">
@@ -50,7 +50,7 @@ session_regenerate_id(true);
                     <div class="editRestaurant">
                         <?php
                         if ((restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) && isset($_SESSION["login-user"])) {
-                            echo '<form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">';
+                            echo '<form class="editRestForm" action="dbActions/editRestaurant.php" method="post">';
                             echo '<input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
                             echo '<fieldset>';
                             echo '<label>Address</label>';
@@ -101,7 +101,7 @@ session_regenerate_id(true);
                     echo '<div class="addPhotos">';
                     echo '<p class="boxTitle">Add a photo to your galery:</p>';
                     echo '<div class="addPhotos">';
-                    echo '<form class="addRestaurantPhotoForm" action="../dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
+                    echo '<form class="addRestaurantPhotoForm" action="dbActions/uploadRestaurantPhoto.php?" method="post" enctype="multipart/form-data">';
                     echo '<input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
                     echo '<input id="findPhoto" type="file" name="fileToUpload[]" id="fileToUpload" multiple="multiple">';
                     echo '<br>';
@@ -125,7 +125,7 @@ session_regenerate_id(true);
                      $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
 
                      echo '<img id="userPhoto" src=' . $photo . '>';
-                     echo ' <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"';
+                     echo ' <form id="formRev" class="reviewForm" action="dbActions/sendReview.php" method="post"';
                      echo 'enctype="multipart/form-data">';
                      echo '<input type="hidden" name="token" id="token" value="' . $_SESSION['token'] . '"/>';
                      echo '<p class="boxTitle">Write a review:</p>';

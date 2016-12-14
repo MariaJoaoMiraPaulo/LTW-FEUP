@@ -29,7 +29,7 @@ for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
 }
 
 if(strpos($_SERVER['HTTP_REFERER'],"addRestaurantPhoto.php"))
-    header('Location: ../pages/profile.php');
+    header('Location: ../profile.php');
 else header("Location:".$_SERVER['HTTP_REFERER']."");
 
 

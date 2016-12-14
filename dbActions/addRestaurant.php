@@ -65,6 +65,6 @@ for ($i = 0; $i < count($_FILES['fileToUpload']['name']); $i++) {
     }
 }
 
-header('Location: ../pages/profile.php');
+header('Location: ..profile.php');
 
 

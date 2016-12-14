@@ -18,5 +18,5 @@ $gender = htmlspecialchars($_POST['gender']);
 
 updateUserProfile($userName,$newUsername,$newFullName,$data,$gender);
 
-header('Location: ../pages/profile.php');
+header('Location: ../profile.php');
 
