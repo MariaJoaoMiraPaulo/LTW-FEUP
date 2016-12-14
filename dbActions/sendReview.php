@@ -5,7 +5,6 @@ include_once ('reviewsUtils.php');
 
 if ($_SESSION['token'] !== $_POST['token']) {
     header('HTTP/1.0 403 Forbidden');
-    header('Location: ../403.php');
     die();
 }
 $_SESSION['token'] = generate_random_token();

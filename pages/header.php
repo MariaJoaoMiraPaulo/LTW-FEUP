@@ -5,7 +5,27 @@ $_SESSION['signup-token'] = generate_random_token();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/icon//apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/icon//apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/icon//apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/icon//apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/icon//apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon//apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/icon//android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icon//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icon//favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -15,10 +35,9 @@ $_SESSION['signup-token'] = generate_random_token();
     <script src="../js/main.js"></script> <!-- Resource jQuery -->
     <script src="../js/signUp.js"></script> <!-- Resource jQuery -->
     <script src="https://use.fontawesome.com/0b68c59fc5.js"></script>
+
     <script type="text/javascript" src="../js/strength.js"></script>
-    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
-    <div class="header">
+     <div class="header">
         <div class="header-left-icon">
             <img class="logo" src="../assets/logo4.png" onclick="location.href='index.php'">
         </div>

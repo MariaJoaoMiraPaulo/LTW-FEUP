@@ -3,21 +3,13 @@
 include_once ('config.php');
 include_once ('restaurantUtils.php');
 
-if ($_SESSION['token'] !== $_POST['token']) {
-    header('HTTP/1.0 403 Forbidden');
-    die();
-}
-
-$_SESSION['token'] = generate_random_token();
-
-
 $restaurantName = htmlspecialchars($_POST['name']);
 $restaurantAddress = htmlspecialchars($_POST['address']);
 $restaurantLocation = htmlspecialchars($_POST['location']);
 $restaurantWebSite = htmlspecialchars($_POST['website']);
 $username = htmlspecialchars($_SESSION['login-user']);
-$services = htmlspecialchars($_POST['services']);
-$categories = htmlspecialchars($_POST['categories']);
+$services = $_POST['services'];
+$categories = $_POST['categories'];
 $price = htmlspecialchars($_POST['price']);
 $number = htmlspecialchars($_POST['number']);
 $openHour = htmlspecialchars($_POST['openHour']);
@@ -27,7 +19,7 @@ $arrayServices=[];
 $arrayCategories=[];
 
 if ($_SESSION['csrf'] !== $_POST['csrf']) {
-    echo "ERROR: Request does not appear to be legitimate";
+    $_SESSION['ERROR']="ERROR: Request does not appear to be legitimate";
 }
 else generate_random_token();
 

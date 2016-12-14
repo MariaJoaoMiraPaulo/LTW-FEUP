@@ -1,4 +1,5 @@
 $font-stack: "Open Sans", sans-serif;
+$font-primary: 'Source Sans Pro', sans-serif;
 $primary-color: #34495E;
 $background-color: #F3F3F3;
 
@@ -17,14 +18,14 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: $font-stack;
+  font-family: $font-primary;
   color: #040404;
   background-color: $background-color;
 }
 
 body h1 {
   font-size: 3.6rem;
-  font-family: $font-stack;
+  font-family: $font-primary;
   color: #040404;
   text-align: center;
   padding: 20px;
@@ -47,7 +48,7 @@ Footer
 
 .footer .workdoneby {
   font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: $font-primary;
   color: #F3F3F3;
   padding-top: 20px;
   padding-left: 35%;
@@ -74,8 +75,9 @@ Header
   }
 
   .logo {
-    height: 1.5cm;
-    width: 1.5cm;
+    height: 1.8cm;
+    width: 4.6cm;
+    margin-left: 40px;
   }
 
   .header-right {
@@ -84,7 +86,7 @@ Header
     align-self: center;
     margin: 2px 10px;
     font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
+    font-family: $font-primary;
     color: #F3F3F3;
     position:relative;
     z-index:2;
@@ -169,7 +171,7 @@ form#myform input[type="password"],#myform input[type="text"]{
   background:transparent;
   border: 2px solid #46AC84;
   color: #777;
-  font-family: "Lato", sans-serif;
+  font-family: $font-primary;
   font-size: 14px;
   padding: 9px 5px;
   height: 21px;
@@ -983,7 +985,7 @@ Quick Services
   background: transparent;
   border-radius: 2px;
   padding: 20px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .editProfileForm h1 {
@@ -1025,7 +1027,7 @@ Quick Services
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $font-primary;
 }
 
 .editProfileForm genderProfile,
@@ -1051,13 +1053,13 @@ Quick Services
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
   background-color: transparent;
 
 }
 
 .editProfileForm inputGender {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .editProfileForm genderProfile:focus,
@@ -1081,7 +1083,7 @@ Quick Services
   margin: 0 -9px -9px -9px;
   text-align: center;
   color: $background-color;
-  font-family: $font-stack;
+  font-family: $font-primary;
   font-size: 11px;
 }
 
@@ -1118,7 +1120,7 @@ Quick Services
   border-bottom: 2px solid gainsboro;
   text-align: left;
   padding-left: 10%;
-  font-family: $font-stack;
+  font-family: $font-primary;
 }
 
 .ownerColumn {
@@ -1135,7 +1137,7 @@ Quick Services
   }
 
   .userRestaurantsLi a {
-    background-color: $background-color;
+    background-color: transparent;
     padding: 5px;
 
   }
@@ -1588,7 +1590,7 @@ xcustom form elements
 .cd-filter-block .radio-label::before,
 .cd-filter-block .checkbox-label::before {
   /* shared style for input elements */
-  font-family: "Open Sans", sans-serif;
+  font-family: $font-primary;
   border-radius: 0;
   background-color: #ffffff;
   border: 2px solid #e6e6e6;
@@ -1763,7 +1765,7 @@ xcustom form elements
   background: $background-color;
   border-radius: 2px;
   padding: 20px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 
@@ -1810,8 +1812,8 @@ xcustom form elements
   padding: 2px 5px 2px 5px;
   color: #B9B9B9;
   font-size: 14px;
- // overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  font-family: $font-primary;
 }
 
 .addRestaurantForm input[type="text"],
@@ -1836,7 +1838,8 @@ xcustom form elements
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
+  background-color: $background-color;
 
 
 }
@@ -2024,7 +2027,7 @@ Restaurant Page
 }
 
 #restaurantName {
-  font-family: 'PT Serif', Georgia;
+  font-family: $font-primary;
   padding-top: 10px;
   padding-left: 5px;
   font-size: x-large;
@@ -2032,7 +2035,7 @@ Restaurant Page
 }
 
 #restaurantLocation {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: $font-primary;
   padding-top: 10px;
   padding-left: 5px;
   font-size: medium;
@@ -2048,7 +2051,7 @@ Restaurant Page
   margin-left: 20px;
   border-radius: 2px;
   align-content: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .editRestForm button,
@@ -2094,7 +2097,7 @@ Restaurant Page
   line-height: 25px;
   font-size: 16px;
   padding: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:$font-primary;
 
 }
 
@@ -2105,7 +2108,7 @@ Restaurant Page
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 addRestaurantPhotoForm {
@@ -2114,7 +2117,7 @@ addRestaurantPhotoForm {
   margin-left: 30%;
   border-radius: 2px;
   padding: 20px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .addRestaurantPhotoForm button,
@@ -2176,7 +2179,7 @@ addRestaurantPhotoForm {
   margin: 5px;
   line-height: 25px;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .reviewForm button,
@@ -2209,7 +2212,7 @@ addRestaurantPhotoForm {
   margin: 5px;
   line-height: 25px;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:$font-primary;
 
 }
 
@@ -2223,7 +2226,7 @@ addRestaurantPhotoForm {
   margin: 5px;
   line-height: 25px;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .reviewForm label {
@@ -2232,11 +2235,11 @@ addRestaurantPhotoForm {
   color: #B9B9B9;
   font-size: 14px;
   overflow: hidden;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $font-primary;
 }
 
 .boxTitle {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: $font-primary;
   padding-top: 10px;
   padding-bottom: 20px;
   font-size: medium;
@@ -2285,7 +2288,7 @@ addRestaurantPhotoForm {
 
 .rating > label:before {
   font-size: 1.5em;
-  font-family: FontAwesome;
+  font-family: $font-primary;
   display: inline-block;
   content: "\f005";
 
@@ -2322,7 +2325,7 @@ addRestaurantPhotoForm {
 
 .reviewRating > label:before {
   font-size: 1.5em;
-  font-family: FontAwesome;
+  font-family: $font-primary;
   display: inline-block;
   content: "\f005";
 }
@@ -2361,7 +2364,7 @@ Restaurant Search Pages
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
     font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
+    font-family: $font-primary;
 
     .row:first-child{
       border-bottom: 1px solid lightgrey;
@@ -2512,7 +2515,7 @@ Restaurant Search Pages
 .ratingSearch > label:before {
   margin: 5px;
   font-size: 1.25em;
-  font-family: FontAwesome;
+  font-family: $font-primary;
   display: inline-block;
   content: "\f005";
 }
