@@ -1931,7 +1931,7 @@ addRestaurantPhotoForm {
 #userPhotoReview {
   border-radius: 50%;
   width: 75px;
-  height: 7px;
+  height: 75px;
   display: block;
   margin: 20px;
   border: 1.5px solid #34495E; }
