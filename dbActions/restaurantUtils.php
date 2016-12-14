@@ -549,7 +549,7 @@ function isOpen($idRestaraunt)
     $currentDate = date("G:i");
 
     if (strtotime($closeHour) < strtotime("12:00")) {
-        if ((strtotime($openHour) < strtotime($currentDate)) && (strtotime($currentDate) > strtotime($closeHour)))
+        if ((strtotime($openHour) < strtotime($currentDate)) || (strtotime($currentDate) < strtotime($closeHour)))
             echo '<h5 id="openNow" >Open Now</h5>';
         else echo '<h5 id="closeNow">Close Now</h5>';
     } else if ((strtotime($openHour) < strtotime($currentDate)) && (strtotime($currentDate) < strtotime($closeHour)))
