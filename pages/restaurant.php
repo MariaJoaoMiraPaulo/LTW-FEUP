@@ -80,7 +80,7 @@ session_regenerate_id(true);
                             echo '<br>';
                             echo '</br>';
                             echo '<label>WebSite: </label>';
-                            echo '<label>' . getRestaurantInfoById($_SESSION["restID"], 'website') . '</label>';
+                            echo '<a href="'. getRestaurantInfoById($_SESSION["restID"], 'website') .'" target="_blank">' . getRestaurantInfoById($_SESSION["restID"], 'website') . '</a>';
                             echo '<br>';
                             echo '</br>';
                             echo '<label>Cost: </label>';
