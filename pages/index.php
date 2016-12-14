@@ -43,7 +43,16 @@ include_once "header.php";
             </svg> <!-- .svg-mask-mobile -->
         </h1>
 
-        <p id="pomodoro">Pomodoro</p>
+        <section class="cd-intro">
+            <h1 class="cd-headline letters type" style="z-index: 4;">
+                <span>My favourite food is</span>
+                <span class="cd-words-wrapper waiting">
+				<b class="is-visible">pizza</b>
+				<b>sushi</b>
+				<b>steak</b>
+			</span>
+            </h1>
+        </section> <!-- cd-intro -->
 
         <?php
         include "../dbActions/searchBar.php";

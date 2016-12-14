@@ -2,12 +2,12 @@
 
 include_once 'user.php';
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$fullname = $_POST['fullname'];
-$date = $_POST['birthDate'];
-$type = $_POST['type'];
-$gender = $_POST['gender'];
+$username = htmlspecialchars($_POST['username']);
+$password = htmlspecialchars($_POST['password']);
+$fullname = htmlspecialchars($_POST['fullname']);
+$date = htmlspecialchars($_POST['birthDate']);
+$type = htmlspecialchars($_POST['type']);
+$gender = htmlspecialchars($_POST['gender']);
 
 if ($_SESSION['signup-token'] !== $_POST['signup-token']) {
     header('HTTP/1.0 403 Forbidden');

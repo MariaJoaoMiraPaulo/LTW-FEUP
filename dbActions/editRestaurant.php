@@ -13,13 +13,13 @@ if ($_SESSION['token'] !== $_POST['token']) {
 }
 $_SESSION['token'] = generate_random_token();
 
-$restName = $_POST['restName'];
-$restAddress = $_POST['restAddress'];
-$restLocation = $_POST['restLocation'];
-$restWebSite = $_POST['restWebSite'];
-$restPrice = $_POST['restPrice'];
-$idRest = $_SESSION["restID"];
-$number = $_POST['number'];
+$restName = htmlspecialchars($_POST['restName']);
+$restAddress = htmlspecialchars($_POST['restAddress']);
+$restLocation = htmlspecialchars($_POST['restLocation']);
+$restWebSite = htmlspecialchars($_POST['restWebSite']);
+$restPrice = htmlspecialchars($_POST['restPrice']);
+$idRest = htmlspecialchars($_SESSION["restID"]);
+$number = htmlspecialchars($_POST['number']);
 
 if(restaurantOwner($_SESSION["restID"],$_SESSION["login-user"])){
 

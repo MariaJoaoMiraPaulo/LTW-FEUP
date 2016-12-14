@@ -119,7 +119,7 @@ session_regenerate_id(true);
                             allowfullscreen></iframe>
                 </div>
                 <?php
-                 if ((restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) && isset($_SESSION["login-user"])) {
+                 if (isset($_SESSION["login-user"])) {
                      echo '<div class="container">';
 
                      $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
