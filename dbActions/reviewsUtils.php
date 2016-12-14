@@ -72,7 +72,7 @@ function getRestaurantReviews($idRest, $idUser)
         getAllCommentsOfReview($idRev);
         echo '</div>';
 
-        if (restaurantOwner($idRest, $idUser)) {
+        if (restaurantOwner($idRest, $idUser) && isset($_SESSION["login-user"])) {
             echo '<br>';
             $button = "buttonAnswer" . $idRev;
             $name = "answer" . $idRev;

@@ -32,7 +32,7 @@ session_regenerate_id(true);
             <div class="container">
                 <div class="album">
                     <div id="photos">
-                        <?php $var = getRestaurantPhotos($id);
+                         <?php $var = getRestaurantPhotos($id);
                         echo '</div>';
                         if ($var) {
                             echo '<a class="arrowLeft" onclick="plusDivs(-1)">&#10094;</a>';
@@ -49,7 +49,7 @@ session_regenerate_id(true);
                 <div class="container">
                     <div class="editRestaurant">
                         <?php
-                        if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                        if ((restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) && isset($_SESSION["login-user"])) {
                             echo '<form class="editRestForm" action="../dbActions/editRestaurant.php" method="post">';
                             echo '<input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
                             echo '<fieldset>';
@@ -71,18 +71,23 @@ session_regenerate_id(true);
                             echo '</fieldset>';
                             echo ' </form>';
                         } else {
+                            echo '<label>Address: </label>';
                             echo '<label>' . getRestaurantInfoById($_SESSION["restID"], 'address') . '</label>';
                             echo '<br>';
                             echo '</br>';
+                            echo '<label>Location: </label>';
                             echo '<label>' . getRestaurantInfoById($_SESSION["restID"], 'location') . '</label>';
                             echo '<br>';
                             echo '</br>';
+                            echo '<label>WebSite: </label>';
                             echo '<label>' . getRestaurantInfoById($_SESSION["restID"], 'website') . '</label>';
                             echo '<br>';
                             echo '</br>';
+                            echo '<label>Cost: </label>';
                             echo '<label>' . getRestaurantInfoById($_SESSION["restID"], 'price') . '</label>';
                             echo '<br>';
                             echo '</br>';
+                            echo '<label>Phone Number: </label>';
                             echo '<label>' . getRestaurantInfoById($_SESSION["restID"], 'phoneNumber') . '</label>';
                         }
                         ?>
@@ -91,7 +96,7 @@ session_regenerate_id(true);
                 </div>
 
                 <?php
-                if (restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) {
+                if ((restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) && isset($_SESSION["login-user"])) {
                     echo '<div class="container">';
                     echo '<div class="addPhotos">';
                     echo '<p class="boxTitle">Add a photo to your galery:</p>';
@@ -113,23 +118,24 @@ session_regenerate_id(true);
                             src="https://www.google.com/maps/embed/v1/place?q=<?php echo getRestaurantInfoById($id, 'address'); ?>&key=AIzaSyDimmPV0QbEGkv-JRiam6HfdatZriwafgM"
                             allowfullscreen></iframe>
                 </div>
+                <?php
+                 if ((restaurantOwner($_SESSION["restID"], $_SESSION["login-user"])) && isset($_SESSION["login-user"])) {
+                     echo '<div class="container">';
 
-                <div class="container">
-                    <?php
-                    $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
-                    ?>
-                    <img id="userPhoto" src=<?php echo $photo ?>>
-                    <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"
-                          enctype="multipart/form-data">
-                        <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
-                        <p class="boxTitle">Write a review:</p>
-                        <label>Choose a title:</label>
-                        <input type="text" name="title"><br>
-                        <label>Write your review:</label>
-                        ​<textarea name="review" id="review" rows="10" cols="70"></textarea>
+                     $photo = '../assets/' . getUserPhoto($_SESSION['login-user']);
 
-                        <fieldset class="ratingSearch">
-                            <input type="radio" id="star5" name="rating" value="5"/><label class="full" for="star5"
+                     echo '<img id="userPhoto" src=' . $photo . '>';
+                     echo ' <form id="formRev" class="reviewForm" action="../dbActions/sendReview.php" method="post"';
+                     echo 'enctype="multipart/form-data">';
+                     echo '<input type="hidden" name="token" id="token" value="' . $_SESSION['token'] . '"/>';
+                     echo '<p class="boxTitle">Write a review:</p>';
+                     echo '<label>Choose a title:</label>';
+                     echo '<input type="text" name="title"><br>';
+                     echo '<label>Write your review:</label>';
+                     echo '​<textarea name="review" id="review" rows="10" cols="70"></textarea>';
+
+                     echo '<fieldset class="ratingSearch">';
+                     echo '<input type="radio" id="star5" name="rating" value="5"/><label class="full" for="star5"
                                                                                            title="Awesome - 5 stars"></label>
                             <input type="radio" id="star4" name="rating" value="4"/><label class="full" for="star4"
                                                                                            title="Pretty good - 4 stars"></label>
@@ -148,8 +154,9 @@ session_regenerate_id(true);
                         <br><br>
                         <input id="submit" type="submit" value="Publish">
                     </form>
-                </div>
-
+                    
+                </div>';
+                 }  ?>
                 <div class="container">
                     <div class="reviews">
                         <?php

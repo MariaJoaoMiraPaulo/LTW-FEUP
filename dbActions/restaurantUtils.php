@@ -356,7 +356,7 @@ function restaurantOwner($idRestaurant, $userId)
 
     $id = getIdByUserName($userId);
 
-    if ($res == $id)
+    if ($res == $id || $id == 0)
         return true;
 
     return false;

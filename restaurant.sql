@@ -81,3 +81,4 @@ INSERT INTO categories VALUES (NULL, 1, 'Snacks');
 INSERT INTO services VALUES (NULL, 1, 'Breakfast');
 INSERT INTO services VALUES (NULL, 1, 'Lunch');
 
+

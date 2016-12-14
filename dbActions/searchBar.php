@@ -76,6 +76,6 @@
         }
     </style>
     <input id="addressSearch" class="select-location" type="text" value="" name="location" placeholder="Location">
-    <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants or cuisines...">
+    <input class="search-bar" type="text" name="restaurant" placeholder="Search for restaurants...">
     <input class="button" type="submit" name="submit" value="Search">
 </form>
