@@ -1931,28 +1931,12 @@ addRestaurantPhotoForm {
 #userPhotoReview {
   border-radius: 50%;
   width: 75px;
-  height: 7px;
+  height: 75px;
   display: block;
   margin: 20px;
   border: 1.5px solid #34495E; }
   #userPhotoReview img {
     object-fit: cover; }
-
-.reviewContainer {
-  border-bottom: 1px solid darkgray;
-  margin-bottom: 1em;
-  background-color: #ffffff;
-  padding: 10px 10px 10px 10px; }
-  .reviewContainer .Row {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 10px; }
-  .reviewContainer .Column {
-    display: table-cell;
-    background-color: transparent;
-    /*Optional*/
-    float: left; }
 
 .rating {
   border: none;
@@ -2117,7 +2101,8 @@ Restaurant Search Pages
       width: 400px;
       float: right; } }
 .reviewPhoto {
-  max-width: 30%;
+  position: relative;
+  max-width: 100%;
   padding: 5px; }
 
 /****** Style Star Rating Widget *****/
@@ -2161,28 +2146,6 @@ Restaurant Search Pages
 Search Pages
 
 -------------------------------- */
-.restRatingStars {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  padding: 13px 13px 13px 10px;
-  float: left; }
-
-.star {
-  width: 20px;
-  height: 20px;
-  background-image: url("../assets/starY.jpg");
-  background-position: center;
-  background-size: cover; }
-
-.blackStar {
-  width: 20px;
-  height: 20px;
-  background-image: url("../assets/star.jpg");
-  background-position: center;
-  background-size: cover; }
-
 .restaurantSearchPage h1 {
   text-align: center;
   font-size: medium; }
@@ -2207,5 +2170,84 @@ Search Pages
   cursor: pointer; }
 .restaurantSearchPage #slider-range {
   margin: 15px; }
+
+/* --------------------------------
+
+Reviews
+
+-------------------------------- */
+.reviewContainer {
+  min-width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px; }
+  .reviewContainer .reviewPhoto {
+    position: relative;
+    width: auto;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 13px 13px 13px 10px;
+    float: left; }
+    .reviewContainer .reviewPhoto img {
+      border-radius: 50%;
+      width: auto;
+      height: 80%; }
+  .reviewContainer .reviewT {
+    min-width: 100%;
+    align-items: center; }
+    .reviewContainer .reviewT .reviewTitle {
+      position: relative;
+      float: right;
+      min-width: 70%;
+      height: 100px; }
+      .reviewContainer .reviewT .reviewTitle .reviewTitleName {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 13px 13px 13px 10px;
+        float: left; }
+  .reviewContainer .reviewText {
+    padding: 5px 20px 5px 20px; }
+  .reviewContainer .reviewPhotos {
+    max-height: 150px;
+    min-height: 150px;
+    height: 150px;
+    padding: 20px; }
+    .reviewContainer .reviewPhotos img {
+      padding: 5px;
+      height: 100%; }
+  .reviewContainer .reviewDate {
+    padding: 20px; }
+
+.restRatingStars {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 13px 13px 13px 10px;
+  float: left; }
+
+.star {
+  width: 20px;
+  height: 20px;
+  background-image: url("../assets/starY.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.blackStar {
+  width: 20px;
+  height: 20px;
+  background-image: url("../assets/star.jpg");
+  background-position: center;
+  background-size: cover; }
 
 /*# sourceMappingURL=style.css.map */

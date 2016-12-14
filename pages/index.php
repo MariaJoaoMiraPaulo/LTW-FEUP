@@ -6,6 +6,7 @@ include_once "header.php";
 ?>
 <!DOCTYPE html>
 <body>
+<title>Pomodoro</title>
 <section class="cd-intro video">
     <div class="cd-intro-content video">
         <h1 class="svg-wrapper">

@@ -44,36 +44,33 @@ function getRestaurantReviews($idRest, $idUser)
         $fullName = getUserInfoByUserName($userName, 'fullName');
         $userRate = $row['userRate'];
         $review = $row['text'];
-        $html = '<img id="userPhotoReview" src=' . $photoUser . '>';
+        $htmlPhoto = '<img id="userPhotoReview" src=' . $photoUser . '>';
 
         echo '<div class="reviewContainer">';
-        echo '<div class="Row">';
-        echo '<div class="Column">';
-        echo $html;
+            echo '<div class="reviewT">';
+                echo '<div class="reviewPhoto">';
+                echo $htmlPhoto;
+                echo '</div>';
+                echo '<div class="reviewTitle">';
+                    echo '<div class="reviewTitleName">';
+                    echo '<p>' . $fullName . '</p>';
+                    echo '</div>';
+                    printStarsRating($userRate);
+                echo '</div>';
+            echo '</div>';
+            echo '<div class="reviewText">';
+            echo '<p>' . $review . '</p>';
+            echo '</div>';
+            echo '<div class="reviewPhotos">';
+            getReviewPhotos($idRev);
+            echo '</div>';
+            echo '<div class="reviewDate">';
+            echo '<p>' . $row['date'] . '</p>';
+            echo '</div>';
         echo '</div>';
-        echo '<br></br>';
-        echo '<div class="Column">';
-        echo '<p>' . $fullName . '</p>';
-        echo '</div>';
-        echo '<br></br>';
-        echo '<div class="Column">';
-        echo '<p>' . $userName . '</p>';
-        echo '</div>';
-        echo '</div>';
-        echo '<p>' . $review . '</p>';
-        echo '<p>' . $row['title'] . '</p>';
-
-
-        printStarsRating($userRate);
-
-
-        echo '<div class="containerUserPhotos">';
-        getReviewPhotos($idRev);
-        echo '</div>';
-        echo '<p>' . $row['date'] . '</p>';
-        echo '</div>';
-
+        echo '<div class="reviewComments">';
         getAllCommentsOfReview($idRev);
+        echo '</div>';
 
         if (restaurantOwner($idRest, $idUser)) {
             echo '<br>';
@@ -146,7 +143,7 @@ function getReviewPhotos($idRev)
 
     while ($row = $statement->fetch()) {
         $photoDir = $row['name'];
-        echo "<img class='reviewPhoto' src=$photoDir>";
+        echo "<img src=$photoDir onclick=\"window.open(this.src)\">";
     }
 
     return true;
