@@ -1,6 +1,6 @@
 # LTW-FEUP
 
-# Instructions to Run the Project
+## Instructions to Run the Project
 
 Open a terminal on the folder with the files.
 
@@ -15,7 +15,7 @@ php -S localhost:8000
 
 Then in your browser go to http://localhost:8000/
 
-# Project - Pomodoro
+## Project - Pomodoro
 
 Web application where users can share and review restaurants. It was created a sqlite database where data about users and events is stored.
 
