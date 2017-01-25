@@ -36,3 +36,5 @@ Web application where users can share and review restaurants. It was created a s
 - [X] Extra information about restaurants (price, category, open hours, …)
 - [X] Advanced search capabilities
 
+
+![](https://github.com/MariaJoaoMiraPaulo/LTW-FEUP/blob/master/assets/ezgif.com-optimize.gif)
