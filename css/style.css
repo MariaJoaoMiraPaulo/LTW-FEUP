@@ -53,9 +53,9 @@ xtype
   opacity: 1; }
 
   .cd-headline{
-	  top: 50px;
+	  top: 90px;
   }
-  
+
 .cd-headline.type .cd-words-wrapper {
   top: 50%;
   z-index: 3;
