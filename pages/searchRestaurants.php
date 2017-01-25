@@ -6,8 +6,8 @@ session_regenerate_id(true);
     <?php
 
     include_once "header.php";
-    include_once "dbActions/restaurantUtils.php";
-    include_once "dbActions/reviewsUtils.php";
+    include_once "../dbActions/restaurantUtils.php";
+    include_once "../dbActions/reviewsUtils.php";
     $restaurant = "";
     $service = "";
     $priceMin = 0;
@@ -41,7 +41,7 @@ session_regenerate_id(true);
     ?>
     <div class="searchBarContainer">
         <?php
-        include "dbActions/searchBar.php";
+        include "../dbActions/searchBar.php";
         ?>
     </div>
     <div class="restaurantSearchPage">

@@ -14,7 +14,7 @@ function login($username, $password) {
     if(password_verify($password, $hashed_password)){
         $_SESSION['login-user']=$username;
         unset($_SESSION["ERROR"]);
-        header("location:../index.php");
+        header("location:../pages/index.php");
         exit();
     }
     else {
@@ -36,7 +36,7 @@ function signUp($username,$fullname,$date,$type,$password,$gender){
     if($statement->execute([$username,$fullname,$date,$photo,$gender,$type,password_hash($password, PASSWORD_DEFAULT)])){
         $_SESSION['login-user']=$username;
         unset($_SESSION["ERROR"]);
-        header("location:../index.php");
+        header("location:../pages/index.php");
         exit();
     }
     else{

@@ -3,7 +3,7 @@ include_once "header.php";
 $_SESSION['token'] = generate_random_token();
 
 ?>
-<form class = "addRestaurantForm" action="dbActions/addRestaurant.php" method="post" enctype="multipart/form-data">
+<form class = "addRestaurantForm" action="../dbActions/addRestaurant.php" method="post" enctype="multipart/form-data">
     <input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>"/>
     <ul>
         <div class="container">

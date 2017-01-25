@@ -46,6 +46,6 @@ if ($uploadOk == 1) {
 
 uploadUserPhoto($_SESSION['login-user']);
 
-header('Location: ../profile.php');
+header('Location: ../pages/profile.php');
 
 ?>

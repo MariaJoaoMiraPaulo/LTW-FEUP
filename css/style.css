@@ -43,10 +43,6 @@ xtype
   white-space: nowrap;
   left: 0; }
 
-.cd-headline {
-  z-index: 4;
-  top: 50px; }
-
 .cd-words-wrapper b.is-visible {
   position: relative; }
 
@@ -56,6 +52,10 @@ xtype
 .no-js .cd-words-wrapper b.is-visible {
   opacity: 1; }
 
+  .cd-headline{
+	  top: 50px;
+  }
+  
 .cd-headline.type .cd-words-wrapper {
   top: 50%;
   z-index: 3;
@@ -877,6 +877,7 @@ Video
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: url(../assets/bg-img.jpg) no-repeat center center;
   background-size: cover; }
 
 .cd-bg-video-wrapper video {

@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_regenerate_id(true);
-include_once "dbActions/user.php";
+include_once "../dbActions/user.php";
 include_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ include_once "header.php";
         </h1>
 
         <section class="cd-intro">
-            <h1 id="xtype" class="cd-headline letters type">
+            <h1 id="xtype" class="cd-headline letters type" style="z-index: 4;">
                 <span>My favourite food is</span>
                 <span class="cd-words-wrapper waiting">
 				<b class="is-visible">pizza</b>
@@ -55,7 +55,7 @@ include_once "header.php";
         </section> <!-- cd-intro -->
 
         <?php
-        include "dbActions/searchBar.php";
+        include "../dbActions/searchBar.php";
         ?>
 
 
@@ -66,36 +66,36 @@ include_once "header.php";
 </section>
 <section class="quick-servicesItems">
     <div class="quick-services">
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_8.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Breakfast';">
+            <img src='../assets/category_8.png'>
             <div>Breakfast</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_9.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Lunch';">
+            <img src='../assets/category_9.png'>
             <div>Lunch</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_10.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Dinner';">
+            <img src='../assets/category_10.png'>
             <div>Dinner</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_1.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Home delivery';">
+            <img src='../assets/category_1.png'>
             <div>Home delivery</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_3.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Have a drink';">
+            <img src='../assets/category_3.png'>
             <div>Have a drink</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_6.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Coffees and Pastries';">
+            <img src='../assets/category_6.png'>
             <div>Coffees and Pastries</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/category_5.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Breakfast';">
+            <img src='../assets/category_5.png'>
             <div>Take away</div>
         </a>
-        <a onclick="location.href='searchRestaurants.php';">
-            <img src='assets/special_23.png'>
+        <a onclick="location.href='searchRestaurants.php?service=Breakfast';">
+            <img src='../assets/special_23.png'>
             <div>Luxury Meals</div>
         </a>
     </div>
