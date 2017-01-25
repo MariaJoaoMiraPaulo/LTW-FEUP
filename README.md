@@ -1,34 +1,6 @@
-TO-DO:
-- [ ] Faltam mensagens de erro em HTML, aperecem numa pagina php. 
-- [ ] Initial Page:
-    - [X] Design
-    - [ ] Search Bar
-    - [X] Login
-        - [ ] Quando password esta mal voltar a pedir
-    - [ ] SignUp
-        - [X] Integração Base de dados
-        - [X] Verificar se ja existe um mesmo user (mail)
-        - [ ] Verificar segurança da password
-        - [ ] Acrescentar dados ao login 
-        - [X] Data de Nascimento nao esta a ser guardada na base de dados
-        - [X] Data de Nascimento no Perfil
-    - [X] Logout
-- [ ] Pagina Perfil:
-    - [X] Adicionar foto
-    - [ ] Alterar password
-    - [ ] Quando se apaga base de dados, é necessário apagar também as fotos!! ?
-- [ ] Pagina Pesquisa Restaurantes
-    - [ ] Call function similar_text to sort the most similar restaurants to given search  
-- [ ] Pagina restaurante
-   - [ ] Open Hours
-- [ ] Pagina User Adicionar Restaurente
-    - [ ] Css 
-    - [ ] Dados
-- [ ] Pagina com Restaurantes do User - Acedida através do Perfil
-    -[ ] Pagina do restaurante (igual à pagina normal mas vai ser possivel editar, acrescentar ou modificar dados)
-    -[ ] Css
+# LTW-FEUP
 
-
+## Instructions to Run the Project
 
 Open a terminal on the folder with the files.
 
@@ -42,3 +14,25 @@ php -S localhost:8000
 ```
 
 Then in your browser go to http://localhost:8000/
+
+## Project - Pomodoro
+
+Web application where users can share and review restaurants. It was created a sqlite database where data about users and events is stored.
+
+
+
+- [x] Two types of users: owners and reviewers
+- [x] Register a new account
+- [x] Login and logout
+- [x] Edit their profile
+- [X] Owners can add new restaurants to the database (name, description, photo, …)
+- [x] Owners can Manage their own restaurants
+- [x] Owners can reply to reviews
+- [X] Owners can reply to reviews
+- [X] Reviewers are able to search for restaurants
+- [X] Reviewers are able to leave a review (score + optional comment)
+- [X] Users can add their own photos to restaurants
+- [X] Integration with google maps
+- [X] Extra information about restaurants (price, category, open hours, …)
+- [X] Advanced search capabilities
+
