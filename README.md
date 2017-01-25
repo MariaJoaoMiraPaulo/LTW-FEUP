@@ -38,3 +38,7 @@ Web application where users can share and review restaurants. It was created a s
 
 
 ![](https://github.com/MariaJoaoMiraPaulo/LTW-FEUP/blob/master/assets/ezgif.com-optimize.gif)
+
+![](https://github.com/MariaJoaoMiraPaulo/LTW-FEUP/blob/master/assets/1.png)
+
+![](https://github.com/MariaJoaoMiraPaulo/LTW-FEUP/blob/master/assets/2.png)
